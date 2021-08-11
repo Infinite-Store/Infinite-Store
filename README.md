@@ -1,1 +1,1 @@
-# IY-Plugin-Store
+#Infinite Store
