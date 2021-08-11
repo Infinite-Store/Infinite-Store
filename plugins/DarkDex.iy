@@ -1,0 +1,16 @@
+local Plugin = {
+	["PluginName"] = "DarkDex",
+	["PluginDescription"] = "Dark Dex in InfiniteYield",
+	["Commands"] = {
+		["DarkDex"] = {
+            ["ListName"] = "darkdex",
+			["Description"] = "Executes Dark Dex",
+			["Aliases"] = {},
+			["Function"] = function(args, speaker)
+                loadstring(game:HttpGetAsync("https://pastebin.com/raw/fPP8bZ8Z"))()
+			end,
+		},
+	},
+}
+
+return Plugin
