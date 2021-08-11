@@ -1,0 +1,16 @@
+local Plugin = {
+	["PluginName"] = "FakeChat",
+	["PluginDescription"] = "Be able to chat as anyone.",
+	["Commands"] = {
+		["FakeChat"] = {
+            ["ListName"] = "FakeChat [plr] [msg]",
+			["Description"] = "Chat an string as the specified player.",
+			["Aliases"] = {},
+			["Function"] = function(args, speaker)
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(utf8.char(11774):rep(27+#game.Players.LocalPlayer.Name).."["..args[1].."]"..": "..args[2],"All")
+			end,
+		},
+	},
+}
+
+return Plugin

@@ -1,0 +1,19 @@
+local Plugin = {
+    ["PluginName"] = "ReloadIY",
+    ["PluginDescription"] = "Removes IY from your game",
+    ["Commands"] = {
+        ["unload"] = {
+            ["ListName"] = "Unload",
+            ["Description"] = "DESCRIPTION HERE",
+            ["Aliases"] = {},
+            ["Function"] = function(args,speaker)
+	      game:GetService("StarterGui"):SetCore("SendNotification",{Title="Deleting IY",Text="",Duration=5})
+	      wait(1)
+	      Holder:Destroy()
+	      game:GetService("StarterGui"):SetCore("SendNotification",{Title="Deleted IY",Text="",Duration=5})
+            end
+        }
+     }
+}
+
+return Plugin

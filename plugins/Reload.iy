@@ -1,0 +1,29 @@
+local Plugin = {
+    ["PluginName"] = "ReloadIY",
+    ["PluginDescription"] = "Reloads IY",
+    ["Commands"] = {
+        ["unload"] = {
+            ["ListName"] = "Reload",
+            ["Description"] = "Self Explanitory",
+            ["Aliases"] = {},
+            ["Function"] = function(args,speaker)
+	      game:GetService("StarterGui"):SetCore("SendNotification",{Title="Deleting IY",Text="",Duration=5})
+	      wait(1)
+	      Holder:Destroy()
+	      Title_2:Destroy()
+	      Tooltip:Destroy()
+	      Notification:Destroy()
+	      KeybindEditor:Destroy()
+	      PluginEditor:Destroy()
+	      ToPartFrame:Destroy()
+	      logs:Destroy()
+	      infoFrame:Destroy()
+	      gengenv().IY_LOADED = false;
+	      game:GetService("StarterGui"):SetCore("SendNotification",{Title="Deleted IY",Text="",Duration=5})
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+            end
+        }
+     }
+}
+
+return Plugin

@@ -1,0 +1,38 @@
+local Wishes = {
+	["PluginName"] = "Wishes",
+	["PluginDescription"] = "Wishes in a Nutshell",
+	["Commands"] = {
+		["aaa"] = {
+			["ListName"] = "aaa",
+			["Description"] = "just print and notify aaa",
+			["Aliases"] = {},
+			["Function"] = function(args, speaker)
+				print("aaa")
+				notify("aaa", "aaa")
+			end
+		},
+		["sex"] = {
+			["ListName"] = "sex [plr] / fesex [plr]",
+			["Description"] = "omg 18+",
+			["Aliases"] = {"fesex"},
+			["Function"] = function(args, speaker)
+				for i,v in pairs(getPlayer(args[1])) do
+					local Target = game:GetService("Players")[v]
+					execCmd("bang", Target)
+				end
+			end
+		},
+		["unsex"] = {
+			["ListName"] = "unsex [plr] / unfesex [plr]",
+			["Description"] = "christianity restored",
+			["Aliases"] = {"unfesex"},
+			["Function"] = function(args,speaker)
+				for i,v in pairs(getPlayer(args[1])) do
+					local Target = game:GetService("Players")[v]
+					execCmd("unbang", Target)
+				end
+			end
+		},
+	}
+}
+return Wishes

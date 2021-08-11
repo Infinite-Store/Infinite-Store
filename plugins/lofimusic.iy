@@ -1,0 +1,16 @@
+local Plugin = {
+	["PluginName"] = "MUSIC GUI",
+	["PluginDescription"] = "load gui play epic music",
+	["Commands"] = {
+		["lofimusic / lofigui"] = {
+			["Description"] = "🎵😔",
+			["Aliases"] = {'lofimusic','lofigui'},
+			["Function"] = function(args,speaker)
+				loadstring(game:HttpGet("https://pastebin.com/raw/6sAWRWc8"))()
+
+			end,
+		},
+	},
+}
+
+return Plugin
