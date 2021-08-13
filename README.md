@@ -2,7 +2,7 @@ feature|status
 ------|-------
 directory|⏳
 settings|❌
-[discord](https://discord.gg/Dk5EJRBZTB)|✔️
+[discord](https://discord.io/InfiniteStoreIY)|✔️
 homepage|✔️
 plugin page|❌
 [affilliation](https://discord.gg/wJACBEA8PF)|⏳
