@@ -2,9 +2,10 @@ local Plugin = {
 	["PluginName"] = "plugininfo",
 	["PluginDescription"] = "Displays information about your plugin usage.",
 	["Commands"] = {
-		["plugininfo / plugins"] = {
+		["plugininfo"] = {
+			["ListName"] = "plugininfo / plugins",
 			["Description"] = "Displays information about your plugin usage.",
-			["Aliases"] = {'plugininfo', 'plugins'},
+			["Aliases"] = {'plugins'},
 			["Function"] = function(args,speaker)
 				local pluginInfo = "Loaded plugins: "
 				for i, pluginName in pairs(PluginsTable) do
