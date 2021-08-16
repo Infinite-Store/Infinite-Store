@@ -1,5 +1,5 @@
 local Plugin = {
-	["PluginName"] = "plugininfo",
+	["PluginName"] = "Plugin Info",
 	["PluginDescription"] = "Displays information about your plugin usage.",
 	["Commands"] = {
 		["plugininfo"] = {

@@ -126,7 +126,7 @@ end
 
 Players = game:GetService("Players") 
 local Plugin = {
-	["PluginName"] = "Have fun with gravity",
+	["PluginName"] = "Fun Gravity",
 	["PluginDescription"] = "Have fun with unanchored parts and the gravity",
 	["Commands"] = {
 		["nogravparts"] = {

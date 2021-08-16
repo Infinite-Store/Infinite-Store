@@ -5,7 +5,7 @@ local Plugin = {
         ["boobs"] = {
             ["ListName"] = "boobs",
             ["Description"] = "b o o b s",
-            ["Aliases"] = {"boobs","boobs","boobs"},
+            ["Aliases"] = {},
             ["Function"] = function(args,speaker)
 
 game.Players.LocalPlayer.Character.Stinger77.Handle.Mesh:Remove()

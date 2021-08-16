@@ -1,10 +1,7 @@
--- Initializer
-if not isfolder("CAMS") then
-    makefolder("CAMS")
-end
--- Plugin
+if not isfolder("CAMS") then makefolder("CAMS") end
+
 local Plugin = {
-    PluginName = "CamMaker V1.2",
+    PluginName = "Cam Maker v1.2",
     PluginDescription = "CamMaker but better!",
     Commands = {
         makecam = {

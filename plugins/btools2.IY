@@ -1,5 +1,5 @@
 local Plugin = {
-    ["PluginName"] = "btools",
+    ["PluginName"] = "Btools 2",
     ["PluginDescription"] = "btools with undo",
     ["Commands"] = {
         ["btools2"] = {

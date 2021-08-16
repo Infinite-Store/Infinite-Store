@@ -1,6 +1,6 @@
 
 local Plugin = {
-    ["PluginName"] = "killsounds",
+    ["PluginName"] = "Kill Sounds",
     ["PluginDescription"] = "kills the roblox sounds",
     ["Commands"] = {
         ["killsounds"] = {

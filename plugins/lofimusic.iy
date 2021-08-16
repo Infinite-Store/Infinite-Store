@@ -1,6 +1,6 @@
 local Plugin = {
-	["PluginName"] = "MUSIC GUI",
-	["PluginDescription"] = "load gui play epic music",
+	["PluginName"] = "Lofi Music GUI",
+	["PluginDescription"] = "load gui to play epic music",
 	["Commands"] = {
 		["lofimusic"] = {
 			["ListName"] = "lofimusic / lofigui",
