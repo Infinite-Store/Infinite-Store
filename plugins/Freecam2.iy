@@ -104,8 +104,8 @@ function ResetCamera()
 end
 
 local Plugin = {
-	["PluginName"] = "Freecam2",
-    ["PluginDescription"] = "Another Version of Freecam",
+	["PluginName"] = "Freecam 2",
+    ["PluginDescription"] = "Another version of the IY Freecam",
     ["Commands"] = {
     	["freecam2"] = {
 		    ["ListName"] = "freecam2 / fc2",
