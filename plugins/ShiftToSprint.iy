@@ -9,7 +9,7 @@ local Plugin = {
     ["PluginDescription"] = "A plugin to be able to shift to sprint at the speed you want",
     ["Commands"] = {
         ["shifttosprint"] = {
-            ["ListName"] = "ShiftToSprint / STS",
+            ["ListName"] = "shifttosprint / sts",
             ["Description"] = "Toggle the shift to sprint",
             ["Aliases"] = {"sts"},
             ["Function"] = function(args,speaker)
@@ -31,7 +31,7 @@ local Plugin = {
         end
         },
         ["sprintspeed"] = {
-            ["ListName"] = "SprintSpeed [speed]",
+            ["ListName"] = "sprintspeed [speed]",
             ["Description"] = "Set the speed of the shit to sprint",
             ["Aliases"] = {},
             ["Function"] = function(args,speaker)
@@ -43,7 +43,7 @@ local Plugin = {
             end
             },
             ["noshifttosprint"] = {
-                ["ListName"] = "NoShiftToSprint / NSTS",
+                ["ListName"] = "noshifttosprint / nsts",
                 ["Description"] = "Disconnect the shift to sprint event",
                 ["Aliases"] = {"nsts"},
                 ["Function"] = function(args,speaker)
