@@ -1,6 +1,6 @@
 ME = game.Players.LocalPlayer
 local Plugin = {
-    ["PluginName"] = "Givetools",
+    ["PluginName"] = "Give Tools",
     ["PluginDescription"] = "Not needed",
     ["Commands"] = {
         ["givetools"] = {
