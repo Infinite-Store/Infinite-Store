@@ -1,10 +1,10 @@
 local Plugin = {
-    ["PluginName"] = "ReloadIY",
+    ["PluginName"] = "Unload IY",
     ["PluginDescription"] = "Removes IY from your game",
     ["Commands"] = {
         ["unload"] = {
-            ["ListName"] = "Unload",
-            ["Description"] = "DESCRIPTION HERE",
+            ["ListName"] = "unload",
+            ["Description"] = "Unload Infinite Yield",
             ["Aliases"] = {},
             ["Function"] = function(args,speaker)
 	      game:GetService("StarterGui"):SetCore("SendNotification",{Title="Deleting IY",Text="",Duration=5})
