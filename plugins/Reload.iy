@@ -2,10 +2,10 @@ local Plugin = {
     ["PluginName"] = "ReloadIY",
     ["PluginDescription"] = "Reloads IY",
     ["Commands"] = {
-        ["unload"] = {
-            ["ListName"] = "Reload",
+        ["reload"] = {
+            ["ListName"] = "reload / unload",
             ["Description"] = "Self Explanitory",
-            ["Aliases"] = {},
+            ["Aliases"] = {"unload"},
             ["Function"] = function(args,speaker)
 	      game:GetService("StarterGui"):SetCore("SendNotification",{Title="Deleting IY",Text="",Duration=5})
 	      wait(1)

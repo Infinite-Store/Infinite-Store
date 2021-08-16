@@ -6,9 +6,10 @@ local Plugin = {
 	["PluginName"] = "Mouse Target",
 	["PluginDescription"] = "Shows mouse target",
 	["Commands"] = {
-		["mousetarget / mtarget"] = {
+		["mousetarget"] = {
+			["ListName"] = "mousetarget / mtarget",
 			["Description"] = "Toggles showing mouse target",
-			["Aliases"] = {'mousetarget', 'mtarget'},
+			["Aliases"] = {'mtarget'},
 			["Function"] = function(args,speaker)
 				mouseTargetESP = not mouseTargetESP
 			end,

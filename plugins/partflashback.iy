@@ -2,9 +2,10 @@ local Plugin = {
 	["PluginName"] = "Part Flashback",
 	["PluginDescription"] = "Creates a part that you can teleport to",
 	["Commands"] = {
-		["PFlash"] = {
+		["partflashback"] = {
+			["ListName"] = "partflashback / pflash",
 			["Description"] = "Allows you to teleport to a part",
-			["Aliases"] = {'PartFlashback','PFlash'},
+			["Aliases"] = {'pflash'},
 			["Function"] = function(args,speaker)
 				mouse = game.Players.LocalPlayer:GetMouse()
 

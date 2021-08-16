@@ -3,9 +3,9 @@ local Plugin = {
     ["PluginDescription"] = "walk on walls bro",
     ["Commands"] = {
         ["walkonwalls"] = {
-            ["ListName"] = "walkonwalls",
+            ["ListName"] = "walkonwalls / wallrun",
             ["Description"] = "just makes you walk on walls press Z to toggle",
-            ["Aliases"] = {"walk","on","walls"},
+            ["Aliases"] = {"walk","wallrun"},
             ["Function"] = function(args,speaker)
                 print("press Z to toggle")
                 print("if your camera gets glitched press Z once or twice to fix that")

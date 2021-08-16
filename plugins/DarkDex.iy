@@ -1,8 +1,8 @@
 local Plugin = {
-	["PluginName"] = "DarkDex",
-	["PluginDescription"] = "Dark Dex in InfiniteYield",
+	["PluginName"] = "Dark Dex",
+	["PluginDescription"] = "Dark Dex but in Infinite Yield",
 	["Commands"] = {
-		["DarkDex"] = {
+		["darkdex"] = {
             ["ListName"] = "darkdex",
 			["Description"] = "Executes Dark Dex",
 			["Aliases"] = {},

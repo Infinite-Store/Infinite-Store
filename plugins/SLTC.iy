@@ -2,10 +2,10 @@ local Plugin = {
     ["PluginName"] = "Spawn Location Team Changer GUI",
     ["PluginDescription"] = "Made by Thomas_Cornez, misrepresenting",
     ["Commands"] = {
-        ["teamgui"] = {
-            ["ListName"] = "TeamGUI",
+        ["TeamGUI"] = {
+            ["ListName"] = "TeamGUI / loadteamgui",
             ["Description"] = "Toggle the team gui",
-            ["Aliases"] = {},
+            ["Aliases"] = {"loadteamgui"},
             ["Function"] = function()
                 if (not getgenv().GUI) then
                     getgenv().GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/misrepresenting/Team-Changer/main/Main.lua"))()

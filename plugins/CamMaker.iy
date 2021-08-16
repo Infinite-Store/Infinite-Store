@@ -7,10 +7,10 @@ local Plugin = {
     PluginName = "CamMaker V1.2",
     PluginDescription = "CamMaker but better!",
     Commands = {
-        MakeCam = {
-            ListName = "MakeCam [Name]",
+        makecam = {
+            ListName = "makecam / mc [Name]",
             Description = "Creates a camera to view.",
-            Aliases = {"mc [Name]"},
+            Aliases = {"mc"},
             Function = function(args,speaker)
                 local CamDir = "CAMS\\" .. getstring(1)
                 local HRP = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
@@ -21,10 +21,10 @@ local Plugin = {
                 notify("CamMaker","Camera successfully created!")
             end
         },
-        ViewCam = {
-            ListName = "ViewCam [Name]",
+        viewcam = {
+            ListName = "viewcam / vc [Name]",
             Description = "Views a camera.",
-            Aliases = {"vc [Name]"},
+            Aliases = {"vc"},
             Function = function(args,speaker)
                 if not isfolder("CAMS\\" .. getstring(1)) then
                     notify("CamMaker","Camera not found.")
@@ -43,10 +43,10 @@ local Plugin = {
                 end
             end
         },
-        DelCam = {
-            ListName = "DelCam [Name]",
+        delcam = {
+            ListName = "delcam / dc [Name]",
             Description = "Deletes a camera.",
-            Aliases = {"dc [Name]"},
+            Aliases = {"dc"},
             Function = function(args,speaker)
                 if not isfolder("CAMS\\" .. getstring(1)) then
                     notify("CamMaker","Camera not found.")
@@ -55,8 +55,8 @@ local Plugin = {
                 end
             end
         },
-        ListCams = {
-            ListName = "ListCams",
+        listcams = {
+            ListName = "listcams / lc",
             Description = "Lists cameras.",
             Aliases = {"lc"},
             Function = function(args,speaker)
@@ -67,8 +67,8 @@ local Plugin = {
                 notify("CamMaker",string.sub(Items,3))
             end
         },
-        UnviewCam = {
-            ListName = "UnviewCam",
+        unviewcam = {
+            ListName = "unviewcam / unvc",
             Description  = "Return to original camera position.",
             Aliases = {"unvc"},
             Function = function(args,speaker)
