@@ -1,6 +1,6 @@
 local Plugin = {
-    ["PluginName"] = "ReloadIY",
-    ["PluginDescription"] = "Reloads IY",
+    ["PluginName"] = "Reload IY",
+    ["PluginDescription"] = "Reloads Infinite Yield",
     ["Commands"] = {
         ["reload"] = {
             ["ListName"] = "reload / unload",
