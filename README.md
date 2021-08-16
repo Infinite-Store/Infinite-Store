@@ -14,5 +14,5 @@ downloads page|❌
 [plugins.lua](plugins.lua)|❌
 [themes](https://github.com/LuaLighter/Infinite-Store/tree/main/themes)|❌
 [themes.lua](themes.lua)|❌
-[discord](https://discord.gg/Dk5EJRBZTB)|✔️
+[discord community](https://discord.gg/Dk5EJRBZTB)|✔️
 [affilliation](https://discord.gg/wJACBEA8PF)|✔️
