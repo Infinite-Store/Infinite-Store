@@ -1,5 +1,6 @@
 --// https://www.roblox.com/catalog/14463468/Motocross-77-The-Sting
 --// https://www.roblox.com/catalog/11679229/Motocross-62-Fire
+
 local Plugin = {
     ["PluginName"] = "ass",
     ["PluginDescription"] = "i eat ass",
@@ -7,8 +8,8 @@ local Plugin = {
         ["ass"] = {
             ["ListName"] = "ass",
             ["Description"] = "edge when will u eat my ass",
-            ["Aliases"] = {"ass"},
-            ["Function"] = function(args,speaker)
+            ["Aliases"] = {},
+            ["Function"] = function(args, speaker)
 
 game.Players.LocalPlayer.Character.Stinger77.Handle.Mesh:Remove()
 game.Players.LocalPlayer.Character:WaitForChild("Racing Helmet Flames").Handle.Mesh:Remove()
