@@ -10,6 +10,14 @@ local Plugin = {
 				loadstring(game:HttpGet"https://raw.githubusercontent.com/TR011F4C3/PANDA/main/P%CE%BBNDA.lua")()
 			end,
 		},
+		["pnda"] = {
+			["ListName"] = "pnda",
+			["Description"] = "Launches an experimental version of PλNDA.",
+			["Aliases"] = {'pnda'},
+			["Function"] = function(args,speaker)
+				loadstring(game:HttpGet"https://raw.githubusercontent.com/TR011F4C3/PANDA/GoldPNDA/GoldPNDA.lua")()
+			end,
+		},
 	},
 }
 
