@@ -1,0 +1,16 @@
+local Plugin = {
+	["PluginName"] = "PλNDA",
+	["PluginDescription"] = "A semi-skidded open source script hub.",
+	["Commands"] = {
+		["panda"] = {
+			["ListName"] = "panda",
+			["Description"] = "Launches PλNDA.",
+			["Aliases"] = {'panda'},
+			["Function"] = function(args,speaker)
+				loadstring(game:HttpGet"https://raw.githubusercontent.com/TR011F4C3/PANDA/main/P%CE%BBNDA.lua")()
+			end,
+		},
+	},
+}
+
+return Plugin
