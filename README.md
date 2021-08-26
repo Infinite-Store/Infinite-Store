@@ -1,3 +1,4 @@
+# Features
 feature|status
 ------|-------
 homepage|✔️
@@ -16,3 +17,5 @@ downloads page|❌
 [themes.lua](themes.lua)|❌
 [discord community](https://discord.gg/Dk5EJRBZTB)|✔️
 [affilliation](https://discord.gg/wJACBEA8PF)|✔️
+# Adding to Infinite Store
+Do you have your own plugin or theme or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/LuaLighter/Infinite-Store/compare) to get your changes accepted (click "compare across forks" to show your fork).
