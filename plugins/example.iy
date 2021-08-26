@@ -3,10 +3,10 @@ local Plugin = {
 	["PluginDescription"] = "description",
 	["Commands"] = {
 		["command1"] = {
-			["ListName"] = "command1 / command2",
+			["ListName"] = "command1 / alias1 / alias2",
 			["Description"] = "description",
-			["Aliases"] = {'command1','command2'},
-			["Function"] = function(args,speaker)
+			["Aliases"] = {'alias1', 'alias2'},
+			["Function"] = function(args, speaker)
 				print("placeholder")
 			end,
 		},
