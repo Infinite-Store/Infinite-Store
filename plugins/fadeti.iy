@@ -1,1 +1,1 @@
-loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/Toon-arch/Fadeti/main/main.lua")))();
+return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/Toon-arch/Fadeti/main/main.lua")))();
