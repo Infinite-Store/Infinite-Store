@@ -7,6 +7,7 @@ local Plugin = {
 			["Description"] = "Prevents you from being flung.",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
+				execCmd("noclip")
 				while wait(.1) do
 					pcall(function()
 						if(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y > 20 or game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y < 9)then
