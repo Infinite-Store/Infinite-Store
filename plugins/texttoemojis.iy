@@ -1,11 +1,11 @@
 local Plugin = {
-    ["PluginName"] = "texttoemojis",
+    ["PluginName"] = "Text To Emojis",
     ["PluginDescription"] = "edge when will you add boobies.iy to offical iy can i bribe u to please",
     ["Commands"] = {
         ["texttoemojis"] = {
             ["ListName"] = "texttoemojis",
             ["Description"] = "sooo swag :sunglass:",
-            ["Aliases"] = {"edge","is","gay"},
+            ["Aliases"] = {},
             ["Function"] = function(args,speaker)
 local config = {
 ['EmojiAutofill'] = true;
