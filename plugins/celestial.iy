@@ -5,7 +5,7 @@ local Plugin = {
 		["celestial"] = {
 			["ListName"] = "celestial",
 			["Description"] = "Launches Celestial.",
-			["Aliases"] = {''},
+			["Aliases"] = {},
 			["Function"] = function(args, speaker)
 				--[[ Made By: yesok#3877 ]]--
 				local library = loadstring(game:HttpGet("https://pastebin.com/raw/zH17BK2a", true))()
