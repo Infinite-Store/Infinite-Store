@@ -8,8 +8,8 @@ settings|❌
 changelog|❌
 animations|✔️
 content page|❌
-downloads page|❌
-[loader.lua](loader.lua)|⏳
+downloads page|⏳
+[loader.lua](loader.lua)|✔️
 [authors.lua](authors.lua)|❌
 [plugins](https://github.com/LuaLighter/Infinite-Store/tree/main/plugins)|⏳
 [plugins.lua](plugins.lua)|❌
