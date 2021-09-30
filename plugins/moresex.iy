@@ -1,0 +1,81 @@
+local PluginAPI = loadstring(game:HttpGet("https://pastebin.com/raw/u7HEbm8q"))()
+local Plugin = PluginAPI:CreatePlugin("More Sex", "made by prisj")
+
+Plugin.Functions:AddCommand("gbang", "getbang [plr]",  "Get banged by a player.", {"getbang"}, function(args,speaker) 
+	if r15(speaker) then
+		execCmd('ungbang')
+		local players = getPlayer(args[1], speaker)
+		for i,plr in pairs(players) do
+			Players.LocalPlayer.Character.Animate.Disabled = true
+			GBANGAnim = Instance.new("Animation")
+			GBANGAnim.AnimationId = "rbxassetid://4686925579"
+			GBANGtrack = Players.LocalPlayer.Character.Humanoid:LoadAnimation(GBANGAnim)
+			GBANGtrack:Play()
+			if args[2] then GBANGtrack:AdjustSpeed(args[2]) else GBANGtrack:AdjustSpeed(8) end
+			gbangDied = Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').Died:Connect(function()
+				GBANGAnim:Destroy()
+				GBANGtrack:Stop()
+				gbangLoop:Disconnect()
+				gbangDied:Disconnect()
+			end)
+			gbangLoop = game:GetService('RunService').Stepped:Connect(function()
+				pcall(function()
+					getRoot(Players.LocalPlayer.Character).CFrame = Players[plr].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-1)
+				end)
+			end)
+		end
+	else
+		notify('R15 Required','This command requires the r15 rig type')
+	end
+end)
+
+Plugin.Functions:AddCommand("ungbang", "ungbang [plr]",  "Get unbanged by a player.", {"ungetbang"}, function(args,speaker) 
+	if gbangLoop then
+		gbangLoop:Disconnect()
+		GBANGAnim:Destroy()
+		GBANGtrack:Stop()
+		Players.LocalPlayer.Character.Animate.Disabled = false
+		gbangDied:Disconnect()
+	end
+end)
+
+
+Plugin.Functions:AddCommand("suck", "suck [plr]",  "suck a player.", {}, function(args,speaker) 
+	if r15(speaker) then
+		execCmd('unsuck')
+		local players = getPlayer(args[1], speaker)
+		for i,plr in pairs(players) do
+			Players.LocalPlayer.Character.Animate.Disabled = true
+			SuckAnim = Instance.new("Animation")
+			SuckAnim.AnimationId = "rbxassetid://4686925579"
+			Sucktrack = Players.LocalPlayer.Character.Humanoid:LoadAnimation(GBANGAnim)
+			Sucktrack:Play()
+			if args[2] then GBANGtrack:AdjustSpeed(args[2]) else GBANGtrack:AdjustSpeed(8) end
+			SuckDied = Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').Died:Connect(function()
+				SuckAnim:Destroy()
+				Sucktrack:Stop()
+				SuckLoop:Disconnect()
+				SuckDied:Disconnect()
+			end)
+			SuckLoop = game:GetService('RunService').Stepped:Connect(function()
+				pcall(function()
+					getRoot(Players.LocalPlayer.Character).CFrame = Players[plr].Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-3.5) * CFrame.Angles(0,math.rad(180),0)
+				end)
+			end)
+		end
+	else
+		notify('R15 Required','This command requires the r15 rig type')
+	end
+end)
+
+Plugin.Functions:AddCommand("unsuck", "unsuck [plr]",  "unsuck a player.", {}, function(args,speaker) 
+	if SuckLoop then
+		SuckLoop:Disconnect()
+		SuckAnim:Destroy()
+		Sucktrack:Stop()
+		Players.LocalPlayer.Character.Animate.Disabled = false
+		SuckDied:Disconnect()
+	end
+end)
+
+return Plugin.PluginTable
