@@ -1,6 +1,5 @@
-if not IY_LOADED and _G.IY_DEBUG == true then
+
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-end
 
 if IS_LOADED then
 	error("Infinite Store is already running!",0)
