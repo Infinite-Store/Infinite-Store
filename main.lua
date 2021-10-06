@@ -21,7 +21,7 @@ local UserInputService = game:GetService('UserInputService')
 
 COREGUI = game:GetService("CoreGui")
 PARENT = nil
-if (not is_sirhurt_closure) and (syn and syn.protect_gui) then --sirhurt is retarded
+if (not is_sirhurt_closure) and (syn and syn.protect_gui) then
 	local Main = Instance.new("ScreenGui")
 	Main.Name = randomString()
 	syn.protect_gui(Main)
@@ -1359,21 +1359,12 @@ for index,plgin in pairs(pluginTable) do
 	pluginFrameClone.Install.MouseButton1Click:Connect(function()
 		if installDebounce == false then installDebounce = true
 			
-			if syn then
-				local Response = syn.request({
-					Url = plgin.GithubLink,
-					Method = "GET"
-				})
-				pluginData = Response.Body
-			else
-				pcall(function()
-					local Response = http.request({
-						Url = plgin.GithubLink,
-						Method = "GET"
-					})
-					pluginData = Response.Body
-				end)
-			end
+			local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
+			local Response = requestfunc({
+				Url = plgin.GithubLink,
+				Method = "GET"
+			})
+			pluginData = Response.Body
 			
 			if isfile(plgin.Name .. '.iy') == true then
 				
