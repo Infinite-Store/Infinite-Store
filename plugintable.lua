@@ -4,10 +4,14 @@ return {
 	['IYPlus'] = {
 		['Name'] = 'IYPlus', ['Creator'] = 'Doomah', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/IY%2B.iy", ['Commands'] = {'compliment [plr]', 'insult [plr]', 'follow [plr] [distance]', 'unfollow', 'tpposition [X Y Z]', 'offset [X Y Z] [plr optional]', 'spamkill/skill [plr]', 'unspamkill/unskill', 'tp [plr] [plr] (TOOL)', 'bring [plr] (TOOL)', 'kill [plr] (OPT TOOL)', 'attach [plr] (TOOL)', 'orbit [plr]', 'orbit2 [plr]', 'unorbit', 'equiptools/etools', 'playerinfo/pinfo [plr]', 'toolsdrop', 'trip [num] [power]', 'walk', 'unwalk/nowalk', 'stopsit/nosit (TOGGLE)', 'inviscam/invisiblecam', 'stare [plr]', 'unstare/nostare', 'boostfps/fpsboost', 'die/oof', 'kill2 [plr]', 'tricktools/tricks', 'updatelog/update', 'trampoline'},
 	};
+	
+	['example'] = {
+		['Name'] = 'example', ['Creator'] = 'InfiniteStore', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/example.iy", ['Commands'] = {'command1'},
+	};
 	]]
 	
 	['FakeChat'] = {
-		['Name'] = 'FakeChat', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FakeChat.iy", ['Commands'] = {'fakechat/fchat [plr] [msg]'},
+		['Name'] = 'FakeChat', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FakeChat.iy", ['Commands'] = {'fakechat / fchat [plr] [msg]'},
 	};
 	
 	['Climb'] = {
@@ -19,35 +23,35 @@ return {
 	};
 	
 	['CamMaker'] = {
-		['Name'] = 'CamMaker', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/CamMaker.iy", ['Commands'] = {'viewcam/vc [name]', 'makecam/mc [name]', 'delcam/dc [name]', 'listcams/lc', 'unviewcam/unvc'},
+		['Name'] = 'CamMaker', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/CamMaker.iy", ['Commands'] = {'viewcam / vc [name]', 'makecam / mc [name]', 'delcam / dc [name]', 'listcams / lc', 'unviewcam / unvc'},
 	};
 	
 	['Freecam2'] = {
-		['Name'] = 'Freecam2', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Freecam2.iy", ['Commands'] = {'freecam2/fc2', 'resetcam2/rc2'},
+		['Name'] = 'Freecam2', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Freecam2.iy", ['Commands'] = {'freecam2 / fc2', 'resetcam2 / rc2'},
 	};
 	
 	['FunGrav'] = {
-		['Name'] = 'FunGrav', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FunGrav.iy", ['Commands'] = {'nogravparts', 'gravparts', 'supergravparts', 'invertgravparts', 'pushparts', 'bombparts', 'deleteunanchored/deleteua/cleanua', 'moveparts [plr]', 'movepartsmouse', 'unmoveparts', 'setblackhole', 'blackhole', 'removeblackhole', 'stopblackhole', 'controlblackhole', 'uncontrolblackhole', 'bringblackhole', 'blackholeplayer [plr]', 'unblackholeplayer', 'loopsim', 'flingparts [plr]', 'flinghats [plr]', 'unflingparts / unspinparts', 'spinparts [plr]', 'selectparts', 'resetselectedpartslist/rspl', 'uselist (TOGGLE)', 'spinpartsmouse', 'flingpartsmouse', 'partscollide (TOGGLE)', 'blackholedestroyparts/bhdp (TOGGLE)', 'earthquake', 'unearthquake', 'autoupdate'},
+		['Name'] = 'FunGrav', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FunGrav.iy", ['Commands'] = {'nogravparts', 'gravparts', 'supergravparts', 'invertgravparts', 'pushparts', 'bombparts', 'deleteunanchored / deleteua / cleanua', 'moveparts [plr]', 'movepartsmouse', 'unmoveparts', 'setblackhole', 'blackhole', 'removeblackhole', 'stopblackhole', 'controlblackhole', 'uncontrolblackhole', 'bringblackhole', 'blackholeplayer [plr]', 'unblackholeplayer', 'loopsim', 'flingparts [plr]', 'flinghats [plr]', 'unflingparts / unspinparts', 'spinparts [plr]', 'selectparts', 'resetselectedpartslist / rspl', 'uselist (TOGGLE)', 'spinpartsmouse', 'flingpartsmouse', 'partscollide (TOGGLE)', 'blackholedestroyparts / bhdp (TOGGLE)', 'earthquake', 'unearthquake', 'autoupdate'},
 	};
 	
 	['NsfwR6'] = {
-		['Name'] = 'NsfwR6', ['Creator'] = 'Bloxxy213', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/NsfwR6.iy", ['Commands'] = {'NSFWr6/NSFW'},
+		['Name'] = 'NsfwR6', ['Creator'] = 'Bloxxy213', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/NsfwR6.iy", ['Commands'] = {'NSFWr6 / NSFW'},
 	};
 	
 	['ReloadIY'] = {
-		['Name'] = 'ReloadIY', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Reload.iy", ['Commands'] = {'reload/unload'},
+		['Name'] = 'ReloadIY', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Reload.iy", ['Commands'] = {'reload / unload'},
 	};
 	
 	['SLTC'] = {
-		['Name'] = 'SLTC', ['Creator'] = 'Thomas_Cornez', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/SLTC.iy", ['Commands'] = {'TeamGUI/loadteamgui'},
+		['Name'] = 'SLTC', ['Creator'] = 'Thomas_Cornez', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/SLTC.iy", ['Commands'] = {'TeamGUI / loadteamgui'},
 	};
 	
 	['ShaderMod'] = {
-		['Name'] = 'ShaderMod', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ShaderMod.iy", ['Commands'] = {'toggleshader/ts'},
+		['Name'] = 'ShaderMod', ['Creator'] = 'WeAreRump', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ShaderMod.iy", ['Commands'] = {'toggleshader / ts'},
 	};
 	
 	['ShiftToSprint'] = {
-		['Name'] = 'ShiftToSprint', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ShiftToSprint.iy", ['Commands'] = {'sprintspeed [speed]', 'noshifttosprint/nsts', 'shifttosprint/sts'},
+		['Name'] = 'ShiftToSprint', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ShiftToSprint.iy", ['Commands'] = {'sprintspeed [speed]', 'noshifttosprint / nsts', 'shifttosprint / sts'},
 	};
 	
 	['UnloadIY'] = {
@@ -79,7 +83,7 @@ return {
 	};
 	
 	['BigHead'] = {
-		['Name'] = 'BigHead', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bighead.iy", ['Commands'] = {'bighead/biggest/bigger/big'},
+		['Name'] = 'BigHead', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bighead.iy", ['Commands'] = {'bighead/biggest / bigger / big'},
 	};
 	
 	['BigSize'] = {
@@ -87,7 +91,7 @@ return {
 	};
 	
 	['BlankSay'] = {
-		['Name'] = 'BlankSay', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/blanksay.iy", ['Commands'] = {'blanksay/blankchat'},
+		['Name'] = 'BlankSay', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/blanksay.iy", ['Commands'] = {'blanksay / blankchat'},
 	};
 	
 	['Boobies'] = {
@@ -95,7 +99,7 @@ return {
 	};
 	
 	['BTools2'] = {
-		['Name'] = 'BTools2', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/btools2.IY", ['Commands'] = {'cycbtools/btools2'},
+		['Name'] = 'BTools2', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/btools2.IY", ['Commands'] = {'cycbtools / btools2'},
 	};
 	
 	['BuilderChat'] = {
@@ -103,11 +107,11 @@ return {
 	};
 	
 	['BypassAntiCheat'] = {
-		['Name'] = 'BypassAntiCheat', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bypassAnticheats.iy", ['Commands'] = {'bypasswalkspeed/bws', 'bypassjumppower/bjp', 'bypassteleport/btp', 'bypasskick/bk'},
+		['Name'] = 'BypassAntiCheat', ['Creator'] = 'Toon', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bypassAnticheats.iy", ['Commands'] = {'bypasswalkspeed / bws', 'bypassjumppower / bjp', 'bypassteleport / btp', 'bypasskick / bk'},
 	};
 	
 	['Celestial'] = {
-		['Name'] = 'Celestial', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/celestial.iy", ['Commands'] = {'celestial'},
+		['Name'] = 'Celestial', ['Creator'] = 'epik', ['CreationDate'] = '09/04/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/celestial.iy", ['Commands'] = {'celestial'},
 	};
 	
 	['ChatSpy'] = {
@@ -151,11 +155,11 @@ return {
 	};
 	
 	['HubLoader'] = {
-		['Name'] = 'HubLoader', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/hubloader.iy", ['Commands'] = {'owlhub', 'darkhub', 'psyhub'},
+		['Name'] = 'HubLoader', ['Creator'] = 'Toon', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/hubloader.iy", ['Commands'] = {'owlhub', 'darkhub', 'psyhub'},
 	};
 	
 	['InteractESP'] = {
-		['Name'] = 'InteractESP', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/protogens/things-i-ll-probably-use/main/interactable%20objects%20esp%20plugin", ['Commands'] = {'clickdetectoresp/clickesp/cdesp', 'proximityesp/promptesp/ppesp', 'touchinterestesp/touchesp/tesp', 'seatesp/sesp', 'unclickdetectoresp/uncdesp', 'unproximityesp/unppesp', 'untouchinterestesp/untouchesp/untesp', 'unseatesp/unsesp'},
+		['Name'] = 'InteractESP', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/protogens/things-i-ll-probably-use/main/interactable%20objects%20esp%20plugin", ['Commands'] = {'clickdetectoresp / clickesp / cdesp', 'proximityesp / promptesp / ppesp', 'touchinterestesp / touchesp / tesp', 'seatesp / sesp', 'unclickdetectoresp / uncdesp', 'unproximityesp / unppesp', 'untouchinterestesp / untouchesp / untesp', 'unseatesp / unsesp'},
 	};
 	
 	['JoinRandomPlace'] = {
@@ -163,7 +167,7 @@ return {
 	};
 	
 	['KillSounds'] = {
-		['Name'] = 'KillSounds', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/killsounds.iy", ['Commands'] = {'killsounds/ks'},
+		['Name'] = 'KillSounds', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/killsounds.iy", ['Commands'] = {'killsounds / ks'},
 	};
 	
 	['LagServer'] = {
@@ -171,10 +175,18 @@ return {
 	};
 	
 	['LofiMusic'] = {
-		['Name'] = 'LofiMusic', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/lofimusic.iy", ['Commands'] = {'lofimusi /lofigui'},
+		['Name'] = 'LofiMusic', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/lofimusic.iy", ['Commands'] = {'lofimusi / lofigui'},
 	};
 	
 	['Marble'] = {
 		['Name'] = 'Marble', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/marble.iy", ['Commands'] = {'marble [size]'},
+	};
+	
+	['Telekinesis'] = {
+		['Name'] = 'Telekinesis', ['Creator'] = 'Toon', ['CreationDate'] = '05/01/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/tel.iy", ['Commands'] = {'telekinesis / tel'},
+	};
+	
+	['Panda'] = {
+		['Name'] = 'Panda', ['Creator'] = 'epik', ['CreationDate'] = '08/25/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/panda.iy", ['Commands'] = {'panda', 'pnda'},
 	};
 }
