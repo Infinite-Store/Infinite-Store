@@ -1005,7 +1005,7 @@ Command.TextXAlignment = Enum.TextXAlignment.Left
 
 
 
-local cVer = "1.0.0"
+local cVer = "1.8.9.beta"
 
 local tweenService = game:GetService('TweenService')
 
