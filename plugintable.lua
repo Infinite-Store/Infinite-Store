@@ -1,5 +1,4 @@
-
-local pluginTable = {
+return {
 	
 	--[[
 	['IYPlus'] = {
