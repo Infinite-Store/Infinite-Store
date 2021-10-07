@@ -162,7 +162,6 @@ end
 mainFrame = Instance.new("Frame")
 dragGUI(mainFrame)
 
-
 local TopBar = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
@@ -184,6 +183,8 @@ local Name_2 = Instance.new("TextLabel")
 local Credit_2 = Instance.new("TextLabel")
 local Photo2 = Instance.new("ImageLabel")
 local Name2 = Instance.new("TextLabel")
+local Photo3 = Instance.new("ImageLabel")
+local Name3 = Instance.new("TextLabel")
 local List = Instance.new("Frame")
 local List1 = Instance.new("TextLabel")
 local List2 = Instance.new("TextLabel")
@@ -401,8 +402,8 @@ Photo_2.Name = "Photo"
 Photo_2.Parent = Round_2
 Photo_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Photo_2.BackgroundTransparency = 1.000
-Photo_2.Position = UDim2.new(0.104895085, 0, 0, 0)
-Photo_2.Size = UDim2.new(0.363636494, 0, 0.737588704, 0)
+Photo_2.Position = UDim2.new(0, 0, 0.0443883538, 0)
+Photo_2.Size = UDim2.new(0.331353962, 0, 0.672107756, 0)
 Photo_2.ZIndex = 102
 Photo_2.Image = "http://www.roblox.com/asset/?id=7657547318"
 
@@ -411,8 +412,8 @@ Name_2.Parent = Round_2
 Name_2.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 Name_2.BackgroundTransparency = 1.000
 Name_2.BorderSizePixel = 0
-Name_2.Position = UDim2.new(0.104895085, 0, 0.737588584, 0)
-Name_2.Size = UDim2.new(0.363636494, 0, 0.262410909, 0)
+Name_2.Position = UDim2.new(0, 0, 0.716495931, 0)
+Name_2.Size = UDim2.new(0.331353962, 0, 0.239114851, 0)
 Name_2.ZIndex = 100
 Name_2.Font = Enum.Font.Gotham
 Name_2.Text = "Kaizer"
@@ -438,8 +439,8 @@ Photo2.Name = "Photo2"
 Photo2.Parent = Round_2
 Photo2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Photo2.BackgroundTransparency = 1.000
-Photo2.Position = UDim2.new(0.527971923, 0, 0, 0)
-Photo2.Size = UDim2.new(0.363636494, 0, 0.737588704, 0)
+Photo2.Position = UDim2.new(0.331353813, 0, 0.0443883538, 0)
+Photo2.Size = UDim2.new(0.331353962, 0, 0.672107756, 0)
 Photo2.ZIndex = 102
 Photo2.Image = "http://www.roblox.com/asset/?id=7657548002"
 
@@ -448,14 +449,37 @@ Name2.Parent = Round_2
 Name2.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 Name2.BackgroundTransparency = 1.000
 Name2.BorderSizePixel = 0
-Name2.Position = UDim2.new(0.527971923, 0, 0.737588584, 0)
-Name2.Size = UDim2.new(0.363636494, 0, 0.262410909, 0)
+Name2.Position = UDim2.new(0.331353813, 0, 0.716495931, 0)
+Name2.Size = UDim2.new(0.331353962, 0, 0.239114851, 0)
 Name2.ZIndex = 100
 Name2.Font = Enum.Font.Gotham
 Name2.Text = "Mikel"
 Name2.TextColor3 = Color3.fromRGB(206, 206, 206)
 Name2.TextSize = 25.000
 Name2.TextWrapped = true
+
+Photo3.Name = "Photo3"
+Photo3.Parent = Round_2
+Photo3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Photo3.BackgroundTransparency = 1.000
+Photo3.Position = UDim2.new(0.662352085, 0, 0.0443883538, 0)
+Photo3.Size = UDim2.new(0.331353962, 0, 0.672107756, 0)
+Photo3.ZIndex = 102
+Photo3.Image = "http://www.roblox.com/asset/?id=7672670653"
+
+Name3.Name = "Name3"
+Name3.Parent = Round_2
+Name3.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+Name3.BackgroundTransparency = 1.000
+Name3.BorderSizePixel = 0
+Name3.Position = UDim2.new(0.662352085, 0, 0.716495931, 0)
+Name3.Size = UDim2.new(0.331353962, 0, 0.239114851, 0)
+Name3.ZIndex = 100
+Name3.Font = Enum.Font.Gotham
+Name3.Text = "Toon"
+Name3.TextColor3 = Color3.fromRGB(206, 206, 206)
+Name3.TextSize = 25.000
+Name3.TextWrapped = true
 
 List.Name = "List"
 List.Parent = Home
@@ -903,7 +927,7 @@ function intro()
 
 	task.wait(0.69420)
 
-	local tweenGoals = {Position = UDim2.new(0.296, 0,0.5, 0)}
+	local tweenGoals = {Position = UDim2.new(0.296, 0,0.5, 0)} --starting pos: 0.296, 0,1.09, 0
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
 	tween:Play()
