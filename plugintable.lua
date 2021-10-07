@@ -15,7 +15,7 @@ return {
 	};
 	
 	['Climb'] = {
-		['Name'] = 'Climb', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/climb.iy", ['Commands'] = {'climb', 'unclimb'},
+		['Name'] = 'Climb', ['Creator'] = 'bowla', ['CreationDate'] = '06/09/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/climb.iy", ['Commands'] = {'climb', 'unclimb'},
 	};
 	
 	['DarkDex'] = {
@@ -59,7 +59,7 @@ return {
 	};
 	
 	['AddAllPlugins'] = {
-		['Name'] = 'AddAllPlugins', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/addallplugins.iy", ['Commands'] = {'addallplugins'},
+		['Name'] = 'AddAllPlugins', ['Creator'] = 'prisj', ['CreationDate'] = '04/09/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/addallplugins.iy", ['Commands'] = {'addallplugins'},
 	};
 	
 	['AntiFling'] = {
@@ -67,7 +67,7 @@ return {
 	};
 	
 	['AntiKill'] = {
-		['Name'] = 'AntiKill', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/antikill.iy", ['Commands'] = {'antikill', 'unantikill', 'tantikill'},
+		['Name'] = 'AntiKill', ['Creator'] = 'enville', ['CreationDate'] = ' 09/11/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/antikill.iy", ['Commands'] = {'antikill', 'unantikill', 'tantikill'},
 	};
 	
 	['Ass'] = {
@@ -83,11 +83,11 @@ return {
 	};
 	
 	['BigHead'] = {
-		['Name'] = 'BigHead', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bighead.iy", ['Commands'] = {'bighead/biggest / bigger / big'},
+		['Name'] = 'BigHead', ['Creator'] = 'NoobSploit', ['CreationDate'] = '08/10/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bighead.iy", ['Commands'] = {'bighead/biggest / bigger / big'},
 	};
 	
 	['BigSize'] = {
-		['Name'] = 'BigSize', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bigsize.iy", ['Commands'] = {'bigsize'},
+		['Name'] = 'BigSize', ['Creator'] = 'Toon', ['CreationDate'] = ' 08/16/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/bigsize.iy", ['Commands'] = {'bigsize'},
 	};
 	
 	['BlankSay'] = {
@@ -95,7 +95,7 @@ return {
 	};
 	
 	['Boobies'] = {
-		['Name'] = 'Boobies', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/boobies.iy", ['Commands'] = {'boobs'},
+		['Name'] = 'Boobies', ['Creator'] = 'NoobSploit', ['CreationDate'] = '08/10/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/boobies.iy", ['Commands'] = {'boobs'},
 	};
 	
 	['BTools2'] = {
@@ -103,7 +103,7 @@ return {
 	};
 	
 	['BuilderChat'] = {
-		['Name'] = 'BuilderChat', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/builderchat.iy", ['Commands'] = {'buildchat / bchat [UrMSG] [BmMSG]'},
+		['Name'] = 'BuilderChat', ['Creator'] = 'LuaLighter', ['CreationDate'] = '08/08/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/builderchat.iy", ['Commands'] = {'buildchat / bchat [UrMSG] [BmMSG]'},
 	};
 	
 	['BypassAntiCheat'] = {
@@ -135,11 +135,11 @@ return {
 	};
 	
 	['DisplayNameRemover'] = {
-		['Name'] = 'DisplayNameRemover', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/displayNameRemover.iy", ['Commands'] = {'removedisplay / removedisplaynames / nodisplayname / ndn'},
+		['Name'] = 'DisplayNameRemover', ['Creator'] = 'ratticus', ['CreationDate'] = '07/22/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/displayNameRemover.iy", ['Commands'] = {'removedisplay / removedisplaynames / nodisplayname / ndn'},
 	};
 	
 	['DragChat'] = {
-		['Name'] = 'DragChat', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/draggablechat.iy", ['Commands'] = {'dragchat / dragc'},
+		['Name'] = 'DragChat', ['Creator'] = 'Orion', ['CreationDate'] = '04/03/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/draggablechat.iy", ['Commands'] = {'dragchat / dragc'},
 	};
 	
 	['EnableBackPack'] = {
@@ -159,7 +159,7 @@ return {
 	};
 	
 	['InteractESP'] = {
-		['Name'] = 'InteractESP', ['Creator'] = 'Unknown', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/protogens/things-i-ll-probably-use/main/interactable%20objects%20esp%20plugin", ['Commands'] = {'clickdetectoresp / clickesp / cdesp', 'proximityesp / promptesp / ppesp', 'touchinterestesp / touchesp / tesp', 'seatesp / sesp', 'unclickdetectoresp / uncdesp', 'unproximityesp / unppesp', 'untouchinterestesp / untouchesp / untesp', 'unseatesp / unsesp'},
+		['Name'] = 'InteractESP', ['Creator'] = 'ap', ['CreationDate'] = '04/23/2021', ['GithubLink'] = "https://raw.githubusercontent.com/protogens/things-i-ll-probably-use/main/interactable%20objects%20esp%20plugin", ['Commands'] = {'clickdetectoresp / clickesp / cdesp', 'proximityesp / promptesp / ppesp', 'touchinterestesp / touchesp / tesp', 'seatesp / sesp', 'unclickdetectoresp / uncdesp', 'unproximityesp / unppesp', 'untouchinterestesp / untouchesp / untesp', 'unseatesp / unsesp'},
 	};
 	
 	['JoinRandomPlace'] = {
@@ -188,5 +188,29 @@ return {
 	
 	['Panda'] = {
 		['Name'] = 'Panda', ['Creator'] = 'epik', ['CreationDate'] = '08/25/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/panda.iy", ['Commands'] = {'panda', 'pnda'},
+	};
+
+	['TextToEmojis'] = {
+		['Name'] = 'TextToEmojis', ['Creator'] = 'NoobSploit', ['CreationDate'] = '08/31/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/texttoemojis.iy", ['Commands'] = {'texttoemojis'},
+	};
+
+	['MoreSex'] = {
+		['Name'] = 'MoreSex', ['Creator'] = 'prisj', ['CreationDate'] = '09/30/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/moresex.iy", ['Commands'] = {'getbang / gbang [plr]', 'ungetbang / ungbang [plr]', 'suck [plr]', 'unsuck [plr]'},
+	};
+
+	['UnanchoredTeleporter'] = {
+		['Name'] = 'UnanchoredTeleporter', ['Creator'] = 'epik', ['CreationDate'] = '08/25/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/unanchored.iy", ['Commands'] = {'unanchored'},
+	};
+
+	['Metahook'] = {
+		['Name'] = 'Metahook', ['Creator'] = 'Toon', ['CreationDate'] = '08/27/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/metahook.iy", ['Commands'] = {'metahook [name] [value]'},
+	};
+
+	['ToonESP'] = {
+		['Name'] = 'ToonESP', ['Creator'] = 'Toon', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/toonesp.iy", ['Commands'] = {'toonesp'},
+	};
+
+	['Flashlight'] = {
+		['Name'] = 'Flashlight', ['Creator'] = 'Toon', ['CreationDate'] = '07/21/2020', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/flashlight.iy", ['Commands'] = {'flashlight'},
 	};
 }
