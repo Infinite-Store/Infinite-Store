@@ -1,3 +1,17 @@
+<h1 align="center">Infinite Store</h2>
+<p align="center">A place where you can get every Infinite Yield plugin</p>
+<p align="center">
+	<a href="./LICENSE">
+		<img alt="License" src="https://img.shields.io/badge/license-GPL-blue?color=7aca00"/>
+	</a>
+	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
+		<img alt="Issues" src="https://img.shields.io/github/issues/Infinite-Store/Infinite-Store?color=0088ff"/>
+	</a>
+	<a href="https://github.com/Infinite-Store/Infinite-Store/pulls">
+		<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff"/>
+	</a>
+</p>
+
 ## Script
 ```lua
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"), true))()
