@@ -11,7 +11,7 @@ if not IY_LOADED then
 
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
-	notify("Infinite Store", "A Button Can Be Found In Settings To Open Up Infinite Store", 5)
+	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
 end
 
 
@@ -19,6 +19,7 @@ cVer = "1.8.9 [DEV]"
 
 
 if IS_LOADED then
+	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
 	error("Infinite Store is already running!",0)
 	return
 end
