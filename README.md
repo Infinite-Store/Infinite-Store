@@ -17,6 +17,9 @@
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"), true))()
 ```
 
+##Important information
+remember to read the wiki and join the discord
+
 # Features
 feature|status
 ------|-------
