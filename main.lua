@@ -13,7 +13,7 @@ if not IY_LOADED then
 end
 
 
-cVer = "1.8.9 [DEV]"
+cVer = "1.2"
 
 
 if IS_LOADED then
@@ -154,6 +154,15 @@ function deletePlugin(name)
 	end
 	IndexContents('',true)
 	refreshplugins()
+end
+
+local autoCanvas = function(scrollframe, layout)
+	if not scrollframe:IsA("ScrollingFrame") then return error("autoCanvas Missing Scrolling Frame", 0) end
+	if not (layout:IsA("UIListLayout") or layout:IsA("UIGridLayout") or layout:IsA("UIPageLayout")) then return error("autoCanvas Missing Layout", 0) end
+	scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
+	layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+		scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
+	end)
 end
 
 
@@ -643,6 +652,8 @@ List_2.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 UIGridLayout.Parent = List_2
 UIGridLayout.CellSize = UDim2.new(0, 420, 0, 25)
 
+autoCanvas(List_2, UIGridLayout)
+
 Template.Name = "Template"
 Template.Parent = UIGridLayout
 Template.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
@@ -865,6 +876,8 @@ List_3.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 UIGridLayout_2.Parent = List_3
 UIGridLayout_2.CellSize = UDim2.new(0, 120, 0, 15)
 
+autoCanvas(List_3, UIGridLayout_2)
+
 Command.Name = "Command"
 Command.Parent = UIGridLayout_2
 Command.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -1083,7 +1096,7 @@ end
 local pluginData = nil
 local plginCount = 0
 
-for index,plgin in pairs(pluginTable) do
+for index, plgin in pairs(pluginTable) do
 
 	plginCount += 1
 
@@ -1153,13 +1166,12 @@ for index,plgin in pairs(pluginTable) do
 
 			for i,v in pairs(plgin.Commands) do
 				local tLabelClone = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
-				tLabelClone.Name = v
-				tLabelClone.Text = ';' .. v
+				tLabelClone.Name = tostring(v)
+				tLabelClone.Text = ';' .. tostring(v)
 				tLabelClone.Parent = mainFrame.PluginInfo.List
 			end
 
 			pluginInfoToggle(true)
-			mainFrame.PluginInfo.List.CanvasSize = UDim2.new(0,0,0, #plgin.Commands * 30)
 
 		else
 
@@ -1171,6 +1183,3 @@ for index,plgin in pairs(pluginTable) do
 
 	pluginFrameClone.Parent = mainFrame.ListHolder.Plugins.List
 end
-
-mainFrame.ListHolder.Plugins.List.CanvasSize = UDim2.new(0,0,0, plginCount * 30)
-
