@@ -1,7 +1,7 @@
 if not IY_LOADED then
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
 
-	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586955",759)
+	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586955")
 	InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
 	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
 	InfStoreBtn.Name = "InfStore"
