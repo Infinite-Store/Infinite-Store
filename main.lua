@@ -13,8 +13,6 @@ if not IY_LOADED then
 
 end
 
-print('hi')
-
 if IS_LOADED then
 	error("Infinite Store is already running!",0)
 	return
@@ -1162,4 +1160,3 @@ for index,plgin in pairs(pluginTable) do
 end
 
 mainFrame.ListHolder.Plugins.List.CanvasSize = UDim2.new(0,0,0, plginCount * 30)
-
