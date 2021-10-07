@@ -1,7 +1,7 @@
 if not IY_LOADED then
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-	
-	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://5147695474",759)
+
+	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586955")
 	InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
 	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
 	InfStoreBtn.Name = "InfStore"
@@ -9,13 +9,15 @@ if not IY_LOADED then
 
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
-	notify("Infinite Store", "A Button Can Be Found In Settings To Open Up Infinite Store", 5)
-
+	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
 end
 
-print('hi')
+
+cVer = "1.8.9 [DEV]"
+
 
 if IS_LOADED then
+	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
 	error("Infinite Store is already running!",0)
 	return
 end
@@ -160,14 +162,6 @@ end
 mainFrame = Instance.new("Frame")
 dragGUI(mainFrame)
 
-InfStoreBtn.MouseButton1Click:Connect(function()
-	mainFrame:TweenPosition(UDim2.new(0.5,-250,0.5,-150), "InOut", "Quart", 0.5, true, nil)
-end)
-
-mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
-	mainFrame:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
-end)
-
 local TopBar = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
@@ -189,6 +183,8 @@ local Name_2 = Instance.new("TextLabel")
 local Credit_2 = Instance.new("TextLabel")
 local Photo2 = Instance.new("ImageLabel")
 local Name2 = Instance.new("TextLabel")
+local Photo3 = Instance.new("ImageLabel")
+local Name3 = Instance.new("TextLabel")
 local List = Instance.new("Frame")
 local List1 = Instance.new("TextLabel")
 local List2 = Instance.new("TextLabel")
@@ -218,7 +214,6 @@ local Holder = Instance.new("Frame")
 local UIListLayout_3 = Instance.new("UIListLayout")
 local Home_2 = Instance.new("TextButton")
 local Plugins_2 = Instance.new("TextButton")
-local Settings = Instance.new("TextButton")
 local DiscordInvite = Instance.new("TextLabel")
 local PluginInfo = Instance.new("Frame")
 local PluginInfo_2 = Instance.new("Frame")
@@ -294,7 +289,7 @@ Home.BorderSizePixel = 0
 Home.ClipsDescendants = true
 Home.Position = UDim2.new(0, 75, 0, 0)
 Home.Size = UDim2.new(0.850000024, 0, 0, 300)
-Home.ZIndex = 10
+Home.ZIndex = 15
 
 Welcome.Name = "Welcome"
 Welcome.Parent = Home
@@ -407,8 +402,8 @@ Photo_2.Name = "Photo"
 Photo_2.Parent = Round_2
 Photo_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Photo_2.BackgroundTransparency = 1.000
-Photo_2.Position = UDim2.new(0.104895085, 0, 0, 0)
-Photo_2.Size = UDim2.new(0.363636494, 0, 0.737588704, 0)
+Photo_2.Position = UDim2.new(0, 0, 0.0443883538, 0)
+Photo_2.Size = UDim2.new(0.331353962, 0, 0.672107756, 0)
 Photo_2.ZIndex = 102
 Photo_2.Image = "http://www.roblox.com/asset/?id=7657547318"
 
@@ -417,8 +412,8 @@ Name_2.Parent = Round_2
 Name_2.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 Name_2.BackgroundTransparency = 1.000
 Name_2.BorderSizePixel = 0
-Name_2.Position = UDim2.new(0.104895085, 0, 0.737588584, 0)
-Name_2.Size = UDim2.new(0.363636494, 0, 0.262410909, 0)
+Name_2.Position = UDim2.new(0, 0, 0.716495931, 0)
+Name_2.Size = UDim2.new(0.331353962, 0, 0.239114851, 0)
 Name_2.ZIndex = 100
 Name_2.Font = Enum.Font.Gotham
 Name_2.Text = "Kaizer"
@@ -444,8 +439,8 @@ Photo2.Name = "Photo2"
 Photo2.Parent = Round_2
 Photo2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Photo2.BackgroundTransparency = 1.000
-Photo2.Position = UDim2.new(0.527971923, 0, 0, 0)
-Photo2.Size = UDim2.new(0.363636494, 0, 0.737588704, 0)
+Photo2.Position = UDim2.new(0.331353813, 0, 0.0443883538, 0)
+Photo2.Size = UDim2.new(0.331353962, 0, 0.672107756, 0)
 Photo2.ZIndex = 102
 Photo2.Image = "http://www.roblox.com/asset/?id=7657548002"
 
@@ -454,14 +449,37 @@ Name2.Parent = Round_2
 Name2.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 Name2.BackgroundTransparency = 1.000
 Name2.BorderSizePixel = 0
-Name2.Position = UDim2.new(0.527971923, 0, 0.737588584, 0)
-Name2.Size = UDim2.new(0.363636494, 0, 0.262410909, 0)
+Name2.Position = UDim2.new(0.331353813, 0, 0.716495931, 0)
+Name2.Size = UDim2.new(0.331353962, 0, 0.239114851, 0)
 Name2.ZIndex = 100
 Name2.Font = Enum.Font.Gotham
 Name2.Text = "Mikel"
 Name2.TextColor3 = Color3.fromRGB(206, 206, 206)
 Name2.TextSize = 25.000
 Name2.TextWrapped = true
+
+Photo3.Name = "Photo3"
+Photo3.Parent = Round_2
+Photo3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Photo3.BackgroundTransparency = 1.000
+Photo3.Position = UDim2.new(0.662352085, 0, 0.0443883538, 0)
+Photo3.Size = UDim2.new(0.331353962, 0, 0.672107756, 0)
+Photo3.ZIndex = 102
+Photo3.Image = "http://www.roblox.com/asset/?id=7672670653"
+
+Name3.Name = "Name3"
+Name3.Parent = Round_2
+Name3.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+Name3.BackgroundTransparency = 1.000
+Name3.BorderSizePixel = 0
+Name3.Position = UDim2.new(0.662352085, 0, 0.716495931, 0)
+Name3.Size = UDim2.new(0.331353962, 0, 0.239114851, 0)
+Name3.ZIndex = 100
+Name3.Font = Enum.Font.Gotham
+Name3.Text = "Toon"
+Name3.TextColor3 = Color3.fromRGB(206, 206, 206)
+Name3.TextSize = 25.000
+Name3.TextWrapped = true
 
 List.Name = "List"
 List.Parent = Home
@@ -543,6 +561,7 @@ Plugins.BorderSizePixel = 0
 Plugins.ClipsDescendants = true
 Plugins.Position = UDim2.new(0, 75, 0, 0)
 Plugins.Size = UDim2.new(0.850000024, 0, 0, 300)
+Plugins.Visible = false
 Plugins.ZIndex = 10
 
 TopBarExample.Name = "TopBarExample"
@@ -774,20 +793,6 @@ Plugins_2.TextColor3 = Color3.fromRGB(156, 156, 156)
 Plugins_2.TextSize = 20.000
 Plugins_2.TextXAlignment = Enum.TextXAlignment.Left
 
---[[
-Settings.Name = "Settings"
-Settings.Parent = Holder
-Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Settings.BackgroundTransparency = 1.000
-Settings.Size = UDim2.new(1.02699995, -8, 0, 20)
-Settings.Visible = false
-Settings.Font = Enum.Font.SourceSansBold
-Settings.Text = "Settings"
-Settings.TextColor3 = Color3.fromRGB(156, 156, 156)
-Settings.TextSize = 20.000
-Settings.TextXAlignment = Enum.TextXAlignment.Left
-]]
-
 DiscordInvite.Name = "DiscordInvite"
 DiscordInvite.Parent = SideBar
 DiscordInvite.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -874,7 +879,13 @@ Command.TextSize = 14.000
 Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
-local cVer = "1.1"
+InfStoreBtn.MouseButton1Click:Connect(function()
+	mainFrame:TweenPosition(UDim2.new(0.5,-250,0.5,-150), "InOut", "Quart", 0.5, true, nil)
+end)
+
+mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
+	mainFrame:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
+end)
 
 mainFrame.TopBar.Title.Text = ("Infinite Store v" .. cVer)
 
@@ -916,7 +927,7 @@ function intro()
 
 	task.wait(0.69420)
 
-	local tweenGoals = {Position = UDim2.new(0.296, 0,0.5, 0)}
+	local tweenGoals = {Position = UDim2.new(0.296, 0,0.5, 0)} --starting pos: 0.296, 0,1.09, 0
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
 	tween:Play()
@@ -1162,3 +1173,4 @@ for index,plgin in pairs(pluginTable) do
 end
 
 mainFrame.ListHolder.Plugins.List.CanvasSize = UDim2.new(0,0,0, plginCount * 30)
+
