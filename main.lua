@@ -874,7 +874,7 @@ Command.TextSize = 14.000
 Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
-local cVer = "1.1"
+local cVer = "1.8.9.beta"
 
 mainFrame.TopBar.Title.Text = ("Infinite Store v" .. cVer)
 
@@ -1162,3 +1162,4 @@ for index,plgin in pairs(pluginTable) do
 end
 
 mainFrame.ListHolder.Plugins.List.CanvasSize = UDim2.new(0,0,0, plginCount * 30)
+
