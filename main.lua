@@ -158,14 +158,6 @@ end
 mainFrame = Instance.new("Frame")
 dragGUI(mainFrame)
 
-InfStoreBtn.MouseButton1Click:Connect(function()
-	mainFrame:TweenPosition(UDim2.new(0.5,-250,0.5,-150), "InOut", "Quart", 0.5, true, nil)
-end)
-
-mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
-	mainFrame:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
-end)
-
 local TopBar = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
@@ -873,6 +865,14 @@ Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
 local cVer = "1.1"
+
+InfStoreBtn.MouseButton1Click:Connect(function()
+	mainFrame:TweenPosition(UDim2.new(0.5,-250,0.5,-150), "InOut", "Quart", 0.5, true, nil)
+end)
+
+mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
+	mainFrame:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
+end)
 
 mainFrame.TopBar.Title.Text = ("Infinite Store v" .. cVer)
 
