@@ -12,16 +12,14 @@ if not IY_LOADED then
 	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
 end
 
-
-cVer = "1.2.1"
-
+local cVer = "1.2.1"
 
 if IS_LOADED then
 	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
 	error("Infinite Store is already running!", 0)
 	return
 end
-pcall(function() getgenv().IS_LOADED  = true end)
+pcall(function() getgenv().IS_LOADED = true end)
 
 function randomString()
 	local length = math.random(10,20)
@@ -259,7 +257,7 @@ Title.Position = UDim2.new(0.149999946, 0, 0, 0)
 Title.Size = UDim2.new(0.850000083, 0, 0.949999988, 0)
 Title.ZIndex = 10
 Title.Font = Enum.Font.SourceSans
-Title.Text = "Infinite Store v1.8.9"
+Title.Text = ("Infinite Store v" .. cVer)
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 14.000
 
@@ -900,8 +898,6 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
 end)
 
-mainFrame.TopBar.Title.Text = ("Infinite Store v" .. cVer)
-
 local tweenService = game:GetService('TweenService')
 
 
@@ -913,7 +909,7 @@ local closedColor = Color3.fromRGB(156,156,156)
 
 local installDebounce = false
 
-function intro()
+local IS_Intro = function()
 	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0,0, 0)}
 	local tweenInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
@@ -988,7 +984,7 @@ function intro()
 	tween:Play()
 
 end
-intro()
+IS_Intro()
 
 function pluginInfoToggle(bool)
 	if bool == true then
@@ -1174,7 +1170,6 @@ for index,plgin in pairs(pluginTable) do
 			end
 
 			pluginInfoToggle(true)
-			mainFrame.PluginInfo.List.CanvasSize = UDim2.new(0,0,0, #plgin.Commands * 30)
 
 		else
 
@@ -1186,5 +1181,3 @@ for index,plgin in pairs(pluginTable) do
 
 	pluginFrameClone.Parent = mainFrame.ListHolder.Plugins.List
 end
-
-mainFrame.ListHolder.Plugins.List.CanvasSize = UDim2.new(0,0,0, plginCount * 30)
