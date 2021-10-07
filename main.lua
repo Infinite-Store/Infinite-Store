@@ -13,7 +13,7 @@ if not IY_LOADED then
 end
 
 
-cVer = "1.2"
+cVer = "1.2.1"
 
 
 if IS_LOADED then
@@ -1036,7 +1036,7 @@ end
 searchBox:GetPropertyChangedSignal('Text'):Connect(function()
 	local CurrentText = searchBox.Text
 
-	ObjectHolder.CanvasPosition = UDim2.new(0,0,0,0)
+	ObjectHolder.CanvasPosition = Vector2.new(0,0,0,0)
 		
 	if CurrentText == "" then
 		for i,v in pairs(ObjectHolder:GetChildren()) do
