@@ -1,17 +1,22 @@
 if not IY_LOADED then
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-	
-	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://5147695474",759)
+
+	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586957",759)
 	InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
 	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
 	InfStoreBtn.Name = "InfStore"
 	InfStoreBtn.Parent = SettingsHolder
+	
+	print(InfStoreBtn.Icon.Image)
 
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
 	notify("Infinite Store", "A Button Can Be Found In Settings To Open Up Infinite Store", 5)
-
 end
+
+
+local cVer = "1.1.0"
+
 
 if IS_LOADED then
 	error("Infinite Store is already running!",0)
@@ -158,6 +163,7 @@ end
 mainFrame = Instance.new("Frame")
 dragGUI(mainFrame)
 
+
 local TopBar = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
@@ -208,7 +214,6 @@ local Holder = Instance.new("Frame")
 local UIListLayout_3 = Instance.new("UIListLayout")
 local Home_2 = Instance.new("TextButton")
 local Plugins_2 = Instance.new("TextButton")
-local Settings = Instance.new("TextButton")
 local DiscordInvite = Instance.new("TextLabel")
 local PluginInfo = Instance.new("Frame")
 local PluginInfo_2 = Instance.new("Frame")
@@ -284,7 +289,7 @@ Home.BorderSizePixel = 0
 Home.ClipsDescendants = true
 Home.Position = UDim2.new(0, 75, 0, 0)
 Home.Size = UDim2.new(0.850000024, 0, 0, 300)
-Home.ZIndex = 10
+Home.ZIndex = 15
 
 Welcome.Name = "Welcome"
 Welcome.Parent = Home
@@ -533,6 +538,7 @@ Plugins.BorderSizePixel = 0
 Plugins.ClipsDescendants = true
 Plugins.Position = UDim2.new(0, 75, 0, 0)
 Plugins.Size = UDim2.new(0.850000024, 0, 0, 300)
+Plugins.Visible = false
 Plugins.ZIndex = 10
 
 TopBarExample.Name = "TopBarExample"
@@ -764,20 +770,6 @@ Plugins_2.TextColor3 = Color3.fromRGB(156, 156, 156)
 Plugins_2.TextSize = 20.000
 Plugins_2.TextXAlignment = Enum.TextXAlignment.Left
 
---[[
-Settings.Name = "Settings"
-Settings.Parent = Holder
-Settings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Settings.BackgroundTransparency = 1.000
-Settings.Size = UDim2.new(1.02699995, -8, 0, 20)
-Settings.Visible = false
-Settings.Font = Enum.Font.SourceSansBold
-Settings.Text = "Settings"
-Settings.TextColor3 = Color3.fromRGB(156, 156, 156)
-Settings.TextSize = 20.000
-Settings.TextXAlignment = Enum.TextXAlignment.Left
-]]
-
 DiscordInvite.Name = "DiscordInvite"
 DiscordInvite.Parent = SideBar
 DiscordInvite.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -863,8 +855,6 @@ Command.TextColor3 = Color3.fromRGB(255, 255, 255)
 Command.TextSize = 14.000
 Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
-
-local cVer = "1.1"
 
 InfStoreBtn.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5,-250,0.5,-150), "InOut", "Quart", 0.5, true, nil)
@@ -1160,3 +1150,4 @@ for index,plgin in pairs(pluginTable) do
 end
 
 mainFrame.ListHolder.Plugins.List.CanvasSize = UDim2.new(0,0,0, plginCount * 30)
+
