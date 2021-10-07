@@ -13,7 +13,7 @@ if not IY_LOADED then
 end
 
 
-cVer = "1.2"
+local cVer = "1.2.1"
 
 
 if IS_LOADED then
