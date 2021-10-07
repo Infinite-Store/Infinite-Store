@@ -15,7 +15,7 @@ if not IY_LOADED then
 end
 
 
-local cVer = "1.8.9 [DEV]"
+cVer = "1.8.9 [DEV]"
 
 
 if IS_LOADED then
