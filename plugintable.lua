@@ -47,7 +47,7 @@ return {
 	};
 	
 	['ShaderMod'] = {
-		['Name'] = 'ShaderMod', ['Creator'] = 'WeAreRump', ['CreationDate'] = 'Unknown', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ShaderMod.iy", ['Commands'] = {'toggleshader / ts'},
+		['Name'] = 'ShaderMod', ['Creator'] = 'WeAreRump', ['CreationDate'] = '01/29/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ShaderMod.iy", ['Commands'] = {'toggleshader / ts'},
 	};
 	
 	['ShiftToSprint'] = {
