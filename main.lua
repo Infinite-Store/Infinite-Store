@@ -6,8 +6,6 @@ if not IY_LOADED then
 	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
 	InfStoreBtn.Name = "InfStore"
 	InfStoreBtn.Parent = SettingsHolder
-	
-	print(InfStoreBtn.Icon.Image)
 
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
