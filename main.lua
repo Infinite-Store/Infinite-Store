@@ -10,6 +10,18 @@ if not IY_LOADED then
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
 	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
+	
+	else
+	
+	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586955")
+	InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
+	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
+	InfStoreBtn.Name = "InfStore"
+	InfStoreBtn.Parent = SettingsHolder
+
+	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
+
+	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
 end
 
 local cVer = "1.2.1"
