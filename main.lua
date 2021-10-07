@@ -872,7 +872,7 @@ Command.TextSize = 14.000
 Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
-local cVer = "1.8.9.beta"
+local cVer = "1.1"
 
 mainFrame.TopBar.Title.Text = ("Infinite Store v" .. cVer)
 
