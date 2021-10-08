@@ -9,7 +9,7 @@ if not IY_LOADED then
 
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
-	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
+	notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
 
 else
 
@@ -21,7 +21,7 @@ else
 
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
-	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
+	notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
 end
 
 local cVer = "1.2.5"
