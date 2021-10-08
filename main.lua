@@ -10,9 +10,9 @@ if not IY_LOADED then
 	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
 	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
-	
-	else
-	
+
+else
+
 	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586955")
 	InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
 	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
@@ -24,7 +24,7 @@ if not IY_LOADED then
 	notify("Infinite Store", "A button has been created inside of IY to open Infinite Store", 5)
 end
 
-local cVer = "1.2.1"
+local cVer = "1.2.5"
 
 if IS_LOADED then
 	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
@@ -212,10 +212,10 @@ local List4 = Instance.new("TextLabel")
 local Plugins = Instance.new("Frame")
 local TopBarExample = Instance.new("Frame")
 local _4Install = Instance.new("TextLabel")
-local UIListLayout = Instance.new("UIListLayout")
 local _3Created = Instance.new("TextLabel")
 local _2Author = Instance.new("TextLabel")
 local _1Name = Instance.new("TextLabel")
+local UIListLayout = Instance.new("UIListLayout")
 local List_2 = Instance.new("ScrollingFrame")
 local UIGridLayout = Instance.new("UIGridLayout")
 local Template = Instance.new("Frame")
@@ -232,7 +232,9 @@ local SideBar = Instance.new("Frame")
 local Holder = Instance.new("Frame")
 local UIListLayout_3 = Instance.new("UIListLayout")
 local Home_2 = Instance.new("TextButton")
+local cs = Instance.new("BoolValue")
 local Plugins_2 = Instance.new("TextButton")
+local cs_2 = Instance.new("BoolValue")
 local DiscordInvite = Instance.new("TextLabel")
 local PluginInfo = Instance.new("Frame")
 local PluginInfo_2 = Instance.new("Frame")
@@ -242,7 +244,6 @@ local List_3 = Instance.new("ScrollingFrame")
 local UIGridLayout_2 = Instance.new("UIGridLayout")
 local Command = Instance.new("TextLabel")
 
---Properties:
 
 mainFrame.Name = "mainFrame"
 mainFrame.Parent = PARENT
@@ -269,7 +270,7 @@ Title.Position = UDim2.new(0.149999946, 0, 0, 0)
 Title.Size = UDim2.new(0.850000083, 0, 0.949999988, 0)
 Title.ZIndex = 10
 Title.Font = Enum.Font.SourceSans
-Title.Text = ("Infinite Store v" .. cVer)
+Title.Text = "Infinite Store v1.8.9"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 14.000
 
@@ -297,6 +298,7 @@ ListHolder.Name = "ListHolder"
 ListHolder.Parent = mainFrame
 ListHolder.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
 ListHolder.BorderSizePixel = 0
+ListHolder.ClipsDescendants = true
 ListHolder.Position = UDim2.new(0, 0, 0, 20)
 ListHolder.Size = UDim2.new(1, 0, 0, 300)
 ListHolder.ZIndex = 10
@@ -578,7 +580,7 @@ Plugins.Parent = ListHolder
 Plugins.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
 Plugins.BorderSizePixel = 0
 Plugins.ClipsDescendants = true
-Plugins.Position = UDim2.new(0, 75, 0, 0)
+Plugins.Position = UDim2.new(0, -350, 0, 0)
 Plugins.Size = UDim2.new(0.850000024, 0, 0, 300)
 Plugins.Visible = false
 Plugins.ZIndex = 10
@@ -604,10 +606,6 @@ _4Install.Text = "Install Button"
 _4Install.TextColor3 = Color3.fromRGB(255, 255, 255)
 _4Install.TextSize = 14.000
 _4Install.TextWrapped = true
-
-UIListLayout.Parent = TopBarExample
-UIListLayout.FillDirection = Enum.FillDirection.Horizontal
-UIListLayout.Padding = UDim.new(0, 3)
 
 _3Created.Name = "3Created"
 _3Created.Parent = TopBarExample
@@ -647,30 +645,32 @@ _1Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 _1Name.TextSize = 14.000
 _1Name.TextWrapped = true
 
+UIListLayout.Parent = TopBarExample
+UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout.Padding = UDim.new(0, 3)
+
 List_2.Name = "List"
 List_2.Parent = Plugins
 List_2.Active = true
 List_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 List_2.BackgroundTransparency = 1.000
 List_2.BorderSizePixel = 0
-List_2.Position = UDim2.new(0.00904986169, 0, 0.183333337, 0)
-List_2.Size = UDim2.new(0, 421, 0, 244)
+List_2.Position = UDim2.new(0.00434390781, 0, 0.183333337, 0)
+List_2.Size = UDim2.new(0, 423, 0, 244)
 List_2.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 List_2.CanvasSize = UDim2.new(0, 0, 0, 500)
 List_2.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 
 UIGridLayout.Parent = List_2
-UIGridLayout.CellSize = UDim2.new(0, 420, 0, 25)
-
-autoCanvas(List_2, UIGridLayout)
+UIGridLayout.CellSize = UDim2.new(0, 422, 0, 25)
 
 Template.Name = "Template"
 Template.Parent = UIGridLayout
 Template.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 Template.BorderSizePixel = 0
 Template.ClipsDescendants = true
-Template.Position = UDim2.new(-7.18060633e-08, 0, 0, 0)
-Template.Size = UDim2.new(0.964706123, 0, -1.45082998, 429)
+Template.Position = UDim2.new(-0.00913591869, 0, 0, 0)
+Template.Size = UDim2.new(1.0067606, 0, -1.65573776, 429)
 Template.ZIndex = 10
 
 PluginName.Name = "PluginName"
@@ -803,6 +803,10 @@ Home_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 Home_2.TextSize = 20.000
 Home_2.TextXAlignment = Enum.TextXAlignment.Left
 
+cs.Name = "cs"
+cs.Parent = Home_2
+cs.Value = true
+
 Plugins_2.Name = "Plugins"
 Plugins_2.Parent = Holder
 Plugins_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -814,12 +818,15 @@ Plugins_2.TextColor3 = Color3.fromRGB(156, 156, 156)
 Plugins_2.TextSize = 20.000
 Plugins_2.TextXAlignment = Enum.TextXAlignment.Left
 
+cs_2.Name = "cs"
+cs_2.Parent = Plugins_2
+
 DiscordInvite.Name = "DiscordInvite"
 DiscordInvite.Parent = SideBar
 DiscordInvite.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 DiscordInvite.BackgroundTransparency = 1.000
 DiscordInvite.BorderSizePixel = 0
-DiscordInvite.Position = UDim2.new(-0.0266666673, 0, 0.968999982, 0)
+DiscordInvite.Position = UDim2.new(-0.0270000007, 0, 0.964999974, 0)
 DiscordInvite.Size = UDim2.new(1.05128217, 0, 0.0294661485, 0)
 DiscordInvite.ZIndex = 100
 DiscordInvite.Font = Enum.Font.Gotham
@@ -886,8 +893,6 @@ List_3.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 UIGridLayout_2.Parent = List_3
 UIGridLayout_2.CellSize = UDim2.new(0, 120, 0, 15)
 
-autoCanvas(List_3, UIGridLayout_2)
-
 Command.Name = "Command"
 Command.Parent = UIGridLayout_2
 Command.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -915,6 +920,9 @@ local tweenService = game:GetService('TweenService')
 
 local pluginTable = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugintable.lua"), true))()
 
+local pageDesiredLocation = UDim2.new(0, 75,0, 0)
+local pageHiddenLocation = UDim2.new(0, 510,0, 0)
+local pageHiddenLocation2 = UDim2.new(0,-350,0,0)
 
 local openColor = Color3.fromRGB(255,255,255)
 local closedColor = Color3.fromRGB(156,156,156)
@@ -1058,7 +1066,7 @@ searchBox:GetPropertyChangedSignal('Text'):Connect(function()
 	local CurrentText = searchBox.Text
 
 	ObjectHolder.CanvasPosition = Vector2.new(0,0,0,0)
-		
+
 	if CurrentText == "" then
 		for i,v in pairs(ObjectHolder:GetChildren()) do
 			if Objects[v.ClassName] then
@@ -1071,32 +1079,57 @@ searchBox:GetPropertyChangedSignal('Text'):Connect(function()
 end)
 
 
+local tweeningDebounce = false
+
 for i,v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 	if v:IsA('TextButton') then
-
-		local cs = Instance.new('BoolValue')
-		cs.Name = 'cs'
-		cs.Parent = v
 
 		v.MouseEnter:Connect(function()
 			tweenColor2(v, openColor, 0.2)
 		end)
 
 		v.MouseLeave:Connect(function()
-			if cs.Value == false then
+			if v.cs.Value == false then
 				tweenColor2(v, closedColor, 0.2)
 			end
 		end)
 
 		v.MouseButton1Click:Connect(function()
-			for i,v in pairs(mainFrame.SideBar.Holder:GetDescendants()) do
-				if v:IsA('TextButton') then tweenColor2(v, closedColor, 0.2) mainFrame.ListHolder[v.Name].Visible = false end
-				if v.Name == 'cs' then v.Value = false end
-			end
+			if tweeningDebounce == false and not mainFrame.SideBar.Holder[v.Name].cs.Value == true then tweeningDebounce = true
+				for i,v in pairs(mainFrame.SideBar.Holder:GetDescendants()) do
+					if v:IsA('TextButton') then 
+						tweenColor2(v, closedColor, 0.2) 
 
-			v.cs.Value = true
-			mainFrame.ListHolder[v.Name].Visible = true
-			tweenColor2(v, openColor, 0.2)
+						local tweenGoals = {Position = pageHiddenLocation}
+						local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+						local tween555 = tweenService:Create(mainFrame.ListHolder[v.Name], tweenInfo, tweenGoals)
+
+						tween555:Play()
+
+					end
+					if v.Name == 'cs' then 
+						v.Value = false 
+					end
+				end
+
+				v.cs.Value = true
+
+				local tweenGoals = {Position = pageDesiredLocation}
+				local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+				local tween = tweenService:Create(mainFrame.ListHolder[v.Name], tweenInfo, tweenGoals)
+
+				mainFrame.ListHolder[v.Name].Visible = true
+				mainFrame.ListHolder[v.Name].Position = pageHiddenLocation2
+
+				tween:Play()
+
+				tweenColor2(v, openColor, 0.2)
+			end
+			
+			task.wait(1)
+			
+			tweeningDebounce = false
+			
 		end)
 
 	end
