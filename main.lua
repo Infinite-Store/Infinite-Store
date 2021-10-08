@@ -270,7 +270,6 @@ Title.Position = UDim2.new(0.149999946, 0, 0, 0)
 Title.Size = UDim2.new(0.850000083, 0, 0.949999988, 0)
 Title.ZIndex = 10
 Title.Font = Enum.Font.SourceSans
-Title.Text = "Infinite Store v1.8.9"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 14.000
 
@@ -915,6 +914,7 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
 end)
 
+mainFrame.TopBar.Title.Text = 'Infinite Store v' .. cVer
 local tweenService = game:GetService('TweenService')
 
 
