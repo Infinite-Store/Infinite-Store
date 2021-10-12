@@ -32,7 +32,7 @@ Content Page|❌
 Downloads Page|⏳
 [Loader](https://github.com/Infinite-Store/Infinite-Store/blob/main/main.lua)|✔️
 [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugintable.lua)|⏳
-[Discord Community](https://discord.gg/mVzBU7GTMy)|✔️
+[Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki#discord)|✔️
 [Affilliation](https://discord.gg/RcuZnJdf3b)|✔️
 # Adding to Infinite Store
 Do you have your own plugin or theme or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (Click "compare across forks" to show your fork).
