@@ -24,7 +24,7 @@ else
 	notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
 end
 
-local cVer = "1.2.5"
+local cVer = "1.2.6"
 
 if IS_LOADED then
 	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
@@ -663,6 +663,8 @@ List_2.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 UIGridLayout.Parent = List_2
 UIGridLayout.CellSize = UDim2.new(0, 422, 0, 25)
 
+autoCanvas(List_2, UIGridLayout)
+
 Template.Name = "Template"
 Template.Parent = UIGridLayout
 Template.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
@@ -891,6 +893,8 @@ List_3.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 
 UIGridLayout_2.Parent = List_3
 UIGridLayout_2.CellSize = UDim2.new(0, 120, 0, 15)
+
+autoCanvas(List_3, UIGridLayout_2)
 
 Command.Name = "Command"
 Command.Parent = UIGridLayout_2
