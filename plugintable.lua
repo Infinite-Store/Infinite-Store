@@ -213,4 +213,8 @@ return {
 	['Flashlight'] = {
 		['Name'] = 'Flashlight', ['Creator'] = 'Toon', ['CreationDate'] = '07/21/2020', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/flashlight.iy", ['Commands'] = {'flashlight'},
 	};
+	
+	['VR'] = {
+		['Name'] = 'VR', ['Creator'] = 'NoobSploit', ['CreationDate'] = '10/16/2020', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/virtualreality.iy", ['Commands'] = {'vr'},
+	};
 }
