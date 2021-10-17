@@ -1,40 +1,28 @@
-if not IY_LOADED then
-	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+local reqenv = function() return (getgenv() or _G) end
 
-	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586955")
-	InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
-	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
-	InfStoreBtn.Name = "InfStore"
-	InfStoreBtn.Parent = SettingsHolder
+if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))() end
 
-	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
+InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
+InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
+InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
+InfStoreBtn.Name = "InfStore"
+InfStoreBtn.Parent = SettingsHolder
 
-	notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
+SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
 
-else
+notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
 
-	InfStoreBtn = makeSettingsButton("Infinite Store","rbxassetid://2161586955")
-	InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
-	InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
-	InfStoreBtn.Name = "InfStore"
-	InfStoreBtn.Parent = SettingsHolder
+local cVer = "1.2.7"
 
-	SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
-
-	notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
-end
-
-local cVer = "1.2.6"
-
-if IS_LOADED then
+if reqenv()["IS_LOADED"] then
 	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
 	error("Infinite Store is already running!", 0)
 	return
 end
-pcall(function() getgenv().IS_LOADED = true end)
+pcall(function() reqenv()["IS_LOADED"] = true end)
 
-function randomString()
-	local length = math.random(10,20)
+local newRandomString = function()
+	local length = math.random(10, 20)
 	local array = {}
 	for i = 1, length do
 		array[i] = string.char(math.random(32, 126))
@@ -44,37 +32,37 @@ end
 
 local UserInputService = game:GetService('UserInputService')
 
-COREGUI = game:GetService("CoreGui")
-PARENT = nil
+local CoreGui = game:GetService("CoreGui")
+local ServerParent = nil
 if (not is_sirhurt_closure) and (syn and syn.protect_gui) then
 	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
+	Main.Name = newRandomString()
 	syn.protect_gui(Main)
-	Main.Parent = COREGUI
-	PARENT = Main
+	Main.Parent = CoreGui
+	ServerParent = Main
 elseif get_hidden_gui or gethui then
 	local hiddenUI = get_hidden_gui or gethui
 	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
+	Main.Name = newRandomString()
 	Main.Parent = hiddenUI()
-	PARENT = Main
-elseif COREGUI:FindFirstChild('RobloxGui') then
-	PARENT = COREGUI.RobloxGui
+	ServerParent = Main
+elseif CoreGui:FindFirstChild('RobloxGui') then
+	ServerParent = CoreGui.RobloxGui
 else
 	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
-	Main.Parent = COREGUI
-	PARENT = Main
+	Main.Name = newRandomString()
+	Main.Parent = CoreGui
+	ServerParent = Main
 end
 
-PARENT.ResetOnSpawn = false
-PARENT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ServerParent.ResetOnSpawn = false
+ServerParent.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 
 
 function addPlugin(name)
 	if name:lower() == 'plugin file name' or name:lower() == 'iy_fe.iy' or name == 'iy_fe' then
-		notify('Plugin Error','Please enter a valid plugin')
+		notify('Plugin Error', 'Please enter a valid plugin')
 	else
 		local file
 		local fileName
@@ -82,8 +70,8 @@ function addPlugin(name)
 			pcall(function() file = readfile(name) end)
 			fileName = name
 		else
-			pcall(function() file = readfile(name..'.iy') end)
-			fileName = name..'.iy'
+			pcall(function() file = readfile(name .. '.iy') end)
+			fileName = name .. '.iy'
 		end
 		if file then
 			if not FindInTable(PluginsTable, fileName) then
@@ -92,26 +80,24 @@ function addPlugin(name)
 				refreshplugins()
 				pcall(eventEditor.Refresh)
 			else
-				notify('Plugin Error','This plugin is already added')
+				notify('Plugin Error', 'This plugin is already added')
 			end
 		else
-			notify('Plugin Error','Cannot locate file "'..fileName..'". Is the file in the correct folder?')
+			notify('Plugin Error', 'Cannot locate file "' .. fileName .. '". Is the file in the correct folder?')
 		end
 	end
 end
 
-
-
-function dragGUI(gui)
+local dragGUI = function(gui)
 	task.spawn(function()
 		local dragging
 		local dragInput
-		local dragStart = Vector3.new(0,0,0)
+		local dragStart = Vector3.new(0, 0, 0)
 		local startPos
 		local function update(input)
 			local delta = input.Position - dragStart
 			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-			game:GetService("TweenService"):Create(gui, TweenInfo.new(.20), {Position = Position}):Play()
+			game:GetService("TweenService"):Create(gui, TweenInfo.new(0.20), {Position = Position}):Play()
 		end
 		gui.InputBegan:Connect(function(input)
 			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
@@ -139,10 +125,8 @@ function dragGUI(gui)
 	end)
 end
 
-
-
 function deletePlugin(name)
-	local pName = name..'.iy'
+	local pName = name .. '.iy'
 	if name:sub(-3) == '.iy' then
 		pName = name
 	end
@@ -152,27 +136,25 @@ function deletePlugin(name)
 		end
 	end
 	for i,v in pairs(CMDsF:GetChildren()) do
-		if v.Name == 'PLUGIN_'..pName then
+		if v.Name == 'PLUGIN_' .. pName then
 			v:Destroy()
 		end
 	end
 	for i,v in pairs(PluginsTable) do
 		if v == pName then
 			table.remove(PluginsTable, i)
-			notify('Removed Plugin',pName..' was removed')
+			notify('Removed Plugin', pName .. ' was removed')
 		end
 	end
-	IndexContents('',true)
+	IndexContents('', true)
 	refreshplugins()
 end
 
 local autoCanvas = function(scrollframe, layout)
-	if not scrollframe:IsA("ScrollingFrame") then return error("autoCanvas Missing Scrolling Frame", 0) end
-	if not (layout:IsA("UIListLayout") or layout:IsA("UIGridLayout") or layout:IsA("UIPageLayout")) then return error("autoCanvas Missing Layout", 0) end
+	if not scrollframe:IsA("ScrollingFrame") then return error("Invalid argument #1 to 'autoCanvas' (expected ScrollingFrame)", 0) end
+	if not (layout:IsA("UIListLayout") or layout:IsA("UIGridLayout") or layout:IsA("UIPageLayout")) then return error("Invalid argument #2 to 'autoCanvas' (expected a UILayout)", 0) end
 	scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
-	layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-		scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
-	end)
+	layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function() scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y) end)
 end
 
 
@@ -246,7 +228,7 @@ local Command = Instance.new("TextLabel")
 
 
 mainFrame.Name = "mainFrame"
-mainFrame.Parent = PARENT
+mainFrame.Parent = ServerParent
 mainFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
 mainFrame.BackgroundTransparency = 1.000
 mainFrame.BorderColor3 = Color3.fromRGB(40, 40, 40)
@@ -911,11 +893,11 @@ Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
 InfStoreBtn.MouseButton1Click:Connect(function()
-	mainFrame:TweenPosition(UDim2.new(0.5,-250,0.5,-150), "InOut", "Quart", 0.5, true, nil)
+	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0.5, -150), "InOut", "Quart", 0.5, true, nil)
 end)
 
 mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
-	mainFrame:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
+	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
 
 mainFrame.TopBar.Title.Text = 'Infinite Store v' .. cVer
@@ -1010,14 +992,14 @@ local IS_Intro = function()
 end
 IS_Intro()
 
-function pluginInfoToggle(bool)
+local pluginInfoToggle = function(bool)
 	if bool == true then
-		local tweenGoals = {Position = UDim2.new(0.858, 0,0.063, 0)}
+		local tweenGoals = {Position = UDim2.new(0.858, 0, 0.063, 0)}
 		local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 		local tween = tweenService:Create(mainFrame.PluginInfo, tweenInfo, tweenGoals)
 		tween:Play()
 	else
-		local tweenGoals = {Position = UDim2.new(0.59, 0,0.063, 0)}
+		local tweenGoals = {Position = UDim2.new(0.59, 0, 0.063, 0)}
 		local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In)
 		local tween = tweenService:Create(mainFrame.PluginInfo, tweenInfo, tweenGoals)
 		tween:Play()
@@ -1025,7 +1007,7 @@ function pluginInfoToggle(bool)
 end
 
 
-function tweenColor(instance, rgb, property, t1me)
+local tweenColor = function(instance, rgb, property, t1me)
 	local tweenGoals = {ImageColor3 = rgb}
 	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
 	local tween = tweenService:Create(instance, tweenInfo, tweenGoals)
@@ -1033,7 +1015,7 @@ function tweenColor(instance, rgb, property, t1me)
 end
 
 
-function tweenColor2(instance, rgb, t1me)
+local tweenColor2 = function(instance, rgb, t1me)
 	local tweenGoals = {TextColor3 = rgb}
 	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
 	local tween = tweenService:Create(instance, tweenInfo, tweenGoals)
@@ -1048,7 +1030,7 @@ local searchBox = mainFrame:WaitForChild('ListHolder'):WaitForChild('Plugins'):W
 local Objects = {['Frame'] = true}
 local Type = 1
 
-function Filter(Text)
+local Filter = function(Text)
 	for i,v in pairs(ObjectHolder:GetChildren()) do
 		if Objects[v.ClassName] then
 			if string.match(string.lower(v.Name), Text) then
@@ -1069,7 +1051,7 @@ end
 searchBox:GetPropertyChangedSignal('Text'):Connect(function()
 	local CurrentText = searchBox.Text
 
-	ObjectHolder.CanvasPosition = Vector2.new(0,0,0,0)
+	ObjectHolder.CanvasPosition = Vector2.new(0, 0, 0, 0)
 
 	if CurrentText == "" then
 		for i,v in pairs(ObjectHolder:GetChildren()) do
@@ -1194,16 +1176,17 @@ for index,plgin in pairs(pluginTable) do
 	end)
 
 	pluginFrameClone.PluginName.InfoBtn.MouseButton1Click:Connect(function()
-		if pluginFrameClone.PluginName.InfoBtn.ImageColor3 ~= Color3.fromRGB(255,255,255) then
+		if pluginFrameClone.PluginName.InfoBtn.ImageColor3 ~= Color3.fromRGB(255, 255, 255) then
 			mainFrame.PluginInfo.PluginInfo.PluginName.Text = plgin.Name
 
 			for i,v in pairs(mainFrame.ListHolder.Plugins:GetDescendants()) do
+				-- if (v.Name == 'InfoBtn') and (not v.Parent.Parent.Parent:IsA('UIGridLayout')) then
 				if v.Name == 'InfoBtn' and v.Parent.Parent.Parent.Name ~= 'UIGridLayout' then
-					tweenColor(v, Color3.fromRGB(98,98,98), v.ImageColor3, 0.2)
+					tweenColor(v, Color3.fromRGB(98, 98, 98), v.ImageColor3, 0.2)
 				end
 			end
 
-			tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(255,255,255), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.2)
+			tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(255, 255, 255), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.2)
 
 			for i,v in pairs(mainFrame.PluginInfo.List:GetChildren()) do
 				if v:IsA('TextLabel') then
@@ -1223,7 +1206,7 @@ for index,plgin in pairs(pluginTable) do
 		else
 
 			pluginInfoToggle(false)
-			tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(98,98,98), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.5)
+			tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(98, 98, 98), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.5)
 
 		end
 	end)
