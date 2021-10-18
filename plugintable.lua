@@ -59,7 +59,7 @@ return {
 	};
 	
 	['AddAllPlugins'] = {
-		['Name'] = 'AddAllPlugins', ['Creator'] = 'prisj', ['CreationDate'] = '04/09/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/addallplugins.iy", ['Commands'] = {'addallplugins'},
+		['Name'] = 'AddAllPlugins', ['Creator'] = 'prisj', ['CreationDate'] = '04/09/2021', ['GithubLink'] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/addallplugins.iy", ['Commands'] = {'addallplugins / aap'},
 	};
 	
 	['AntiFling'] = {
