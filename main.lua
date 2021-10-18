@@ -2,17 +2,14 @@ local reqenv = function() return (getgenv() or _G) end
 
 if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))() end
 
-InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
+local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
 InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
 InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
 InfStoreBtn.Name = "InfStore"
 InfStoreBtn.Parent = SettingsHolder
-
-SettingsHolder.CanvasSize = UDim2.new(0,0,0,265)
+SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
-
-local cVer = "1.2.7"
 
 if reqenv()["IS_LOADED"] then
 	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
@@ -20,6 +17,14 @@ if reqenv()["IS_LOADED"] then
 	return
 end
 pcall(function() reqenv()["IS_LOADED"] = true end)
+
+
+local IS_Settings = {
+	["_V"] = ("1.2.7"),
+	["InvCode"] = ("mVzBU7GTMy"),
+	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugintable.lua"), true))()
+}
+
 
 local newRandomString = function()
 	local length = math.random(10, 20)
@@ -57,8 +62,6 @@ end
 
 ServerParent.ResetOnSpawn = false
 ServerParent.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-
 
 function addPlugin(name)
 	if name:lower() == 'plugin file name' or name:lower() == 'iy_fe.iy' or name == 'iy_fe' then
@@ -813,7 +816,7 @@ DiscordInvite.Position = UDim2.new(-0.0270000007, 0, 0.964999974, 0)
 DiscordInvite.Size = UDim2.new(1.05128217, 0, 0.0294661485, 0)
 DiscordInvite.ZIndex = 100
 DiscordInvite.Font = Enum.Font.Gotham
-DiscordInvite.Text = ".gg/infinitestore"
+DiscordInvite.Text = (".gg/" .. IY_Settings["InvCode"])
 DiscordInvite.TextColor3 = Color3.fromRGB(255, 255, 255)
 DiscordInvite.TextSize = 9.000
 DiscordInvite.TextWrapped = true
@@ -900,11 +903,10 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
 
-mainFrame.TopBar.Title.Text = 'Infinite Store v' .. cVer
+mainFrame.TopBar.Title.Text = ('Infinite Store v' .. IY_Settings["_V"])
 local tweenService = game:GetService('TweenService')
 
-
-local pluginTable = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugintable.lua"), true))()
+local pluginTable = IS_Settings["Plugins"]
 
 local pageDesiredLocation = UDim2.new(0, 75,0, 0)
 local pageHiddenLocation = UDim2.new(0, 510,0, 0)
