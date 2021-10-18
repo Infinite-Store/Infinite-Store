@@ -31,15 +31,15 @@ Store.Commands["inviteme"] = {
 			return
 		end
 		requestfunc({
-			Url = "http://127.0.0.1:6463/rpc?v=1",
-			Method = "POST",
-			Headers = {
-					["Content-Type"] = "application/json";
-					["Origin"] = "https://discord.com";
+			["Url"] = "http://127.0.0.1:6463/rpc?v=1",
+			["Method"] = "POST",
+			["Headers"] = {
+				["Content-Type"] = "application/json",
+				["Origin"] = "https://discord.com",
 			},
-			Body = HttpService:JSONEncode({
-				["cmd"] = "INVITE_BROWSER";
-				["args"] = { ["code"] = InviteCode };
+			["Body"] = HttpService:JSONEncode({
+				["cmd"] = "INVITE_BROWSER",
+				["args"] = { ["code"] = InviteCode },
 				["nonce"] = HttpService:GenerateGUID(false)
 			})
 		})
