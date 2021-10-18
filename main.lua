@@ -20,7 +20,7 @@ pcall(function() reqenv()["IS_LOADED"] = true end)
 
 
 local IS_Settings = {
-	["_V"] = ("1.2.7"),
+	["_V"] = ("1.2.8"),
 	["InvCode"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugintable.lua"), true))()
 }
@@ -63,34 +63,6 @@ end
 ServerParent.ResetOnSpawn = false
 ServerParent.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-function addPlugin(name)
-	if name:lower() == 'plugin file name' or name:lower() == 'iy_fe.iy' or name == 'iy_fe' then
-		notify('Plugin Error', 'Please enter a valid plugin')
-	else
-		local file
-		local fileName
-		if name:sub(-3) == '.iy' then
-			pcall(function() file = readfile(name) end)
-			fileName = name
-		else
-			pcall(function() file = readfile(name .. '.iy') end)
-			fileName = name .. '.iy'
-		end
-		if file then
-			if not FindInTable(PluginsTable, fileName) then
-				table.insert(PluginsTable, fileName)
-				LoadPlugin(fileName)
-				refreshplugins()
-				pcall(eventEditor.Refresh)
-			else
-				notify('Plugin Error', 'This plugin is already added')
-			end
-		else
-			notify('Plugin Error', 'Cannot locate file "' .. fileName .. '". Is the file in the correct folder?')
-		end
-	end
-end
-
 local dragGUI = function(gui)
 	task.spawn(function()
 		local dragging
@@ -126,31 +98,6 @@ local dragGUI = function(gui)
 			end
 		end)
 	end)
-end
-
-function deletePlugin(name)
-	local pName = name .. '.iy'
-	if name:sub(-3) == '.iy' then
-		pName = name
-	end
-	for i = #cmds,1,-1 do
-		if cmds[i].PLUGIN == pName then
-			table.remove(cmds, i)
-		end
-	end
-	for i,v in pairs(CMDsF:GetChildren()) do
-		if v.Name == 'PLUGIN_' .. pName then
-			v:Destroy()
-		end
-	end
-	for i,v in pairs(PluginsTable) do
-		if v == pName then
-			table.remove(PluginsTable, i)
-			notify('Removed Plugin', pName .. ' was removed')
-		end
-	end
-	IndexContents('', true)
-	refreshplugins()
 end
 
 local autoCanvas = function(scrollframe, layout)
