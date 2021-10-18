@@ -903,7 +903,7 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
 
-mainFrame.TopBar.Title.Text = ('Infinite Store v' .. IY_Settings["_V"])
+mainFrame.TopBar.Title.Text = ('Infinite Store v' .. IS_Settings["_V"])
 local tweenService = game:GetService('TweenService')
 
 local pluginTable = IS_Settings["Plugins"]
