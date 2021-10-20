@@ -22,7 +22,7 @@ pcall(function() reqenv()["IS_LOADED"] = true end)
 local IS_Settings = {
 	["_V"] = ("1.2.8"),
 	["InvCode"] = ("mVzBU7GTMy"),
-	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugintable.lua"), true))()
+	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))()
 }
 
 
