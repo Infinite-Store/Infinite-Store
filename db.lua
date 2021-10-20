@@ -218,6 +218,6 @@ return {
 	};
 
 	["LoopLight"] = {
-		["Name"] = "Loop Lighting", ["Creator"] = "Ivory", ["CreationDate"] = "10/20/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/virtualreality.iy", ["Commands"] = {"vr"},
+		["Name"] = "Loop Lighting", ["Creator"] = "FatalSe7en", ["CreationDate"] = "10/20/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/virtualreality.iy", ["Commands"] = {"vr"},
 	};
 }
