@@ -19,7 +19,7 @@ pcall(function() reqenv()["IS_LOADED"] = true end)
 
 
 local IS_Settings = {
-	["_V"] = ("1.2.7"),
+	["_V"] = ("1-yourcok"),
 	["InvCode"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugintable.lua"), true))()
 }
@@ -1083,8 +1083,8 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
 
-mainFrame.TopBar.Title.Text = ('Infinite Store v' .. IY_Settings["_V"])
-DiscordInvite.Text = (".gg/" .. IY_Settings["InvCode"])
+mainFrame.TopBar.Title.Text = ('Infinite Store v' .. IS_Settings["_V"])
+DiscordInvite.Text = (".gg/" .. IS_Settings["InvCode"])
 autoCanvas(List_3, UIGridLayout_2)
 autoCanvas(List_3, UIGridLayout_3)
 
