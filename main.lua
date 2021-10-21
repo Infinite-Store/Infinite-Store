@@ -18,7 +18,7 @@ SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 
 local IS_Settings = {
-	["_V"] = ("1-yourcok"),
+	["_V"] = ("1.2.9"),
 	["InvCode"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))()
 }
@@ -1364,8 +1364,8 @@ end
 local settingsList = mainFrame.ListHolder.Settings.List
 
 local guiSettings = {
-	["AutoVisible"] = {
-		["Name"] = "AutoVisible",
+	["Auto Visible"] = {
+		["Name"] = "Auto Visible",
 		["Description"] = "Infinite Store will automatically be visible when executed",
 		["SettingFunction"] = function()
 			if _UserSettings.AutoVisible == true then
@@ -1382,7 +1382,7 @@ local guiSettings = {
 
 for index,setting in pairs(guiSettings) do
 	local tempClone = settingsList.UIGridLayout.Template:Clone()
-	tempClone.Name = tostring(setting["Name"])
+	tempClone.Name = tostring(setting["Name"]):gsub(" ", "")
 	tempClone.SettingName.Text = tostring(setting["Name"])
 	tempClone.Description.Text = tostring(setting["Description"])
 	
@@ -1395,8 +1395,8 @@ end
 
 for index,val in pairs(_UserSettings) do
 	if val == true then
-		settingsList[tostring(index)].CheckBox.Checked.Transparency = 0
+		settingsList[tostring(index):gsub(" ", "")].CheckBox.Checked.Transparency = 0
 	else
-		settingsList[tostring(index)].CheckBox.Checked.Transparency = 1
+		settingsList[tostring(index):gsub(" ", "")].CheckBox.Checked.Transparency = 1
 	end
 end
