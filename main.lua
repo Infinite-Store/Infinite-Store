@@ -26,7 +26,7 @@ local IS_Settings = {
 
 
 local _UserSettings = {
-	AutoVisible = false,
+	StartMinimized = false,
 	SafeMode = false,
 }
 
@@ -41,7 +41,7 @@ LoadSettings = function()
 			if readfile(SaveFileName) ~= nil then
 				local success, response = pcall(function()
 					local json = game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
-					if json.AutoVisible ~= nil then _UserSettings.AutoVisible = json.AutoVisible else _UserSettings.AutoVisible = false end
+					if json.StartMinimized ~= nil then _UserSettings.StartMinimized = json.StartMinimized else _UserSettings.StartMinimized = false end
 					if json.SafeMode ~= nil then _UserSettings.SafeMode = json.SafeMode else _UserSettings.SafeMode = false end
 				end)
 				if not success then
@@ -63,12 +63,12 @@ LoadSettings = function()
 				LoadSettings()
 			else
 				NoSaving = true
-				_UserSettings.AutoVisible = false
+				_UserSettings.StartMinimized = false
 				_UserSettings.SafeMode = false
 			end
 		end
 	else
-		_UserSettings.AutoVisible = false
+		_UserSettings.StartMinimized = false
 		_UserSettings.SafeMode = false
 	end
 end
@@ -78,7 +78,7 @@ LoadSettings()
 local UpdateSettings = function()
 	if NoSaving == false and writefileExploit() then
 		local update = {
-			AutoVisible = _UserSettings.AutoVisible;
+			StartMinimized = _UserSettings.StartMinimized;
 		}
 		writefileCooldown(SaveFileName, game:GetService("HttpService"):JSONEncode(update))
 	end
@@ -172,12 +172,12 @@ end
 mainFrame = Instance.new("Frame")
 
 dragGUI(mainFrame)
-mainFrame.Visible = _UserSettings.AutoVisible
+mainFrame.Visible = _UserSettings.StartMinimized
 
-if _UserSettings.AutoVisible == true then
-	notify('Infinite Store', 'Auto Visible is turned on, this can be disabled in settings')
+if _UserSettings.StartMinimized == true then
+	notify('Infinite Store', 'Start Minimized is turned off, this can be disabled in settings')
 else
-	notify('Infinite Store', "Auto Visible is turned off, Infinite Store can be opened inside of Infinite Yield's Settings")
+	notify('Infinite Store', "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings")
 end
 
 local TopBar = Instance.new("Frame")
@@ -1412,16 +1412,16 @@ function cleanPluginCheck()
 end
 
 local guiSettings = {
-	["Auto Visible"] = {
-		["Name"] = "Auto Visible",
-		["Description"] = "Infinite Store will automatically be visible when executed",
+	["Start Minimized"] = {
+		["Name"] = "Start Minimized",
+		["Description"] = "Infinite Store starts in the background and remains out of your way.",
 		["SettingFunction"] = function()
-			if _UserSettings.AutoVisible == true then
-				checkBoxHandler(false, settingsList["AutoVisible"].CheckBox)
-				_UserSettings.AutoVisible = false
+			if _UserSettings.StartMinimized == true then
+				checkBoxHandler(false, settingsList["StartMinimized"].CheckBox)
+				_UserSettings.StartMinimized = false
 			else
-				checkBoxHandler(true, settingsList["AutoVisible"].CheckBox)
-				_UserSettings.AutoVisible = true
+				checkBoxHandler(true, settingsList["StartMinimized"].CheckBox)
+				_UserSettings.StartMinimized = true
 			end
 			UpdateSettings()
 		end,
@@ -1429,7 +1429,7 @@ local guiSettings = {
 
 	["Safe Mode"] = {
 		["Name"] = "Safe Mode",
-		["Description"] = "Hide NSFW plugins",
+		["Description"] = "Hide NSFW plugins.",
 		["SettingFunction"] = function()
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
