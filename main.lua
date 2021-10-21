@@ -27,7 +27,7 @@ local IS_Settings = {
 
 local _UserSettings = {
 	AutoVisible = false,
-	CleanPlugins = false,
+	SafeMode = false,
 }
 
 local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
@@ -42,7 +42,7 @@ LoadSettings = function()
 				local success, response = pcall(function()
 					local json = game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
 					if json.AutoVisible ~= nil then _UserSettings.AutoVisible = json.AutoVisible else _UserSettings.AutoVisible = false end
-					if json.CleanPlugins ~= nil then _UserSettings.CleanPlugins = json.CleanPlugins else _UserSettings.CleanPlugins = false end
+					if json.SafeMode ~= nil then _UserSettings.SafeMode = json.SafeMode else _UserSettings.SafeMode = false end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -64,12 +64,12 @@ LoadSettings = function()
 			else
 				NoSaving = true
 				_UserSettings.AutoVisible = false
-				_UserSettings.CleanPlugins = false
+				_UserSettings.SafeMode = false
 			end
 		end
 	else
 		_UserSettings.AutoVisible = false
-		_UserSettings.CleanPlugins = false
+		_UserSettings.SafeMode = false
 	end
 end
 
@@ -1400,7 +1400,7 @@ local settingsList = mainFrame.ListHolder.Settings.List
 local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
 
 function cleanPluginCheck()
-	if _UserSettings.CleanPlugins == true then
+	if _UserSettings.SafeMode == true then
 		for index,plgin in pairs(nsfwPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 		end
@@ -1431,15 +1431,15 @@ local guiSettings = {
 		["Name"] = "Safe Mode",
 		["Description"] = "Hide NSFW plugins",
 		["SettingFunction"] = function()
-			if _UserSettings.CleanPlugins == true then
-				checkBoxHandler(false, settingsList["CleanPlugins"].CheckBox)
-				_UserSettings.CleanPlugins = false
+			if _UserSettings.SafeMode == true then
+				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
+				_UserSettings.SafeMode = false
 				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 				end
 			else
-				checkBoxHandler(true, settingsList["CleanPlugins"].CheckBox)
-				_UserSettings.CleanPlugins = true
+				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
+				_UserSettings.SafeMode = true
 				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 				end
