@@ -27,6 +27,7 @@ local IS_Settings = {
 
 local _UserSettings = {
 	AutoVisible = false,
+	CleanPlugins = false,
 }
 
 local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
@@ -41,6 +42,7 @@ LoadSettings = function()
 				local success, response = pcall(function()
 					local json = game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
 					if json.AutoVisible ~= nil then _UserSettings.AutoVisible = json.AutoVisible else _UserSettings.AutoVisible = false end
+					if json.CleanPlugins ~= nil then _UserSettings.CleanPlugins = json.CleanPlugins else _UserSettings.CleanPlugins = false end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -62,10 +64,12 @@ LoadSettings = function()
 			else
 				NoSaving = true
 				_UserSettings.AutoVisible = false
+				_UserSettings.CleanPlugins = false
 			end
 		end
 	else
 		_UserSettings.AutoVisible = false
+		_UserSettings.CleanPlugins = false
 	end
 end
 
@@ -1017,7 +1021,7 @@ Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
 InfStoreBtn.MouseButton1Click:Connect(function()
-    mainFrame.Visible = true
+	mainFrame.Visible = true
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0.5, -150), "InOut", "Quart", 0.5, true, nil)
 end)
 
@@ -1046,7 +1050,7 @@ local installDebounce = false
 local checkboxDeb = false
 local checkBoxHandler = function(bool, obj)
 	if checkboxDeb == false then
-        checkboxDeb = true
+		checkboxDeb = true
 		if bool == true then
 			local tweenGoals = {BackgroundTransparency = 0}
 			local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
@@ -1164,6 +1168,14 @@ end
 
 local tweenColor2 = function(instance, rgb, t1me)
 	local tweenGoals = {TextColor3 = rgb}
+	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
+	local tween = tweenService:Create(instance, tweenInfo, tweenGoals)
+	tween:Play()
+end
+
+
+local tweenColor3 = function(instance, rgb, t1me)
+	local tweenGoals = {BackgroundColor3 = rgb}
 	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
 	local tween = tweenService:Create(instance, tweenInfo, tweenGoals)
 	tween:Play()
@@ -1305,6 +1317,13 @@ for index,plgin in pairs(pluginTable) do
 				pluginFrameClone.Install.Text = 'Success'
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Install'
+				
+				for i,v in pairs(pluginFrameClone) do
+					tweenColor3(pluginFrameClone,Color3.fromRGB(22, 22, 22),.2)
+					if v:IsA('TextLabel') or v:IsA('TextButton') then
+						tweenColor3(v,Color3.fromRGB(42, 42, 42),.2)
+					end
+				end
 
 			else
 
@@ -1314,6 +1333,13 @@ for index,plgin in pairs(pluginTable) do
 				pluginFrameClone.Install.Text = 'Success'
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Uninstall'
+				
+				for i,v in pairs(pluginFrameClone) do
+					tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
+					if v:IsA('TextLabel') or v:IsA('TextButton') then
+						tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
+					end
+				end
 
 			end
 
@@ -1363,6 +1389,18 @@ end
 
 
 local settingsList = mainFrame.ListHolder.Settings.List
+local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
+
+if _UserSettings.CleanPlugins == true then
+	for index,val in pairs(nsfwPluginsTable) do
+		mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = false
+	end
+else
+	for index,val in pairs(nsfwPluginsTable) do
+		mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = true
+	end
+end
+
 
 local guiSettings = {
 	["Auto Visible"] = {
@@ -1379,6 +1417,27 @@ local guiSettings = {
 			UpdateSettings()
 		end,
 	},
+	
+	["Clean Plugins"] = {
+		["Name"] = "Clean Plugins",
+		["Description"] = "Hide NSFW plugins",
+		["SettingFunction"] = function()
+			if _UserSettings.CleanPlugins == true then
+				checkBoxHandler(false, settingsList["CleanPlugins"].CheckBox)
+				_UserSettings.CleanPlugins = false
+				for index,val in pairs(nsfwPluginsTable) do
+					mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = true
+				end
+			else
+				checkBoxHandler(true, settingsList["CleanPlugins"].CheckBox)
+				_UserSettings.CleanPlugins = true
+				for index,val in pairs(nsfwPluginsTable) do
+					mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = false
+				end
+			end
+			UpdateSettings()
+		end,
+	},
 }
 
 for index,setting in pairs(guiSettings) do
@@ -1386,11 +1445,11 @@ for index,setting in pairs(guiSettings) do
 	tempClone.Name = tostring(setting["Name"]):gsub(" ", "")
 	tempClone.SettingName.Text = tostring(setting["Name"])
 	tempClone.Description.Text = tostring(setting["Description"])
-	
+
 	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function()
 		setting.SettingFunction()
 	end)
-	
+
 	tempClone.Parent = settingsList
 end
 
@@ -1401,3 +1460,5 @@ for index,val in pairs(_UserSettings) do
 		settingsList[tostring(index):gsub(" ", "")].CheckBox.Checked.Transparency = 1
 	end
 end
+
+
