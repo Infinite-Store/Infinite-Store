@@ -218,6 +218,10 @@ return {
 	};
 
 	["LoopLight"] = {
-		["Name"] = "Loop Lighting", ["Creator"] = "FatalSe7en", ["CreationDate"] = "10/20/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/virtualreality.iy", ["Commands"] = {"vr"},
+		["Name"] = "LoopLight", ["Creator"] = "FatalSe7en", ["CreationDate"] = "10/20/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/looplight.iy", ["Commands"] = {"loopday / lday / ld", "unloopday / unlday / unld", "loopnight / lnight / ln", "unloopnight / unlnight/ unln", "loopnofog / lnofog / lnf / loopnf", "unloopnofog / unlnofog / unlnf / unloopnf"},
+	};
+	
+	["ClearChat"] = {
+		["Name"] = "ClearChat", ["Creator"] = "NoobSploit", ["CreationDate"] = "10/20/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/clearchat.iy", ["Commands"] = {"clearchat / clchat"},
 	};
 }
