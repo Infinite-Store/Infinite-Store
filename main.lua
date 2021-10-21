@@ -175,9 +175,9 @@ dragGUI(mainFrame)
 if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
 
 if _UserSettings.StartMinimized == true then
-	notify('Infinite Store', 'Start Minimized is turned on, this can be disabled in settings')
+	notify('Infinite Store', 'Start Minimized is turned off, this can be disabled in settings')
 else
-	notify('Infinite Store', "Start Minimized is turned off, Infinite Store can be opened inside of Infinite Yield's Settings")
+	notify('Infinite Store', "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings")
 end
 
 local TopBar = Instance.new("Frame")
@@ -1414,7 +1414,7 @@ end
 local guiSettings = {
 	["Start Minimized"] = {
 		["Name"] = "Start Minimized",
-		["Description"] = "Infinite Store will start minimized.",
+		["Description"] = "Infinite Store will be hidden when executed.",
 		["SettingFunction"] = function()
 			if _UserSettings.StartMinimized == true then
 				checkBoxHandler(false, settingsList["StartMinimized"].CheckBox)
