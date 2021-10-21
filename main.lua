@@ -1399,6 +1399,7 @@ local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
 
 if _UserSettings.CleanPlugins == true then
 	for index,val in pairs(nsfwPluginsTable) do
+		print(val)
 		mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = false
 	end
 else
