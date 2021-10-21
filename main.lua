@@ -1456,7 +1456,7 @@ local guiSettings = {
 	
 	["No Notifs"] = {
 		["Name"] = "No Notifs",
-		["Description"] = "Infinite Store will not give you notifications.",
+		["Description"] = "Infinite Store will not give you Infinite Yield notifications.",
 		["SettingFunction"] = function()
 			if _UserSettings.NoNotifs == true then
 				checkBoxHandler(false, settingsList["NoNotifs"].CheckBox)
