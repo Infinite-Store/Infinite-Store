@@ -79,6 +79,7 @@ local UpdateSettings = function()
 	if NoSaving == false and writefileExploit() then
 		local update = {
 			StartMinimized = _UserSettings.StartMinimized;
+			SafeMode = _UserSettings.SafeMode;
 		}
 		writefileCooldown(SaveFileName, game:GetService("HttpService"):JSONEncode(update))
 	end
@@ -1221,7 +1222,7 @@ searchBox:GetPropertyChangedSignal('Text'):Connect(function()
 	else
 		Filter(string.lower(CurrentText))
 	end
-		
+
 	cleanPluginCheck()
 end)
 
