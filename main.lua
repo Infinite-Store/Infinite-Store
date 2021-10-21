@@ -1324,7 +1324,7 @@ for index,plgin in pairs(pluginTable) do
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Install'
 
-				for i,v in pairs(pluginFrameClone) do
+				for i,v in pairs(pluginFrameClone:GetChildren()) do
 					tweenColor3(pluginFrameClone,Color3.fromRGB(22, 22, 22),.2)
 					if v:IsA('TextLabel') or v:IsA('TextButton') then
 						tweenColor3(v,Color3.fromRGB(42, 42, 42),.2)
@@ -1340,7 +1340,7 @@ for index,plgin in pairs(pluginTable) do
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Uninstall'
 
-				for i,v in pairs(pluginFrameClone) do
+				for i,v in pairs(pluginFrameClone:GetChildren()) do
 					tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
 					if v:IsA('TextLabel') or v:IsA('TextButton') then
 						tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
