@@ -1414,7 +1414,7 @@ end
 local guiSettings = {
 	["Start Minimized"] = {
 		["Name"] = "Start Minimized",
-		["Description"] = "Infinite Store will be invisible on startup.",
+		["Description"] = "Infinite Store will start minimized.",
 		["SettingFunction"] = function()
 			if _UserSettings.StartMinimized == true then
 				checkBoxHandler(false, settingsList["StartMinimized"].CheckBox)
