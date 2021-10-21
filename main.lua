@@ -172,7 +172,7 @@ end
 mainFrame = Instance.new("Frame")
 
 dragGUI(mainFrame)
-mainFrame.Visible = _UserSettings.StartMinimized
+if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
 
 if _UserSettings.StartMinimized == true then
 	notify('Infinite Store', 'Start Minimized is turned off, this can be disabled in settings')
