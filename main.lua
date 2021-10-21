@@ -20,7 +20,8 @@ SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 local IS_Settings = {
 	["_V"] = ("1.2.9"),
 	["InvCode"] = ("mVzBU7GTMy"),
-	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))()
+	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
+	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
 }
 
 
