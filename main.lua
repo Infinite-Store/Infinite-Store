@@ -1,5 +1,12 @@
 local reqenv = function() return (getgenv() or _G) end
 
+if reqenv()["IS_LOADED"] then
+	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
+	error("Infinite Store is already running!", 0)
+	return
+end
+pcall(function() reqenv()["IS_LOADED"] = true end)
+
 if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))() end
 
 local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
@@ -10,26 +17,18 @@ InfStoreBtn.Parent = SettingsHolder
 SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 
-if reqenv()["IS_LOADED"] then
-	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
-	error("Infinite Store is already running!", 0)
-	return
-end
-pcall(function() reqenv()["IS_LOADED"] = true end)
-
-
 local IS_Settings = {
 	["_V"] = ("1-yourcok"),
 	["InvCode"] = ("mVzBU7GTMy"),
-	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugintable.lua"), true))()
+	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))()
 }
 
 
-local UserSettings = {
-	AutoVisible = false;
+local _UserSettings = {
+	AutoVisible = false,
 }
 
-local DefaultSettings = game:GetService("HttpService"):JSONEncode(UserSettings)
+local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
 local NoSaving = false
 local loadedEventData = nil
@@ -40,7 +39,7 @@ LoadSettings = function()
 			if readfile(SaveFileName) ~= nil then
 				local success, response = pcall(function()
 					local json = game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
-					if json.AutoVisible ~= nil then UserSettings.AutoVisible = json.AutoVisible else AutoVisible = false end
+					if json.AutoVisible ~= nil then _UserSettings.AutoVisible = json.AutoVisible else _UserSettings.AutoVisible = false end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -61,11 +60,11 @@ LoadSettings = function()
 				LoadSettings()
 			else
 				NoSaving = true
-				AutoVisible = false
+				_UserSettings.AutoVisible = false
 			end
 		end
 	else
-		AutoVisible = false
+		_UserSettings.AutoVisible = false
 	end
 end
 
@@ -74,7 +73,7 @@ LoadSettings()
 local UpdateSettings = function()
 	if NoSaving == false and writefileExploit() then
 		local update = {
-			AutoVisible = UserSettings.AutoVisible;
+			AutoVisible = _UserSettings.AutoVisible;
 		}
 		writefileCooldown(SaveFileName, game:GetService("HttpService"):JSONEncode(update))
 	end
@@ -118,34 +117,6 @@ end
 ServerParent.ResetOnSpawn = false
 ServerParent.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-function addPlugin(name)
-	if name:lower() == 'plugin file name' or name:lower() == 'iy_fe.iy' or name == 'iy_fe' then
-		notify('Plugin Error', 'Please enter a valid plugin')
-	else
-		local file
-		local fileName
-		if name:sub(-3) == '.iy' then
-			pcall(function() file = readfile(name) end)
-			fileName = name
-		else
-			pcall(function() file = readfile(name .. '.iy') end)
-			fileName = name .. '.iy'
-		end
-		if file then
-			if not FindInTable(PluginsTable, fileName) then
-				table.insert(PluginsTable, fileName)
-				LoadPlugin(fileName)
-				refreshplugins()
-				pcall(eventEditor.Refresh)
-			else
-				notify('Plugin Error', 'This plugin is already added')
-			end
-		else
-			notify('Plugin Error', 'Cannot locate file "' .. fileName .. '". Is the file in the correct folder?')
-		end
-	end
-end
-
 local dragGUI = function(gui)
 	task.spawn(function()
 		local dragging
@@ -183,31 +154,6 @@ local dragGUI = function(gui)
 	end)
 end
 
-function deletePlugin(name)
-	local pName = name .. '.iy'
-	if name:sub(-3) == '.iy' then
-		pName = name
-	end
-	for i = #cmds,1,-1 do
-		if cmds[i].PLUGIN == pName then
-			table.remove(cmds, i)
-		end
-	end
-	for i,v in pairs(CMDsF:GetChildren()) do
-		if v.Name == 'PLUGIN_' .. pName then
-			v:Destroy()
-		end
-	end
-	for i,v in pairs(PluginsTable) do
-		if v == pName then
-			table.remove(PluginsTable, i)
-			notify('Removed Plugin', pName .. ' was removed')
-		end
-	end
-	IndexContents('', true)
-	refreshplugins()
-end
-
 local autoCanvas = function(scrollframe, layout)
 	if not scrollframe:IsA("ScrollingFrame") then return error("Invalid argument #1 to 'autoCanvas' (expected ScrollingFrame)", 0) end
 	if not (layout:IsA("UIListLayout") or layout:IsA("UIGridLayout") or layout:IsA("UIPageLayout")) then return error("Invalid argument #2 to 'autoCanvas' (expected a UILayout)", 0) end
@@ -221,9 +167,9 @@ end
 mainFrame = Instance.new("Frame")
 
 dragGUI(mainFrame)
-mainFrame.Visible = AutoVisible
+mainFrame.Visible = _UserSettings.AutoVisible
 
-if AutoVisible == true then
+if _UserSettings.AutoVisible == true then
 	notify('Infinite Store', 'Auto Visible is turned on, this can be disabled in settings')
 else
 	notify('Infinite Store', "Auto Visible is turned off, Infinite Store can be opened inside of Infinite Yield's Settings")
@@ -303,14 +249,8 @@ local List_4 = Instance.new("ScrollingFrame")
 local UIGridLayout_3 = Instance.new("UIGridLayout")
 local Command = Instance.new("TextLabel")
 
---Properties:
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.ResetOnSpawn = false
-
 mainFrame.Name = "mainFrame"
-mainFrame.Parent = ScreenGui
+mainFrame.Parent = ServerParent
 mainFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
 mainFrame.BackgroundTransparency = 1.000
 mainFrame.BorderColor3 = Color3.fromRGB(40, 40, 40)
@@ -1076,6 +1016,7 @@ Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
 InfStoreBtn.MouseButton1Click:Connect(function()
+    mainFrame.Visible = true
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0.5, -150), "InOut", "Quart", 0.5, true, nil)
 end)
 
@@ -1083,27 +1024,28 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
 
-mainFrame.TopBar.Title.Text = ('Infinite Store v' .. IS_Settings["_V"])
+mainFrame.TopBar.Title.Text = ("Infinite Store v" .. IS_Settings["_V"])
 DiscordInvite.Text = (".gg/" .. IS_Settings["InvCode"])
-autoCanvas(List_3, UIGridLayout_2)
+autoCanvas(List_2, UIGridLayout)
 autoCanvas(List_3, UIGridLayout_3)
 
 local tweenService = game:GetService('TweenService')
 
 local pluginTable = IS_Settings["Plugins"]
 
-local pageDesiredLocation = UDim2.new(0, 75,0, 0)
-local pageHiddenLocation = UDim2.new(0, 510,0, 0)
-local pageHiddenLocation2 = UDim2.new(0,-350,0,0)
+local pageDesiredLocation = UDim2.new(0, 75, 0, 0)
+local pageHiddenLocation = UDim2.new(0, 510, 0, 0)
+local pageHiddenLocation2 = UDim2.new(0, -350, 0, 0)
 
-local openColor = Color3.fromRGB(255,255,255)
-local closedColor = Color3.fromRGB(156,156,156)
+local openColor = Color3.fromRGB(255, 255, 255)
+local closedColor = Color3.fromRGB(156, 156, 156)
 
 local installDebounce = false
 
 local checkboxDeb = false
-function checkBoxHandler(bool, obj)
-	if checkboxDeb == false then checkboxDeb = true
+local checkBoxHandler = function(bool, obj)
+	if checkboxDeb == false then
+        checkboxDeb = true
 		if bool == true then
 			local tweenGoals = {BackgroundTransparency = 0}
 			local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
@@ -1421,29 +1363,28 @@ end
 
 local settingsList = mainFrame.ListHolder.Settings.List
 
-guiSettings = {
-	["Auto Visible"] = {
-		["Name"] = "Auto Visible"; 
+local guiSettings = {
+	["AutoVisible"] = {
+		["Name"] = "AutoVisible",
 		["Description"] = "Infinite Store will automatically be visible when executed",
-		["SettingFunction"] = 
-		function()
-			if UserSettings.AutoVisible == true then
-				checkBoxHandler(false, settingsList['Auto Visible'])
-				UserSettings.AutoVisible = false
+		["SettingFunction"] = function()
+			if _UserSettings.AutoVisible == true then
+				checkBoxHandler(false, settingsList["AutoVisible"])
+				_UserSettings.AutoVisible = false
 			else
-				checkBoxHandler(true, settingsList['Auto Visible'])
-				UserSettings.AutoVisible = true
+				checkBoxHandler(true, settingsList["AutoVisible"])
+				_UserSettings.AutoVisible = true
 			end
 			UpdateSettings()
 		end,
-	};
+	},
 }
 
 for index,setting in pairs(guiSettings) do
 	local tempClone = settingsList.UIGridLayout.Template:Clone()
-	tempClone.Name = setting.Name
-	tempClone.SettingName.Text = setting.Name
-	tempClone.Description.Text = setting.Description
+	tempClone.Name = tostring(setting["Name"])
+	tempClone.SettingName.Text = tostring(setting["Name"])
+	tempClone.Description.Text = tostring(setting["Description"])
 	
 	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function()
 		setting.SettingFunction()
@@ -1452,7 +1393,7 @@ for index,setting in pairs(guiSettings) do
 	tempClone.Parent = settingsList
 end
 
-for index,val in pairs(UserSettings) do
+for index,val in pairs(_UserSettings) do
 	if val == true then
 		settingsList[tostring(index)].CheckBox.Checked.Transparency = 0
 	else
