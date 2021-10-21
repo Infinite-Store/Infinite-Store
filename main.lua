@@ -18,7 +18,7 @@ SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 
 local IS_Settings = {
-	["_V"] = ("1.2.91"),
+	["_V"] = ("1.2.9"),
 	["InvCode"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
 	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
@@ -1221,6 +1221,8 @@ searchBox:GetPropertyChangedSignal('Text'):Connect(function()
 	else
 		Filter(string.lower(CurrentText))
 	end
+		
+	cleanPluginCheck()
 end)
 
 
@@ -1397,17 +1399,17 @@ end
 local settingsList = mainFrame.ListHolder.Settings.List
 local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
 
-if _UserSettings.CleanPlugins == true then
-	for index,val in pairs(nsfwPluginsTable) do
-		print(val)
-		mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = false
-	end
-else
-	for index,val in pairs(nsfwPluginsTable) do
-		mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = true
+function cleanPluginCheck()
+	if _UserSettings.CleanPlugins == true then
+		for index,plgin in pairs(nsfwPluginsTable) do
+			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
+		end
+	else
+		for index,plgin in pairs(nsfwPluginsTable) do
+			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
+		end
 	end
 end
-
 
 local guiSettings = {
 	["Auto Visible"] = {
@@ -1432,14 +1434,14 @@ local guiSettings = {
 			if _UserSettings.CleanPlugins == true then
 				checkBoxHandler(false, settingsList["CleanPlugins"].CheckBox)
 				_UserSettings.CleanPlugins = false
-				for index,val in pairs(nsfwPluginsTable) do
-					mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = true
+				for index,plgin in pairs(nsfwPluginsTable) do
+					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 				end
 			else
 				checkBoxHandler(true, settingsList["CleanPlugins"].CheckBox)
 				_UserSettings.CleanPlugins = true
-				for index,val in pairs(nsfwPluginsTable) do
-					mainFrame.ListHolder.Plugins.List[tostring(val)].Visible = false
+				for index,plgin in pairs(nsfwPluginsTable) do
+					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 				end
 			end
 			UpdateSettings()
