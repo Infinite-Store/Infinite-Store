@@ -1297,6 +1297,12 @@ for index,plgin in pairs(pluginTable) do
 
 	if isfile(plgin.Name .. '.iy') then
 		pluginFrameClone.Install.Text = 'Uninstall'
+		for i,v in pairs(pluginFrameClone) do
+			tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
+			if v:IsA('TextLabel') or v:IsA('TextButton') then
+				tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
+			end
+		end
 	end
 
 	pluginFrameClone.Install.MouseButton1Click:Connect(function()
@@ -1317,7 +1323,7 @@ for index,plgin in pairs(pluginTable) do
 				pluginFrameClone.Install.Text = 'Success'
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Install'
-				
+
 				for i,v in pairs(pluginFrameClone) do
 					tweenColor3(pluginFrameClone,Color3.fromRGB(22, 22, 22),.2)
 					if v:IsA('TextLabel') or v:IsA('TextButton') then
@@ -1333,7 +1339,7 @@ for index,plgin in pairs(pluginTable) do
 				pluginFrameClone.Install.Text = 'Success'
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Uninstall'
-				
+
 				for i,v in pairs(pluginFrameClone) do
 					tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
 					if v:IsA('TextLabel') or v:IsA('TextButton') then
@@ -1417,7 +1423,7 @@ local guiSettings = {
 			UpdateSettings()
 		end,
 	},
-	
+
 	["Clean Plugins"] = {
 		["Name"] = "Clean Plugins",
 		["Description"] = "Hide NSFW plugins",
