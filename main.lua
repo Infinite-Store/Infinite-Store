@@ -21,7 +21,7 @@ local IS_Settings = {
 	["_V"] = ("1.3"),
 	["InvCode"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
-	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
+	["NSFWPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/NSFWplugins/db.lua"), true))()
 }
 
 
@@ -1397,15 +1397,15 @@ end
 
 
 local settingsList = mainFrame.ListHolder.Settings.List
-local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
+local NSFWPluginsTable = IS_Settings["NSFWPlugins"]
 
 function cleanPluginCheck()
 	if _UserSettings.SafeMode == true then
-		for index,plgin in pairs(nsfwPluginsTable) do
+		for index,plgin in pairs(NSFWPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 		end
 	else
-		for index,plgin in pairs(nsfwPluginsTable) do
+		for index,plgin in pairs(NSFWPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 		end
 	end
@@ -1429,18 +1429,18 @@ local guiSettings = {
 
 	["Safe Mode"] = {
 		["Name"] = "Safe Mode",
-		["Description"] = "Hides NSFW plugins.",
+		["Description"] = "Hide NSFW plugins.",
 		["SettingFunction"] = function()
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = false
-				for index,plgin in pairs(nsfwPluginsTable) do
+				for index,plgin in pairs(NSFWPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 				end
 			else
 				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = true
-				for index,plgin in pairs(nsfwPluginsTable) do
+				for index,plgin in pairs(NSFWPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 				end
 			end
