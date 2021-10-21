@@ -1,7 +1,22 @@
 local reqenv = function() return (getgenv() or _G) end
 
+
+local IS_Settings = {
+	["_V"] = ("1.3"),
+	["InvCode"] = ("mVzBU7GTMy"),
+	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
+	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
+}
+
+
+local _UserSettings = {
+	StartMinimized = false,
+	SafeMode = false,
+	NoNotifs = false,
+}
+
 if reqenv()["IS_LOADED"] then
-	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
+	 if _UserSettings.NoNotifs == false then notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5) end
 	error("Infinite Store is already running!", 0)
 	return
 end
@@ -16,20 +31,6 @@ InfStoreBtn.Name = "InfStore"
 InfStoreBtn.Parent = SettingsHolder
 SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
-
-local IS_Settings = {
-	["_V"] = ("1.3"),
-	["InvCode"] = ("mVzBU7GTMy"),
-	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
-	["NSFWPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
-}
-
-
-local _UserSettings = {
-	StartMinimized = false,
-	SafeMode = false,
-}
-
 local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
 local NoSaving = false
@@ -43,6 +44,7 @@ LoadSettings = function()
 					local json = game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
 					if json.StartMinimized ~= nil then _UserSettings.StartMinimized = json.StartMinimized else _UserSettings.StartMinimized = false end
 					if json.SafeMode ~= nil then _UserSettings.SafeMode = json.SafeMode else _UserSettings.SafeMode = false end
+					if json.NoNotifs ~= nil then _UserSettings.NoNotifs = json.NoNotifs else _UserSettings.NoNotifs = false end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -65,11 +67,13 @@ LoadSettings = function()
 				NoSaving = true
 				_UserSettings.StartMinimized = false
 				_UserSettings.SafeMode = false
+				_UserSettings.NoNotifs = false
 			end
 		end
 	else
 		_UserSettings.StartMinimized = false
 		_UserSettings.SafeMode = false
+		_UserSettings.NoNotifs = false
 	end
 end
 
@@ -80,6 +84,7 @@ local UpdateSettings = function()
 		local update = {
 			StartMinimized = _UserSettings.StartMinimized;
 			SafeMode = _UserSettings.SafeMode;
+			NoNotifs = _UserSettings.NoNotifs;
 		}
 		writefileCooldown(SaveFileName, game:GetService("HttpService"):JSONEncode(update))
 	end
@@ -176,9 +181,9 @@ dragGUI(mainFrame)
 if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
 
 if _UserSettings.StartMinimized == true then
-	notify('Infinite Store', "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings")
+	if _UserSettings.NoNotifs == false then notify('Infinite Store', "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings") end
 else
-	notify('Infinite Store', 'Start Minimized is turned off, this can be disabled in settings')
+	if _UserSettings.NoNotifs == false then notify('Infinite Store', 'Start Minimized is turned off, this can be disabled in settings') end
 end
 
 local TopBar = Instance.new("Frame")
@@ -1398,15 +1403,15 @@ end
 
 
 local settingsList = mainFrame.ListHolder.Settings.List
-local NSFWPluginsTable = IS_Settings["NSFWPlugins"]
+local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
 
 function cleanPluginCheck()
 	if _UserSettings.SafeMode == true then
-		for index,plgin in pairs(NSFWPluginsTable) do
+		for index,plgin in pairs(nsfwPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 		end
 	else
-		for index,plgin in pairs(NSFWPluginsTable) do
+		for index,plgin in pairs(nsfwPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 		end
 	end
@@ -1435,15 +1440,30 @@ local guiSettings = {
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = false
-				for index,plgin in pairs(NSFWPluginsTable) do
+				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 				end
 			else
 				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = true
-				for index,plgin in pairs(NSFWPluginsTable) do
+				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 				end
+			end
+			UpdateSettings()
+		end,
+	},
+	
+	["No Notifs"] = {
+		["Name"] = "No Notifs",
+		["Description"] = "Infinite Store will not give you notifications.",
+		["SettingFunction"] = function()
+			if _UserSettings.NoNotifs == true then
+				checkBoxHandler(false, settingsList["NoNotifs"].CheckBox)
+				_UserSettings.NoNotifs = false
+			else
+				checkBoxHandler(true, settingsList["NoNotifs"].CheckBox)
+				_UserSettings.NoNotifs = true
 			end
 			UpdateSettings()
 		end,
