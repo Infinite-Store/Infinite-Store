@@ -1369,10 +1369,10 @@ local guiSettings = {
 		["Description"] = "Infinite Store will automatically be visible when executed",
 		["SettingFunction"] = function()
 			if _UserSettings.AutoVisible == true then
-				checkBoxHandler(false, settingsList["AutoVisible"])
+				checkBoxHandler(false, settingsList["AutoVisible"].CheckBox)
 				_UserSettings.AutoVisible = false
 			else
-				checkBoxHandler(true, settingsList["AutoVisible"])
+				checkBoxHandler(true, settingsList["AutoVisible"].CheckBox)
 				_UserSettings.AutoVisible = true
 			end
 			UpdateSettings()
