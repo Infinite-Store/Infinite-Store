@@ -18,7 +18,7 @@ SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 
 local IS_Settings = {
-	["_V"] = ("1.3"),
+	["_V"] = ("1.2.9"),
 	["InvCode"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
 	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
@@ -1427,8 +1427,8 @@ local guiSettings = {
 		end,
 	},
 
-	["Clean Plugins"] = {
-		["Name"] = "Clean Plugins",
+	["Safe Mode"] = {
+		["Name"] = "Safe Mode",
 		["Description"] = "Hide NSFW plugins",
 		["SettingFunction"] = function()
 			if _UserSettings.CleanPlugins == true then
@@ -1470,4 +1470,5 @@ for index,val in pairs(_UserSettings) do
 	end
 end
 
+cleanPluginCheck()
 
