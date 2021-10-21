@@ -1,5 +1,12 @@
 local reqenv = function() return (getgenv() or _G) end
 
+if reqenv()["IS_LOADED"] then
+	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
+	error("Infinite Store is already running!", 0)
+	return
+end
+pcall(function() reqenv()["IS_LOADED"] = true end)
+
 if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))() end
 
 local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
@@ -9,21 +16,73 @@ InfStoreBtn.Name = "InfStore"
 InfStoreBtn.Parent = SettingsHolder
 SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
-notify("Infinite Store", "A button has been created inside of IY settings to open Infinite Store", 5)
-
-if reqenv()["IS_LOADED"] then
-	notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
-	error("Infinite Store is already running!", 0)
-	return
-end
-pcall(function() reqenv()["IS_LOADED"] = true end)
-
 
 local IS_Settings = {
-	["_V"] = ("1.2.8"),
+	["_V"] = ("1.3"),
 	["InvCode"] = ("mVzBU7GTMy"),
-	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))()
+	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
+	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
 }
+
+
+local _UserSettings = {
+	AutoVisible = false,
+	CleanPlugins = false,
+}
+
+local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
+local SaveFileName = "infinite-store.json"
+local NoSaving = false
+local loadedEventData = nil
+local LoadSettings = nil
+LoadSettings = function()
+	if writefileExploit() then
+		if pcall(function() readfile(SaveFileName) end) then
+			if readfile(SaveFileName) ~= nil then
+				local success, response = pcall(function()
+					local json = game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
+					if json.AutoVisible ~= nil then _UserSettings.AutoVisible = json.AutoVisible else _UserSettings.AutoVisible = false end
+					if json.CleanPlugins ~= nil then _UserSettings.CleanPlugins = json.CleanPlugins else _UserSettings.CleanPlugins = false end
+				end)
+				if not success then
+					warn("Save Json Error:", response)
+					warn("Overwriting Save File")
+					writefileCooldown(SaveFileName, DefaultSettings)
+					wait()
+					LoadSettings()
+				end
+			else
+				writefileCooldown(SaveFileName, DefaultSettings)
+				wait()
+				LoadSettings()
+			end
+		else
+			writefileCooldown(SaveFileName, DefaultSettings)
+			wait()
+			if pcall(function() readfile(SaveFileName) end) then
+				LoadSettings()
+			else
+				NoSaving = true
+				_UserSettings.AutoVisible = false
+				_UserSettings.CleanPlugins = false
+			end
+		end
+	else
+		_UserSettings.AutoVisible = false
+		_UserSettings.CleanPlugins = false
+	end
+end
+
+LoadSettings()
+
+local UpdateSettings = function()
+	if NoSaving == false and writefileExploit() then
+		local update = {
+			AutoVisible = _UserSettings.AutoVisible;
+		}
+		writefileCooldown(SaveFileName, game:GetService("HttpService"):JSONEncode(update))
+	end
+end
 
 
 local newRandomString = function()
@@ -111,7 +170,15 @@ end
 
 
 mainFrame = Instance.new("Frame")
+
 dragGUI(mainFrame)
+mainFrame.Visible = _UserSettings.AutoVisible
+
+if _UserSettings.AutoVisible == true then
+	notify('Infinite Store', 'Auto Visible is turned on, this can be disabled in settings')
+else
+	notify('Infinite Store', "Auto Visible is turned off, Infinite Store can be opened inside of Infinite Yield's Settings")
+end
 
 local TopBar = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
@@ -160,6 +227,15 @@ local Install = Instance.new("TextButton")
 local SearchBar = Instance.new("Frame")
 local Search = Instance.new("TextBox")
 local Icon = Instance.new("ImageLabel")
+local Settings = Instance.new("Frame")
+local List_3 = Instance.new("ScrollingFrame")
+local UIGridLayout_2 = Instance.new("UIGridLayout")
+local Template_2 = Instance.new("Frame")
+local Description = Instance.new("TextLabel")
+local SettingName = Instance.new("TextLabel")
+local CheckBox = Instance.new("Frame")
+local Btn = Instance.new("ImageButton")
+local Checked = Instance.new("Frame")
 local SideBar = Instance.new("Frame")
 local Holder = Instance.new("Frame")
 local UIListLayout_3 = Instance.new("UIListLayout")
@@ -167,15 +243,16 @@ local Home_2 = Instance.new("TextButton")
 local cs = Instance.new("BoolValue")
 local Plugins_2 = Instance.new("TextButton")
 local cs_2 = Instance.new("BoolValue")
+local Settings_2 = Instance.new("TextButton")
+local cs_3 = Instance.new("BoolValue")
 local DiscordInvite = Instance.new("TextLabel")
 local PluginInfo = Instance.new("Frame")
 local PluginInfo_2 = Instance.new("Frame")
 local InfoLabel = Instance.new("TextLabel")
 local PluginName_2 = Instance.new("TextLabel")
-local List_3 = Instance.new("ScrollingFrame")
-local UIGridLayout_2 = Instance.new("UIGridLayout")
+local List_4 = Instance.new("ScrollingFrame")
+local UIGridLayout_3 = Instance.new("UIGridLayout")
 local Command = Instance.new("TextLabel")
-
 
 mainFrame.Name = "mainFrame"
 mainFrame.Parent = ServerParent
@@ -202,6 +279,7 @@ Title.Position = UDim2.new(0.149999946, 0, 0, 0)
 Title.Size = UDim2.new(0.850000083, 0, 0.949999988, 0)
 Title.ZIndex = 10
 Title.Font = Enum.Font.SourceSans
+Title.Text = "Infinite Store v1.8.9"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 14.000
 
@@ -595,8 +673,6 @@ List_2.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 UIGridLayout.Parent = List_2
 UIGridLayout.CellSize = UDim2.new(0, 422, 0, 25)
 
-autoCanvas(List_2, UIGridLayout)
-
 Template.Name = "Template"
 Template.Parent = UIGridLayout
 Template.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
@@ -703,6 +779,95 @@ Icon.Size = UDim2.new(0, 23, 0, 23)
 Icon.Image = "http://www.roblox.com/asset/?id=6031154871"
 Icon.ImageColor3 = Color3.fromRGB(206, 206, 206)
 
+Settings.Name = "Settings"
+Settings.Parent = ListHolder
+Settings.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Settings.BorderSizePixel = 0
+Settings.ClipsDescendants = true
+Settings.Position = UDim2.new(0, -350, 0, 0)
+Settings.Size = UDim2.new(0.850000024, 0, 0, 300)
+Settings.Visible = false
+Settings.ZIndex = 10
+
+List_3.Name = "List"
+List_3.Parent = Settings
+List_3.Active = true
+List_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+List_3.BackgroundTransparency = 1.000
+List_3.BorderSizePixel = 0
+List_3.Position = UDim2.new(0.00434397999, 0, 0.0272000115, 0)
+List_3.Size = UDim2.new(0, 423, 0, 290)
+List_3.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+List_3.CanvasSize = UDim2.new(0, 0, 0, 500)
+List_3.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+
+UIGridLayout_2.Parent = List_3
+UIGridLayout_2.CellSize = UDim2.new(0, 410, 0, 45)
+
+Template_2.Name = "Template"
+Template_2.Parent = UIGridLayout_2
+Template_2.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Template_2.BorderSizePixel = 0
+Template_2.ClipsDescendants = true
+Template_2.Position = UDim2.new(0, 0, 1.02407981e-07, 0)
+Template_2.Size = UDim2.new(0.964902639, 0, -1.35570467, 429)
+Template_2.ZIndex = 10
+
+Description.Name = "Description"
+Description.Parent = Template_2
+Description.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+Description.BackgroundTransparency = 1.000
+Description.BorderSizePixel = 0
+Description.Position = UDim2.new(0.0170730967, 0, 0.466666669, 0)
+Description.Size = UDim2.new(0.849155784, 0, 0.533333421, 0)
+Description.ZIndex = 10
+Description.Font = Enum.Font.SourceSans
+Description.Text = "Description"
+Description.TextColor3 = Color3.fromRGB(191, 191, 191)
+Description.TextSize = 15.000
+Description.TextWrapped = true
+Description.TextXAlignment = Enum.TextXAlignment.Left
+
+SettingName.Name = "SettingName"
+SettingName.Parent = Template_2
+SettingName.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+SettingName.BackgroundTransparency = 1.000
+SettingName.BorderSizePixel = 0
+SettingName.Position = UDim2.new(0.0170730967, 0, 0, 0)
+SettingName.Size = UDim2.new(0.849155784, 0, 0.640888214, 0)
+SettingName.ZIndex = 10
+SettingName.Font = Enum.Font.SourceSans
+SettingName.Text = "Setting Name"
+SettingName.TextColor3 = Color3.fromRGB(255, 255, 255)
+SettingName.TextSize = 22.000
+SettingName.TextWrapped = true
+SettingName.TextXAlignment = Enum.TextXAlignment.Left
+
+CheckBox.Name = "CheckBox"
+CheckBox.Parent = Template_2
+CheckBox.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+CheckBox.BorderSizePixel = 0
+CheckBox.Position = UDim2.new(0.903853655, 0, 0.177777782, 0)
+CheckBox.Size = UDim2.new(0, 28, 0, 28)
+CheckBox.ZIndex = 25
+
+Btn.Name = "Btn"
+Btn.Parent = CheckBox
+Btn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Btn.BackgroundTransparency = 1.000
+Btn.Size = UDim2.new(1, 0, 1, 0)
+Btn.ZIndex = 100
+Btn.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+Btn.ImageTransparency = 1.000
+
+Checked.Name = "Checked"
+Checked.Parent = CheckBox
+Checked.BackgroundColor3 = Color3.fromRGB(177, 177, 177)
+Checked.BorderSizePixel = 0
+Checked.Position = UDim2.new(0.100000001, 0, 0.100000001, 0)
+Checked.Size = UDim2.new(0.800000012, 0, 0.800000012, 0)
+Checked.ZIndex = 50
+
 SideBar.Name = "SideBar"
 SideBar.Parent = mainFrame
 SideBar.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
@@ -754,6 +919,20 @@ Plugins_2.TextXAlignment = Enum.TextXAlignment.Left
 cs_2.Name = "cs"
 cs_2.Parent = Plugins_2
 
+Settings_2.Name = "Settings"
+Settings_2.Parent = Holder
+Settings_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Settings_2.BackgroundTransparency = 1.000
+Settings_2.Size = UDim2.new(1.02699995, -8, 0, 20)
+Settings_2.Font = Enum.Font.SourceSansBold
+Settings_2.Text = "Settings"
+Settings_2.TextColor3 = Color3.fromRGB(156, 156, 156)
+Settings_2.TextSize = 20.000
+Settings_2.TextXAlignment = Enum.TextXAlignment.Left
+
+cs_3.Name = "cs"
+cs_3.Parent = Settings_2
+
 DiscordInvite.Name = "DiscordInvite"
 DiscordInvite.Parent = SideBar
 DiscordInvite.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -763,7 +942,7 @@ DiscordInvite.Position = UDim2.new(-0.0270000007, 0, 0.964999974, 0)
 DiscordInvite.Size = UDim2.new(1.05128217, 0, 0.0294661485, 0)
 DiscordInvite.ZIndex = 100
 DiscordInvite.Font = Enum.Font.Gotham
-DiscordInvite.Text = (".gg/" .. IS_Settings["InvCode"])
+DiscordInvite.Text = ".gg/infinitestore"
 DiscordInvite.TextColor3 = Color3.fromRGB(255, 255, 255)
 DiscordInvite.TextSize = 9.000
 DiscordInvite.TextWrapped = true
@@ -811,25 +990,24 @@ PluginName_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 PluginName_2.TextSize = 17.000
 PluginName_2.TextWrapped = true
 
-List_3.Name = "List"
-List_3.Parent = PluginInfo
-List_3.Active = true
-List_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-List_3.BackgroundTransparency = 1.000
-List_3.BorderSizePixel = 0
-List_3.Position = UDim2.new(0.369791657, 0, 0.140893474, 0)
-List_3.Size = UDim2.new(0, 121, 0, 249)
-List_3.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-List_3.CanvasSize = UDim2.new(0, 0, 0, 500)
-List_3.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+List_4.Name = "List"
+List_4.Parent = PluginInfo
+List_4.Active = true
+List_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+List_4.BackgroundTransparency = 1.000
+List_4.BorderSizePixel = 0
+List_4.Position = UDim2.new(0.369791657, 0, 0.140893474, 0)
+List_4.Size = UDim2.new(0, 121, 0, 249)
+List_4.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+List_4.CanvasPosition = Vector2.new(0, 18.0722885)
+List_4.CanvasSize = UDim2.new(0, 0, 0, 500)
+List_4.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 
-UIGridLayout_2.Parent = List_3
-UIGridLayout_2.CellSize = UDim2.new(0, 120, 0, 15)
-
-autoCanvas(List_3, UIGridLayout_2)
+UIGridLayout_3.Parent = List_4
+UIGridLayout_3.CellSize = UDim2.new(0, 120, 0, 15)
 
 Command.Name = "Command"
-Command.Parent = UIGridLayout_2
+Command.Parent = UIGridLayout_3
 Command.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 Command.BackgroundTransparency = 1.000
 Command.BorderSizePixel = 0
@@ -843,6 +1021,7 @@ Command.TextWrapped = true
 Command.TextXAlignment = Enum.TextXAlignment.Left
 
 InfStoreBtn.MouseButton1Click:Connect(function()
+	mainFrame.Visible = true
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0.5, -150), "InOut", "Quart", 0.5, true, nil)
 end)
 
@@ -850,19 +1029,42 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
 
-mainFrame.TopBar.Title.Text = ('Infinite Store v' .. IS_Settings["_V"])
+mainFrame.TopBar.Title.Text = ("Infinite Store v" .. IS_Settings["_V"])
+DiscordInvite.Text = (".gg/" .. IS_Settings["InvCode"])
+autoCanvas(List_2, UIGridLayout)
+autoCanvas(List_3, UIGridLayout_3)
+
 local tweenService = game:GetService('TweenService')
 
 local pluginTable = IS_Settings["Plugins"]
 
-local pageDesiredLocation = UDim2.new(0, 75,0, 0)
-local pageHiddenLocation = UDim2.new(0, 510,0, 0)
-local pageHiddenLocation2 = UDim2.new(0,-350,0,0)
+local pageDesiredLocation = UDim2.new(0, 75, 0, 0)
+local pageHiddenLocation = UDim2.new(0, 510, 0, 0)
+local pageHiddenLocation2 = UDim2.new(0, -350, 0, 0)
 
-local openColor = Color3.fromRGB(255,255,255)
-local closedColor = Color3.fromRGB(156,156,156)
+local openColor = Color3.fromRGB(255, 255, 255)
+local closedColor = Color3.fromRGB(156, 156, 156)
 
 local installDebounce = false
+
+local checkboxDeb = false
+local checkBoxHandler = function(bool, obj)
+	if checkboxDeb == false then
+		checkboxDeb = true
+		if bool == true then
+			local tweenGoals = {BackgroundTransparency = 0}
+			local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+			local tween = tweenService:Create(obj.Checked, tweenInfo, tweenGoals)
+			tween:Play()
+		else
+			local tweenGoals = {BackgroundTransparency = 1}
+			local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+			local tween = tweenService:Create(obj.Checked, tweenInfo, tweenGoals)
+			tween:Play()
+		end
+		checkboxDeb = false
+	end
+end
 
 local IS_Intro = function()
 	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0,0, 0)}
@@ -889,7 +1091,7 @@ local IS_Intro = function()
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Epik, tweenInfo, tweenGoals)
 	tween:Play()
 
-	task.wait(0.69420)
+	task.wait(0.69420) --xd
 
 	local tweenGoals = {Position = UDim2.new(0.296, 0,0.5, 0)} --starting pos: 0.296, 0,1.09, 0
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
@@ -972,6 +1174,14 @@ local tweenColor2 = function(instance, rgb, t1me)
 end
 
 
+local tweenColor3 = function(instance, rgb, t1me)
+	local tweenGoals = {BackgroundColor3 = rgb}
+	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
+	local tween = tweenService:Create(instance, tweenInfo, tweenGoals)
+	tween:Play()
+end
+
+
 
 local ObjectHolder = mainFrame:WaitForChild('ListHolder'):WaitForChild('Plugins'):WaitForChild('List')
 local searchBox = mainFrame:WaitForChild('ListHolder'):WaitForChild('Plugins'):WaitForChild('SearchBar'):WaitForChild('Search')
@@ -1011,6 +1221,8 @@ searchBox:GetPropertyChangedSignal('Text'):Connect(function()
 	else
 		Filter(string.lower(CurrentText))
 	end
+		
+	cleanPluginCheck()
 end)
 
 
@@ -1060,11 +1272,11 @@ for i,v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 
 				tweenColor2(v, openColor, 0.2)
 			end
-			
+
 			task.wait(1)
-			
+
 			tweeningDebounce = false
-			
+
 		end)
 
 	end
@@ -1087,6 +1299,12 @@ for index,plgin in pairs(pluginTable) do
 
 	if isfile(plgin.Name .. '.iy') then
 		pluginFrameClone.Install.Text = 'Uninstall'
+		for i,v in pairs(pluginFrameClone:GetChildren()) do
+			tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
+			if v:IsA('TextLabel') or v:IsA('TextButton') then
+				tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
+			end
+		end
 	end
 
 	pluginFrameClone.Install.MouseButton1Click:Connect(function()
@@ -1108,6 +1326,13 @@ for index,plgin in pairs(pluginTable) do
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Install'
 
+				for i,v in pairs(pluginFrameClone:GetChildren()) do
+					tweenColor3(pluginFrameClone,Color3.fromRGB(22, 22, 22),.2)
+					if v:IsA('TextLabel') or v:IsA('TextButton') then
+						tweenColor3(v,Color3.fromRGB(42, 42, 42),.2)
+					end
+				end
+
 			else
 
 				pluginFrameClone.Install.Text = 'Installing'
@@ -1116,6 +1341,13 @@ for index,plgin in pairs(pluginTable) do
 				pluginFrameClone.Install.Text = 'Success'
 				task.wait(.5)
 				pluginFrameClone.Install.Text = 'Uninstall'
+
+				for i,v in pairs(pluginFrameClone:GetChildren()) do
+					tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
+					if v:IsA('TextLabel') or v:IsA('TextButton') then
+						tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
+					end
+				end
 
 			end
 
@@ -1162,3 +1394,80 @@ for index,plgin in pairs(pluginTable) do
 
 	pluginFrameClone.Parent = mainFrame.ListHolder.Plugins.List
 end
+
+
+local settingsList = mainFrame.ListHolder.Settings.List
+local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
+
+function cleanPluginCheck()
+	if _UserSettings.CleanPlugins == true then
+		for index,plgin in pairs(nsfwPluginsTable) do
+			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
+		end
+	else
+		for index,plgin in pairs(nsfwPluginsTable) do
+			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
+		end
+	end
+end
+
+local guiSettings = {
+	["Auto Visible"] = {
+		["Name"] = "Auto Visible",
+		["Description"] = "Infinite Store will automatically be visible when executed",
+		["SettingFunction"] = function()
+			if _UserSettings.AutoVisible == true then
+				checkBoxHandler(false, settingsList["AutoVisible"].CheckBox)
+				_UserSettings.AutoVisible = false
+			else
+				checkBoxHandler(true, settingsList["AutoVisible"].CheckBox)
+				_UserSettings.AutoVisible = true
+			end
+			UpdateSettings()
+		end,
+	},
+
+	["Clean Plugins"] = {
+		["Name"] = "Clean Plugins",
+		["Description"] = "Hide NSFW plugins",
+		["SettingFunction"] = function()
+			if _UserSettings.CleanPlugins == true then
+				checkBoxHandler(false, settingsList["CleanPlugins"].CheckBox)
+				_UserSettings.CleanPlugins = false
+				for index,plgin in pairs(nsfwPluginsTable) do
+					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
+				end
+			else
+				checkBoxHandler(true, settingsList["CleanPlugins"].CheckBox)
+				_UserSettings.CleanPlugins = true
+				for index,plgin in pairs(nsfwPluginsTable) do
+					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
+				end
+			end
+			UpdateSettings()
+		end,
+	},
+}
+
+for index,setting in pairs(guiSettings) do
+	local tempClone = settingsList.UIGridLayout.Template:Clone()
+	tempClone.Name = tostring(setting["Name"]):gsub(" ", "")
+	tempClone.SettingName.Text = tostring(setting["Name"])
+	tempClone.Description.Text = tostring(setting["Description"])
+
+	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function()
+		setting.SettingFunction()
+	end)
+
+	tempClone.Parent = settingsList
+end
+
+for index,val in pairs(_UserSettings) do
+	if val == true then
+		settingsList[tostring(index):gsub(" ", "")].CheckBox.Checked.Transparency = 0
+	else
+		settingsList[tostring(index):gsub(" ", "")].CheckBox.Checked.Transparency = 1
+	end
+end
+
+
