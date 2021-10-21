@@ -21,7 +21,7 @@ local IS_Settings = {
 	["_V"] = ("1.3"),
 	["InvCode"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
-	["NSFWPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/NSFWplugins/db.lua"), true))()
+	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
 }
 
 
@@ -175,9 +175,9 @@ dragGUI(mainFrame)
 if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
 
 if _UserSettings.StartMinimized == true then
-	notify('Infinite Store', 'Start Minimized is turned on, this can be disabled in settings')
+	notify('Infinite Store', "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings")
 else
-	notify('Infinite Store', "Start Minimized is turned off, Infinite Store can be opened inside of Infinite Yield's Settings")
+	notify('Infinite Store', 'Start Minimized is turned off, this can be disabled in settings')
 end
 
 local TopBar = Instance.new("Frame")
@@ -1397,15 +1397,15 @@ end
 
 
 local settingsList = mainFrame.ListHolder.Settings.List
-local NSFWPluginsTable = IS_Settings["NSFWPlugins"]
+local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
 
 function cleanPluginCheck()
 	if _UserSettings.SafeMode == true then
-		for index,plgin in pairs(NSFWPluginsTable) do
+		for index,plgin in pairs(nsfwPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 		end
 	else
-		for index,plgin in pairs(NSFWPluginsTable) do
+		for index,plgin in pairs(nsfwPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 		end
 	end
@@ -1429,18 +1429,18 @@ local guiSettings = {
 
 	["Safe Mode"] = {
 		["Name"] = "Safe Mode",
-		["Description"] = "Hide NSFW plugins.",
+		["Description"] = "Hides NSFW plugins.",
 		["SettingFunction"] = function()
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = false
-				for index,plgin in pairs(NSFWPluginsTable) do
+				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 				end
 			else
 				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = true
-				for index,plgin in pairs(NSFWPluginsTable) do
+				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 				end
 			end
