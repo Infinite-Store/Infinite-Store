@@ -33,10 +33,6 @@ return {
 		["Name"] = "FunGrav", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FunGrav.iy", ["Commands"] = {"nogravparts", "gravparts", "supergravparts", "invertgravparts", "pushparts", "bombparts", "deleteunanchored / deleteua / cleanua", "moveparts [plr]", "movepartsmouse", "unmoveparts", "setblackhole", "blackhole", "removeblackhole", "stopblackhole", "controlblackhole", "uncontrolblackhole", "bringblackhole", "blackholeplayer [plr]", "unblackholeplayer", "loopsim", "flingparts [plr]", "flinghats [plr]", "unflingparts / unspinparts", "spinparts [plr]", "selectparts", "resetselectedpartslist / rspl", "uselist (TOGGLE)", "spinpartsmouse", "flingpartsmouse", "partscollide (TOGGLE)", "blackholedestroyparts / bhdp (TOGGLE)", "earthquake", "unearthquake", "autoupdate"},
 	};
 	
-	["NsfwR6"] = {
-		["Name"] = "NsfwR6", ["Creator"] = "Bloxxy213", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/NsfwR6.iy", ["Commands"] = {"NSFWr6 / NSFW"},
-	};
-	
 	["ReloadIY"] = {
 		["Name"] = "ReloadIY", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Reload.iy", ["Commands"] = {"reload / unload"},
 	};
@@ -69,14 +65,6 @@ return {
 		["Name"] = "AntiKill", ["Creator"] = "enville", ["CreationDate"] = " 09/11/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/antikill.iy", ["Commands"] = {"antikill", "unantikill", "tantikill"},
 	};
 	
-	["Ass"] = {
-		["Name"] = "Ass", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ass.iy", ["Commands"] = {"ass"},
-	};
-	
-	["BoobiesAndAss"] = {
-		["Name"] = "BoobiesAndAss", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/assandboobies.iy", ["Commands"] = {"boobiesandass"},
-	};
-	
 	["Beyblade"] = {
 		["Name"] = "Beyblade", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/beyblade.iy", ["Commands"] = {"beyblade"},
 	};
@@ -91,10 +79,6 @@ return {
 	
 	["BlankSay"] = {
 		["Name"] = "BlankSay", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/blanksay.iy", ["Commands"] = {"blanksay / blankchat"},
-	};
-	
-	["Boobies"] = {
-		["Name"] = "Boobies", ["Creator"] = "NoobSploit", ["CreationDate"] = "08/10/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/boobies.iy", ["Commands"] = {"boobs"},
 	};
 	
 	["BTools2"] = {
@@ -127,10 +111,6 @@ return {
 	
 	["CuteString"] = {
 		["Name"] = "CuteString", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/cutestring.iy", ["Commands"] = {"cutestring / cuteify [string]"},
-	};
-	
-	["Dick"] = {
-		["Name"] = "Dick", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/dick.iy", ["Commands"] = {"dick"},
 	};
 	
 	["DisplayNameRemover"] = {
@@ -191,10 +171,6 @@ return {
 
 	["TextToEmojis"] = {
 		["Name"] = "TextToEmojis", ["Creator"] = "NoobSploit", ["CreationDate"] = "08/31/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/texttoemojis.iy", ["Commands"] = {"texttoemojis"},
-	};
-
-	["MoreSex"] = {
-		["Name"] = "MoreSex", ["Creator"] = "prisj", ["CreationDate"] = "09/30/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/moresex.iy", ["Commands"] = {"getbang / gbang [plr]", "ungetbang / ungbang [plr]", "suck [plr]", "unsuck [plr]"},
 	};
 
 	["UnanchoredTeleporter"] = {
