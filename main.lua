@@ -266,7 +266,7 @@ mainFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
 mainFrame.BackgroundTransparency = 1.000
 mainFrame.BorderColor3 = Color3.fromRGB(40, 40, 40)
 mainFrame.BorderSizePixel = 0
-mainFrame.Position = UDim2.new(0.300319493, 0, 0.285551757, 0)
+mainFrame.Position = UDim2.new(0.5, -250, 0.5, -150)
 mainFrame.Size = UDim2.new(0, 500, 0, 320)
 mainFrame.ZIndex = 10
 
