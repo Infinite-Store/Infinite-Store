@@ -2,8 +2,8 @@ local reqenv = function() return (getgenv() or _G) end
 
 
 local IS_Settings = {
-	["_V"] = ("1.3"),
-	["InvCode"] = ("mVzBU7GTMy"),
+	["Version"] = ("1.3"),
+	["Invite"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
 	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
 }
@@ -15,21 +15,7 @@ local _UserSettings = {
 	NoNotifs = false,
 }
 
-if reqenv()["IS_LOADED"] then
-	 if _UserSettings.NoNotifs == false then notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5) end
-	error("Infinite Store is already running!", 0)
-	return
-end
-pcall(function() reqenv()["IS_LOADED"] = true end)
-
 if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))() end
-
-local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
-InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
-InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
-InfStoreBtn.Name = "InfStore"
-InfStoreBtn.Parent = SettingsHolder
-SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
@@ -90,6 +76,20 @@ local UpdateSettings = function()
 	end
 end
 
+if reqenv()["IS_LOADED"] then
+	 if _UserSettings.NoNotifs == false then notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5) end
+	error("Infinite Store is already running!", 0)
+	return
+end
+pcall(function() reqenv()["IS_LOADED"] = true end)
+
+local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
+InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
+InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
+InfStoreBtn.Name = "InfStore"
+InfStoreBtn.Parent = SettingsHolder
+SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
+
 
 local newRandomString = function()
 	local length = math.random(10, 20)
@@ -100,7 +100,7 @@ local newRandomString = function()
 	return table.concat(array)
 end
 
-local UserInputService = game:GetService('UserInputService')
+local UserInputService = game:GetService("UserInputService")
 
 local CoreGui = game:GetService("CoreGui")
 local ServerParent = nil
@@ -176,14 +176,14 @@ end
 
 
 mainFrame = Instance.new("Frame")
-
 dragGUI(mainFrame)
+
 if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
 
 if _UserSettings.StartMinimized == true then
-	if _UserSettings.NoNotifs == false then notify('Infinite Store', "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings") end
+	if _UserSettings.NoNotifs == false then notify("Infinite Store", "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings") end
 else
-	if _UserSettings.NoNotifs == false then notify('Infinite Store', 'Start Minimized is turned off, this can be disabled in settings') end
+	if _UserSettings.NoNotifs == false then notify("Infinite Store", "Start Minimized is turned off, this can be disabled in settings") end
 end
 
 local TopBar = Instance.new("Frame")
@@ -1035,8 +1035,8 @@ mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
 
-mainFrame.TopBar.Title.Text = ("Infinite Store v" .. IS_Settings["_V"])
-DiscordInvite.Text = (".gg/" .. IS_Settings["InvCode"])
+mainFrame.TopBar.Title.Text = ("Infinite Store v" .. IS_Settings["Version"])
+DiscordInvite.Text = (".gg/" .. IS_Settings["Invite"])
 autoCanvas(List_2, UIGridLayout)
 autoCanvas(List_3, UIGridLayout_3)
 
@@ -1073,76 +1073,76 @@ local checkBoxHandler = function(bool, obj)
 end
 
 local IS_Intro = function()
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0,0, 0)}
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0, 0, 0)}
 	local tweenInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
 
 	task.wait(0.6)
 
-	local tweenGoals = {Position = UDim2.new(0.245, 0,-0.05, 0)}
+	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
 
-	local tweenGoals = {Position = UDim2.new(0.245, 0,-0.05, 0)}
+	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
 
 	task.wait(1.1)
 
-	local tweenGoals = {Position = UDim2.new(0.026, 0,0.5, 0)}
+	local tweenGoals = {Position = UDim2.new(0.026, 0, 0.5, 0)}
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Epik, tweenInfo, tweenGoals)
 	tween:Play()
 
 	task.wait(0.69420) --xd
 
-	local tweenGoals = {Position = UDim2.new(0.296, 0,0.5, 0)} --starting pos: 0.296, 0,1.09, 0
+	local tweenGoals = {Position = UDim2.new(0.296, 0, 0.5, 0)} --starting pos: 0.296, 0,1.09, 0
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
 	tween:Play()
 
-	task.wait(.9)
+	task.wait(0.9)
 
-	local tweenGoals = {Position = UDim2.new(-0.07, 0,-0.05, 0)}
+	local tweenGoals = {Position = UDim2.new(-0.07, 0, -0.05, 0)}
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
 
-	local tweenGoals = {Position = UDim2.new(-0.07, 0,0, 0)}
+	local tweenGoals = {Position = UDim2.new(-0.07, 0, 0, 0)}
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
 
-	task.wait(.8)
+	task.wait(0.8)
 
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0,-0.001, 0)}
-	local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0)}
+	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List1, tweenInfo, tweenGoals)
 	tween:Play()
 
-	task.wait(.4)
+	task.wait(0.4)
 
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0,0.146, 0)}
-	local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0)}
+	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List2, tweenInfo, tweenGoals)
 	tween:Play()
 
-	task.wait(.4)
+	task.wait(0.4)
 
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0,0.292, 0)}
-	local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0)}
+	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List3, tweenInfo, tweenGoals)
 	tween:Play()
 
-	task.wait(.4)
+	task.wait(0.4)
 
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0,0.439, 0)}
-	local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0)}
+	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List4, tweenInfo, tweenGoals)
 	tween:Play()
 
@@ -1204,10 +1204,10 @@ end
 
 
 
-local ObjectHolder = mainFrame:WaitForChild("ListHolder"):WaitForChild('Plugins'):WaitForChild('List')
-local searchBox = mainFrame:WaitForChild('ListHolder'):WaitForChild('Plugins'):WaitForChild('SearchBar'):WaitForChild('Search')
+local ObjectHolder = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("List")
+local searchBox = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("SearchBar"):WaitForChild("Search")
 
-local Objects = {['Frame'] = true}
+local Objects = {["Frame"] = true}
 local Type = 1
 
 local Filter = function(Text)
