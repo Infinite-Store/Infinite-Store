@@ -1187,9 +1187,24 @@ local tweenColor3 = function(instance, rgb, t1me)
 	tween:Play()
 end
 
+local settingsList = mainFrame.ListHolder.Settings.List
+local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
+
+local cleanPluginCheck = function()
+	if _UserSettings.SafeMode == true then
+		for index,plgin in pairs(nsfwPluginsTable) do
+			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = false
+		end
+	else
+		for index,plgin in pairs(nsfwPluginsTable) do
+			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = true
+		end
+	end
+end
 
 
-local ObjectHolder = mainFrame:WaitForChild('ListHolder'):WaitForChild('Plugins'):WaitForChild('List')
+
+local ObjectHolder = mainFrame:WaitForChild("ListHolder"):WaitForChild('Plugins'):WaitForChild('List')
 local searchBox = mainFrame:WaitForChild('ListHolder'):WaitForChild('Plugins'):WaitForChild('SearchBar'):WaitForChild('Search')
 
 local Objects = {['Frame'] = true}
@@ -1213,7 +1228,7 @@ local Filter = function(Text)
 	end
 end
 
-searchBox:GetPropertyChangedSignal('Text'):Connect(function()
+searchBox:GetPropertyChangedSignal("Text"):Connect(function()
 	local CurrentText = searchBox.Text
 
 	ObjectHolder.CanvasPosition = Vector2.new(0, 0, 0, 0)
@@ -1235,7 +1250,7 @@ end)
 local tweeningDebounce = false
 
 for i,v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
-	if v:IsA('TextButton') then
+	if v:IsA("TextButton") then
 
 		v.MouseEnter:Connect(function()
 			tweenColor2(v, openColor, 0.2)
@@ -1250,7 +1265,7 @@ for i,v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 		v.MouseButton1Click:Connect(function()
 			if tweeningDebounce == false and not mainFrame.SideBar.Holder[v.Name].cs.Value == true then tweeningDebounce = true
 				for i,v in pairs(mainFrame.SideBar.Holder:GetDescendants()) do
-					if v:IsA('TextButton') then 
+					if v:IsA("TextButton") then 
 						tweenColor2(v, closedColor, 0.2) 
 
 						local tweenGoals = {Position = pageHiddenLocation}
@@ -1260,7 +1275,7 @@ for i,v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 						tween555:Play()
 
 					end
-					if v.Name == 'cs' then 
+					if v.Name == "cs" then 
 						v.Value = false 
 					end
 				end
@@ -1298,17 +1313,17 @@ for index,plgin in pairs(pluginTable) do
 
 	local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 
-	pluginFrameClone.Name = tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)
+	pluginFrameClone.Name = tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)
 	pluginFrameClone.Author.Text = plgin.Creator
 	pluginFrameClone.PluginName.Text = plgin.Name
 	pluginFrameClone.Created.Text = plgin.CreationDate
 
-	if isfile(plgin.Name .. '.iy') then
-		pluginFrameClone.Install.Text = 'Uninstall'
+	if isfile(plgin.Name .. ".iy") then
+		pluginFrameClone.Install.Text = "Uninstall"
 		for i,v in pairs(pluginFrameClone:GetChildren()) do
-			tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
-			if v:IsA('TextLabel') or v:IsA('TextButton') then
-				tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
+			tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
+			if v:IsA("TextLabel") or v:IsA("TextButton") then
+				tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
 			end
 		end
 	end
@@ -1323,35 +1338,35 @@ for index,plgin in pairs(pluginTable) do
 			})
 			pluginData = Response.Body
 
-			if isfile(plgin.Name .. '.iy') == true then
+			if isfile(plgin.Name .. ".iy") == true then
 
-				pluginFrameClone.Install.Text = 'Uninstalling'
+				pluginFrameClone.Install.Text = "Uninstalling"
 				deletePlugin(plgin.Name)
-				delfile(plgin.Name .. '.iy')
-				pluginFrameClone.Install.Text = 'Success'
-				task.wait(.5)
-				pluginFrameClone.Install.Text = 'Install'
+				delfile(plgin.Name .. ".iy")
+				pluginFrameClone.Install.Text = "Success"
+				task.wait(0.5)
+				pluginFrameClone.Install.Text = "Install"
 
 				for i,v in pairs(pluginFrameClone:GetChildren()) do
-					tweenColor3(pluginFrameClone,Color3.fromRGB(22, 22, 22),.2)
-					if v:IsA('TextLabel') or v:IsA('TextButton') then
-						tweenColor3(v,Color3.fromRGB(42, 42, 42),.2)
+					tweenColor3(pluginFrameClone, Color3.fromRGB(22, 22, 22), 0.2)
+					if v:IsA("TextLabel") or v:IsA("TextButton") then
+						tweenColor3(v, Color3.fromRGB(42, 42, 42), 0.2)
 					end
 				end
 
 			else
 
-				pluginFrameClone.Install.Text = 'Installing'
-				writefile(plgin.Name .. '.iy', pluginData)
+				pluginFrameClone.Install.Text = "Installing"
+				writefile(plgin.Name .. ".iy", pluginData)
 				addPlugin(plgin.Name)
-				pluginFrameClone.Install.Text = 'Success'
-				task.wait(.5)
-				pluginFrameClone.Install.Text = 'Uninstall'
+				pluginFrameClone.Install.Text = "Success"
+				task.wait(0.5)
+				pluginFrameClone.Install.Text = "Uninstall"
 
 				for i,v in pairs(pluginFrameClone:GetChildren()) do
-					tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
-					if v:IsA('TextLabel') or v:IsA('TextButton') then
-						tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
+					tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
+					if v:IsA("TextLabel") or v:IsA("TextButton") then
+						tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
 					end
 				end
 
@@ -1367,8 +1382,8 @@ for index,plgin in pairs(pluginTable) do
 			mainFrame.PluginInfo.PluginInfo.PluginName.Text = plgin.Name
 
 			for i,v in pairs(mainFrame.ListHolder.Plugins:GetDescendants()) do
-				-- if (v.Name == 'InfoBtn') and (not v.Parent.Parent.Parent:IsA('UIGridLayout')) then
-				if v.Name == 'InfoBtn' and v.Parent.Parent.Parent.Name ~= 'UIGridLayout' then
+				-- if (v.Name == "InfoBtn") and (not v.Parent.Parent.Parent:IsA("UIGridLayout")) then
+				if v.Name == "InfoBtn" and v.Parent.Parent.Parent.Name ~= "UIGridLayout" then
 					tweenColor(v, Color3.fromRGB(98, 98, 98), v.ImageColor3, 0.2)
 				end
 			end
@@ -1376,7 +1391,7 @@ for index,plgin in pairs(pluginTable) do
 			tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(255, 255, 255), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.2)
 
 			for i,v in pairs(mainFrame.PluginInfo.List:GetChildren()) do
-				if v:IsA('TextLabel') then
+				if v:IsA("TextLabel") then
 					v:Destroy()
 				end
 			end
@@ -1402,20 +1417,6 @@ for index,plgin in pairs(pluginTable) do
 end
 
 
-local settingsList = mainFrame.ListHolder.Settings.List
-local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
-
-function cleanPluginCheck()
-	if _UserSettings.SafeMode == true then
-		for index,plgin in pairs(nsfwPluginsTable) do
-			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
-		end
-	else
-		for index,plgin in pairs(nsfwPluginsTable) do
-			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
-		end
-	end
-end
 
 local guiSettings = {
 	["Start Minimized"] = {
@@ -1492,4 +1493,3 @@ for index,val in pairs(_UserSettings) do
 end
 
 cleanPluginCheck()
-
