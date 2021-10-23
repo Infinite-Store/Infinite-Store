@@ -1436,7 +1436,7 @@ local guiSettings = {
 
 	["Safe Mode"] = {
 		["Name"] = "Safe Mode",
-		["Description"] = "Hides NSFW plugins.",
+		["Description"] = "Hides NSFW Plugins.",
 		["SettingFunction"] = function()
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
