@@ -5,7 +5,7 @@ local IS_Settings = {
 	["Version"] = ("1.3"),
 	["Invite"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
-	["NSFWPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
+	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
 }
 
 
@@ -1188,15 +1188,15 @@ local tweenColor3 = function(instance, rgb, t1me)
 end
 
 local settingsList = mainFrame.ListHolder.Settings.List
-local NSFWPluginsTable = IS_Settings["NSFWPlugins"]
+local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
 
 local cleanPluginCheck = function()
 	if _UserSettings.SafeMode == true then
-		for index,plgin in pairs(NSFWPluginsTable) do
+		for index,plgin in pairs(nsfwPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = false
 		end
 	else
-		for index,plgin in pairs(NSFWPluginsTable) do
+		for index,plgin in pairs(nsfwPluginsTable) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = true
 		end
 	end
@@ -1441,13 +1441,13 @@ local guiSettings = {
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = false
-				for index,plgin in pairs(NSFWPluginsTable) do
+				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
 				end
 			else
 				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = true
-				for index,plgin in pairs(NSFWPluginsTable) do
+				for index,plgin in pairs(nsfwPluginsTable) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
 				end
 			end
