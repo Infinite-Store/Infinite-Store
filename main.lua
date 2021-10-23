@@ -2,7 +2,7 @@ local reqenv = function() return (getgenv() or _G) end
 
 
 local IS_Settings = {
-	["Version"] = ("1.3"),
+	["Version"] = ("1.3.1"),
 	["Invite"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
 	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
@@ -12,10 +12,10 @@ local IS_Settings = {
 local _UserSettings = {
 	StartMinimized = false,
 	SafeMode = false,
-	NoNotifs = false,
+	NoNotifications = false,
 }
 
-if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))() end
+if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))() end
 
 local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
@@ -30,7 +30,7 @@ LoadSettings = function()
 					local json = game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
 					if json.StartMinimized ~= nil then _UserSettings.StartMinimized = json.StartMinimized else _UserSettings.StartMinimized = false end
 					if json.SafeMode ~= nil then _UserSettings.SafeMode = json.SafeMode else _UserSettings.SafeMode = false end
-					if json.NoNotifs ~= nil then _UserSettings.NoNotifs = json.NoNotifs else _UserSettings.NoNotifs = false end
+					if json.NoNotifications ~= nil then _UserSettings.NoNotifications = json.NoNotifications else _UserSettings.NoNotifications = false end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -53,13 +53,13 @@ LoadSettings = function()
 				NoSaving = true
 				_UserSettings.StartMinimized = false
 				_UserSettings.SafeMode = false
-				_UserSettings.NoNotifs = false
+				_UserSettings.NoNotifications = false
 			end
 		end
 	else
 		_UserSettings.StartMinimized = false
 		_UserSettings.SafeMode = false
-		_UserSettings.NoNotifs = false
+		_UserSettings.NoNotifications = false
 	end
 end
 
@@ -70,14 +70,14 @@ local UpdateSettings = function()
 		local update = {
 			StartMinimized = _UserSettings.StartMinimized;
 			SafeMode = _UserSettings.SafeMode;
-			NoNotifs = _UserSettings.NoNotifs;
+			NoNotifications = _UserSettings.NoNotifications;
 		}
 		writefileCooldown(SaveFileName, game:GetService("HttpService"):JSONEncode(update))
 	end
 end
 
 if reqenv()["IS_LOADED"] then
-	 if _UserSettings.NoNotifs == false then notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5) end
+	 if _UserSettings.NoNotifications == false then notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5) end
 	error("Infinite Store is already running!", 0)
 	return
 end
@@ -181,9 +181,9 @@ dragGUI(mainFrame)
 if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
 
 if _UserSettings.StartMinimized == true then
-	if _UserSettings.NoNotifs == false then notify("Infinite Store", "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings") end
+	if _UserSettings.NoNotifications == false then notify("Infinite Store", "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings") end
 else
-	if _UserSettings.NoNotifs == false then notify("Infinite Store", "Start Minimized is turned off, this can be disabled in settings") end
+	if _UserSettings.NoNotifications == false then notify("Infinite Store", "Start Minimized is turned off, this can be disabled in settings") end
 end
 
 local TopBar = Instance.new("Frame")
@@ -1307,114 +1307,119 @@ end
 local pluginData = nil
 local plginCount = 0
 
-for index,plgin in pairs(pluginTable) do
+local LoadPluginsFromTable = function(ptbl)
+	if ptbl == nil then return end
+	for index,plgin in pairs(ptbl) do
 
-	plginCount += 1
+		plginCount += 1
 
-	local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
+		local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 
-	pluginFrameClone.Name = tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)
-	pluginFrameClone.Author.Text = plgin.Creator
-	pluginFrameClone.PluginName.Text = plgin.Name
-	pluginFrameClone.Created.Text = plgin.CreationDate
+		pluginFrameClone.Name = tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)
+		pluginFrameClone.Author.Text = plgin.Creator
+		pluginFrameClone.PluginName.Text = plgin.Name
+		pluginFrameClone.Created.Text = plgin.CreationDate
 
-	if isfile(plgin.Name .. ".iy") then
-		pluginFrameClone.Install.Text = "Uninstall"
-		for i,v in pairs(pluginFrameClone:GetChildren()) do
-			tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
-			if v:IsA("TextLabel") or v:IsA("TextButton") then
-				tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
+		if isfile(plgin.Name .. ".iy") then
+			pluginFrameClone.Install.Text = "Uninstall"
+			for i,v in pairs(pluginFrameClone:GetChildren()) do
+				tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
+				if v:IsA("TextLabel") or v:IsA("TextButton") then
+					tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
+				end
 			end
 		end
-	end
 
-	pluginFrameClone.Install.MouseButton1Click:Connect(function()
-		if installDebounce == false then installDebounce = true
+		pluginFrameClone.Install.MouseButton1Click:Connect(function()
+			if installDebounce == false then installDebounce = true
 
-			local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
-			local Response = requestfunc({
-				Url = plgin.GithubLink,
-				Method = "GET"
-			})
-			pluginData = Response.Body
+				local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
+				local Response = requestfunc({
+					Url = plgin.GithubLink,
+					Method = "GET"
+				})
+				pluginData = Response.Body
 
-			if isfile(plgin.Name .. ".iy") == true then
+				if isfile(plgin.Name .. ".iy") == true then
 
-				pluginFrameClone.Install.Text = "Uninstalling"
-				deletePlugin(plgin.Name)
-				delfile(plgin.Name .. ".iy")
-				pluginFrameClone.Install.Text = "Success"
-				task.wait(0.5)
-				pluginFrameClone.Install.Text = "Install"
+					pluginFrameClone.Install.Text = "Uninstalling"
+					deletePlugin(plgin.Name)
+					delfile(plgin.Name .. ".iy")
+					pluginFrameClone.Install.Text = "Success"
+					task.wait(0.5)
+					pluginFrameClone.Install.Text = "Install"
 
-				for i,v in pairs(pluginFrameClone:GetChildren()) do
-					tweenColor3(pluginFrameClone, Color3.fromRGB(22, 22, 22), 0.2)
-					if v:IsA("TextLabel") or v:IsA("TextButton") then
-						tweenColor3(v, Color3.fromRGB(42, 42, 42), 0.2)
+					for i,v in pairs(pluginFrameClone:GetChildren()) do
+						tweenColor3(pluginFrameClone, Color3.fromRGB(22, 22, 22), 0.2)
+						if v:IsA("TextLabel") or v:IsA("TextButton") then
+							tweenColor3(v, Color3.fromRGB(42, 42, 42), 0.2)
+						end
+					end
+
+				else
+
+					pluginFrameClone.Install.Text = "Installing"
+					writefile(plgin.Name .. ".iy", pluginData)
+					addPlugin(plgin.Name)
+					pluginFrameClone.Install.Text = "Success"
+					task.wait(0.5)
+					pluginFrameClone.Install.Text = "Uninstall"
+
+					for i,v in pairs(pluginFrameClone:GetChildren()) do
+						tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
+						if v:IsA("TextLabel") or v:IsA("TextButton") then
+							tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
+						end
+					end
+
+				end
+
+				installDebounce = false
+
+			end
+		end)
+
+		pluginFrameClone.PluginName.InfoBtn.MouseButton1Click:Connect(function()
+			if pluginFrameClone.PluginName.InfoBtn.ImageColor3 ~= Color3.fromRGB(255, 255, 255) then
+				mainFrame.PluginInfo.PluginInfo.PluginName.Text = plgin.Name
+
+				for i,v in pairs(mainFrame.ListHolder.Plugins:GetDescendants()) do
+					if v.Name == "InfoBtn" and v.Parent.Parent.Parent.Name ~= "UIGridLayout" then
+						tweenColor(v, Color3.fromRGB(98, 98, 98), v.ImageColor3, 0.2)
 					end
 				end
+
+				tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(255, 255, 255), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.2)
+
+				for i,v in pairs(mainFrame.PluginInfo.List:GetChildren()) do
+					if v:IsA("TextLabel") then
+						v:Destroy()
+					end
+				end
+
+				for i,v in pairs(plgin.Commands) do
+					local tLabelClone = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
+					tLabelClone.Name = v
+					tLabelClone.Text = ";" .. v
+					tLabelClone.Parent = mainFrame.PluginInfo.List
+				end
+
+				pluginInfoToggle(true)
 
 			else
 
-				pluginFrameClone.Install.Text = "Installing"
-				writefile(plgin.Name .. ".iy", pluginData)
-				addPlugin(plgin.Name)
-				pluginFrameClone.Install.Text = "Success"
-				task.wait(0.5)
-				pluginFrameClone.Install.Text = "Uninstall"
-
-				for i,v in pairs(pluginFrameClone:GetChildren()) do
-					tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
-					if v:IsA("TextLabel") or v:IsA("TextButton") then
-						tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
-					end
-				end
+				pluginInfoToggle(false)
+				tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(98, 98, 98), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.5)
 
 			end
+		end)
 
-			installDebounce = false
-
-		end
-	end)
-
-	pluginFrameClone.PluginName.InfoBtn.MouseButton1Click:Connect(function()
-		if pluginFrameClone.PluginName.InfoBtn.ImageColor3 ~= Color3.fromRGB(255, 255, 255) then
-			mainFrame.PluginInfo.PluginInfo.PluginName.Text = plgin.Name
-
-			for i,v in pairs(mainFrame.ListHolder.Plugins:GetDescendants()) do
-				-- if (v.Name == "InfoBtn") and (not v.Parent.Parent.Parent:IsA("UIGridLayout")) then
-				if v.Name == "InfoBtn" and v.Parent.Parent.Parent.Name ~= "UIGridLayout" then
-					tweenColor(v, Color3.fromRGB(98, 98, 98), v.ImageColor3, 0.2)
-				end
-			end
-
-			tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(255, 255, 255), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.2)
-
-			for i,v in pairs(mainFrame.PluginInfo.List:GetChildren()) do
-				if v:IsA("TextLabel") then
-					v:Destroy()
-				end
-			end
-
-			for i,v in pairs(plgin.Commands) do
-				local tLabelClone = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
-				tLabelClone.Name = v
-				tLabelClone.Text = ';' .. v
-				tLabelClone.Parent = mainFrame.PluginInfo.List
-			end
-
-			pluginInfoToggle(true)
-
-		else
-
-			pluginInfoToggle(false)
-			tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(98, 98, 98), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.5)
-
-		end
-	end)
-
-	pluginFrameClone.Parent = mainFrame.ListHolder.Plugins.List
+		pluginFrameClone.Parent = mainFrame.ListHolder.Plugins.List
+	end
 end
+
+LoadPluginsFromTable(IS_Settings["Plugins"])
+LoadPluginsFromTable(nsfwPluginsTable)
 
 
 
@@ -1436,35 +1441,35 @@ local guiSettings = {
 
 	["Safe Mode"] = {
 		["Name"] = "Safe Mode",
-		["Description"] = "Hides NSFW plugins.",
+		["Description"] = "Hide NSFW plugins.",
 		["SettingFunction"] = function()
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = false
 				for index,plgin in pairs(nsfwPluginsTable) do
-					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = true
+					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = true
 				end
 			else
 				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = true
 				for index,plgin in pairs(nsfwPluginsTable) do
-					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. ' ' .. plgin.Creator .. ' ' .. plgin.CreationDate)].Visible = false
+					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = false
 				end
 			end
 			UpdateSettings()
 		end,
 	},
 	
-	["No Notifs"] = {
-		["Name"] = "No Notifs",
+	["No Notifications"] = {
+		["Name"] = "No Notifications",
 		["Description"] = "Infinite Store will not give you Infinite Yield notifications.",
 		["SettingFunction"] = function()
-			if _UserSettings.NoNotifs == true then
-				checkBoxHandler(false, settingsList["NoNotifs"].CheckBox)
-				_UserSettings.NoNotifs = false
+			if _UserSettings.NoNotifications == true then
+				checkBoxHandler(false, settingsList["NoNotifications"].CheckBox)
+				_UserSettings.NoNotifications = false
 			else
-				checkBoxHandler(true, settingsList["NoNotifs"].CheckBox)
-				_UserSettings.NoNotifs = true
+				checkBoxHandler(true, settingsList["NoNotifications"].CheckBox)
+				_UserSettings.NoNotifications = true
 			end
 			UpdateSettings()
 		end,
