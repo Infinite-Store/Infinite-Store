@@ -23,8 +23,8 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Developer console or exploit debug console**
-If there's an error in the f9 menu or the exploit debug menu, please include a screenshot.
+**Developer console or executor debug console**
+If there's an error in the developer console or your executor's debug menu, please include a screenshot.
 
 **Desktop (please complete the following information):**
  - Operating System [e.g. Windows, Mac, Linux]
