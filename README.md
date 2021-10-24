@@ -23,13 +23,13 @@ Remember to read the [Wiki](https://github.com/Infinite-Store/Infinite-Store/wik
 # Features
 Feature|Status
 ------|-------
-Homepage|✔️
+Homepage|⏳
 Catalog|⏳
-Settings|❌
-Changelog|❌
+Settings|✔️
+Changelog|⏳
 Animations|✔️
 Content Page|❌
-Downloads Page|⏳
+Downloads Page|✔️
 [Loader](https://github.com/Infinite-Store/Infinite-Store/blob/main/main.lua)|✔️
 [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugintable.lua)|⏳
 [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki#discord)|✔️
