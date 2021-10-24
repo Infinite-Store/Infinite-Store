@@ -176,15 +176,7 @@ end
 
 
 mainFrame = Instance.new("Frame")
-
 dragGUI(mainFrame)
-mainFrame.Visible = _UserSettings.AutoVisible
-
-if _UserSettings.AutoVisible == true then
-	notify('Infinite Store', 'Auto Visible is turned on, this can be disabled in settings')
-else
-	notify('Infinite Store', "Auto Visible is turned off, Infinite Store can be opened inside of Infinite Yield's Settings")
-end
 
 if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
 
@@ -1383,13 +1375,6 @@ local LoadPluginsFromTable = function(ptbl)
 				end
 
 				installDebounce = false
-
-				for i,v in pairs(pluginFrameClone:GetChildren()) do
-					tweenColor3(pluginFrameClone,Color3.fromRGB(3, 31, 6),.2)
-					if v:IsA('TextLabel') or v:IsA('TextButton') then
-						tweenColor3(v,Color3.fromRGB(23, 52, 30),.2)
-					end
-				end
 
 			end
 		end)
