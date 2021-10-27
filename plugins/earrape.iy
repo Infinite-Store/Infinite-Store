@@ -1,0 +1,54 @@
+local PlayAllSounds = function()
+    for _, sound in next, workspace:GetDescendants() do
+        if sound:IsA("Sound") then
+            sound:Play()
+        end
+    end
+end
+local RunService = game:GetService("RunService")
+local PlaySoundLoop = nil
+local Plugin = {
+    ["PluginName"] = "earrape",
+    ["PluginDescription"] = "Scripted by NoobSploit#0001",
+    ["Commands"] = {
+        ["playsounds"] = {
+            ["ListName"] = "playsounds",
+            ["Description"] = "This is FE will so it will affect everyone",
+            ["Aliases"] = {""},
+            ["Function"] = function(args, speaker)
+                PlayAllSounds()
+            end
+        },
+        ["check"] = {
+            ["ListName"] = "check",
+            ["Description"] = "Check If false that is good if true it wont work",
+            ["Aliases"] = {""},
+            ["Function"] = function(args, speaker)
+                notify("Sounds", tostring(game:GetService("SoundService").RespectFilteringEnabled)))
+            end
+        },
+        ["loopplaysounds"] = {
+            ["ListName"] = "loopplaysounds",
+            ["Description"] = "Loop Play Sounds",
+            ["Aliases"] = {""},
+            ["Function"] = function(args, speaker)
+                if PlaySoundLoop ~= nil then return end
+                PlaySoundLoop = RunService.RenderStepped:Connect(function()
+                    PlayAllSounds()
+                    RunService.RenderStepped:Wait(1)
+                end)
+            end
+        },
+        ["unloopplaysounds"] = {
+            ["ListName"] = "unloopplaysounds",
+            ["Description"] = "Stop looping play sounds",
+            ["Aliases"] = {""},
+            ["Function"] = function(args,speaker)
+                if PlaySoundLoop == nil then return end
+                PlaySoundLoop:Disconnect()
+                PlaySoundLoop = nil
+            end
+        },
+    }
+}
+return Plugin
