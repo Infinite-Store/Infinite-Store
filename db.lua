@@ -1,13 +1,9 @@
 return {
 	--[[
-	["IYPlus"] = {
-		["Name"] = "IYPlus", ["Creator"] = "Doomah", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/IY%2B.iy", ["Commands"] = {"compliment [plr]", "insult [plr]", "follow [plr] [distance]", "unfollow", "tpposition [X Y Z]", "offset [X Y Z] [plr optional]", "spamkill/skill [plr]", "unspamkill/unskill", "tp [plr] [plr] (TOOL)", "bring [plr] (TOOL)", "kill [plr] (OPT TOOL)", "attach [plr] (TOOL)", "orbit [plr]", "orbit2 [plr]", "unorbit", "equiptools/etools", "playerinfo/pinfo [plr]", "toolsdrop", "trip [num] [power]", "walk", "unwalk/nowalk", "stopsit/nosit (TOGGLE)", "inviscam/invisiblecam", "stare [plr]", "unstare/nostare", "boostfps/fpsboost", "die/oof", "kill2 [plr]", "tricktools/tricks", "updatelog/update", "trampoline"},
-	};
-	
 	["example"] = {
 		["Name"] = "example", ["Creator"] = "InfiniteStore", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/example.iy", ["Commands"] = {"command1"},
 	};
-	]]
+	]]--
 	
 	["FakeChat"] = {
 		["Name"] = "FakeChat", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FakeChat.iy", ["Commands"] = {"fakechat / fchat [plr] [msg]"},
@@ -199,5 +195,9 @@ return {
 	
 	["ClearChat"] = {
 		["Name"] = "ClearChat", ["Creator"] = "NoobSploit", ["CreationDate"] = "10/20/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/clearchat.iy", ["Commands"] = {"clearchat / clchat"},
+	};
+	
+	["EarRape"] = {
+		["Name"] = "EarRape", ["Creator"] = "NoobSploit", ["CreationDate"] = "10/26/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/earrape.iy", ["Commands"] = {"playsounds", "loopplaysounds", "unloopplaysounds", "check"},
 	};
 }
