@@ -21,9 +21,14 @@ local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
 local NoSaving = false
 local loadedEventData = nil
+local canWrite = function()
+	if writefile then
+		return true
+	end
+end
 local LoadSettings = nil
 LoadSettings = function()
-	if writefileExploit() then
+	if canWrite() then
 		if pcall(function() readfile(SaveFileName) end) then
 			if readfile(SaveFileName) ~= nil then
 				local success, response = pcall(function()
