@@ -1,5 +1,7 @@
 local reqenv = function() return (getgenv() or _G) end
 
+if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))() end
+
 
 local IS_Settings = {
 	["Version"] = ("1.3.1"),
@@ -14,8 +16,6 @@ local _UserSettings = {
 	SafeMode = false,
 	NoNotifications = false,
 }
-
-if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))() end
 
 local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
