@@ -21,10 +21,14 @@ local Plugin = {
         },
         ["check"] = {
             ["ListName"] = "check",
-            ["Description"] = "Check If false that is good if true it wont work",
+            ["Description"] = "Check if the plugin works for the game you're on",
             ["Aliases"] = {""},
             ["Function"] = function(args, speaker)
-                notify("Sounds", tostring(game:GetService("SoundService").RespectFilteringEnabled)))
+                if game:GetService("SoundService").RespectFilteringEnabled == true then
+                    notify("Earrape", "Earrape CANNOT run on this game, bruh...")
+                else
+                    notify("Earrape", "Earrape CAN run on this game, pog!")
+                end
             end
         },
         ["loopplaysounds"] = {
