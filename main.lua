@@ -10,7 +10,6 @@ local IS_Settings = {
 	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
 }
 
-
 local _UserSettings = {
 	StartMinimized = false,
 	SafeMode = false,
