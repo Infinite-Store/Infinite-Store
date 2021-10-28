@@ -1352,7 +1352,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then installDebounce = true
 
-				local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
+				local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or reqenv().request or request
 				local Response = requestfunc({
 					Url = plgin.GithubLink,
 					Method = "GET"
