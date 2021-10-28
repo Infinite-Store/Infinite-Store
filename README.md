@@ -1,8 +1,8 @@
 <h1 align="center">Infinite Store</h2>
-<p align="center">A place where you can get every Infinite Yield plugin</p>
+<p align="center">Infinite Yield plugin and themes browser</p>
 <p align="center">
 	<a href="./LICENSE">
-		<img alt="License" src="https://img.shields.io/badge/license-GPL-blue?color=7aca00"/>
+		<img alt="License" src="https://img.shields.io/badge/license-MIT-blue?color=7aca00"/>
 	</a>
 	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
 		<img alt="Issues" src="https://img.shields.io/github/issues/Infinite-Store/Infinite-Store?color=0088ff"/>
@@ -35,4 +35,4 @@ Downloads Page|✔️
 [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki#discord)|✔️
 [Affilliation](https://discord.gg/RcuZnJdf3b)|✔️
 # Adding to Infinite Store
-Do you have your own plugin or theme or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (Click "compare across forks" to show your fork).
+Do you have your own plugin or theme or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (Click "compare across forks" to show your fork). You may also open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to add your plugin URLs from a different repository other than this one.
