@@ -21,6 +21,21 @@ local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
 local NoSaving = false
 local loadedEventData = nil
+local write_cooldown = false
+local writefileCooldown = nil
+writefileCooldown = function(name, data)
+	spawn(function()
+		if not write_cooldown then
+			write_cooldown = true
+			writefile(name, data)
+		else
+			repeat wait() until write_cooldown == false
+			writefileCooldown(name, data)
+		end
+		wait(3)
+		write_cooldown = false
+	end)
+end
 local canWrite = function()
 	if writefile then
 		return true
