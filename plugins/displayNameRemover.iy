@@ -5,19 +5,15 @@ local Plugin = {
         ["removedisplay"] = {
             ["ListName"] = "removedisplay / removedisplaynames / nodisplayname / ndn",
             ["Description"] = "this removes display names",
-            ["Aliases"] = {"removedisplaynames","nodisplayname","ndn"},
-            ["Function"] = function(args,speaker)
-
-	
-		local j = require(game.Chat:WaitForChild("ClientChatModules").ChatSettings) -- this makes display names go away on chat
+            ["Aliases"] = {"removedisplaynames", "nodisplayname", "ndn"},
+            ["Function"] = function(args, speaker)
+		local j = require(game.Chat:WaitForChild("ClientChatModules").ChatSettings)
 		j.PlayerDisplayNamesEnabled = false
-		
-     for i,v in pairs(game:GetService("Players"):GetPlayers()) do --this script was made by w44rm, made into a plugin by ratticus
+     for i,v in pairs(game:GetService("Players"):GetPlayers()) do
      if v:IsA("Player") then
        local username = v.Name
           v.DisplayName = username
 		  v.Character:FindFirstChildWhichIsA("Humanoid").DisplayName = username
-		  
 		  v.CharacterAdded:Connect(function(character)
 		      while wait(1) do
 		          if character == false then
@@ -29,7 +25,6 @@ local Plugin = {
 		  
         end
    end
-   
 game:GetService("Players").PlayerAdded:Connect(function(player)
     player.DisplayName = player.Name
     
