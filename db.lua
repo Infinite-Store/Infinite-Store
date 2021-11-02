@@ -62,7 +62,7 @@ return {
 	};
 	
 	["Beyblade"] = {
-		["Name"] = "Beyblade", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/beyblade.iy", ["Commands"] = {"beyblade"},
+		["Name"] = "Beyblade", ["Creator"] = "human", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/beyblade.iy", ["Commands"] = {"beyblade"},
 	};
 	
 	["BigHead"] = {
