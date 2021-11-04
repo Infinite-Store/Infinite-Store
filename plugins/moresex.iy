@@ -20,7 +20,7 @@ Plugin.Commands["getbang"] = {
 	["Aliases"] = {"gbang"},
 	["Function"] = function(args, speaker)
 		if r15(speaker) then
-			execCmd('ungbang')
+			execCmd('ungetbang')
 			local players = getPlayer(args[1], speaker)
 			for i,plr in pairs(players) do
 				Players.LocalPlayer.Character.Animate.Disabled = true
