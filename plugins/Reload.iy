@@ -18,7 +18,7 @@ local Plugin = {
 	      ToPartFrame:Destroy()
 	      logs:Destroy()
 	      infoFrame:Destroy()
-	      gengenv().IY_LOADED = false;
+	      (getgenv() or _G)["IY_LOADED"] = false
 	      game:GetService("StarterGui"):SetCore("SendNotification",{Title="Deleted IY",Text="",Duration=5})
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
             end
