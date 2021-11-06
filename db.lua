@@ -200,4 +200,8 @@ return {
 	["EarRape"] = {
 		["Name"] = "EarRape", ["Creator"] = "NoobSploit", ["CreationDate"] = "10/26/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/earrape.iy", ["Commands"] = {"playsounds", "loopplaysounds", "unloopplaysounds", "check"},
 	};
+	
+	["SChat"] = {
+		["Name"] = "SChat", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/04/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/schat.iy", ["Commands"] = {"schat [text]"},
+	};
 }
