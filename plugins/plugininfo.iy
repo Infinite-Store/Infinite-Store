@@ -12,7 +12,9 @@ local Plugin = {
 					if i ~= 1 then pluginInfo = pluginInfo.. ", " end
 					pluginInfo = pluginInfo.. pluginName:sub(1, -4)
 				end
-
+				
+				if listfiles == nil then return notify(pluginInfo) end
+				
 				local pluginInfo = pluginInfo.. "\nUnloaded plugins: "
 				local unloaded = {} -- for formatting with commas properly
 				for i, fileName in pairs(listfiles("")) do
