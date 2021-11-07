@@ -28,7 +28,8 @@ Plugins Page|✔️
 Settings|✔️
 Animations|✔️
 [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)|✔️
-[Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugintable.lua)|♾
+[Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/db.lua)|♾
+[NSFW Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins/nsfwplugins/db.lua)|♾
 [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki#discord)|✔️
 [Affilliation](https://discord.gg/78ZuWSq)|✔️
 # Adding to Infinite Store
