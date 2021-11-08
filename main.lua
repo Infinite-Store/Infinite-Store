@@ -1353,10 +1353,6 @@ end
 local pluginData = nil
 local plginCount = 0
 
-IS_Settings["Plugins"]["burgerking"] = {
-		["Name"] = "burgerking", ["Creator"] = "Infinite Store", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/schat.iy", ["Commands"] = {"12345678901234567890abcdefghijklmnop"},
-};
-
 local LoadPluginsFromTable = function(ptbl)
 	if ptbl == nil then return end
 	for index,plgin in pairs(ptbl) do
