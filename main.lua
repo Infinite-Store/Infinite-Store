@@ -4,7 +4,7 @@ if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(("https://raw.githubus
 
 
 local IS_Settings = {
-	["Version"] = ("1.3.1"),
+	["Version"] = ("1.3.2"),
 	["Invite"] = ("mVzBU7GTMy"),
 	["Plugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"), true))(),
 	["NsfwPlugins"] = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua"), true))()
@@ -1207,16 +1207,11 @@ local tweenColor3 = function(instance, rgb, t1me)
 end
 
 local settingsList = mainFrame.ListHolder.Settings.List
-local nsfwPluginsTable = IS_Settings["NsfwPlugins"]
 
 local cleanPluginCheck = function()
 	if _UserSettings.SafeMode == true then
-		for index,plgin in pairs(nsfwPluginsTable) do
+		for index,plgin in pairs(IS_Settings["NsfwPlugins"]) do
 			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = false
-		end
-	else
-		for index,plgin in pairs(nsfwPluginsTable) do
-			mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = true
 		end
 	end
 end
@@ -1352,12 +1347,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then installDebounce = true
 
-				local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or reqenv().request or request
-				local Response = requestfunc({
-					Url = plgin.GithubLink,
-					Method = "GET"
-				})
-				pluginData = Response.Body
+				pluginData = 'return loadstring(game:HttpGet(("' .. tostring(plgin.GithubLink) .. '"), true))()'
 
 				if isfile(plgin.Name .. ".iy") == true then
 
@@ -1418,8 +1408,8 @@ local LoadPluginsFromTable = function(ptbl)
 
 				for i,v in pairs(plgin.Commands) do
 					local tLabelClone = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
-					tLabelClone.Name = v
-					tLabelClone.Text = ";" .. v
+					tLabelClone.Name = tostring(v)
+					tLabelClone.Text = ";" .. tostring(v)
 					tLabelClone.Parent = mainFrame.PluginInfo.List
 				end
 
@@ -1438,7 +1428,7 @@ local LoadPluginsFromTable = function(ptbl)
 end
 
 LoadPluginsFromTable(IS_Settings["Plugins"])
-LoadPluginsFromTable(nsfwPluginsTable)
+LoadPluginsFromTable(IS_Settings["NsfwPlugins"])
 
 
 
@@ -1465,13 +1455,13 @@ local guiSettings = {
 			if _UserSettings.SafeMode == true then
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = false
-				for index,plgin in pairs(nsfwPluginsTable) do
+				for index,plgin in pairs(IS_Settings["NsfwPlugins"]) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = true
 				end
 			else
 				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = true
-				for index,plgin in pairs(nsfwPluginsTable) do
+				for index,plgin in pairs(IS_Settings["NsfwPlugins"]) do
 					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = false
 				end
 			end
