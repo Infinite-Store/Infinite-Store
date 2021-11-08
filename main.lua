@@ -11,9 +11,10 @@ local IS_Settings = {
 }
 
 local _UserSettings = {
-	StartMinimized = false,
-	SafeMode = false,
-	NoNotifications = false,
+	["StartMinimized"] = false,
+	["SafeMode"] = false,
+	["NoNotifications"] = false,
+	["SkipIntro"] = false,
 }
 
 local DefaultSettings = game:GetService("HttpService"):JSONEncode(_UserSettings)
@@ -50,6 +51,7 @@ LoadSettings = function()
 					if json.StartMinimized ~= nil then _UserSettings.StartMinimized = json.StartMinimized else _UserSettings.StartMinimized = false end
 					if json.SafeMode ~= nil then _UserSettings.SafeMode = json.SafeMode else _UserSettings.SafeMode = false end
 					if json.NoNotifications ~= nil then _UserSettings.NoNotifications = json.NoNotifications else _UserSettings.NoNotifications = false end
+					if json.SkipIntro ~= nil then _UserSettings.SkipIntro = json.SkipIntro else _UserSettings.SkipIntro = false end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -73,12 +75,14 @@ LoadSettings = function()
 				_UserSettings.StartMinimized = false
 				_UserSettings.SafeMode = false
 				_UserSettings.NoNotifications = false
+				_UserSettings.SkipIntro = false
 			end
 		end
 	else
 		_UserSettings.StartMinimized = false
 		_UserSettings.SafeMode = false
 		_UserSettings.NoNotifications = false
+		_UserSettings.SkipIntro = false
 	end
 end
 
@@ -87,9 +91,10 @@ LoadSettings()
 local UpdateSettings = function()
 	if NoSaving == false and writefileExploit() then
 		local update = {
-			StartMinimized = _UserSettings.StartMinimized;
-			SafeMode = _UserSettings.SafeMode;
-			NoNotifications = _UserSettings.NoNotifications;
+			["StartMinimized"] = _UserSettings.StartMinimized;
+			["SafeMode"] = _UserSettings.SafeMode;
+			["NoNotifications"] = _UserSettings.NoNotifications;
+			["SkipIntro"] = _UserSettings.SkipIntro;
 		}
 		writefileCooldown(SaveFileName, game:GetService("HttpService"):JSONEncode(update))
 	end
@@ -1091,82 +1096,109 @@ local checkBoxHandler = function(bool, obj)
 	end
 end
 
-local IS_Intro = function()
+if _UserSettings.SkipIntro == true then
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0, 0, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {Position = UDim2.new(0.026, 0, 0.5, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.Epik, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {Position = UDim2.new(0.296, 0, 0.5, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {Position = UDim2.new(-0.07, 0, -0.05, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
+	tween:Play()
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {Position = UDim2.new(-0.07, 0, 0, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List1, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List2, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List3, tweenInfo, tweenGoals)
+	tween:Play()
+	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0)}
+	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List4, tweenInfo, tweenGoals)
+	tween:Play()
+else
 	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0, 0, 0)}
 	local tweenInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
-
 	task.wait(0.6)
-
 	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
-
 	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
-
 	task.wait(1.1)
-
 	local tweenGoals = {Position = UDim2.new(0.026, 0, 0.5, 0)}
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Epik, tweenInfo, tweenGoals)
 	tween:Play()
-
-	task.wait(0.69420) --xd
-
-	local tweenGoals = {Position = UDim2.new(0.296, 0, 0.5, 0)} --starting pos: 0.296, 0,1.09, 0
+	task.wait(0.69420)
+	local tweenGoals = {Position = UDim2.new(0.296, 0, 0.5, 0)}
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
 	tween:Play()
-
 	task.wait(0.9)
-
 	local tweenGoals = {Position = UDim2.new(-0.07, 0, -0.05, 0)}
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
-
 	local tweenGoals = {Position = UDim2.new(-0.07, 0, 0, 0)}
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
-
 	task.wait(0.8)
-
 	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0)}
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List1, tweenInfo, tweenGoals)
 	tween:Play()
-
 	task.wait(0.4)
-
 	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0)}
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List2, tweenInfo, tweenGoals)
 	tween:Play()
-
 	task.wait(0.4)
-
 	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0)}
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List3, tweenInfo, tweenGoals)
 	tween:Play()
-
 	task.wait(0.4)
-
 	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0)}
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = tweenService:Create(mainFrame.ListHolder.Home.List.List4, tweenInfo, tweenGoals)
 	tween:Play()
-
 end
-IS_Intro()
 
 local pluginInfoToggle = function(bool)
 	if bool == true then
@@ -1224,7 +1256,7 @@ local searchBox = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):W
 local Objects = {["Frame"] = true}
 local Type = 1
 
-local Filter = function(Text)
+local FilterSearch = function(Text)
 	for i,v in pairs(ObjectHolder:GetChildren()) do
 		if Objects[v.ClassName] then
 			if string.match(string.lower(v.Name), Text) then
@@ -1254,7 +1286,7 @@ searchBox:GetPropertyChangedSignal("Text"):Connect(function()
 			end
 		end
 	else
-		Filter(string.lower(CurrentText))
+		FilterSearch(string.lower(CurrentText))
 	end
 
 	cleanPluginCheck()
@@ -1347,7 +1379,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then installDebounce = true
 
-				pluginData = 'return loadstring(game:HttpGet(("' .. tostring(plgin.GithubLink) .. '"), true))()'
+				local pluginData = 'return loadstring(game:HttpGet(("' .. tostring(plgin.GithubLink) .. '"), true))()'
 
 				if isfile(plgin.Name .. ".iy") == true then
 
@@ -1479,6 +1511,21 @@ local guiSettings = {
 			else
 				checkBoxHandler(true, settingsList["NoNotifications"].CheckBox)
 				_UserSettings.NoNotifications = true
+			end
+			UpdateSettings()
+		end,
+	},
+
+	["Skip Intro"] = {
+		["Name"] = "Skip Intro",
+		["Description"] = "Skip the Infinite Store loading animation.",
+		["SettingFunction"] = function()
+			if _UserSettings.SkipIntro == true then
+				checkBoxHandler(false, settingsList["SkipIntro"].CheckBox)
+				_UserSettings.SkipIntro = false
+			else
+				checkBoxHandler(true, settingsList["SkipIntro"].CheckBox)
+				_UserSettings.SkipIntro = true
 			end
 			UpdateSettings()
 		end,
