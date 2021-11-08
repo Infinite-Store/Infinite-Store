@@ -124,9 +124,9 @@ local newRandomString = function()
 	return table.concat(array)
 end
 
+local CoreGui = game:GetService("CoreGui")
 local UserInputService = game:GetService("UserInputService")
 
-local CoreGui = game:GetService("CoreGui")
 local ServerParent = nil
 if (not is_sirhurt_closure) and (syn and syn.protect_gui) then
 	local Main = Instance.new("ScreenGui")
@@ -199,7 +199,7 @@ end
 
 
 
-mainFrame = Instance.new("Frame")
+local mainFrame = Instance.new("Frame")
 dragGUI(mainFrame)
 
 if _UserSettings.StartMinimized == true then mainFrame.Visible = false else mainFrame.Visible = true end
@@ -1353,6 +1353,10 @@ end
 local pluginData = nil
 local plginCount = 0
 
+IS_Settings["Plugins"]["burgerking"] = {
+		["Name"] = "burgerking", ["Creator"] = "Infinite Store", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/schat.iy", ["Commands"] = {"12345678901234567890abcdefghijklmnop"},
+};
+
 local LoadPluginsFromTable = function(ptbl)
 	if ptbl == nil then return end
 	for index,plgin in pairs(ptbl) do
@@ -1432,17 +1436,20 @@ local LoadPluginsFromTable = function(ptbl)
 
 				tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(255, 255, 255), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.2)
 
+				mainFrame.PluginInfo.List.CanvasPosition = Vector2.new(0, 0)
+
 				for i,v in pairs(mainFrame.PluginInfo.List:GetChildren()) do
 					if v:IsA("TextLabel") then
 						v:Destroy()
 					end
 				end
 
-				for i,v in pairs(plgin.Commands) do
-					local tLabelClone = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
-					tLabelClone.Name = tostring(v)
-					tLabelClone.Text = ";" .. tostring(v)
-					tLabelClone.Parent = mainFrame.PluginInfo.List
+				for _, v in next, plgin["Commands"] do
+					local CommandLabel = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
+					CommandLabel.Name = tostring(v)
+					CommandLabel.Text = ";" .. tostring(v)
+					CommandLabel.Parent = mainFrame.PluginInfo.List
+					CommandLabel.Visible = true
 				end
 
 				pluginInfoToggle(true)
