@@ -30,7 +30,7 @@ Animations|✔️
 [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)|✔️
 [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/db.lua)|♾
 [NSFW Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins/nsfwplugins/db.lua)|♾
-[Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki#discord)|✔️
+[Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server)|✔️
 [Affilliation](https://discord.gg/78ZuWSq)|✔️
 # Adding to Infinite Store
 Do you have your own plugin or theme or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (Click "compare across forks" to show your fork). You may also open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to add your plugin URLs from a different repository other than this one.
