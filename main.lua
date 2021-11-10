@@ -1357,7 +1357,7 @@ local LoadPluginsFromTable = function(ptbl)
 	if ptbl == nil then return end
 	for index,plgin in pairs(ptbl) do
 
-		plginCount += 1
+		plginCount = plginCount + 1
 
 		local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 
