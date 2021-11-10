@@ -1,0 +1,18 @@
+local Players = game:GetService("Players")
+local Plugin = {
+    ["PluginName"] = "Free Fall",
+    ["PluginDescription"] = "Scripted by NoobSploit#0001",
+    ["Commands"] = {
+        ["freefall"] = {
+            ["ListName"] = "freefall [height]",
+            ["Description"] = "Free falled",
+            ["Aliases"] = {},
+            ["Function"] = function(args, speaker)
+	        if not args[1] then return end
+	        local Height = getstring(1)
+	        Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y + Height, Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z))
+            end
+        },
+    }
+}
+return Plugin
