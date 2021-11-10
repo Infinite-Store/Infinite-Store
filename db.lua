@@ -204,4 +204,8 @@ return {
 	["SChat"] = {
 		["Name"] = "SChat", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/04/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/schat.iy", ["Commands"] = {"schat [text]"},
 	};
+
+	["FreeFall"] = {
+		["Name"] = "FreeFall", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/09/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FreeFall.iy", ["Commands"] = {"freefall [height]"},
+	};
 }
