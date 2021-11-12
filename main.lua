@@ -1,6 +1,6 @@
 local reqenv = function() return (getgenv() or _G) end
 
-if not reqenv()["IY_LOADED"] then loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))() end
+if not IY_LOADED then loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))() end
 
 
 local IS_Settings = {
@@ -89,7 +89,7 @@ end
 LoadSettings()
 
 local UpdateSettings = function()
-	if NoSaving == false and writefileExploit() then
+	if NoSaving == false and canWrite() then
 		local update = {
 			["StartMinimized"] = _UserSettings.StartMinimized;
 			["SafeMode"] = _UserSettings.SafeMode;
@@ -100,7 +100,7 @@ local UpdateSettings = function()
 	end
 end
 
-if reqenv()["IS_LOADED"] then
+if IS_LOADED then
 	 if _UserSettings.NoNotifications == false then notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5) end
 	error("Infinite Store is already running!", 0)
 	return
