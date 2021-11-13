@@ -208,4 +208,8 @@ return {
 	["FreeFall"] = {
 		["Name"] = "FreeFall", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/09/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FreeFall.iy", ["Commands"] = {"freefall [height]"},
 	};
+	
+	["nosound"] = {
+		["Name"] = "nosound", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/12/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nosound.iy", ["Commands"] = {"nosound"},
+	};
 }
