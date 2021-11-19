@@ -212,4 +212,8 @@ return {
 	["nosound"] = {
 		["Name"] = "nosound", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/12/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nosound.iy", ["Commands"] = {"nosound"},
 	};
+	
+	["Orbit"] = {
+		["Name"] = "Orbit", ["Creator"] = "Amokah", ["CreationDate"] = "11/18/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Orbit.iy", ["Commands"] = {"orbit [plr]", "unorbit", "orbitspeed / ospeed [speed]", "orbitdist / odist [distance]"},
+	};
 }
