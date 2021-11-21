@@ -35,4 +35,4 @@ Animations|✔️
 [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)|✔️
 [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server)|✔️
 [Affilliation](https://discord.gg/78ZuWSq)|✔️
-[Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/db.lua)|♾
+[Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins)|♾
