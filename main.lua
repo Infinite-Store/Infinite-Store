@@ -100,7 +100,9 @@ local UpdateSettings = function()
 end
 
 if IS_LOADED then
-	 if _UserSettings.NoNotifications == false then notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5) end
+	if _UserSettings.NoNotifications == false then
+		notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
+	end
 	error("Infinite Store is already running!", 0)
 	return
 end
