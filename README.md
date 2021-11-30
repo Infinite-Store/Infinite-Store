@@ -16,7 +16,7 @@
 
 ## Script
 ```lua
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"), true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
 ```
 
 ## Important Information
