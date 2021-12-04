@@ -220,4 +220,8 @@ return {
 	["fakeuser"] = {
 		["Name"] = "fakeuser", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/22/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/fakeuser.iy", ["Commands"] = {"fakeuser [user]"},
 	};
+
+	["psyhub"] = {
+		["Name"] = "psyhub", ["Creator"] = "Psykek", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/psyhub.iy", ["Commands"] = {"psyhub"},
+	};
 }
