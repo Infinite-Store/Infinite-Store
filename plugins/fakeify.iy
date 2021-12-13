@@ -15,7 +15,7 @@ local Plugin = {
             ["Description"] = "This is client sided nobody else can see this",
             ["Aliases"] = {},
             ["Function"] = function(args,speaker)
-            game.Players.LocalPlayer.UserId = getstring(1)
+            game:GetService("Players").LocalPlayer.UserId = getstring(1)
             end
         },
     }
