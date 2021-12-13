@@ -217,8 +217,8 @@ return {
 		["Name"] = "Orbit", ["Creator"] = "Amokah", ["CreationDate"] = "11/18/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Orbit.iy", ["Commands"] = {"orbit [plr]", "unorbit", "orbitspeed / ospeed [speed]", "orbitdist / odist [distance]"},
 	};
 	
-	["fakeuser"] = {
-		["Name"] = "fakeuser", ["Creator"] = "NoobSploit", ["CreationDate"] = "11/22/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/fakeuser.iy", ["Commands"] = {"fakeuser [user]"},
+	["fakeify"] = {
+		["Name"] = "fakeify", ["Creator"] = "NoobSploit", ["CreationDate"] = "12/12/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/fakeify.iy", ["Commands"] = {"fakeuser [user]", "fakeid [ID]"},
 	};
 
 	["psyhub"] = {
