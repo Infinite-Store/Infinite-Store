@@ -1,15 +1,23 @@
 local Plugin = {
-	["PluginName"] = "Fake User",
-	["PluginDescription"] = "Scripted by NoobSploit#0001",
-	["Commands"] = {
-		["fakeuser"] = {
-			["ListName"] = "fakeuser [user]",
-			["Description"] = "This is client sided nobody else can see this",
-			["Aliases"] = {},
-			["Function"] = function(args,speaker)
-				game:GetService("Players").LocalPlayer.Name = tostring(getstring(1))
-			end
-		},
-	}
+    ["PluginName"] = "Fake User",
+    ["PluginDescription"] = "Scripted by NoobSploit#0001",
+    ["Commands"] = {
+        ["fakeuser"] = {
+            ["ListName"] = "fakeuser [user]",
+            ["Description"] = "This is client sided nobody else can see this",
+            ["Aliases"] = {},
+            ["Function"] = function(args,speaker)
+            game:GetService("Players").LocalPlayer.Name = getstring(1)
+            end
+        },
+        ["fakeid"] = {
+            ["ListName"] = "fakeid [ID]",
+            ["Description"] = "This is client sided nobody else can see this",
+            ["Aliases"] = {},
+            ["Function"] = function(args,speaker)
+            game.Players.LocalPlayer.UserId = getstring(1)
+            end
+        },
+    }
 }
 return Plugin
