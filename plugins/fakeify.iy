@@ -1,5 +1,5 @@
 local Plugin = {
-    ["PluginName"] = "Fake User",
+    ["PluginName"] = "Fakeify",
     ["PluginDescription"] = "Scripted by NoobSploit#0001",
     ["Commands"] = {
         ["fakeuser"] = {
