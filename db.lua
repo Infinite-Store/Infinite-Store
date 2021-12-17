@@ -230,6 +230,10 @@ return {
 	};
 
 	["MultiSkid"] = {
-		["Name"] = "MultiSkid", ["Creator"] = "BugNugget", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/MultiSkid.iy", ["Commands"] = {},
+		["Name"] = "MultiSkid", ["Creator"] = "BugNugget", ["CreationDate"] = "12/17/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/MultiSkid.iy", ["Commands"] = {"piggy", "babft", "afs", "beeswarm", "arsenal", "pf", "mm2", "prisonlife", "sharkbite", "musclelegends", "psx"},
+	};
+	
+	["FurrTools"] = {
+		["Name"] = "FurrTools", ["Creator"] = "Furrtren", ["CreationDate"] = "12/16/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FurrTools.iy", ["Commands"] = {"fuckball", "boombox"},
 	};
 }
