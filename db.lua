@@ -224,7 +224,12 @@ return {
 	["psyhub"] = {
 		["Name"] = "psyhub", ["Creator"] = "Psykek", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/psyhub.iy", ["Commands"] = {"psyhub"},
 	};
+
 	["ip"] = {
 		["Name"] = "ip", ["Creator"] = "komt", ["CreationDate"] = "06/24/2020", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ip.iy", ["Commands"] = {"getip / gip [plr]"},
+	};
+
+	["MultiSkid"] = {
+		["Name"] = "MultiSkid", ["Creator"] = "BugNugget", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/MultiSkid.iy", ["Commands"] = {},
 	};
 }
