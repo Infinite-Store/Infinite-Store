@@ -1,0 +1,97 @@
+print("created by BugNugg3t#9221 & aqua shits#4320")
+local Plugin = {
+    ["PluginName"] = "MultiSkid",
+    ["PluginDescription"] = "A collection of scripts for varying ROBLOX games.",
+    ["Commands"] = {
+        ["sharkbite"] = {
+            ["ListName"] = "sharkbite",
+            ["Description"] = "Loads Cypher's SharkBite GUI.",
+            ["Aliases"] = {"sharkbitescript"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:GetObjects("rbxassetid://3623753581")[1].Source)()
+            end
+        },
+
+        ["prisonlife"] = {
+            ["ListName"] = "prisonlife",
+            ["Description"] = "Loads Vynixu's Prison Life GUI.",
+            ["Aliases"] = {"prisonlife"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Prison%20Life/Prison%20Life"))()
+            end
+        },
+        ["musclelegends"] = {
+            ["ListName"] = "musclelegends",
+            ["Description"] = "Loads Cypher's Muscle Legends GUI.",
+            ["Aliases"] = {""},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/LOOF-sys/Roblox-Shit/main/MuscleLegends.lua"))()
+            end
+        },
+        ["beeswarmsim"] = {
+            ["ListName"] = "beeswarmsim",
+            ["Description"] = "Loads a Bee Swarm Simulator GUI.",
+            ["Aliases"] = {"beeswarm"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/not-weuz/Lua/main/kocmoc.lua"))()
+            end
+        },
+        ["petsimx"] = {
+            ["ListName"] = "petsimx",
+            ["Description"] = "Loads the DHX Pet Simulator X GUI.",
+            ["Aliases"] = {"psx"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/si1nnx/psxx/main/g"))()
+            end
+        },
+        ["mm2"] = {
+            ["ListName"] = "mm2",
+            ["Description"] = "Loads Vynixu's MM2 GUI.",
+            ["Aliases"] = {"murdermystery2"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
+            end
+        },
+        ["phantomforces"] = {
+            ["ListName"] = "phantomforces",
+            ["Description"] = "Loads a Phantom Forces auto farm GUI.",
+            ["Aliases"] = {"pf"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/artemking4/PhantomForcesAutoFarm/main/pf_autofarm.lua"))()
+            end
+        },
+        ["arsenal"] = {
+            ["ListName"] = "arsenal",
+            ["Description"] = "Loads the DarkHub Arsenal GUI.",
+            ["Aliases"] = {""},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Arsenal"))()
+            end
+        },
+        ["piggy"] = {
+            ["ListName"] = "piggy",
+            ["Description"] = "Loads Vynixu's Piggy GUI.",
+            ["Aliases"] = {"pig"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Piggy/Piggy"))()
+            end
+        },
+        ["BABFT"] = {
+            ["ListName"] = "babft",
+            ["Description"] = "Loads Vynixu's Build A Boat for Treasure GUI.",
+            ["Aliases"] = {"buildaboat"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Build%20A%20Boat%20For%20Treasure/BABFT"))()
+            end
+        },
+        ["AnimeFightingSimulator"] = {
+            ["ListName"] = "AnimeFightingSimulator",
+            ["Description"] = "Loads an Anime Fighting Simulator GUI.",
+            ["Aliases"] = {"AFS"},
+            ["Function"] = function(args,speaker)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Jaaaaay2/MahScriptHub/master/AFS%20Remastered"))()
+            end
+        },
+    }
+}
+return Plugin
