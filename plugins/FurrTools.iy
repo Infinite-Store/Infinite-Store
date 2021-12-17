@@ -1,0 +1,1137 @@
+local Plugin = {
+    ["PluginName"] = "FurrTools",
+    ["PluginDescription"] = "Client Side Tool Repo. Created by Furrtren.",
+    ["Commands"] = {
+        ["fuckball"] = {
+            ["ListName"] = "fuckball",
+            ["Description"] = "Spawn the Fuckball. (Client Side Only.)",
+            ["Aliases"] = {"corrball","corruptionball","sonicball"},
+            ["Function"] = function(args,speaker)
+
+--ignore shitty indenting--
+
+print("You've created the Fuckball! Script Created by Furrtren!~ Let's cause some chaos!")
+local tool = Instance.new("Tool")
+tool.Name = "Fuckball"
+tool.Parent = game:GetService("Players").LocalPlayer.Backpack
+tool.ToolTip = "Fuckball: SDC"
+
+local player = game.Players.LocalPlayer
+local char = player.Character
+
+-- Construct Corruption Ball Model --
+local corball = Instance.new("Part", tool)
+corball.Name = "Handle"
+corball.Size = Vector3.new(2.066, 2.066, 2.066)
+corball.Color = Color3.new(0,0,1)
+corball.Reflectance = -255
+local coreye = Instance.new("Part", tool)
+coreye.Name = "CorBall_Eye"
+coreye.Size = Vector3.new(1.649, 1.649, 1.649)
+local corball_inner = Instance.new("Part", tool)
+corball_inner.Name = "CorBall_Inner"
+corball_inner.Size = Vector3.new(1.649, 1.649, 1.649)
+corball_inner.Color = Color3.new(0,0,0)
+corball_inner.Reflectance = -255
+local corball_mesh = Instance.new("SpecialMesh", corball)
+corball_mesh.MeshId = "rbxassetid://7962048236"
+local corball_innermesh = Instance.new("SpecialMesh", corball_inner)
+corball_innermesh.MeshId = "rbxassetid://1185246"
+corball_innermesh.Scale = Vector3.new(2.2,2.2,2.2)
+local corball_eyemesh = Instance.new("SpecialMesh", coreye)
+corball_eyemesh.MeshId = "rbxassetid://1185246"
+corball_eyemesh.TextureId = "rbxassetid://1185259"
+corball_eyemesh.Scale = Vector3.new(2, 2, 2)
+
+-- Create Corruption Ball Welds --
+
+--[[
+local corballjoint = Instance.new("Motor6D", corball)
+corballjoint.C0 = CFrame.new(-0.000366210938, 0.000168800354, 9.15527344e-05, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+corballjoint.C1 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+corballjoint.Part0 = char.RightHand
+corballjoint.Part1 = corball
+]]--
+local weldinner = Instance.new("Weld", corball)
+weldinner.C0 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+weldinner.C1 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+weldinner.Part0 = corball
+weldinner.Part1 = corball_inner
+local weldeye = Instance.new("Weld", corball)
+weldeye.C0 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+weldeye.C1 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+weldeye.Part0 = corball
+weldeye.Part1 = coreye
+
+-- Create Corruption Ball Sounds --
+
+local corruptsnd = Instance.new("Sound", corball)
+corruptsnd.Volume = 1
+corruptsnd.SoundId = "rbxassetid://7534241209"
+corruptsnd.Name = "CorruptSound"
+
+local idlesnd = Instance.new("Sound", corball)
+idlesnd.Volume = 0.75
+idlesnd.SoundId = "rbxassetid://7534243384"
+idlesnd.Name = "Idle"
+idlesnd.Looped = true
+
+local spawnsnd = Instance.new("Sound", corball)
+spawnsnd.Volume = 1
+spawnsnd.SoundId = "rbxassetid://7534244720"
+spawnsnd.Name = "Spawn"
+
+
+-- Create Corruption Ball Particles --
+
+local atchpnt = Instance.new("Attachment", corball)
+local particles = Instance.new("ParticleEmitter", atchpnt)
+
+atchpnt.Name = "Waves"
+
+particles.Brightness = 1
+particles.Texture = "rbxassetid://7534413792"
+
+local colorKeypoints = {
+	-- API: ColorSequenceKeypoint.new(time, color)
+	ColorSequenceKeypoint.new( 0, Color3.new(1, 1, 1)),  -- At t=0, White
+	ColorSequenceKeypoint.new( 1, Color3.new(1, 1, 1))   -- At t=1, Red
+}
+
+particles.Color = ColorSequence.new(colorKeypoints)
+particles.LightEmission = 0.25
+particles.LightInfluence = 0
+
+local numberKeypoints = {
+	-- API: NumberSequenceKeypoint.new(time, size, envelop)
+	NumberSequenceKeypoint.new(0, 0);    -- At t=0, fully transparent
+	NumberSequenceKeypoint.new(.2, 0);    -- At t=.1, fully opaque
+	NumberSequenceKeypoint.new(.2, 1);  -- At t=.5, mostly opaque
+	NumberSequenceKeypoint.new(1, 1);    -- At t=1, fully transparent
+}
+
+particles.Transparency = NumberSequence.new(numberKeypoints)
+
+local numberKeypoints2 = {
+	NumberSequenceKeypoint.new(0, 0);  -- At t=0, size of 0
+	NumberSequenceKeypoint.new(.2, 10); -- At t=1, size of 10
+	NumberSequenceKeypoint.new(1, 10); -- At t=1, size of 10
+}
+particles.Size = NumberSequence.new(numberKeypoints2)
+
+particles.EmissionDirection = Enum.NormalId.Top
+particles.Speed = NumberRange.new(0,0)
+particles.Lifetime = NumberRange.new(1,1)
+particles.Rate = 0
+particles.Rotation = NumberRange.new(0,0)
+particles.RotSpeed = NumberRange.new(0,0)
+particles.Speed = NumberRange.new(0,0)
+particles.SpreadAngle = Vector2.new(0,0)
+particles.LockedToPart = true
+particles.TimeScale = 0.5
+
+particles.Name = "Wave"
+
+-- Fuck the world code. --
+local cooldown = false
+
+-- Tween Service Example thanks to DevForum. --
+local tweenService = game:GetService("TweenService")
+local Info = TweenInfo.new(
+	.1, --Length (in seconds, change this number to whatever)
+	Enum.EasingStyle.Bounce, --Easing Style (replace Sine to whatever easing style)
+	Enum.EasingDirection.Out, --you can use In, Out, and InOut
+	0, --Times the Tween repeats. (0 repeats 1 time, 1 repeats 2 times etc)
+	false, --If you don't want the TweenService to reverse back to it's previous properties, set this to false.
+	0
+)
+-- This Tween plays every time the ball registers a hit on an object.  --
+
+tool.Equipped:Connect(function()
+	corball.Spawn:Play()
+	corball.Idle:Play()
+	corball.Waves.Wave:Emit(1)
+	wait(.1)
+	corball.Waves.Wave:Emit(1)
+	wait(.1)
+	corball.Waves.Wave:Emit(1)
+	wait(.1)
+	corball.Waves.Wave:Emit(1)
+	wait(.1)
+	corball.Corrupt.Disabled=false
+end)
+
+tool.Unequipped:Connect(function()
+	corball.Idle:Stop()
+end)
+
+while true do
+	wait()
+	corball.Touched:connect(function(hit)
+		if hit and hit.Parent and cooldown == false then
+			cooldown = true
+			local RandomSizeX = math.random(1, 1000)/10
+			local RandomSizeY = math.random(1, 1000)/10
+			local RandomSizeZ = math.random(1, 1000)/10
+			--hit.Parent.Size = Vector3.new(RandomSize, RandomSize, RandomSize)
+			corball.CorruptSound.PlaybackSpeed=math.random(1, 20) / 10
+			corball.CorruptSound:Play()
+			local part = hit
+			local goal = {Size = Vector3.new(RandomSizeX, RandomSizeY, RandomSizeZ)}
+			local tween = tweenService:Create(part, Info, goal)
+			tween:Play()
+			wait(0.07)
+			cooldown=false
+		end		
+	end)
+end  
+            end
+      },
+		["boombox"] = {
+            ["ListName"] = "boombox",
+            ["Description"] = "Spawn the Boombox. (Client Side Only.)",
+            ["Aliases"] = {"music"},
+            ["Function"] = function(args,speaker)
+
+print("Boombox Spawned, Let's play some tunes! Script Created by Furrtren!~")
+local tool = Instance.new("Tool")
+tool.Name = "Boombox"
+tool.Parent = game:GetService("Players").LocalPlayer.Backpack
+tool.ToolTip = "Boombox. Click to play Music. (Client Side Ver.)"
+
+-- Set Grips -- 
+tool.GripForward = Vector3.new(1, 0, 0)
+tool.GripPos = Vector3.new(1, -1.25, 0)
+tool.GripRight = Vector3.new(0, 0, 1)
+tool.GripUp = Vector3.new(0, 1, 0)
+
+local player = game.Players.LocalPlayer
+local char = player.Character
+
+-- Construct Boombox Model --
+local boombox = Instance.new("Part", tool)
+boombox.Name = "Handle"
+boombox.Size = Vector3.new(0.795, 2.879, 1.746)
+local boomboxback = Instance.new("Part", char)
+boomboxback.Name = "BoomboxBack"
+boomboxback.Size = Vector3.new(0.795, 2.879, 1.746)
+boomboxback.Transparency = 1
+
+local boomboxmesh = Instance.new("SpecialMesh", boombox)
+boomboxmesh.MeshId = "rbxassetid://212302951"
+boomboxmesh.TextureId = "rbxassetid://212303049"
+boomboxmesh.Scale = Vector3.new(4, 4, 4)
+local boomboxbackmesh = Instance.new("SpecialMesh", boomboxback)
+boomboxbackmesh.MeshId = "rbxassetid://212302951"
+boomboxbackmesh.TextureId = "rbxassetid://212303049"
+boomboxbackmesh.Scale = Vector3.new(4, 4, 4)
+
+-- Create Boombox Joints (Edited to support R6 games) --
+
+local boomboxjoint = Instance.new("Motor6D", boomboxback)
+boomboxjoint.C0 = CFrame.new(-0.0731658936, -0.0738754272, 0.844371796, -0.707134247, -0.707079291, 0, -0.707079291, 0.707134247, 0, -0, 0, -1)
+boomboxjoint.C1 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+if char:FindFirstChild("UpperTorso") then
+boomboxjoint.Part0 = char.UpperTorso
+else
+boomboxjoint.Part0 = char.Torso
+end
+boomboxjoint.Part1 = boomboxback
+
+-- Create Boombox Sounds --
+
+local audio = Instance.new("Sound", boombox)
+audio.Volume = 1.4
+audio.SoundId = "rbxassetid://"
+audio.Name = "Sound"
+audio.Looped=true
+
+local audioback = Instance.new("Sound", boomboxback)
+audioback.Volume = 1.4
+audioback.SoundId = "rbxassetid://"
+audioback.Name = "Sound"
+audioback.Looped=true
+
+-- Boombox code. --
+
+local songgui
+
+tool.Equipped:Connect(function()
+	boomboxback.Transparency=1
+	boomboxback.Sound.Volume=0
+	boombox.Sound.Volume=1.4
+if boomboxback:FindFirstChild("Intro") then
+	boombox.Intro.Volume=1.4
+	boombox.Sound.Volume=1.4
+	boomboxback.Sound.Volume=0
+	boomboxback.Transparency=1
+	boomboxback.Intro.Volume=0
+end
+end)
+
+tool.Unequipped:Connect(function()
+if boomboxback.Sound.IsLoaded == true then
+	boomboxback.Transparency=0
+	boomboxback.Sound.Volume=1.4
+	boombox.Sound.Volume=0
+else
+	boomboxback.Transparency=1
+	boomboxback.Sound.Volume=0
+if boomboxback:FindFirstChild("Intro") then
+	boomboxback.Intro.Volume=1.4
+	boomboxback.Sound.Volume=1.4
+	boomboxback.Transparency=0
+	boombox.Intro.Volume=0
+	boombox.Sound.Volume=0
+end
+end
+end)
+
+tool.Unequipped:Connect(function()
+if player.PlayerGui:FindFirstChild("ChooseSongGui") then
+	player.PlayerGui.ChooseSongGui:Destroy()
+end
+end)
+
+tool.Activated:Connect(function()
+	if player.PlayerGui:FindFirstChild("ChooseSongGui") then return end
+	
+	local sg = Instance.new("ScreenGui")
+	sg.Name = "ChooseSongGui"
+	sg.Parent = player.PlayerGui	
+
+	local frame = Instance.new("Frame")
+	frame.Style = "RobloxRound"
+	frame.Size = UDim2.new(0.25, 0, 0.25, 0)
+	frame.Position = UDim2.new(0.318, 0, 0.375, 0)
+	frame.Parent = sg
+	frame.Draggable = true
+	
+	local text = Instance.new("TextLabel")
+	text.Name = "label"
+	text.BackgroundTransparency = 1
+	text.TextStrokeTransparency = 0
+	text.TextColor3 = Color3.new(1, 1, 1)
+	text.Size = UDim2.new(1, 0, 0.6, 0)
+	text.TextScaled = true
+	text.Text = "Lay down the beat!\nPut in the ID number for a song you love that's been uploaded to ROBLOX.\nLeave it blank to stop playing music."
+	text.Parent = frame
+	
+	local input = Instance.new("TextBox")
+	input.Name = "input"
+	input.BackgroundColor3 = Color3.new(0, 0, 0)
+	input.BackgroundTransparency = 0.5
+	input.BorderColor3 = Color3.new(1, 1, 1)
+	input.TextColor3 = Color3.new(1, 1, 1)
+	input.TextStrokeTransparency = 1
+	input.TextScaled = true
+	input.Text = "142376088"
+	input.Size = UDim2.new(1, 0, 0.2, 0)
+	input.Position = UDim2.new(0, 0, 0.6, 0)
+	input.Parent = frame
+	
+	local button = Instance.new("TextButton")
+	button.Name = "play"
+	button.Style = "RobloxButton"
+	button.Size = UDim2.new(0.727, 0 , 0.24, 0)
+	button.Position = UDim2.new(0.021, 0 , 0.801, 0)
+	button.TextColor3 = Color3.new(1, 1, 1)
+	button.TextStrokeTransparency = 0
+	button.Text = "Play!"
+	button.TextScaled = true
+	button.Parent = frame
+	button.MouseButton1Click:connect(function()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id="..input.Text
+		audioback.SoundId = "http://www.roblox.com/asset/?id="..input.Text
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+		sg:Destroy()
+	end)
+	
+	local button2 = Instance.new("TextButton")
+	button2.Name = "close"
+	button2.Style = "RobloxButton"
+	button2.Size = UDim2.new(0.276, 0, 0.214, 0)
+	button2.Position = UDim2.new(0.745, 0, 0.818, 0)
+	button2.TextColor3 = Color3.new(1, 1, 1)
+	button2.TextStrokeTransparency = 0
+	button2.Text = "Close"
+	button2.TextScaled = true
+	button2.Parent = frame
+	button2.MouseButton1Click:connect(function()
+		sg:Destroy()
+	end)
+
+-- Built in Audio GUI -- 
+
+	local biframe = Instance.new("Frame")
+	biframe.Style = "RobloxRound"
+	biframe.Size = UDim2.new(0.164, 0,0.25, 0)
+	biframe.Position = UDim2.new(0.566, 0,0.375, 0)
+	biframe.Parent = sg
+	biframe.Draggable = true
+	
+	local biaudiolabel = Instance.new("TextLabel")
+	biaudiolabel.BackgroundTransparency = 1
+	biaudiolabel.TextStrokeTransparency = 0
+	biaudiolabel.TextColor3 = Color3.new(1, 1, 1)
+	biaudiolabel.Size = UDim2.new(0.878, 0,0.136, 0)
+	biaudiolabel.Position = UDim2.new(0.056, 0,0.006, 0)
+	biaudiolabel.TextScaled = true
+	biaudiolabel.Text = "Built In Audio"
+	biaudiolabel.Parent = biframe
+
+	local audiolist = Instance.new("ScrollingFrame")
+	audiolist.BackgroundTransparency = 0.5
+	audiolist.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	audiolist.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	audiolist.BorderSizePixel = 2
+	audiolist.Size = UDim2.new(0.95, 0,0.8, 0)
+	audiolist.Position = UDim2.new(0.031, 0,0.172, 0)
+	audiolist.Parent = biframe
+	audiolist.CanvasSize = UDim2.new(0,0,4,0)
+
+	local uilistlayout = Instance.new("UIListLayout")
+	uilistlayout.Parent = audiolist
+	uilistlayout.FillDirection = Enum.FillDirection.Vertical	
+	uilistlayout.HorizontalAlignment = Enum.HorizontalAlignment.Center	
+	uilistlayout.SortOrder = Enum.SortOrder.LayoutOrder	
+	uilistlayout.VerticalAlignment = Enum.VerticalAlignment.Top	
+		
+	local aspectratio = Instance.new("UIAspectRatioConstraint")
+	aspectratio.AspectRatio = 8	
+	aspectratio.AspectType = Enum.AspectType.ScaleWithParentSize	
+	aspectratio.DominantAxis = Enum.DominantAxis.Width
+
+	local alist_button = Instance.new("TextButton")
+	aspectratio.Parent = alist_button
+	alist_button.Size = UDim2.new(0, 200,0, 50)
+	alist_button.Style = "RobloxButton"
+	alist_button.TextColor3 = Color3.new(1, 1, 1)
+	alist_button.TextStrokeTransparency = 0
+	alist_button.Font = Enum.Font.SourceSans
+	alist_button.TextScaled = false
+	alist_button.TextSize = 14
+
+
+-- Built in Audio Buttons --
+
+	local alist_PowerPlantADX = alist_button:Clone()
+	alist_PowerPlantADX.Parent = audiolist
+	alist_PowerPlantADX.Text = "Power Plant (ADX)"
+	alist_PowerPlantADX.MouseButton1Click:connect(function()
+		-- ADX Handle Intro --
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.SoundId = "http://www.roblox.com/asset/?id="
+		audioback.SoundId = "http://www.roblox.com/asset/?id="
+		local intro = Instance.new("Sound", boombox)
+		local introback = Instance.new("Sound", boomboxback)
+		intro.Name = "Intro"		
+		intro.Volume = 1.4
+		introback.Name = "Intro"		
+		introback.Volume = 0
+		intro.SoundId = "http://www.roblox.com/asset/?id=8268367871"	
+		introback.SoundId = "http://www.roblox.com/asset/?id=8268367871"
+		intro:Play()
+		introback:Play()
+		intro.Ended:Wait()
+		-- ADX Handle Loop --
+		audio.SoundId = "http://www.roblox.com/asset/?id=8159561519"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=8159561519"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_PowerSneakersADX = alist_button:Clone()
+	alist_PowerSneakersADX.Parent = audiolist
+	alist_PowerSneakersADX.Text = "Power Sneakers (ADX)"
+	alist_PowerSneakersADX.MouseButton1Click:connect(function()
+		-- ADX Handle Intro --
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.SoundId = "http://www.roblox.com/asset/?id="
+		audioback.SoundId = "http://www.roblox.com/asset/?id="
+		local intro = Instance.new("Sound", boombox)
+		local introback = Instance.new("Sound", boomboxback)
+		intro.Name = "Intro"		
+		intro.Volume = 1.4
+		introback.Name = "Intro"		
+		introback.Volume = 0
+		intro.SoundId = "http://www.roblox.com/asset/?id=8201983434"	
+		introback.SoundId = "http://www.roblox.com/asset/?id=8201983434"
+		intro:Play()
+		introback:Play()
+		intro.Ended:Wait()
+		-- ADX Handle Loop --
+		audio.SoundId = "http://www.roblox.com/asset/?id=8201983710"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=8201983710"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+	
+	local alist_SevenRingsADX = alist_button:Clone()
+	alist_SevenRingsADX.Parent = audiolist
+	alist_SevenRingsADX.Text = "Seven Rings in Hand (ADX)"
+	alist_SevenRingsADX.MouseButton1Click:connect(function()
+		-- ADX Handle Intro --
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.SoundId = "http://www.roblox.com/asset/?id="
+		audioback.SoundId = "http://www.roblox.com/asset/?id="
+		local intro = Instance.new("Sound", boombox)
+		local introback = Instance.new("Sound", boomboxback)
+		intro.Name = "Intro"		
+		intro.Volume = 1.4
+		introback.Name = "Intro"		
+		introback.Volume = 0
+		intro.SoundId = "http://www.roblox.com/asset/?id=8155093188"	
+		introback.SoundId = "http://www.roblox.com/asset/?id=8155093188"
+		intro:Play()
+		introback:Play()
+		intro.Ended:Wait()
+		-- ADX Handle Loop --
+		audio.SoundId = "http://www.roblox.com/asset/?id=8155094094"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=8155094094"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_SevenRings8BitADX = alist_button:Clone()
+	alist_SevenRings8BitADX.Parent = audiolist
+	alist_SevenRings8BitADX.Text = "SRIH (16 Bit)(ADX)"
+	alist_SevenRings8BitADX.MouseButton1Click:connect(function()
+		-- ADX Handle Intro --
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.SoundId = "http://www.roblox.com/asset/?id="
+		audioback.SoundId = "http://www.roblox.com/asset/?id="
+		local intro = Instance.new("Sound", boombox)
+		local introback = Instance.new("Sound", boomboxback)
+		intro.Name = "Intro"		
+		intro.Volume = 1.4
+		introback.Name = "Intro"		
+		introback.Volume = 0
+		intro.SoundId = "http://www.roblox.com/asset/?id=8154430094"	
+		introback.SoundId = "http://www.roblox.com/asset/?id=8154430094"
+		intro:Play()
+		introback:Play()
+		intro.Ended:Wait()
+		-- ADX Handle Loop --
+		audio.SoundId = "http://www.roblox.com/asset/?id=8154429652"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=8154429652"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_VolcValADX = alist_button:Clone()
+	alist_VolcValADX.Parent = audiolist
+	alist_VolcValADX.Text = "Volcano Valley (ADX)"
+	alist_VolcValADX.MouseButton1Click:connect(function()
+		-- ADX Handle Intro --
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.SoundId = "http://www.roblox.com/asset/?id="
+		audioback.SoundId = "http://www.roblox.com/asset/?id="
+		local intro = Instance.new("Sound", boombox)
+		local introback = Instance.new("Sound", boomboxback)
+		intro.Name = "Intro"		
+		intro.Volume = 1.4
+		introback.Name = "Intro"		
+		introback.Volume = 0
+		intro.SoundId = "http://www.roblox.com/asset/?id=7807933691"	
+		introback.SoundId = "http://www.roblox.com/asset/?id=7807933691"
+		intro:Play()
+		introback:Play()
+		intro.Ended:Wait()
+		-- ADX Handle Loop --
+		audio.SoundId = "http://www.roblox.com/asset/?id=5269982340"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=5269982340"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_SummerDay = alist_button:Clone()
+	alist_SummerDay.Parent = audiolist
+	alist_SummerDay.Text = "Summer Day"
+	alist_SummerDay.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=8154889199"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=8154889199"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+	
+	local alist_CodemastersTheme = alist_button:Clone()
+	alist_CodemastersTheme.Parent = audiolist
+	alist_CodemastersTheme.Text = "Codemaster's Theme"
+	alist_CodemastersTheme.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=6489332119"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=6489332119"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_columndive = alist_button:Clone()
+	alist_columndive.Parent = audiolist
+	alist_columndive.Text = "Column Dive"
+	alist_columndive.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=3070007695"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=3070007695"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_thevoidfinal = alist_button:Clone()
+	alist_thevoidfinal.Parent = audiolist
+	alist_thevoidfinal.Text = "the_void_final"
+	alist_thevoidfinal.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=3375948564"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=3375948564"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)	
+	
+	local alist_lobby = alist_button:Clone()
+	alist_lobby.Parent = audiolist
+	alist_lobby.Text = "Lobby"
+	alist_lobby.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=5095464524"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=5095464524"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_lobby = alist_button:Clone()
+	alist_lobby.Parent = audiolist
+	alist_lobby.Text = "Look Closely"
+	alist_lobby.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=5650944938"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=5650944938"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+		
+	local alist_snowday = alist_button:Clone()
+	alist_snowday.Parent = audiolist
+	alist_snowday.Text = "snow_day"
+	alist_snowday.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=7767720401"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=7767720401"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_spire = alist_button:Clone()
+	alist_spire.Parent = audiolist
+	alist_spire.Text = "spire"
+	alist_spire.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=3870757920"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=3870757920"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+	
+	local alist_segacdusa = alist_button:Clone()
+	alist_segacdusa.Parent = audiolist
+	alist_segacdusa.Text = "BIOS USA"
+	alist_segacdusa.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=5648384323"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=5648384323"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_segacdeur = alist_button:Clone()
+	alist_segacdeur.Parent = audiolist
+	alist_segacdeur.Text = "BIOS PAL"
+	alist_segacdeur.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=5648385624"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=5648385624"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_blastcredits = alist_button:Clone()
+	alist_blastcredits.Parent = audiolist
+	alist_blastcredits.Text = "blast_credits"
+	alist_blastcredits.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=4689304431"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=4689304431"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_wiiplay = alist_button:Clone()
+	alist_wiiplay.Parent = audiolist
+	alist_wiiplay.Text = "Wii Play Main Menu"
+	alist_wiiplay.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=6945737895"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=6945737895"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_snowdayold = alist_button:Clone()
+	alist_snowdayold.Parent = audiolist
+	alist_snowdayold.Text = "snow_day_old"
+	alist_snowdayold.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=4104992126"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=4104992126"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_dmdust = alist_button:Clone()
+	alist_dmdust.Parent = audiolist
+	alist_dmdust.Text = "Diamond Dust"
+	alist_dmdust.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=4686859760"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=4686859760"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_s3poison = alist_button:Clone()
+	alist_s3poison.Parent = audiolist
+	alist_s3poison.Text = "S3 Poison"
+	alist_s3poison.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=4448778578"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=4448778578"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+	
+	local alist_mgz = alist_button:Clone()
+	alist_mgz.Parent = audiolist
+	alist_mgz.Text = "Mad Gear Zone"
+	alist_mgz.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=6594134702"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=6594134702"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_shz = alist_button:Clone()
+	alist_shz.Parent = audiolist
+	alist_shz.Text = "Sunset Dash"
+	alist_shz.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=6648199444"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=6648199444"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_llz = alist_button:Clone()
+	alist_llz.Parent = audiolist
+	alist_llz.Text = "Lost Labyrinth Zone"
+	alist_llz.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=6651413216"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=6651413216"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_ssr = alist_button:Clone()
+	alist_ssr.Parent = audiolist
+	alist_ssr.Text = "Super Sonic Racing"
+	alist_ssr.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=1448689113"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=1448689113"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_inlet = alist_button:Clone()
+	alist_inlet.Parent = audiolist
+	alist_inlet.Text = "Wave Ocean (The Inlet)"
+	alist_inlet.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=2514010664"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=2514010664"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_whatuneed = alist_button:Clone()
+	alist_whatuneed.Parent = audiolist
+	alist_whatuneed.Text = "What U Need"
+	alist_whatuneed.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=6138566925"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=6138566925"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_sdc1 = alist_button:Clone()
+	alist_sdc1.Parent = audiolist
+	alist_sdc1.Text = "Shades 4 Dogs"
+	alist_sdc1.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=7534538713"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=7534538713"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_palacefound = alist_button:Clone()
+	alist_palacefound.Parent = audiolist
+	alist_palacefound.Text = "The Palace That Was Found"
+	alist_palacefound.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=250806507"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=250806507"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_newday = alist_button:Clone()
+	alist_newday.Parent = audiolist
+	alist_newday.Text = "A New Day"
+	alist_newday.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=5864837500"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=5864837500"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_back2back = alist_button:Clone()
+	alist_back2back.Parent = audiolist
+	alist_back2back.Text = "Back 2 Back"
+	alist_back2back.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=920407379"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=920407379"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_nowaythrough = alist_button:Clone()
+	alist_nowaythrough.Parent = audiolist
+	alist_nowaythrough.Text = "No Way Through"
+	alist_nowaythrough.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=6686718842"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=6686718842"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_kotw = alist_button:Clone()
+	alist_kotw.Parent = audiolist
+	alist_kotw.Text = "Knight of the Wind"
+	alist_kotw.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=1154723340"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=1154723340"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+
+	local alist_fight = alist_button:Clone()
+	alist_fight.Parent = audiolist
+	alist_fight.Text = "Fight the Knight"
+	alist_fight.MouseButton1Click:connect(function()
+		sg:Destroy()
+		if boombox:FindFirstChild("Intro") then
+		boombox.Intro:Destroy()
+		boomboxback.Intro:Destroy()		
+		end
+		audio.Volume = 1.4
+		audioback.Volume = 0
+		audio.SoundId = "http://www.roblox.com/asset/?id=145795186"
+		audioback.SoundId = "http://www.roblox.com/asset/?id=145795186"
+		audio.TimePosition=0
+		audioback.TimePosition=0
+		audio:Play()
+		audioback:Play()
+	end)
+					
+end)
+
+-- Create Boombox Back Tween -- 
+local tweenService = game:GetService("TweenService")
+local Info = TweenInfo.new(.35, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out, 0, true, 0)
+while true do
+wait(.7)
+local part = boomboxback.Mesh
+local goal = {Scale = Vector3.new(4.2, 4.2, 4.2)}
+local tween = tweenService:Create(part, Info, goal)
+tween:Play()
+end
+
+				end
+		},		
+   }
+}
+
+return Plugin
