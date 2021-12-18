@@ -230,10 +230,10 @@ return {
 	};
 
 	["MultiSkid"] = {
-		["Name"] = "MultiSkid", ["Creator"] = "BugNugget", ["CreationDate"] = "12/17/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/MultiSkid.iy", ["Commands"] = {"piggy", "babft", "afs", "beeswarm", "arsenal", "pf", "mm2", "prisonlife", "sharkbite", "musclelegends", "psx"},
+		["Name"] = "MultiSkid", ["Creator"] = "BugNugget", ["CreationDate"] = "12/17/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/MultiSkid.iy", ["Commands"] = {"sharkbite", "prisonlife", "musclelegends", "beeswarmsim / beeswarm", "petsimx / psx", "murdermystery2 / mm2", "phantomforces / pf", "arsenal", "piggy / pig", "buildaboat / babft", "afs", "cattoware / cat", "lt2", "jailbreak / jb", "brokebonesiv", "shindolife / sl", "carcrushers / cc", "kat", "fleethefacility / ftf"},
 	};
 	
 	["FurrTools"] = {
-		["Name"] = "FurrTools", ["Creator"] = "Furrtren", ["CreationDate"] = "12/16/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FurrTools.iy", ["Commands"] = {"fuckball", "boombox"},
+		["Name"] = "FurrTools", ["Creator"] = "Furrtren", ["CreationDate"] = "12/16/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FurrTools.iy", ["Commands"] = {"fuckball", "boombox", "explode / boom", "fuckmap", "slowmo", "unslowmo / noslowmo", "fuckchar / fuckme / fuckplr"},
 	};
 }
