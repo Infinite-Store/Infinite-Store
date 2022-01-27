@@ -236,4 +236,8 @@ return {
 	["FurrTools"] = {
 		["Name"] = "FurrTools", ["Creator"] = "Furrtren", ["CreationDate"] = "12/16/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/FurrTools.iy", ["Commands"] = {"fuckball", "boombox", "explode / boom", "fuckmap", "slowmo", "unslowmo / noslowmo", "fuckchar / fuckme / fuckplr"},
 	};
+	
+	["CtrlLock"] = {
+		["Name"] = "CtrlLock", ["Creator"] = "Toon", ["CreationDate"] = "1/26/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/ctrl_lock.iy", ["Commands"] = {"controllock / ctrllock"},
+	};
 }
