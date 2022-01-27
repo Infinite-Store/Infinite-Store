@@ -620,7 +620,7 @@ local playbackbutton = Instance.new("TextButton")
 	playbackbutton.TextColor3 = Color3.new(1, 1, 1)
 	playbackbutton.TextStrokeTransparency = 0
 	playbackbutton.Text = "Playback Speed"
-	playbackbutton.TextScaled = true
+	playbackbutton.TextScaled = false
 	playbackbutton.Parent = toolsgui
 	playbackbutton.MouseButton1Click:connect(function()
 		if boombox:FindFirstChild("Intro") then
@@ -652,7 +652,7 @@ local volumebutton = Instance.new("TextButton")
 	volumebutton.TextColor3 = Color3.new(1, 1, 1)
 	volumebutton.TextStrokeTransparency = 0
 	volumebutton.Text = "Volume"
-	volumebutton.TextScaled = true
+	volumebutton.TextScaled = false
 	volumebutton.Parent = toolsgui
 	volumebutton.MouseButton1Click:connect(function()
 		audio.Volume = toolsvolumeinput.Text
@@ -716,6 +716,26 @@ toolbutton.MouseButton1Click:connect(function()
 		toolsgui.Visible=false
 		end
 	end)
+
+local audiotoolslabel = Instance.new("TextLabel")
+audiotoolslabel.BackgroundTransparency = 1
+audiotoolslabel.TextStrokeTransparency = 0
+audiotoolslabel.TextColor3 = Color3.new(1, 1, 1)
+audiotoolslabel.Size = UDim2.new(0.789, 0,0.287, 0)
+audiotoolslabel.Position = UDim2.new(-0.304, 0,-0.408, 0)
+audiotoolslabel.TextScaled = true
+audiotoolslabel.Text = "Audio Tools"
+audiotoolslabel.Parent = toolsgui
+
+local pfsoundslabel = Instance.new("TextLabel")
+pfsoundslabel.BackgroundTransparency = 1
+pfsoundslabel.TextStrokeTransparency = 0
+pfsoundslabel.TextColor3 = Color3.new(1, 1, 1)
+pfsoundslabel.Size = UDim2.new(0.339, 0,0.235, 0)
+pfsoundslabel.Position = UDim2.new(0.522, 0,-0.379, 0)
+pfsoundslabel.TextScaled = true
+pfsoundslabel.Text = "Play Audio from Sounds"
+pfsoundslabel.Parent = toolsgui
 
 -- Built in Audio GUI -- 
 
