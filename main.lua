@@ -1,6 +1,9 @@
 local reqenv = function() return (getgenv() or _G) end
 
-if not IY_LOADED then loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))() end
+if not IY_LOADED then
+	loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"), true))()
+	wait(0.75)
+end
 
 local IS_Settings = {
 	["Version"] = ("1.3.3"),
