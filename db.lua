@@ -248,4 +248,8 @@ return {
 	["Skateboard"] = {
 		["Name"] = "Skateboard", ["Creator"] = "west", ["CreationDate"] = "1/29/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/skateboard.iy", ["Commands"] = {"skateboard"},
 	};
+	
+	["Aimbot"] = {
+		["Name"] = "Aimbot", ["Creator"] = "Help.Yourself", ["CreationDate"] = "7/24/2020", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/aimbot.iy", ["Commands"] = {"aimbot / aim"},
+	};
 }
