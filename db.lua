@@ -252,4 +252,8 @@ return {
 	["Aimbot"] = {
 		["Name"] = "Aimbot", ["Creator"] = "Help.Yourself", ["CreationDate"] = "7/24/2020", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/aimbot.iy", ["Commands"] = {"aimbot / aim"},
 	};
+	
+	["ShowHealth"] = {
+		["Name"] = "ShowHealth", ["Creator"] = "YuKii", ["CreationDate"] = "2/14/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/showhealth.iy", ["Commands"] = {"health / hp [plr]"},
+	};
 }
