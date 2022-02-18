@@ -160,10 +160,6 @@ return {
 	["Telekinesis"] = {
 		["Name"] = "Telekinesis", ["Creator"] = "Toon", ["CreationDate"] = "05/01/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/tel.iy", ["Commands"] = {"telekinesis / tel"},
 	};
-	
-	["Panda"] = {
-		["Name"] = "Panda", ["Creator"] = "epik", ["CreationDate"] = "08/25/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/panda.iy", ["Commands"] = {"panda", "pnda"},
-	};
 
 	["TextToEmojis"] = {
 		["Name"] = "TextToEmojis", ["Creator"] = "NoobSploit", ["CreationDate"] = "08/31/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/texttoemojis.iy", ["Commands"] = {"texttoemojis"},
