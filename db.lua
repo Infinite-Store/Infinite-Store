@@ -252,4 +252,8 @@ return {
 	["ShowHealth"] = {
 		["Name"] = "ShowHealth", ["Creator"] = "YuKii", ["CreationDate"] = "2/14/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/showhealth.iy", ["Commands"] = {"health / hp [plr]"},
 	};
+
+	["gears"] = {
+		["Name"] = "gears", ["Creator"] = "NoobSploit", ["CreationDate"] = "3/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/gears.iy", ["Commands"] = {"gear [id]"},
+	};
 }
