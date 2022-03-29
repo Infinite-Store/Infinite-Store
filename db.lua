@@ -214,7 +214,7 @@ return {
 	};
 	
 	["fakeify"] = {
-		["Name"] = "fakeify", ["Creator"] = "NoobSploit", ["CreationDate"] = "12/12/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/fakeify.iy", ["Commands"] = {"fakeuser [user]", "fakeid [ID]"},
+		["Name"] = "fakeify", ["Creator"] = "NoobSploit", ["CreationDate"] = "12/12/2021", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/fakeify.iy", ["Commands"] = {"fakeuser [user]", "fakeid [ID]", "fakedisplay [displayname]"},
 	};
 
 	["psyhub"] = {
