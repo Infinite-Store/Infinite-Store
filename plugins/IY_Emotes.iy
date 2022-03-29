@@ -113,6 +113,11 @@ local animations = {
         },
 ]]
 function PlayAnim(id)
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+    local animtrack = game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()
+    for i, track in pairs (animtrack) do
+        track:Stop()
+    end
     local plr = game.Players.LocalPlayer
     local hum = plr.Character.Humanoid
     plr.Character.Animate.Disabled = true
@@ -123,6 +128,9 @@ function PlayAnim(id)
     loadanim:AdjustSpeed(1)
     loadanim.Stopped:Connect(function()
     plr.Character.Animate.Disabled = false
+	for i, track in pairs (animtrack) do
+        track:Stop()
+    end
     end)
 end
 function StopAnims()
