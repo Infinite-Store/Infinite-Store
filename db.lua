@@ -260,4 +260,8 @@ return {
 	["settingscount"] = {
 		["Name"] = "settingscount", ["Creator"] = "prisj", ["CreationDate"] = "4/5/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/settingscount.iy", ["Commands"] = {},
 	};
+
+	["spotify"] = {
+		["Name"] = "spotify", ["Creator"] = "lun_4tic", ["CreationDate"] = "4/6/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/spotify.iy", ["Commands"] = {"setoauth [spotify oauth]", "play", "pause / stop", "setspotifyvolume / ssvolume [number 0-100]", "next", "previous / prev", "spotifygui"},
+	};
 }
