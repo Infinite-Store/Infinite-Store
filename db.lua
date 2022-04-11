@@ -284,4 +284,8 @@ return {
 	["SaveLoadTools"] = {
 		["Name"] = "SaveLoadTools", ["Creator"] = "Empire", ["CreationDate"] = "4/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/SaveLoadTools.iy", ["Commands"] = {"savetools / savet", "loadtools / loadt"},
 	};
+
+	["blockself"] = {
+		["Name"] = "blockself", ["Creator"] = "Empire", ["CreationDate"] = "4/11/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/blockself.iy", ["Commands"] = {"blockself [delay]"},
+	};
 }
