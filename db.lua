@@ -268,4 +268,8 @@ return {
 	["antiflingunfling"] = {
 		["Name"] = "antiflingunfling", ["Creator"] = "sfr", ["CreationDate"] = "4/8/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/antiflingunfling.iy", ["Commands"] = {"antiflingunfling / afu"},
 	};
+
+	["hit13"] = {
+		["Name"] = "hit1-3", ["Creator"] = "Doctor", ["CreationDate"] = "4/10/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/hit13.iy", ["Commands"] = {"hit [1-3]"},
+	};
 }
