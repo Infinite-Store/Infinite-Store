@@ -276,4 +276,8 @@ return {
 	["rename"] = {
 		["Name"] = "rename", ["Creator"] = "NoobSploit", ["CreationDate"] = "4/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/rename.iy", ["Commands"] = {"rename [text]"},
 	};
+
+	["MinionMeme"] = {
+		["Name"] = "MinionMeme", ["Creator"] = "Empire", ["CreationDate"] = "4/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/MinionMeme.iy", ["Commands"] = {"minionmeme / minionm / minm", "minionmemeDESTROY / minionmdestroy / minmdestroy"},
+	};
 }
