@@ -280,4 +280,8 @@ return {
 	["MinionMeme"] = {
 		["Name"] = "MinionMeme", ["Creator"] = "Empire", ["CreationDate"] = "4/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/MinionMeme.iy", ["Commands"] = {"minionmeme / minionm / minm", "minionmemeDESTROY / minionmdestroy / minmdestroy"},
 	};
+
+	["SaveLoadTools"] = {
+		["Name"] = "SaveLoadTools", ["Creator"] = "Empire", ["CreationDate"] = "4/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/SaveLoadTools.iy", ["Commands"] = {"savetools / savet", "loadtools / loadt"},
+	};
 }
