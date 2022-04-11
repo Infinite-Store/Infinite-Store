@@ -272,4 +272,8 @@ return {
 	["hit13"] = {
 		["Name"] = "hit1-3", ["Creator"] = "Doctor", ["CreationDate"] = "4/10/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/hit13.iy", ["Commands"] = {"hit [1-3]"},
 	};
+
+	["rename"] = {
+		["Name"] = "rename", ["Creator"] = "NoobSploit", ["CreationDate"] = "4/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/rename.iy", ["Commands"] = {"rename [text]"},
+	};
 }
