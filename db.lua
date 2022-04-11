@@ -256,4 +256,8 @@ return {
 	["gears"] = {
 		["Name"] = "gears", ["Creator"] = "NoobSploit", ["CreationDate"] = "3/4/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/gears.iy", ["Commands"] = {"gear [id]"},
 	};
+
+	["settingscount"] = {
+		["Name"] = "settingscount", ["Creator"] = "prisj", ["CreationDate"] = "4/5/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/settingscount.iy", ["Commands"] = {},
+	};
 }
