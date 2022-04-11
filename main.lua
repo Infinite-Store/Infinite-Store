@@ -1249,15 +1249,7 @@ local cleanPluginCheck = function()
 	end
 end
 
-local FileExtension = ".iy"
-if identifyexecutor then
-	local utility, utilityVer = identifyexecutor()
-	if utility == "Synapse" then
-		if string.sub(utilityVer, 1, 1) == "3" then
-			FileExtension = ".txt"
-		end
-	end
-end
+
 
 local ObjectHolder = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("List")
 local searchBox = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("SearchBar"):WaitForChild("Search")
@@ -1375,7 +1367,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.PluginName.Text = plgin.Name
 		pluginFrameClone.Created.Text = plgin.CreationDate
 
-		if isfile(plgin.Name .. FileExtension) then
+		if isfile(plgin.Name .. ".iy") then
 			pluginFrameClone.Install.Text = "Uninstall"
 			for i,v in pairs(pluginFrameClone:GetChildren()) do
 				tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
@@ -1390,11 +1382,11 @@ local LoadPluginsFromTable = function(ptbl)
 
 				local pluginData = 'return loadstring(game:HttpGet(("' .. tostring(plgin.GithubLink) .. '"), true))()'
 
-				if isfile(plgin.Name .. FileExtension) == true then
+				if isfile(plgin.Name .. ".iy") == true then
 
 					pluginFrameClone.Install.Text = "Uninstalling"
 					deletePlugin(plgin.Name)
-					delfile(plgin.Name .. FileExtension)
+					delfile(plgin.Name .. ".iy")
 					pluginFrameClone.Install.Text = "Success"
 					wait(0.5)
 					pluginFrameClone.Install.Text = "Install"
@@ -1409,7 +1401,7 @@ local LoadPluginsFromTable = function(ptbl)
 				else
 
 					pluginFrameClone.Install.Text = "Installing"
-					writefile(plgin.Name .. FileExtension, pluginData)
+					writefile(plgin.Name .. ".iy", pluginData)
 					addPlugin(plgin.Name)
 					pluginFrameClone.Install.Text = "Success"
 					wait(0.5)
