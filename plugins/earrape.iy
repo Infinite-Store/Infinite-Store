@@ -66,6 +66,18 @@ local Plugin = {
                 PlaySoundLoop = nil
             end
         },
+        ["restartmusic"] = {
+            ["ListName"] = "restartmusic",
+            ["Description"] = "Sets all playing sounds time position to 0",
+            ["Aliases"] = {},
+            ["Function"] = function(args,speaker)
+                for i,v in next, workspace:GetDescendants() do
+                    if v:IsA("Sound") and v.Playing == true then
+                        v.TimePosition = 0
+                    end
+                end
+            end
+        },
     }
 }
 return Plugin
