@@ -288,4 +288,8 @@ return {
 	["blockself"] = {
 		["Name"] = "blockself", ["Creator"] = "Empire", ["CreationDate"] = "4/11/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/blockself.iy", ["Commands"] = {"blockself [delay]"},
 	};
+
+	["GotoFolder"] = {
+		["Name"] = "GotoFolder", ["Creator"] = "D7M", ["CreationDate"] = "5/07/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/GotoFolder.iy", ["Commands"] = {"gotofolder"},
+	};
 }
