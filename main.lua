@@ -17,7 +17,7 @@ local _UserSettings = {
 	["SafeMode"] = false,
 	["NoNotifications"] = false,
 	["SkipIntro"] = false,
-    ["Announcement"] = ""
+	["Announcement"] = ""
 }
 
 local HttpService = game:GetService("HttpService")
@@ -79,7 +79,7 @@ local LoadSettings; LoadSettings = function()
 				_UserSettings.SafeMode = false
 				_UserSettings.NoNotifications = false
 				_UserSettings.SkipIntro = false
-                _UserSettings.Announcement = ""
+				_UserSettings.Announcement = ""
 			end
 		end
 	else
@@ -87,7 +87,7 @@ local LoadSettings; LoadSettings = function()
 		_UserSettings.SafeMode = false
 		_UserSettings.NoNotifications = false
 		_UserSettings.SkipIntro = false
-        _UserSettings.Announcement = ""
+		_UserSettings.Announcement = ""
 	end
 end
 LoadSettings()
@@ -98,7 +98,7 @@ local UpdateSettings = function()
 			["SafeMode"] = _UserSettings.SafeMode;
 			["NoNotifications"] = _UserSettings.NoNotifications;
 			["SkipIntro"] = _UserSettings.SkipIntro;
-            ["Announcement"] = _UserSettings.Announcement;
+			["Announcement"] = _UserSettings.Announcement;
 		}
 		writefileCooldown(SaveFileName, HttpService:JSONEncode(update))
 	end
@@ -187,18 +187,17 @@ if ann ~= "" and _UserSettings.Announcement ~= ann then
 	ExitImage.Size = UDim2.new(0, 10, 0, 10)
 	ExitImage.Image = "rbxassetid://5054663650"
 	ExitImage.ZIndex = 10
-    spawn(function()
-        wait(0.3)
-        -- AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 150), "InOut", "Quart", 0.5, true, nil)
-        AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 10), "InOut", "Quart", 0.5, true, nil)
-        Exit.MouseButton1Click:Connect(function()
-            AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
-            wait(0.6)
-            AnnGUI:Destroy()
-        end)
-    end)
-    _UserSettings.Announcement = ann
-    UpdateSettings()
+	spawn(function()
+		wait(0.3)
+		AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 10), "InOut", "Quart", 0.5, true, nil)
+		Exit.MouseButton1Click:Connect(function()
+			AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
+			wait(0.6)
+			AnnGUI:Destroy()
+		end)
+	end)
+	_UserSettings.Announcement = ann
+	UpdateSettings()
 end
 
 local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
