@@ -6,7 +6,7 @@ end
 
 local IS_Settings = {
 	["Version"] = ("1.3.3"),
-	["Invite"] = ("CfF6PCXf9A"),
+	["Invite"] = ("dubhsUGcZe"),
 	["Plugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"),
 	["NsfwPlugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua")
 }
