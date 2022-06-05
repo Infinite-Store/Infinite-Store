@@ -11,11 +11,13 @@ local IS_Settings = {
 	["NsfwPlugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua")
 }
 
+local ann = ""
 local _UserSettings = {
 	["StartMinimized"] = false,
 	["SafeMode"] = false,
 	["NoNotifications"] = false,
 	["SkipIntro"] = false,
+    ["Announcement"] = ""
 }
 
 local HttpService = game:GetService("HttpService")
@@ -52,6 +54,7 @@ local LoadSettings; LoadSettings = function()
 					if json.SafeMode ~= nil then _UserSettings.SafeMode = json.SafeMode else _UserSettings.SafeMode = false end
 					if json.NoNotifications ~= nil then _UserSettings.NoNotifications = json.NoNotifications else _UserSettings.NoNotifications = false end
 					if json.SkipIntro ~= nil then _UserSettings.SkipIntro = json.SkipIntro else _UserSettings.SkipIntro = false end
+                    if json.Announcement ~= nil then _UserSettings.Announcement = json.Announcement else _UserSettings.Announcement = "" end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -76,6 +79,7 @@ local LoadSettings; LoadSettings = function()
 				_UserSettings.SafeMode = false
 				_UserSettings.NoNotifications = false
 				_UserSettings.SkipIntro = false
+                _UserSettings.Announcement = ""
 			end
 		end
 	else
@@ -83,6 +87,7 @@ local LoadSettings; LoadSettings = function()
 		_UserSettings.SafeMode = false
 		_UserSettings.NoNotifications = false
 		_UserSettings.SkipIntro = false
+        _UserSettings.Announcement = ""
 	end
 end
 LoadSettings()
@@ -93,6 +98,7 @@ local UpdateSettings = function()
 			["SafeMode"] = _UserSettings.SafeMode;
 			["NoNotifications"] = _UserSettings.NoNotifications;
 			["SkipIntro"] = _UserSettings.SkipIntro;
+            ["Announcement"] = _UserSettings.Announcement;
 		}
 		writefileCooldown(SaveFileName, HttpService:JSONEncode(update))
 	end
@@ -107,13 +113,6 @@ if IS_LOADED then
 end
 pcall(function() (getgenv() or _G)["IS_LOADED"] = true end)
 
-local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
-InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
-InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
-InfStoreBtn.Name = "InfStore"
-InfStoreBtn.Parent = SettingsHolder
-SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
-
 local newRandomString = function()
 	local length = math.random(10, 20)
 	local array = {}
@@ -122,6 +121,92 @@ local newRandomString = function()
 	end
 	return table.concat(array)
 end
+
+if ann ~= "" and _UserSettings.Announcement ~= ann then
+    local AnnGUI = Instance.new("Frame")
+	local background = Instance.new("Frame")
+	local TextBox = Instance.new("TextLabel")
+	local shadow = Instance.new("Frame")
+	local PopupText = Instance.new("TextLabel")
+	local Exit = Instance.new("TextButton")
+	local ExitImage = Instance.new("ImageLabel")
+	AnnGUI.Name = newRandomString()
+	AnnGUI.Parent = PARENT
+	AnnGUI.Active = true
+	AnnGUI.BackgroundTransparency = 1
+	AnnGUI.Position = UDim2.new(0.5, -180, 0, -500)
+	AnnGUI.Size = UDim2.new(0, 360, 0, 20)
+	AnnGUI.ZIndex = 10
+	background.Name = "background"
+	background.Parent = AnnGUI
+	background.Active = true
+	background.BackgroundColor3 = currentShade1 or Color3.fromRGB(36, 36, 37)
+	background.BorderSizePixel = 0
+	background.Position = UDim2.new(0, 0, 0, 20)
+	background.Size = UDim2.new(0, 360, 0, 150)
+	background.ZIndex = 10
+	TextBox.Parent = background
+	TextBox.BackgroundTransparency = 1
+	TextBox.Position = UDim2.new(0, 5, 0, 5)
+	TextBox.Size = UDim2.new(0, 350, 0, 140)
+	TextBox.Font = Enum.Font.SourceSans
+	TextBox.TextSize = 18
+	TextBox.TextWrapped = true
+	TextBox.Text = ann
+	TextBox.TextColor3 = currentText1 or Color3.new(1, 1, 1)
+	TextBox.TextXAlignment = Enum.TextXAlignment.Left
+	TextBox.TextYAlignment = Enum.TextYAlignment.Top
+	TextBox.ZIndex = 10
+	shadow.Name = "shadow"
+	shadow.Parent = AnnGUI
+	shadow.BackgroundColor3 = currentShade2 or Color3.fromRGB(46, 46, 47)
+	shadow.BorderSizePixel = 0
+	shadow.Size = UDim2.new(0, 360, 0, 20)
+	shadow.ZIndex = 10
+	PopupText.Name = "PopupText"
+	PopupText.Parent = shadow
+	PopupText.BackgroundTransparency = 1
+	PopupText.Size = UDim2.new(1, 0, 0.95, 0)
+	PopupText.ZIndex = 10
+	PopupText.Font = Enum.Font.SourceSans
+	PopupText.TextSize = 14
+	PopupText.Text = "Infinite Store Announcement"
+	PopupText.TextColor3 = currentText1 or Color3.new(1, 1, 1)
+	PopupText.TextWrapped = true
+	Exit.Name = "Exit"
+	Exit.Parent = shadow
+	Exit.BackgroundTransparency = 1
+	Exit.Position = UDim2.new(1, -20, 0, 0)
+	Exit.Size = UDim2.new(0, 20, 0, 20)
+	Exit.Text = ""
+	Exit.ZIndex = 10
+	ExitImage.Parent = Exit
+	ExitImage.BackgroundColor3 = Color3.new(1, 1, 1)
+	ExitImage.BackgroundTransparency = 1
+	ExitImage.Position = UDim2.new(0, 5, 0, 5)
+	ExitImage.Size = UDim2.new(0, 10, 0, 10)
+	ExitImage.Image = "rbxassetid://5054663650"
+	ExitImage.ZIndex = 10
+    spawn(function()
+        wait(0.3)
+        -- AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 150), "InOut", "Quart", 0.5, true, nil)
+        AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 10), "InOut", "Quart", 0.5, true, nil)
+        Exit.MouseButton1Click:Connect(function()
+            AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
+            wait(0.6)
+            AnnGUI:Destroy()
+        end)
+    end)
+    _UserSettings.Announcement = ann
+    UpdateSettings()
+end
+
+local InfStoreBtn = makeSettingsButton("Infinite Store", "rbxassetid://2161586955")
+InfStoreBtn.Position = UDim2.new(0, 5, 0, 235)
+InfStoreBtn.Size = UDim2.new(1, -10, 0, 25)
+InfStoreBtn.Name = "InfStore"
+InfStoreBtn.Parent = SettingsHolder
+SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 local ServerParent = nil
 if (not is_sirhurt_closure) and (syn and syn.protect_gui) then
@@ -1386,5 +1471,5 @@ for index, setting in pairs(guiSettings) do
 	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function() spawn(function() setting.Function() end) end)
 	tempClone.Parent = settingsList
 end
-for index, val in pairs(_UserSettings) do settingsList[tostring(gsub(index, " ", ""))].CheckBox.Checked.Transparency = val and 0 or 1 end
+for index, val in pairs(_UserSettings) do if index ~= "Announcement" then settingsList[tostring(gsub(index, " ", ""))].CheckBox.Checked.Transparency = val and 0 or 1 end end
 cleanPluginCheck()
