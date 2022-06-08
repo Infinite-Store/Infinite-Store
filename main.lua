@@ -11,7 +11,7 @@ local IS_Settings = {
 	["NsfwPlugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua")
 }
 
-local ann = ""
+local ann = "hi we fixed the server invite"
 local _UserSettings = {
 	["StartMinimized"] = false,
 	["SafeMode"] = false,
