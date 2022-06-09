@@ -106,7 +106,7 @@ return {
 	};
 	
 	["CuteString"] = {
-		["Name"] = "CuteString", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/cutestring.iy", ["Commands"] = {"cutestring / cuteify [string]"},
+		["Name"] = "CuteString", ["Creator"] = "crazydoomy", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/cutestring.iy", ["Commands"] = {"cutestring / cuteify [string]"},
 	};
 	
 	["DisplayNameRemover"] = {
