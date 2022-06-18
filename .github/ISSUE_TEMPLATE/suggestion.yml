@@ -1,5 +1,5 @@
 name: 💡 Make a suggestion
-description: After starting a [discussion on GitHub](https://github.com/Infinite-Store/Infinite-Store/discussions/new?category=ideas) or thread on Discord, you can propose your changes here.
+description: After starting a discussion on GitHub or thread on Discord, you can propose your changes here.
 labels: 
   - enhancement
 body:
@@ -26,7 +26,7 @@ body:
       label: Checks
       description: "To help us avoid reading the same ideas over and over, please check the following before submitting:"
       options:
-        - label: I have started a thread or discussion regarding my ideas.
+        - label: I have started a [thread](https://discord.com/invite/dubhsUGcZe) or [discussion](https://github.com/Infinite-Store/Infinite-Store/discussions/new?category=ideas) regarding my ideas.
           required: true
         - label: I have used the search at least once to check if my idea has already been suggested and perhaps already implemented.
           required: true
