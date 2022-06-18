@@ -1,0 +1,52 @@
+name: 🐛 Report a bug
+description: Let us know that something clearly doesn't work as expected / described.
+labels: 
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before reporting a bug here, please make sure you use the latest stable version of Infinite Store from [GitHub](https://github.com/Infinite-Store/Infinite-Store#script).
+        Additionally, please join [the Discord server](https://discord.com/invite/dubhsUGcZe) and open a thread in the #infinite-store channel with your issue so that we can confirm that it is a bug.
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: What behavior of the script do you expect?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual behavior
+      description: How does the script actually react?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Can the behavior be reproduced consistently? If yes, how? Please also attach screenshots and/or console logs if they could help to understand the problem.
+    validations:
+      required: true
+  - type: input
+    id: script-version
+    attributes:
+      label: Infinite Store version
+      description: We require the version of the script at the time of posting to compare between other versions.
+      placeholder: "v1.0.0"
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Checks
+      description: "To help us avoid \"solving\" the same problems over and over, please check the following points before submitting:"
+      options:
+        - label: I am __not__ using an outdated version of Infinite Store.
+          required: true
+        - label: I asked in [Infinite Store's Discord server](https://discord.com/invite/dubhsUGcZe) to see whether this issue is in fact a bug that needs to be fixed.
+          required: true
+  - type: textarea
+    attributes:
+      label: Anything else
+      description: |
+        If you can think of anything else that might help us, there's plenty of room for it here. 😉
+    validations:
+      required: false
