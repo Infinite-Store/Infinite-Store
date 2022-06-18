@@ -1,5 +1,5 @@
 name: 💡 Make a suggestion
-description: After starting a [discussion on GitHub](https://github.com/Infinite-Store/Infinite-Store/discussions/new?category=ideas) or [thread on Discord](https://discord.com/invite/dubhsUGcZe), you can propose your changes here.
+description: After starting a [discussion on GitHub](https://github.com/Infinite-Store/Infinite-Store/discussions/new?category=ideas) or thread on Discord, you can propose your changes here.
 labels: 
   - enhancement
 body:
