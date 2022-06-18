@@ -2,7 +2,7 @@
 <p align="center">The fastest and most efficient way to add plugins to Infinite Yield</p>
 <p align="center">
 	<a href="./LICENSE">
-		<img alt="License" src="https://img.shields.io/badge/license-MIT-blue?color=7aca00"/>
+		<img alt="License" src="https://img.shields.io/github/license/Infinite-Store/Infinite-Store"/>
 	</a>
 	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
 		<img alt="Issues" src="https://img.shields.io/github/issues/Infinite-Store/Infinite-Store?color=0088ff"/>
