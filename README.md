@@ -27,7 +27,7 @@
 loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 ```
 
-## Important information
+## Important Information
 
 If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) server!
 
