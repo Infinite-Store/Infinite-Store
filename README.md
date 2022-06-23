@@ -3,21 +3,24 @@
 </h1>
 
 <p align="center">
-	The cool way to add plugins and themes to Infinite Yield!
+	The <em>cool</em> way to add plugins and themes to Infinite Yield!
 </p>
 
 <p align="center">
+	<a href="https://github.com/Infinite-Store/Infinite-Store/releases/latest">
+		<img alt="Release" src="https://img.shields.io/github/release-date-pre/Infinite-Store/Infinite-Store?label=latest%20release&style=flat-square">
+	</a>
 	<a href="https://discord.gg/dubhsUGcZe">
-		<img alt="Discord" src="https://img.shields.io/discord/897257702126936075?color=%235865F2&logo=discord&logoColor=%23DCDDDE">
+		<img alt="Discord" src="https://img.shields.io/discord/897257702126936075?color=%235865F2&logo=discord&logoColor=%23DCDDDE&style=flat-square">
 	</a>
 	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
-		<img alt="Issues" src="https://img.shields.io/github/issues/Infinite-Store/Infinite-Store?color=0088ff"/>
+		<img alt="Issues" src="https://img.shields.io/github/issues/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
 	<a href="https://github.com/Infinite-Store/Infinite-Store/pulls">
-		<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff"/>
+		<img alt="Pulls" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
 	<a href="./LICENSE">
-		<img alt="License" src="https://img.shields.io/github/license/Infinite-Store/Infinite-Store"/>
+		<img alt="License" src="https://img.shields.io/github/license/Infinite-Store/Infinite-Store?style=flat-square"/>
 	</a>
 </p>
 
