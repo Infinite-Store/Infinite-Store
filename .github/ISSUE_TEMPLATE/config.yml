@@ -2,7 +2,10 @@ blank_issues_enabled: false
 contact_links:
   - name: 💬 Get help
     url: https://discord.com/invite/dubhsUGcZe
-    about: "If you need help with something related to Infinite Store or have a question please join our Discord server and do so in our #infinite-store or #general-dev channels."
+    about: "If you need help with something or have a question please join our Discord server and and use the #infinite-store or #general-dev channel."
   - name: 📚 Search for documentation
     url: https://github.com/Infinite-Store/Infinite-Store/wiki
     about: In our wiki you can find some guides and helpful tips.
+  - name: 😁 Hold a discussion
+    url: https://github.com/Infinite-Store/Infinite-Store/discussions/new
+    about: If you have anything to say, start a discussion!

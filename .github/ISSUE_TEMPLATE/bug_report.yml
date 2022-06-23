@@ -39,6 +39,8 @@ body:
       label: Checks
       description: "To help us avoid \"solving\" the same problems over and over, please check the following points before submitting:"
       options:
+        - label: I am __not__ using a mobile device.
+          required: true
         - label: I am __not__ using an outdated version of Infinite Store.
           required: true
         - label: I asked in [Infinite Store's Discord server](https://discord.com/invite/dubhsUGcZe) to see whether this issue is in fact a bug that needs to be fixed.

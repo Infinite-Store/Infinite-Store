@@ -1,5 +1,5 @@
 name: 💡 Make a suggestion
-description: Suggest a change on the current behavior, a completely new feature, or something else.
+description: After starting a discussion on GitHub or thread on Discord, you can propose your changes here.
 labels: 
   - enhancement
 body:
@@ -12,7 +12,7 @@ body:
   - type: textarea
     attributes:
       label: What and How?
-      description: How should the plugin behave after the change / what should it do differently than before? If you already have a concrete solution in mind, what does it look like?
+      description: How should the script behave after the change / what should it do differently than before? If you already have a concrete solution in mind, what does it look like?
     validations:
       required: true
   - type: textarea
@@ -26,6 +26,8 @@ body:
       label: Checks
       description: "To help us avoid reading the same ideas over and over, please check the following before submitting:"
       options:
+        - label: I have started a [thread](https://discord.com/invite/dubhsUGcZe) or [discussion](https://github.com/Infinite-Store/Infinite-Store/discussions/new?category=ideas) regarding my ideas.
+          required: true
         - label: I have used the search at least once to check if my idea has already been suggested and perhaps already implemented.
           required: true
   - type: textarea
