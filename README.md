@@ -14,12 +14,12 @@
 	<a href="https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server"><strong>Click here to join the Discord Server</strong></a>
 </p>
 
-## Script
+## Loadstring
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
 ```
 
-## Important Information
+## Important information
 If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server)!
 
 ## Adding to Infinite Store
