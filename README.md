@@ -27,7 +27,11 @@
 ## Loadstring
 
 ```lua
-loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
+loadstring(game:HttpGet("https://load.epik.ml/store.lua"))()
+```
+or
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
 ```
 
 ## Important Information
