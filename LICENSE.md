@@ -1,6 +1,7 @@
 ##	Infinite Store License (ISL 1.0.0)
 
 ###	Definitions
+
 1.	This Script is defined as all of the files within any archive
 	file or any group of files released in conjunction by Infinite
 	Store or a derived or modified work based on such files.
@@ -23,6 +24,7 @@
 	https://infinite.store.likesyou.org/.
 
 ###	Agreement
+
 1.	Permission is hereby granted to use, copy, modify and/or
 	distribute this Script, provided that:
 
