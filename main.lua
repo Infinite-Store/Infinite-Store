@@ -7,8 +7,8 @@ end
 local IS_Settings = {
 	["Version"] = ("1.3.4"),
 	["Invite"] = ("dubhsUGcZe"),
-	["Plugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/db.lua"),
-	["NsfwPlugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/db.lua")
+	["Plugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/sources.lua"),
+	["NsfwPlugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/sources.lua")
 }
 
 local ann = "hi we fixed the discord server invite"
