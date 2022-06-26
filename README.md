@@ -56,5 +56,5 @@ Do you have your own plugin or want to update existing ones? You can do it by cr
 | [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)               | ✔️      |
 | [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)              | ⏳      |
 | [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins)            | ♾      |
-| [Affilliation](https://discord.gg/78ZuWSq)                                               | ✔️      |
+| [Affiliation](https://discord.gg/78ZuWSq)                                               | ✔️      |
 | [Discord Server](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️      |
