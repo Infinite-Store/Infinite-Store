@@ -292,4 +292,8 @@ return {
 	["GotoFolder"] = {
 		["Name"] = "GotoFolder", ["Creator"] = "D7M", ["CreationDate"] = "5/07/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/GotoFolder.iy", ["Commands"] = {"gotofolder"},
 	};
+
+	["Textures"] = {
+		["Name"] = "Textures", ["Creator"] = "WheresSilly", ["CreationDate"] = "6/18/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Textures.iy", ["Commands"] = {"improvetextures", "undotextures"},
+	};
 }
