@@ -38,7 +38,7 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/I
 
 ## Important Information
 
-If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) server!
+If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://discord.gg/dubhsUGcZe) server!
 
 ## Contributions
 
