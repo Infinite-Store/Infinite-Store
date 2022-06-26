@@ -62,15 +62,15 @@
 	-	Any Distribution of a Modified Script or derivative requires
 		express written consent from Infinite Store.
 
-1.	Permission is hereby also granted to distribute programs which
+3.	Permission is hereby also granted to distribute programs which
 	depend on this Script, provided that you do not distribute any
 	Modified Script without express written consent.
 
 4.	Infinite Store reserves the right to change the terms of this
 	Agreement at any time, although those changes are not retroactive
-	to past releases. Changes to this document will be announced via
-	GitHub using the Infinite Store GitHub notification list. Failure
-	to receive notification of a change does not make those changes
+	to past releases. Changes to this document will be made public via
+	GitHub using the Infinite Store GitHub repository. Failure to
+	receive notification of a change does not make those changes
 	invalid. A current copy of this Agreement can be found on the
 	Infinite Store Website.
 
