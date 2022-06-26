@@ -1,0 +1,24 @@
+on:
+    push:
+        branches:
+        - main
+        paths:
+        - README.md
+        - LICENSE
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download
+        run: |
+          mkdir .temp
+          cd .temp/
+          wget https://github.com/magiclen/markdown2html-converter/releases/latest/download/markdown2html-converter 
+          ./markdown2html-converter --no-safe -f ../README.md -o ../index.html
+          
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: "."
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
