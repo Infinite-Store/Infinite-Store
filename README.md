@@ -25,7 +25,6 @@
 </p>
 
 ## Loadstring
-
 ```lua
 loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 ```
@@ -35,23 +34,21 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/I
 ```
 
 ## Important Information
-
 If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) server!
 
 ## Contributions
-
 Do you have your own plugin or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (compare across forks to select your fork). You may also open a pull request to add your plugin URLs from a source repository other than this one.
 
 ## Features
-
 | Feature                                                                                     | Status |
 | ------------------------------------------------------------------------------------------- | ------ |
 | Home Page                                                                                   | ✔️     |
 | Plugins Page                                                                                | ✔️     |
 | Settings                                                                                    | ✔️     |
 | Animations                                                                                  | ✔️     |
+| [Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki)                               | ✔️     |
 | [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)                  | ✔️     |
-| [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️     |
-| [Affilliation](https://discord.gg/78ZuWSq)                                                  | ✔️     |
 | [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)                 | ⏳      |
 | [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins)               | ♾      |
+| [Affilliation](https://discord.gg/78ZuWSq)                                                  | ✔️     |
+| [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️     |
