@@ -20,8 +20,7 @@
 5.	The Software is defined as an installed copy of this Script, a
 	Modified Script, or a derivative of this Script.
 
-6.	The Infinite Store Website is defined as
-	https://infinite.store.likesyou.org/.
+6.	The Infinite Store Website is defined as https://infinite-store.ml.
 
 ##	Agreement
 
