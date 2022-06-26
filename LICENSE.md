@@ -1,4 +1,4 @@
-#	Infinite Store License (ISL 1.0.0)
+#	Infinite Store License (ISL 1.0.1)
 
 ##	Definitions
 
