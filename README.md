@@ -51,4 +51,4 @@ Do you have your own plugin or want to update existing ones? You can do it by cr
 | [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)                 | ⏳      |
 | [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins)               | ♾      |
 | [Affilliation](https://discord.gg/78ZuWSq)                                                  | ✔️     |
-| [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️     |
+| [Discord Server](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️     |
