@@ -1,6 +1,7 @@
-##	Infinite Store License (ISL 1.0.0)
+#	Infinite Store License (ISL 1.0.0)
 
-###	Definitions
+##	Definitions
+
 1.	This Script is defined as all of the files within any archive
 	file or any group of files released in conjunction by Infinite
 	Store or a derived or modified work based on such files.
@@ -22,7 +23,8 @@
 6.	The Infinite Store Website is defined as
 	https://infinite.store.likesyou.org/.
 
-###	Agreement
+##	Agreement
+
 1.	Permission is hereby granted to use, copy, modify and/or
 	distribute this Script, provided that:
 
@@ -62,15 +64,15 @@
 	-	Any Distribution of a Modified Script or derivative requires
 		express written consent from Infinite Store.
 
-1.	Permission is hereby also granted to distribute programs which
+3.	Permission is hereby also granted to distribute programs which
 	depend on this Script, provided that you do not distribute any
 	Modified Script without express written consent.
 
 4.	Infinite Store reserves the right to change the terms of this
 	Agreement at any time, although those changes are not retroactive
-	to past releases. Changes to this document will be announced via
-	GitHub using the Infinite Store GitHub notification list. Failure
-	to receive notification of a change does not make those changes
+	to past releases. Changes to this document will be made public via
+	GitHub using the Infinite Store GitHub repository. Failure to
+	receive notification of a change does not make those changes
 	invalid. A current copy of this Agreement can be found on the
 	Infinite Store Website.
 

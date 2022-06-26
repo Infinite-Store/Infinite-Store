@@ -19,7 +19,7 @@
 	<a href="https://github.com/Infinite-Store/Infinite-Store/pulls">
 		<img alt="Pulls" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
-	<a href="./LICENSE">
+	<a href="./LICENSE.md">
 		<img alt="License" src="https://img.shields.io/badge/license-ISL--1.0.0-red?style=flat-square"/>
 	</a>
 </p>
@@ -29,14 +29,16 @@
 ```lua
 loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 ```
+
 or
+
 ```lua
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
 ```
 
 ## Important Information
 
-If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) server!
+If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://discord.gg/dubhsUGcZe) server!
 
 ## Contributions
 
@@ -44,14 +46,15 @@ Do you have your own plugin or want to update existing ones? You can do it by cr
 
 ## Features
 
-| Feature                                                                                     | Status |
-| ------------------------------------------------------------------------------------------- | ------ |
-| Home Page                                                                                   | ✔️     |
-| Plugins Page                                                                                | ✔️     |
-| Settings                                                                                    | ✔️     |
-| Animations                                                                                  | ✔️     |
-| [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)                  | ✔️     |
-| [Discord Community](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️     |
-| [Affilliation](https://discord.gg/78ZuWSq)                                                  | ✔️     |
-| [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)                 | ⏳      |
-| [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins)               | ♾      |
+| Feature                                                                                  | Status |
+| ---------------------------------------------------------------------------------------- | ------ |
+| Home Page                                                                                | ✔️      |
+| Plugins Page                                                                             | ✔️      |
+| Settings                                                                                 | ✔️      |
+| Animations                                                                               | ✔️      |
+| [Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki)                            | ✔️      |
+| [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)               | ✔️      |
+| [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)              | ⏳      |
+| [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins)            | ♾      |
+| [Affilliation](https://discord.gg/78ZuWSq)                                               | ✔️      |
+| [Discord Server](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️      |
