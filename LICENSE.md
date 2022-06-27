@@ -79,4 +79,3 @@
 	with the limitations described herein. Upon termination, you must
 	destroy all copies of this Script, the Software, and any
 	derivatives within 48 hours.
-
