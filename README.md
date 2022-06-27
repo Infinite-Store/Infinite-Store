@@ -61,4 +61,4 @@ Do you have your own plugin or want to update existing ones? You can do it by cr
 
 ## License
 
-Please read the [license](LICENSE.md) before asking to use Infinite Store in your project.
+Please read the [license](license) before asking to use Infinite Store in your project.
