@@ -26,7 +26,7 @@
 
 ## Usage
 
-The loader allows Infinite Store to always be kept up-to-date, without re-downloading it every time you want to use it.\
+The loader allows Infinite Store to always be kept up-to-date without re-downloading it every time you want to use it.\
 You can download the Infinite Store loader directly [here](https://github.com/Infinite-Store/Infinite-Store/releases/latest/download/is.luau), or use one of these `loadstring()` loaders:
 
 ```lua
