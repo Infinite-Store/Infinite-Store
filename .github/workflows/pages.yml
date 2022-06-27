@@ -14,8 +14,6 @@ jobs:
 
       - name: download
         run: |
-          mkdir .temp
-          cd .temp/
           wget https://github.com/magiclen/markdown2html-converter/releases/latest/download/markdown2html-converter
           chmod +x ./markdown2html-converter
           ./markdown2html-converter --no-safe --no-cjk-fonts -f --css-path ../github-markdown.css ../README.md -o ../index.html
