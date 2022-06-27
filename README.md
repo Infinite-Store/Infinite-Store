@@ -51,16 +51,16 @@ You may also open a pull request to add your plugin URLs from a source repositor
 
 | Feature                                                                                  | Status |
 | ---------------------------------------------------------------------------------------- | ------ |
-| Home Page                                                                                | ✔️      |
-| Plugins Page                                                                             | ✔️      |
-| Settings                                                                                 | ✔️      |
-| Animations                                                                               | ✔️      |
-| [Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki)                            | ✔️      |
-| [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Usage)                    | ✔️      |
+| Home Page                                                                                | ✅      |
+| Plugins Page                                                                             | ✅      |
+| Settings                                                                                 | ✅      |
+| Animations                                                                               | ✅      |
+| [Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki)                            | ✅      |
+| [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Usage)                    | ✅      |
 | [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)              | ⏳      |
 | [Plugins](plugins)                                                                       | ♾      |
-| [Affiliation](https://discord.gg/78ZuWSq)                                                | ✔️      |
-| [Discord Server](https://discord.gg/dubhsUGcZe)                                          | ✔️      |
+| [Affiliation](https://discord.gg/78ZuWSq)                                                | ✅      |
+| [Discord Server](https://discord.gg/dubhsUGcZe)                                          | ✅      |
 
 ## License
 
