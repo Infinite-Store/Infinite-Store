@@ -301,7 +301,7 @@ return {
 		["Name"] = "FakeCommands", ["Creator"] = "Tyyuiss", ["CreationDate"] = "6/18/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/fakecommands.iy", ["Commands"] = {"fakekick / fkick <reason>", "fakeban / fban <reason>"},
 	};
 	
-	["Keybinds"] = {
-		["Name"] = "KeybindsV2", ["Creator"] = "Thomas_Cornez", ["CreationDate"] = "06/27/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Keybinds.iy", ["Commands"] = {"bind {key} {command} [argument] {command} [argument]", "unbind {key}"},
+	["KeybindsV2"] = {
+		["Name"] = "KeybindsV2", ["Creator"] = "Thomas_Cornez", ["CreationDate"] = "06/27/2022", ["GithubLink"] = "https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/Keybinds.iy", ["Commands"] = {"bind [key] [command 1] [command 2]", "unbind [key]"},
 	};
 }
