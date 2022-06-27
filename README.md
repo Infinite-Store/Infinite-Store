@@ -24,13 +24,14 @@
 	</a>
 </p>
 
-## Loadstring
+## Usage
+
+The loader allows Infinite Store to always be kept up-to-date, without re-downloading it every time you want to use it.\
+You can download the Infinite Store loader directly [here](https://github.com/Infinite-Store/Infinite-Store/releases/latest/download/is.luau), or use one of these `loadstring()` loaders:
 
 ```lua
 loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 ```
-
-or
 
 ```lua
 loadstring(game:HttpGetAsync("https://infinite-store.ml/main.lua"))()
@@ -38,11 +39,13 @@ loadstring(game:HttpGetAsync("https://infinite-store.ml/main.lua"))()
 
 ## Important Information
 
-If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki). For even more help, join our [Discord](https://discord.gg/dubhsUGcZe) server!
+If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki).\
+For even more help, join our [Discord](https://discord.gg/dubhsUGcZe) server!
 
 ## Contributions
 
-Do you have your own plugin or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (compare across forks to select your fork). You may also open a pull request to add your plugin URLs from a source repository other than this one.
+Do you have your own plugin or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (compare across forks to select your fork).\
+You may also open a pull request to add your plugin URLs from a source repository other than this one.
 
 ## Features
 
