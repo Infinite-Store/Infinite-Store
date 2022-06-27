@@ -55,6 +55,10 @@ Do you have your own plugin or want to update existing ones? You can do it by cr
 | [Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki)                            | ✔️      |
 | [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Loadstring)               | ✔️      |
 | [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)              | ⏳      |
-| [Plugins](https://github.com/Infinite-Store/Infinite-Store/blob/main/plugins)            | ♾      |
-| [Affiliation](https://discord.gg/78ZuWSq)                                               | ✔️      |
-| [Discord Server](https://github.com/Infinite-Store/Infinite-Store/wiki/Community-Server) | ✔️      |
+| [Plugins](plugins)                                                                       | ♾      |
+| [Affiliation](https://discord.gg/78ZuWSq)                                                | ✔️      |
+| [Discord Server](https://discord.gg/dubhsUGcZe)                                          | ✔️      |
+
+## License
+
+Please read the [license](LICENSE.md) before asking to use Infinite Store in your project.
