@@ -34,18 +34,26 @@
 ## Usage
 
 The loader allows Infinite Store to always be kept up-to-date without re-downloading it every time you want to use it.\
-You can download the Infinite Store loader directly [here](https://github.com/Infinite-Store/Infinite-Store/releases/latest/download/is.luau), or use one of these `loadstring()` loaders:
+You can download the Infinite Store loader for the latest version [here](https://github.com/Infinite-Store/Infinite-Store/releases/latest/download/is.luau) or choose from one of the following `loadstring()` loaders:
+
+### For users
+
+These loaders are for the latest release:
 
 ```lua
 loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 ```
 
 ```lua
-loadstring(game:HttpGetAsync("https://infinite-store.ml/main.lua"))()
+loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store/main.lua"))()
 ```
 
+### For developers
+
+This loader is for the latest commit:
+
 ```lua
-loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store/main.lua"))()
+loadstring(game:HttpGetAsync("https://infinite-store.ml/main.lua"))()
 ```
 
 ## Important Information
