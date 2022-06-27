@@ -1,9 +1,4 @@
-local keybinds
-if not isfile("keybinds.keybinds") then 
-	keybinds = {}
-else
-	keybinds = game:GetService("HttpService"):JSONDecode(readfile("keybinds.keybinds"))
-end
+local keybinds = {}
 
 local event
 event = game:GetService("Players").LocalPlayer:GetMouse().KeyDown:Connect(function(input)
@@ -28,32 +23,28 @@ local Plugin = {
 	["PluginDescription"] = "Allows you to bind any commands and set them to toggle",
 	["Commands"] = {
 		["bind"] = {
-			["ListName"] = "bind [key] [command 1] [command 2]",
-			["Description"] = "[command 1] can have 1 optional parameter and so does [command 2]. But only 1 for now",
+			["ListName"] = "bind {key} {command} [argument] {command} [argument]",
+			["Description"] = "Commands can have 1 optional arguments each",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
 				-- Ugly code incoming
-				if #args == 3 then
+				if #args < 4 then
 					keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[3], ARGUMENT_1 = "", ARGUMENT_2 = "", TOGGLE = true}
-					writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 					-- ;bind [key] [command 1] [command 2]
 				else
 					for i = #cmds,1,-1 do
-						if cmds[i].NAME ~= args[3] or not FindInTable(cmds[i].ALIAS,args[3]) and args[5] then                                                                                                                                 
+						if cmds[i].NAME ~= args[3] or not FindInTable(cmds[i].ALIAS,args[3]) and args[5] then
 							keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[4], ARGUMENT_1 = args[3], ARGUMENT_2 = args[5], TOGGLE = true}
-							writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 							-- ;bind [key] [command 1] [parameter 1] [command 2] [parameter 2]
 							break
 
 						elseif cmds[i].NAME ~= args[3] or not FindInTable(cmds[i].ALIAS,args[3]) and args[5] == nil then
 							keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[4], ARGUMENT_1 = args[3], ARGUMENT_2 = "", TOGGLE = true}
-							writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 							-- ;bind [key] [command 1] [parameter 1] [command 2]
 							break
 
 						elseif cmds[i].NAME == args[3] or FindInTable(cmds[i].ALIAS,args[3]) then
 							keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[3], ARGUMENT_1 = "", ARGUMENT_2 = args[4], TOGGLE = true}
-							writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 							-- ;bind [key] [command 1] [command 2] [parameter 2]
 							break
 						end
@@ -62,18 +53,17 @@ local Plugin = {
 			end
 		},
 		["unbind"] = {
-			["ListName"] = "unbind [key]",
+			["ListName"] = "unbind {key}",
 			["Description"] = "oui",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
 				for i = #keybinds,1,-1 do
 					if keybinds[i].KEY == args[1] then
 						table.remove(keybinds, i)
-						writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 						notify("This bind has been removed")
 						return
 					else
-						notify("This key is not binded")
+						notify("This key is not bound")
 					end
 				end
 			end
