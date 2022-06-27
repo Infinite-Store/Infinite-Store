@@ -39,7 +39,7 @@ loadstring(game:HttpGetAsync("https://infinite-store.ml/main.lua"))()
 
 ## Important Information
 
-If you want to know how to install plugins, or where to get even more information, please refer to the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki).\
+If you are looking for tutorials and how-tos, check out the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki).\
 For even more help, join our [Discord](https://discord.gg/dubhsUGcZe) server!
 
 ## Contributions
