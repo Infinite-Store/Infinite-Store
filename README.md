@@ -1,3 +1,7 @@
+<head>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
 <h1 align="center">
 	Infinite Store
 </h1>
