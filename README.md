@@ -41,6 +41,10 @@ loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 loadstring(game:HttpGetAsync("https://infinite-store.ml/main.lua"))()
 ```
 
+```lua
+loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store/main.lua"))()
+```
+
 ## Important Information
 
 If you are looking for tutorials and how-tos, check out the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki).\
