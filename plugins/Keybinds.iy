@@ -27,8 +27,8 @@ local Plugin = {
 	["PluginDescription"] = "Allows you to bind any commands and set them to toggle",
 	["Commands"] = {
 		["bind"] = {
-			["ListName"] = "bind [key] [command 1] [command 2]",
-			["Description"] = "[command 1] can have 1 optional parameter and so does [command 2]. But only 1 for now",
+			["ListName"] = "bind {key} {command} [argument] {command} [argument]",
+			["Description"] = "Commands can have 1 optional arguments each",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
 				-- Ugly code incoming
@@ -61,7 +61,7 @@ local Plugin = {
 			end
 		},
 		["unbind"] = {
-			["ListName"] = "unbind [key]",
+			["ListName"] = "unbind {key}",
 			["Description"] = "oui",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
@@ -72,7 +72,7 @@ local Plugin = {
 						notify("This bind has been removed")
 						return
 					else
-						notify("This key is not binded")
+						notify("This key is not bound")
 					end
 				end
 			end
