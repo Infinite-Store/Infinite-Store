@@ -1,4 +1,8 @@
-local keybinds = {}
+if not isfile("keybinds.keybinds") then 
+	keybinds = {}
+else
+	keybinds = game:GetService("HttpService"):JSONDecode(readfile("keybinds.keybinds"))
+end
 
 local event
 event = game:GetService("Players").LocalPlayer:GetMouse().KeyDown:Connect(function(input)
@@ -28,23 +32,27 @@ local Plugin = {
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
 				-- Ugly code incoming
-				if #args < 4 then
+				if #args == 3 then
 					keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[3], ARGUMENT_1 = "", ARGUMENT_2 = "", TOGGLE = true}
+					writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 					-- ;bind [key] [command 1] [command 2]
 				else
 					for i = #cmds,1,-1 do
-						if cmds[i].NAME ~= args[3] or not FindInTable(cmds[i].ALIAS,args[3]) and args[5] then
+						if cmds[i].NAME ~= args[3] or not FindInTable(cmds[i].ALIAS,args[3]) and args[5] then                                                                                                                                 
 							keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[4], ARGUMENT_1 = args[3], ARGUMENT_2 = args[5], TOGGLE = true}
+							writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 							-- ;bind [key] [command 1] [parameter 1] [command 2] [parameter 2]
 							break
 
 						elseif cmds[i].NAME ~= args[3] or not FindInTable(cmds[i].ALIAS,args[3]) and args[5] == nil then
 							keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[4], ARGUMENT_1 = args[3], ARGUMENT_2 = "", TOGGLE = true}
+							writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 							-- ;bind [key] [command 1] [parameter 1] [command 2]
 							break
 
 						elseif cmds[i].NAME == args[3] or FindInTable(cmds[i].ALIAS,args[3]) then
 							keybinds[#keybinds + 1] = {KEY = args[1], COMMAND_1 = args[2], COMMAND_2 = args[3], ARGUMENT_1 = "", ARGUMENT_2 = args[4], TOGGLE = true}
+							writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 							-- ;bind [key] [command 1] [command 2] [parameter 2]
 							break
 						end
@@ -60,6 +68,7 @@ local Plugin = {
 				for i = #keybinds,1,-1 do
 					if keybinds[i].KEY == args[1] then
 						table.remove(keybinds, i)
+						writefile("keybinds.keybinds", game:GetService("HttpService"):JSONEncode(keybinds))
 						notify("This bind has been removed")
 						return
 					else
