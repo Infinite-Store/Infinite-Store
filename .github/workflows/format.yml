@@ -5,20 +5,19 @@ on:
 
 jobs:
   stylua:
+
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-    
     - name: download-and-format
       run: |
-        cargo install stylua --features luau
-        stylua --verify -g '*.lua' -g '*.iy' -- .
+        wget https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
+        unzip stylua-linux.zip
+        ./stylua --verify -g '*.luau' -- .
 
     - uses: EndBug/add-and-commit@v9
+      if: ${{ success() || failure() }}
       with:
         add: "."
         committer_name: GitHub Actions
