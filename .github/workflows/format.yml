@@ -15,8 +15,8 @@ jobs:
 
     - name: download-and-format
       run: |
-        wget https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
-        unzip stylua-linux.zip
+        curl -O https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
+        unzip -o stylua-linux.zip
         ./stylua --verify .
 
     - uses: EndBug/add-and-commit@v9
