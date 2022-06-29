@@ -12,7 +12,8 @@ jobs:
     - uses: JohnnyMorganz/stylua-action@1.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-      run: stylua --verify -g '*.lua' -g '*.iy' -- .
+
+    - run: stylua --verify -g '*.lua' -g '*.iy' -- .
 
     - uses: EndBug/add-and-commit@v9
       with:
