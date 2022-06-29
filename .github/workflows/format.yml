@@ -8,7 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
     - uses: JohnnyMorganz/stylua-action@1.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        args: ./plugins main.lua sources.lua
+        args: --verify -g '*.lua' -g '*.iy' -- .
+
+    - uses: EndBug/add-and-commit@v9
+      with:
+        add: "."
+        committer_name: GitHub Actions
+        committer_email: actions@github.com
