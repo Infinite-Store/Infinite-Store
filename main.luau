@@ -2,16 +2,16 @@ local LoadUrl = function(str)
 	return loadstring(game:HttpGet(str, true))()
 end
 if not IY_LOADED then
-	LoadUrl("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+	LoadUrl("https://cdn.jsdelivr.net/gh/EdgeIY/infiniteyield@master/source")
 	wait(0.75)
 end
 
 local IS_Settings = {
 	["Version"] = "1.3.4",
 	["Invite"] = "dubhsUGcZe",
-	["Plugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/sources.lua"),
+	["Plugins"] = LoadUrl("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/sources.luau"),
 	["NsfwPlugins"] = LoadUrl(
-		"https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/sources.lua"
+		"https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/nsfwplugins/sources.luau"
 	),
 }
 
@@ -1399,7 +1399,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Author.Text = plgin.Creator
 		pluginFrameClone.PluginName.Text = plgin.Name
 		pluginFrameClone.Created.Text = plgin.CreationDate
-		if isfile(plgin.Name .. ".plugin.luau") then
+		if isfile(plgin.Name .. ".iy") then
 			pluginFrameClone.Install.Text = "Uninstall"
 			for i, v in pairs(pluginFrameClone:GetChildren()) do
 				tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
@@ -1411,11 +1411,11 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then
 				installDebounce = true
-				local pluginData = 'return loadstring(game:HttpGet(("' .. tostring(plgin.GithubLink) .. '"), true))()'
-				if isfile(plgin.Name .. ".plugin.luau") == true then
+				local pluginData = 'return loadstring(game:HttpGetAsync(("' .. tostring(plgin.GithubLink) .. '"), true))()'
+				if isfile(plgin.Name .. ".iy") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
 					deletePlugin(plgin.Name)
-					delfile(plgin.Name .. ".plugin.luau")
+					delfile(plgin.Name .. ".iy")
 					pluginFrameClone.Install.Text = "Success"
 					wait(0.5)
 					pluginFrameClone.Install.Text = "Install"
@@ -1428,7 +1428,7 @@ local LoadPluginsFromTable = function(ptbl)
 				else
 					pluginFrameClone.Install.Text = "Installing"
 					spawn(function()
-						writefile(plgin.Name .. ".plugin.luau", pluginData)
+						writefile(plgin.Name .. ".iy", pluginData)
 						wait()
 						addPlugin(plgin.Name)
 					end)

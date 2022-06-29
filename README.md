@@ -45,11 +45,11 @@ loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 ```
 
 ```lua
-loadstring(game:HttpGetAsync("https://infinite-store.ml/main.lua"))()
+loadstring(game:HttpGetAsync("https://infinite-store.ml/main.luau"))()
 ```
 
 ```lua
-loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/main.lua"))()
+loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/main.luau"))()
 ```
 
 ### For developers
@@ -62,7 +62,7 @@ loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
 ```
 
 ```lua
-loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@development/main.lua"))()
+loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@development/main.luau"))()
 ```
 
 ## Important Information
