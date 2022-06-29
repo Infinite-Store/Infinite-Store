@@ -15,7 +15,7 @@ jobs:
 
     - name: download-and-format
       run: |
-        curl -O https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
+        wget -O stylua-linux.zip https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
         unzip -o stylua-linux.zip
         ./stylua --verify .
 
