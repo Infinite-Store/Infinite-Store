@@ -24,5 +24,6 @@ jobs:
       if: ${{ success() || failure() }}
       with:
         add: "."
+        message: Format `*.luau` files
         committer_name: GitHub Actions
         committer_email: actions@github.com
