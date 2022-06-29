@@ -2,13 +2,28 @@ on:
   push:
     branches:
     - main
+    paths:
+    - .github/workflows/format.yml
+    - '*.luau'
 
 jobs:
   stylua:
+
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: JohnnyMorganz/stylua-action@1.0.0
+
+    - name: download-and-format
+      run: |
+        wget -O stylua-linux.zip https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
+        unzip -o stylua-linux.zip
+        chmod +x ./stylua
+        ./stylua --verify .
+
+    - uses: EndBug/add-and-commit@v9
+      if: ${{ success() || failure() }}
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        args: ./plugins main.lua sources.lua
+        add: "."
+        message: Format `*.luau` files
+        committer_name: GitHub Actions
+        committer_email: actions@github.com
