@@ -1,4 +1,4 @@
-#	Infinite Store License (ISL 1.0.0)
+#	Infinite Store License (ISL 1.0.2)
 
 ##	Definitions
 
@@ -20,8 +20,8 @@
 5.	The Software is defined as an installed copy of this Script, a
 	Modified Script, or a derivative of this Script.
 
-6.	The Infinite Store Website is defined as
-	https://infinite.store.likesyou.org/.
+6.	The Infinite Store GitHub Repository is defined as 
+	https://github.com/Infinite-Store/Infinite-Store.
 
 ##	Agreement
 
@@ -74,7 +74,7 @@
 	GitHub using the Infinite Store GitHub repository. Failure to
 	receive notification of a change does not make those changes
 	invalid. A current copy of this Agreement can be found on the
-	Infinite Store Website.
+	Infinite Store GitHub Repository.
 
 5.	This Agreement will terminate automatically if you fail to comply
 	with the limitations described herein. Upon termination, you must
