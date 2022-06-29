@@ -19,6 +19,18 @@
 		"isfile",
 		"deletePlugin",
 		"delfile",
-		"addPlugin"
+		"addPlugin",
+		"listfiles",
+		"execCmd",
+		"getPlayer",
+		"http",
+		"fluxus",
+		"request",
+		"http_request",
+		"speaker",
+		"getrawmetatable",
+		"sethiddenproperty",
+		"Title",
+		"getstring"
 	]
 }
