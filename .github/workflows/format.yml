@@ -15,8 +15,6 @@ jobs:
         wget https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
         unzip stylua-linux.zip
         ./stylua --verify -g '*.luau' -- .
-        rm ./stylua-linux.zip
-        rm ./stylua
 
     - uses: EndBug/add-and-commit@v9
       if: ${{ success() || failure() }}

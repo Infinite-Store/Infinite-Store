@@ -17,7 +17,6 @@ jobs:
           wget https://github.com/magiclen/markdown2html-converter/releases/latest/download/markdown2html-converter
           chmod +x ./markdown2html-converter
           ./markdown2html-converter --no-safe --no-cjk-fonts -f --css-path ./github-markdown.css -t "Infinite Store" ./README.md -o ./index.html
-          rm ./markdown2html-converter
 
       - uses: EndBug/add-and-commit@v9
         with:
