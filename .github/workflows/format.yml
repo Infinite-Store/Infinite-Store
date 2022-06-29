@@ -9,11 +9,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: JohnnyMorganz/stylua-action@1.0.0
+    - uses: actions-rs/toolchain@v1
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-    - run: stylua --verify -g '*.lua' -g '*.iy' -- .
+        toolchain: stable
+    
+    - name: download-and-format
+      run: |
+        cargo install stylua --features luau
+        stylua --verify -g '*.lua' -g '*.iy' -- .
 
     - uses: EndBug/add-and-commit@v9
       with:
