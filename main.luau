@@ -10,7 +10,9 @@ local IS_Settings = {
 	["Version"] = "1.3.4",
 	["Invite"] = "dubhsUGcZe",
 	["Plugins"] = LoadUrl("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/sources.luau"),
-	["NsfwPlugins"] = LoadUrl("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/nsfwplugins/sources.luau"),
+	["NsfwPlugins"] = LoadUrl(
+		"https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/nsfwplugins/sources.luau"
+	),
 }
 
 local ann = "hi we fixed the discord server invite"
