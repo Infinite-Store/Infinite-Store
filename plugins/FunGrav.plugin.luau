@@ -46,95 +46,77 @@ function ChangeLogByAlex()
 	}
 
 	local ScreenGui = Create("ScreenGui", { Name = "Changelog Gui", Parent = game:GetService("CoreGui") })
-	local MainFrame = Create(
-		"Frame",
-		{
-			BackgroundColor3 = Settings.Colors.PrimaryBackground,
-			BorderColor3 = Settings.Colors.BorderColor,
-			BorderMode = Enum.BorderMode.Outline,
-			BorderSizePixel = 1,
-			Name = "MainFrame",
-			Parent = ScreenGui,
-			Position = UDim2.new(0.5, -200, 0.5, -125),
-			Size = UDim2.new(0, 400, 0, 250),
-			Active = true,
-			Draggable = true,
-		}
-	)
-	local Title = Create(
-		"TextLabel",
-		{
-			BackgroundColor3 = Settings.Colors.TitleColor,
-			BorderSizePixel = 0,
-			BackgroundTransparency = 1,
-			Name = "Title",
-			Parent = MainFrame,
-			Position = UDim2.new(0, 0, 0, 0),
-			Size = UDim2.new(1, 0, 0, 50),
-			Font = Settings.PrimaryFont,
-			Text = "CHANGELOG",
-			TextColor3 = Settings.Colors.TextColor,
-			TextSize = Settings.TitleSize,
-		}
-	)
-	local CloseButton = Create(
-		"TextButton",
-		{
-			AutoButtonColor = false,
-			BackgroundTransparency = 1,
-			Name = "Close",
-			Parent = MainFrame,
-			Position = UDim2.new(1, -50, 0, 0),
-			Size = UDim2.new(0, 50, 0, 50),
-			Font = Settings.PrimaryFont,
-			Text = "X",
-			TextColor3 = Settings.Colors.TextColor,
-			TextSize = Settings.TitleSize,
-		}
-	)
-	local Holder = Create(
-		"ScrollingFrame",
-		{
-			BackgroundColor3 = Settings.Colors.SecondaryBackground,
-			BorderSizePixel = 0,
-			Name = "Holder",
-			Parent = MainFrame,
-			Position = UDim2.new(0, 20, 0, 70),
-			Size = UDim2.new(1, -40, 1, -100),
-			BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png",
-			MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
-			TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png",
-			ScrollBarThickness = 10,
-		}
-	)
-	local VersionLabel = Create(
-		"TextLabel",
-		{
-			BackgroundTransparency = 1,
-			Name = "Version",
-			Parent = MainFrame,
-			Position = UDim2.new(0, 0, 1, -30),
-			Size = UDim2.new(0.5, 0, 0, 30),
-			Font = Settings.SecondaryFont,
-			Text = "FunGrav.iy",
-			TextColor3 = Settings.Colors.VersionColor,
-			TextSize = 25,
-		}
-	)
-	local CreditsLabel = Create(
-		"TextLabel",
-		{
-			BackgroundTransparency = 1,
-			Name = "Credits",
-			Parent = MainFrame,
-			Position = UDim2.new(0.5, 0, 1, -30),
-			Size = UDim2.new(0.5, 0, 0, 30),
-			Font = Settings.SecondaryFont,
-			Text = "By Thomas_Cornez",
-			TextColor3 = Settings.Colors.CreditsColor,
-			TextSize = 25,
-		}
-	)
+	local MainFrame = Create("Frame", {
+		BackgroundColor3 = Settings.Colors.PrimaryBackground,
+		BorderColor3 = Settings.Colors.BorderColor,
+		BorderMode = Enum.BorderMode.Outline,
+		BorderSizePixel = 1,
+		Name = "MainFrame",
+		Parent = ScreenGui,
+		Position = UDim2.new(0.5, -200, 0.5, -125),
+		Size = UDim2.new(0, 400, 0, 250),
+		Active = true,
+		Draggable = true,
+	})
+	local Title = Create("TextLabel", {
+		BackgroundColor3 = Settings.Colors.TitleColor,
+		BorderSizePixel = 0,
+		BackgroundTransparency = 1,
+		Name = "Title",
+		Parent = MainFrame,
+		Position = UDim2.new(0, 0, 0, 0),
+		Size = UDim2.new(1, 0, 0, 50),
+		Font = Settings.PrimaryFont,
+		Text = "CHANGELOG",
+		TextColor3 = Settings.Colors.TextColor,
+		TextSize = Settings.TitleSize,
+	})
+	local CloseButton = Create("TextButton", {
+		AutoButtonColor = false,
+		BackgroundTransparency = 1,
+		Name = "Close",
+		Parent = MainFrame,
+		Position = UDim2.new(1, -50, 0, 0),
+		Size = UDim2.new(0, 50, 0, 50),
+		Font = Settings.PrimaryFont,
+		Text = "X",
+		TextColor3 = Settings.Colors.TextColor,
+		TextSize = Settings.TitleSize,
+	})
+	local Holder = Create("ScrollingFrame", {
+		BackgroundColor3 = Settings.Colors.SecondaryBackground,
+		BorderSizePixel = 0,
+		Name = "Holder",
+		Parent = MainFrame,
+		Position = UDim2.new(0, 20, 0, 70),
+		Size = UDim2.new(1, -40, 1, -100),
+		BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png",
+		MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png",
+		TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png",
+		ScrollBarThickness = 10,
+	})
+	local VersionLabel = Create("TextLabel", {
+		BackgroundTransparency = 1,
+		Name = "Version",
+		Parent = MainFrame,
+		Position = UDim2.new(0, 0, 1, -30),
+		Size = UDim2.new(0.5, 0, 0, 30),
+		Font = Settings.SecondaryFont,
+		Text = "FunGrav.iy",
+		TextColor3 = Settings.Colors.VersionColor,
+		TextSize = 25,
+	})
+	local CreditsLabel = Create("TextLabel", {
+		BackgroundTransparency = 1,
+		Name = "Credits",
+		Parent = MainFrame,
+		Position = UDim2.new(0.5, 0, 1, -30),
+		Size = UDim2.new(0.5, 0, 0, 30),
+		Font = Settings.SecondaryFont,
+		Text = "By Thomas_Cornez",
+		TextColor3 = Settings.Colors.CreditsColor,
+		TextSize = 25,
+	})
 
 	local Active = true
 	CloseButton.MouseButton1Down:Connect(function()
@@ -152,23 +134,20 @@ function ChangeLogByAlex()
 			Vector2.new(Holder.AbsoluteSize.X, 500)
 		).Y -- 500 is just a buffer
 
-		local Label = Create(
-			"TextLabel",
-			{
-				BackgroundTransparency = 1,
-				Name = "Change",
-				Parent = Holder,
-				Position = UDim2.new(0, 10, 0, ChangePosition),
-				Size = UDim2.new(1, -25, 0, SizeY),
-				Font = Settings.SecondaryFont,
-				Text = "_",
-				TextColor3 = Color3.fromRGB(255, 255, 255),
-				TextSize = Settings.ChangesTextSize,
-				TextWrapped = true,
-				TextXAlignment = Enum.TextXAlignment.Left,
-				TextYAlignment = Enum.TextYAlignment.Top,
-			}
-		)
+		local Label = Create("TextLabel", {
+			BackgroundTransparency = 1,
+			Name = "Change",
+			Parent = Holder,
+			Position = UDim2.new(0, 10, 0, ChangePosition),
+			Size = UDim2.new(1, -25, 0, SizeY),
+			Font = Settings.SecondaryFont,
+			Text = "_",
+			TextColor3 = Color3.fromRGB(255, 255, 255),
+			TextSize = Settings.ChangesTextSize,
+			TextWrapped = true,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			TextYAlignment = Enum.TextYAlignment.Top,
+		})
 		ChangePosition = ChangePosition + SizeY
 
 		-- Change the canvas size with each addition (would to at after all have been added but becuase there is a delay, do it on each object)

@@ -94,7 +94,7 @@ corballjoint.Part1 = corball
 				local colorKeypoints = {
 					-- API: ColorSequenceKeypoint.new(time, color)
 					ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)), -- At t=0, White
-					ColorSequenceKeypoint.new(1, Color3.new(1, 1, 1)),   -- At t=1, Red
+					ColorSequenceKeypoint.new(1, Color3.new(1, 1, 1)), -- At t=1, Red
 				}
 
 				particles.Color = ColorSequence.new(colorKeypoints)
@@ -1664,7 +1664,7 @@ corballjoint.Part1 = corball
 				local colorKeypoints = {
 					-- API: ColorSequenceKeypoint.new(time, color)
 					ColorSequenceKeypoint.new(0, Color3.new(0.666667, 0, 0)), -- At t=0, White
-					ColorSequenceKeypoint.new(1, Color3.new(0.423529, 0, 0)),   -- At t=1, Red
+					ColorSequenceKeypoint.new(1, Color3.new(0.423529, 0, 0)), -- At t=1, Red
 				}
 
 				blood1.Color = ColorSequence.new(colorKeypoints)
@@ -1708,7 +1708,7 @@ corballjoint.Part1 = corball
 				local colorKeypoints = {
 					-- API: ColorSequenceKeypoint.new(time, color)
 					ColorSequenceKeypoint.new(0, Color3.new(0.45098, 0, 0)), -- At t=0, White
-					ColorSequenceKeypoint.new(1, Color3.new(0.45098, 0, 0)),   -- At t=1, Red
+					ColorSequenceKeypoint.new(1, Color3.new(0.45098, 0, 0)), -- At t=1, Red
 				}
 
 				blood2.Color = ColorSequence.new(colorKeypoints)
@@ -1750,7 +1750,7 @@ corballjoint.Part1 = corball
 				local colorKeypoints = {
 					-- API: ColorSequenceKeypoint.new(time, color)
 					ColorSequenceKeypoint.new(0, Color3.new(0.486275, 0, 0)), -- At t=0, White
-					ColorSequenceKeypoint.new(1, Color3.new(0.258824, 0, 0)),   -- At t=1, Red
+					ColorSequenceKeypoint.new(1, Color3.new(0.258824, 0, 0)), -- At t=1, Red
 				}
 
 				blood3.Color = ColorSequence.new(colorKeypoints)

@@ -1,14 +1,18 @@
-local LoadUrl = function(str) return loadstring(game:HttpGet(str, true))() end
+local LoadUrl = function(str)
+	return loadstring(game:HttpGet(str, true))()
+end
 if not IY_LOADED then
 	LoadUrl("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
 	wait(0.75)
 end
 
 local IS_Settings = {
-	["Version"] = ("1.3.4"),
-	["Invite"] = ("dubhsUGcZe"),
+	["Version"] = "1.3.4",
+	["Invite"] = "dubhsUGcZe",
 	["Plugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/sources.lua"),
-	["NsfwPlugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/sources.lua")
+	["NsfwPlugins"] = LoadUrl(
+		"https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/sources.lua"
+	),
 }
 
 local ann = "hi we fixed the discord server invite"
@@ -17,7 +21,7 @@ local _UserSettings = {
 	["SafeMode"] = false,
 	["NoNotifications"] = false,
 	["SkipIntro"] = false,
-	["Announcement"] = ""
+	["Announcement"] = "",
 }
 
 local HttpService = game:GetService("HttpService")
@@ -30,31 +34,61 @@ local DefaultSettings = HttpService:JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
 local NoSaving = false
 local write_cooldown = false
-local writefileCooldown; writefileCooldown = function(name, data)
+local writefileCooldown
+writefileCooldown = function(name, data)
 	spawn(function()
 		if not write_cooldown then
 			write_cooldown = true
 			writefile(name, data)
 		else
-			repeat wait() until write_cooldown == false
+			repeat
+				wait()
+			until write_cooldown == false
 			writefileCooldown(name, data)
 		end
 		wait(3)
 		write_cooldown = false
 	end)
 end
-local canWrite = function() if writefile then return true end end
-local LoadSettings; LoadSettings = function()
+local canWrite = function()
+	if writefile then
+		return true
+	end
+end
+local LoadSettings
+LoadSettings = function()
 	if canWrite() then
-		if pcall(function() readfile(SaveFileName) end) then
+		if pcall(function()
+			readfile(SaveFileName)
+		end) then
 			if readfile(SaveFileName) ~= nil then
 				local success, response = pcall(function()
 					local json = HttpService:JSONDecode(readfile(SaveFileName))
-					if json.StartMinimized ~= nil then _UserSettings.StartMinimized = json.StartMinimized else _UserSettings.StartMinimized = false end
-					if json.SafeMode ~= nil then _UserSettings.SafeMode = json.SafeMode else _UserSettings.SafeMode = false end
-					if json.NoNotifications ~= nil then _UserSettings.NoNotifications = json.NoNotifications else _UserSettings.NoNotifications = false end
-					if json.SkipIntro ~= nil then _UserSettings.SkipIntro = json.SkipIntro else _UserSettings.SkipIntro = false end
-                    if json.Announcement ~= nil then _UserSettings.Announcement = json.Announcement else _UserSettings.Announcement = "" end
+					if json.StartMinimized ~= nil then
+						_UserSettings.StartMinimized = json.StartMinimized
+					else
+						_UserSettings.StartMinimized = false
+					end
+					if json.SafeMode ~= nil then
+						_UserSettings.SafeMode = json.SafeMode
+					else
+						_UserSettings.SafeMode = false
+					end
+					if json.NoNotifications ~= nil then
+						_UserSettings.NoNotifications = json.NoNotifications
+					else
+						_UserSettings.NoNotifications = false
+					end
+					if json.SkipIntro ~= nil then
+						_UserSettings.SkipIntro = json.SkipIntro
+					else
+						_UserSettings.SkipIntro = false
+					end
+					if json.Announcement ~= nil then
+						_UserSettings.Announcement = json.Announcement
+					else
+						_UserSettings.Announcement = ""
+					end
 				end)
 				if not success then
 					warn("Save Json Error:", response)
@@ -71,7 +105,9 @@ local LoadSettings; LoadSettings = function()
 		else
 			writefileCooldown(SaveFileName, DefaultSettings)
 			wait()
-			if pcall(function() readfile(SaveFileName) end) then
+			if pcall(function()
+				readfile(SaveFileName)
+			end) then
 				LoadSettings()
 			else
 				NoSaving = true
@@ -94,11 +130,11 @@ LoadSettings()
 local UpdateSettings = function()
 	if not NoSaving and canWrite() then
 		local update = {
-			["StartMinimized"] = _UserSettings.StartMinimized;
-			["SafeMode"] = _UserSettings.SafeMode;
-			["NoNotifications"] = _UserSettings.NoNotifications;
-			["SkipIntro"] = _UserSettings.SkipIntro;
-			["Announcement"] = _UserSettings.Announcement;
+			["StartMinimized"] = _UserSettings.StartMinimized,
+			["SafeMode"] = _UserSettings.SafeMode,
+			["NoNotifications"] = _UserSettings.NoNotifications,
+			["SkipIntro"] = _UserSettings.SkipIntro,
+			["Announcement"] = _UserSettings.Announcement,
 		}
 		writefileCooldown(SaveFileName, HttpService:JSONEncode(update))
 	end
@@ -106,12 +142,18 @@ end
 
 if IS_LOADED then
 	if _UserSettings.NoNotifications == false then
-		notify("Infinite Store", "Infinite Store is already executed, a button can be found to open it in IY Settings", 5)
+		notify(
+			"Infinite Store",
+			"Infinite Store is already executed, a button can be found to open it in IY Settings",
+			5
+		)
 	end
 	error("Infinite Store is already running!", 0)
 	return
 end
-pcall(function() (getgenv() or _G)["IS_LOADED"] = true end)
+pcall(function()
+	(getgenv() or _G)["IS_LOADED"] = true
+end)
 
 local newRandomString = function()
 	local length = math.random(10, 20)
@@ -123,7 +165,7 @@ local newRandomString = function()
 end
 
 if ann ~= "" and _UserSettings.Announcement ~= ann then
-    local AnnGUI = Instance.new("Frame")
+	local AnnGUI = Instance.new("Frame")
 	local background = Instance.new("Frame")
 	local TextBox = Instance.new("TextLabel")
 	local shadow = Instance.new("Frame")
@@ -208,7 +250,7 @@ InfStoreBtn.Parent = SettingsHolder
 SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 265)
 
 local ServerParent = nil
-if (not is_sirhurt_closure) and (syn and syn.protect_gui) then
+if not is_sirhurt_closure and (syn and syn.protect_gui) then
 	local Main = Instance.new("ScreenGui")
 	Main.Name = newRandomString()
 	syn.protect_gui(Main)
@@ -240,11 +282,19 @@ local dragGUI = function(gui)
 		local startPos
 		local update = function(input)
 			local delta = input.Position - dragStart
-			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-			TweenService:Create(gui, TweenInfo.new(0.20), {Position = Position}):Play()
+			local Position = UDim2.new(
+				startPos.X.Scale,
+				startPos.X.Offset + delta.X,
+				startPos.Y.Scale,
+				startPos.Y.Offset + delta.Y
+			)
+			TweenService:Create(gui, TweenInfo.new(0.20), { Position = Position }):Play()
 		end
 		gui.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			if
+				input.UserInputType == Enum.UserInputType.MouseButton1
+				or input.UserInputType == Enum.UserInputType.Touch
+			then
 				dragging = true
 				dragStart = input.Position
 				startPos = gui.Position
@@ -256,7 +306,10 @@ local dragGUI = function(gui)
 			end
 		end)
 		gui.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if
+				input.UserInputType == Enum.UserInputType.MouseMovement
+				or input.UserInputType == Enum.UserInputType.Touch
+			then
 				dragInput = input
 			end
 		end)
@@ -269,10 +322,16 @@ local dragGUI = function(gui)
 end
 
 local autoCanvas = function(scrollframe, layout)
-	if not scrollframe:IsA("ScrollingFrame") then return error("Invalid argument #1 to 'autoCanvas' (expected ScrollingFrame)", 0) end
-	if not (layout:IsA("UIListLayout") or layout:IsA("UIGridLayout") or layout:IsA("UIPageLayout")) then return error("Invalid argument #2 to 'autoCanvas' (expected a UILayout)", 0) end
+	if not scrollframe:IsA("ScrollingFrame") then
+		return error("Invalid argument #1 to 'autoCanvas' (expected ScrollingFrame)", 0)
+	end
+	if not (layout:IsA("UIListLayout") or layout:IsA("UIGridLayout") or layout:IsA("UIPageLayout")) then
+		return error("Invalid argument #2 to 'autoCanvas' (expected a UILayout)", 0)
+	end
 	scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
-	layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function() scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y) end)
+	layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+		scrollframe.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
+	end)
 end
 
 local mainFrame = Instance.new("Frame")
@@ -280,10 +339,17 @@ dragGUI(mainFrame)
 
 if _UserSettings.StartMinimized == true then
 	mainFrame.Visible = false
-	if _UserSettings.NoNotifications == false then notify("Infinite Store", "Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings") end
+	if _UserSettings.NoNotifications == false then
+		notify(
+			"Infinite Store",
+			"Start Minimized is turned on, Infinite Store can be opened inside of Infinite Yield's Settings"
+		)
+	end
 else
 	mainFrame.Visible = true
-	if _UserSettings.NoNotifications == false then notify("Infinite Store", "Start Minimized is turned off, this can be disabled in settings") end
+	if _UserSettings.NoNotifications == false then
+		notify("Infinite Store", "Start Minimized is turned off, this can be disabled in settings")
+	end
 end
 
 local TopBar = Instance.new("Frame")
@@ -1079,12 +1145,12 @@ local checkBoxHandler = function(bool, obj)
 	if checkboxDeb == false then
 		checkboxDeb = true
 		if bool == true then
-			local tweenGoals = {BackgroundTransparency = 0}
+			local tweenGoals = { BackgroundTransparency = 0 }
 			local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
 			local tween = TweenService:Create(obj.Checked, tweenInfo, tweenGoals)
 			tween:Play()
 		else
-			local tweenGoals = {BackgroundTransparency = 1}
+			local tweenGoals = { BackgroundTransparency = 1 }
 			local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
 			local tween = TweenService:Create(obj.Checked, tweenInfo, tweenGoals)
 			tween:Play()
@@ -1094,104 +1160,104 @@ local checkBoxHandler = function(bool, obj)
 end
 
 if _UserSettings.SkipIntro == true then
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0, 0, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0.231, 0, 0, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
+	local tweenGoals = { Position = UDim2.new(0.245, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
+	local tweenGoals = { Position = UDim2.new(0.245, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(0.026, 0, 0.5, 0)}
+	local tweenGoals = { Position = UDim2.new(0.026, 0, 0.5, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Epik, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(0.296, 0, 0.5, 0)}
+	local tweenGoals = { Position = UDim2.new(0.296, 0, 0.5, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(-0.07, 0, -0.05, 0)}
+	local tweenGoals = { Position = UDim2.new(-0.07, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(-0.07, 0, 0, 0)}
+	local tweenGoals = { Position = UDim2.new(-0.07, 0, 0, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List1, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List2, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List3, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0) }
 	local tweenInfo = TweenInfo.new(0.01, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List4, tweenInfo, tweenGoals)
 	tween:Play()
 else
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0.231, 0, 0, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0.231, 0, 0, 0) }
 	local tweenInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(0.6)
-	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
+	local tweenGoals = { Position = UDim2.new(0.245, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(0.245, 0, -0.05, 0)}
+	local tweenGoals = { Position = UDim2.new(0.245, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(1.1)
-	local tweenGoals = {Position = UDim2.new(0.026, 0, 0.5, 0)}
+	local tweenGoals = { Position = UDim2.new(0.026, 0, 0.5, 0) }
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Epik, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(0.69420)
-	local tweenGoals = {Position = UDim2.new(0.296, 0, 0.5, 0)}
+	local tweenGoals = { Position = UDim2.new(0.296, 0, 0.5, 0) }
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(0.9)
-	local tweenGoals = {Position = UDim2.new(-0.07, 0, -0.05, 0)}
+	local tweenGoals = { Position = UDim2.new(-0.07, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
 	tween:Play()
-	local tweenGoals = {Position = UDim2.new(-0.07, 0, 0, 0)}
+	local tweenGoals = { Position = UDim2.new(-0.07, 0, 0, 0) }
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(0.8)
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List1, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(0.4)
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List2, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(0.4)
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List3, tweenInfo, tweenGoals)
 	tween:Play()
 	wait(0.4)
-	local tweenGoals = {TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0)}
+	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List4, tweenInfo, tweenGoals)
 	tween:Play()
@@ -1199,34 +1265,34 @@ end
 
 local pluginInfoToggle = function(bool)
 	if bool == true then
-		local tweenGoals = {Position = UDim2.new(0.858, 0, 0.063, 0)}
-		local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+		local tweenGoals = { Position = UDim2.new(0.858, 0, 0.063, 0) }
+		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 		local tween = TweenService:Create(mainFrame.PluginInfo, tweenInfo, tweenGoals)
 		tween:Play()
 	else
-		local tweenGoals = {Position = UDim2.new(0.59, 0, 0.063, 0)}
-		local tweenInfo = TweenInfo.new(.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In)
+		local tweenGoals = { Position = UDim2.new(0.59, 0, 0.063, 0) }
+		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In)
 		local tween = TweenService:Create(mainFrame.PluginInfo, tweenInfo, tweenGoals)
 		tween:Play()
 	end
 end
 
 local tweenColor = function(instance, rgb, property, t1me)
-	local tweenGoals = {ImageColor3 = rgb}
+	local tweenGoals = { ImageColor3 = rgb }
 	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
 	local tween = TweenService:Create(instance, tweenInfo, tweenGoals)
 	tween:Play()
 end
 
 local tweenColor2 = function(instance, rgb, t1me)
-	local tweenGoals = {TextColor3 = rgb}
+	local tweenGoals = { TextColor3 = rgb }
 	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
 	local tween = TweenService:Create(instance, tweenInfo, tweenGoals)
 	tween:Play()
 end
 
 local tweenColor3 = function(instance, rgb, t1me)
-	local tweenGoals = {BackgroundColor3 = rgb}
+	local tweenGoals = { BackgroundColor3 = rgb }
 	local tweenInfo = TweenInfo.new(t1me, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
 	local tween = TweenService:Create(instance, tweenInfo, tweenGoals)
 	tween:Play()
@@ -1243,17 +1309,25 @@ local cleanPluginCheck = function()
 end
 
 local ObjectHolder = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("List")
-local searchBox = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("SearchBar"):WaitForChild("Search")
-local Objects = {["Frame"] = true}
+local searchBox = mainFrame
+	:WaitForChild("ListHolder")
+	:WaitForChild("Plugins")
+	:WaitForChild("SearchBar")
+	:WaitForChild("Search")
+local Objects = { ["Frame"] = true }
 local Type = 1
 local FilterSearch = function(Text)
 	for i, v in pairs(ObjectHolder:GetChildren()) do
 		if Objects[v.ClassName] then
 			if string.match(string.lower(v.Name), tostring(Text)) then
-				if Type == 1 then v.Visible = true end
+				if Type == 1 then
+					v.Visible = true
+				end
 				v.LayoutOrder = 1
 			else
-				if Type == 1 then v.Visible = false end
+				if Type == 1 then
+					v.Visible = false
+				end
 				v.LayoutOrder = 0
 			end
 		end
@@ -1278,22 +1352,31 @@ local tweeningDebounce = false
 
 for i, v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 	if v:IsA("TextButton") then
-		v.MouseEnter:Connect(function() tweenColor2(v, openColor, 0.2) end)
-		v.MouseLeave:Connect(function() if v.cs.Value == false then tweenColor2(v, closedColor, 0.2) end end)
+		v.MouseEnter:Connect(function()
+			tweenColor2(v, openColor, 0.2)
+		end)
+		v.MouseLeave:Connect(function()
+			if v.cs.Value == false then
+				tweenColor2(v, closedColor, 0.2)
+			end
+		end)
 		v.MouseButton1Click:Connect(function()
-			if tweeningDebounce == false and not mainFrame.SideBar.Holder[v.Name].cs.Value == true then tweeningDebounce = true
+			if tweeningDebounce == false and not mainFrame.SideBar.Holder[v.Name].cs.Value == true then
+				tweeningDebounce = true
 				for i2, v2 in pairs(mainFrame.SideBar.Holder:GetDescendants()) do
 					if v2:IsA("TextButton") then
 						tweenColor2(v2, closedColor, 0.2)
-						local tweenGoals = {Position = pageHiddenLocation}
+						local tweenGoals = { Position = pageHiddenLocation }
 						local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 						local tween555 = TweenService:Create(mainFrame.ListHolder[v2.Name], tweenInfo, tweenGoals)
 						tween555:Play()
 					end
-					if v2.Name == "cs" then v2.Value = false end
+					if v2.Name == "cs" then
+						v2.Value = false
+					end
 				end
 				v.cs.Value = true
-				local tweenGoals = {Position = pageDesiredLocation}
+				local tweenGoals = { Position = pageDesiredLocation }
 				local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 				local tween = TweenService:Create(mainFrame.ListHolder[v.Name], tweenInfo, tweenGoals)
 				mainFrame.ListHolder[v.Name].Visible = true
@@ -1318,7 +1401,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Created.Text = plgin.CreationDate
 		if isfile(plgin.Name .. ".plugin.luau") then
 			pluginFrameClone.Install.Text = "Uninstall"
-			for i,v in pairs(pluginFrameClone:GetChildren()) do
+			for i, v in pairs(pluginFrameClone:GetChildren()) do
 				tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
 				if v:IsA("TextLabel") or v:IsA("TextButton") then
 					tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
@@ -1326,8 +1409,9 @@ local LoadPluginsFromTable = function(ptbl)
 			end
 		end
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
-			if installDebounce == false then installDebounce = true
-				local pluginData = "return loadstring(game:HttpGet((\"" .. tostring(plgin.GithubLink) .. "\"), true))()"
+			if installDebounce == false then
+				installDebounce = true
+				local pluginData = 'return loadstring(game:HttpGet(("' .. tostring(plgin.GithubLink) .. '"), true))()'
 				if isfile(plgin.Name .. ".plugin.luau") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
 					deletePlugin(plgin.Name)
@@ -1337,7 +1421,9 @@ local LoadPluginsFromTable = function(ptbl)
 					pluginFrameClone.Install.Text = "Install"
 					for i, v in pairs(pluginFrameClone:GetChildren()) do
 						tweenColor3(pluginFrameClone, Color3.fromRGB(22, 22, 22), 0.2)
-						if v:IsA("TextLabel") or v:IsA("TextButton") then tweenColor3(v, Color3.fromRGB(42, 42, 42), 0.2) end
+						if v:IsA("TextLabel") or v:IsA("TextButton") then
+							tweenColor3(v, Color3.fromRGB(42, 42, 42), 0.2)
+						end
 					end
 				else
 					pluginFrameClone.Install.Text = "Installing"
@@ -1351,7 +1437,9 @@ local LoadPluginsFromTable = function(ptbl)
 					pluginFrameClone.Install.Text = "Uninstall"
 					for i, v in pairs(pluginFrameClone:GetChildren()) do
 						tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
-						if v:IsA("TextLabel") or v:IsA("TextButton") then tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2) end
+						if v:IsA("TextLabel") or v:IsA("TextButton") then
+							tweenColor3(v, Color3.fromRGB(23, 52, 30), 0.2)
+						end
 					end
 				end
 				installDebounce = false
@@ -1362,7 +1450,10 @@ local LoadPluginsFromTable = function(ptbl)
 				spawn(function()
 					if plgin["Description"] ~= nil then
 						if _UserSettings["NoNotifications"] == false then
-							notify("Infinite Store - \"" .. tostring(plgin["Name"]) .. "\" Description", tostring(plgin["Description"]))
+							notify(
+								'Infinite Store - "' .. tostring(plgin["Name"]) .. '" Description',
+								tostring(plgin["Description"])
+							)
 						end
 					end
 				end)
@@ -1372,7 +1463,12 @@ local LoadPluginsFromTable = function(ptbl)
 						tweenColor(v, Color3.fromRGB(98, 98, 98), v.ImageColor3, 0.2)
 					end
 				end
-				tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(255, 255, 255), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.2)
+				tweenColor(
+					pluginFrameClone.PluginName.InfoBtn,
+					Color3.fromRGB(255, 255, 255),
+					pluginFrameClone.PluginName.InfoBtn.ImageColor3,
+					0.2
+				)
 				mainFrame.PluginInfo.List.CanvasPosition = Vector2.new(0, 0)
 				for i, v in pairs(mainFrame.PluginInfo.List:GetChildren()) do
 					if v:IsA("TextLabel") then
@@ -1389,7 +1485,12 @@ local LoadPluginsFromTable = function(ptbl)
 				pluginInfoToggle(true)
 			else
 				pluginInfoToggle(false)
-				tweenColor(pluginFrameClone.PluginName.InfoBtn, Color3.fromRGB(98, 98, 98), pluginFrameClone.PluginName.InfoBtn.ImageColor3, 0.5)
+				tweenColor(
+					pluginFrameClone.PluginName.InfoBtn,
+					Color3.fromRGB(98, 98, 98),
+					pluginFrameClone.PluginName.InfoBtn.ImageColor3,
+					0.5
+				)
 			end
 		end)
 		pluginFrameClone.Parent = mainFrame.ListHolder.Plugins.List
@@ -1421,13 +1522,19 @@ local guiSettings = {
 				checkBoxHandler(false, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = false
 				for index, plgin in pairs(IS_Settings["NsfwPlugins"]) do
-					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = true
+					mainFrame.ListHolder.Plugins.List[tostring(
+						plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate
+					)].Visible =
+						true
 				end
 			else
 				checkBoxHandler(true, settingsList["SafeMode"].CheckBox)
 				_UserSettings.SafeMode = true
 				for index, plgin in pairs(IS_Settings["NsfwPlugins"]) do
-					mainFrame.ListHolder.Plugins.List[tostring(plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate)].Visible = false
+					mainFrame.ListHolder.Plugins.List[tostring(
+						plgin.Name .. " " .. plgin.Creator .. " " .. plgin.CreationDate
+					)].Visible =
+						false
 				end
 			end
 			UpdateSettings()
@@ -1467,8 +1574,16 @@ for index, setting in pairs(guiSettings) do
 	tempClone.Name = tostring(gsub(setting["Name"], " ", ""))
 	tempClone.SettingName.Text = tostring(setting["Name"])
 	tempClone.Description.Text = tostring(setting["Description"])
-	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function() spawn(function() setting.Function() end) end)
+	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function()
+		spawn(function()
+			setting.Function()
+		end)
+	end)
 	tempClone.Parent = settingsList
 end
-for index, val in pairs(_UserSettings) do if index ~= "Announcement" then settingsList[tostring(gsub(index, " ", ""))].CheckBox.Checked.Transparency = val and 0 or 1 end end
+for index, val in pairs(_UserSettings) do
+	if index ~= "Announcement" then
+		settingsList[tostring(gsub(index, " ", ""))].CheckBox.Checked.Transparency = val and 0 or 1
+	end
+end
 cleanPluginCheck()
