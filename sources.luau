@@ -1,3 +1,5 @@
+-- Scheduled for deprecation in 1.4.0
+
 return {
 	--[[
 	["Example"] = {

@@ -1399,7 +1399,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Author.Text = plgin.Creator
 		pluginFrameClone.PluginName.Text = plgin.Name
 		pluginFrameClone.Created.Text = plgin.CreationDate
-		if isfile(plgin.Name .. ".plugin.luau") then
+		if isfile(plgin.Name .. ".iy") then
 			pluginFrameClone.Install.Text = "Uninstall"
 			for i, v in pairs(pluginFrameClone:GetChildren()) do
 				tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
@@ -1411,7 +1411,7 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then
 				installDebounce = true
-				local pluginData = 'return loadstring(game:HttpGet(("' .. tostring(plgin.GithubLink) .. '"), true))()'
+				local pluginData = 'return loadstring(game:HttpGetAsync(("' .. tostring(plgin.GithubLink) .. '"), true))()'
 				if isfile(plgin.Name .. ".iy") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
 					deletePlugin(plgin.Name)
