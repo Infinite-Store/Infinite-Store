@@ -12,7 +12,7 @@ return {
 	["Climb"] = {
 		["Name"] = "Climb", ["Creator"] = "bowla", ["CreationDate"] = "06/09/2021", ["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/climb.iy", ["Commands"] = {"climb", "unclimb"},
 	};
-	jsdelivr
+
 	["DarkDex"] = {
 		["Name"] = "DarkDex", ["Creator"] = "Unknown", ["CreationDate"] = "Unknown", ["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/DarkDex.iy", ["Commands"] = {"darkdex"},
 	};
