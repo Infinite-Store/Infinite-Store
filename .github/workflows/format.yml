@@ -18,6 +18,7 @@ jobs:
         wget -O stylua-linux.zip https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux.zip
         unzip -o stylua-linux.zip
         chmod +x ./stylua
+        git pull
         ./stylua --verify .
 
     - uses: EndBug/add-and-commit@v9
