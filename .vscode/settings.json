@@ -1,0 +1,24 @@
+{
+	"robloxLsp.diagnostics.globals": [
+		"writefile",
+		"readfile",
+		"notify",
+		"currentText1",
+		"SettingsHolder",
+		"getgenv",
+		"syn",
+		"IS_LOADED",
+		"IY_LOADED",
+		"PARENT",
+		"currentShade1",
+		"currentShade2",
+		"makeSettingsButton",
+		"is_sirhurt_closure",
+		"get_hidden_gui",
+		"gethui",
+		"isfile",
+		"deletePlugin",
+		"delfile",
+		"addPlugin"
+	]
+}
