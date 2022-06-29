@@ -2,16 +2,16 @@ local LoadUrl = function(str)
 	return loadstring(game:HttpGet(str, true))()
 end
 if not IY_LOADED then
-	LoadUrl("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+	LoadUrl("https://cdn.jsdelivr.net/gh/EdgeIY/infiniteyield@master/source")
 	wait(0.75)
 end
 
 local IS_Settings = {
 	["Version"] = "1.3.4",
 	["Invite"] = "dubhsUGcZe",
-	["Plugins"] = LoadUrl("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/sources.luau"),
+	["Plugins"] = LoadUrl("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/sources.luau"),
 	["NsfwPlugins"] = LoadUrl(
-		"https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/plugins/nsfwplugins/sources.luau"
+		"https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/nsfwplugins/sources.luau"
 	),
 }
 
