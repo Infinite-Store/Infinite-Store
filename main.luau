@@ -1411,7 +1411,9 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then
 				installDebounce = true
-				local pluginData = 'return loadstring(game:HttpGetAsync(("' .. tostring(plgin.GithubLink) .. '"), true))()'
+				local pluginData = 'return loadstring(game:HttpGetAsync(("'
+					.. tostring(plgin.GithubLink)
+					.. '"), true))()'
 				if isfile(plgin.Name .. ".iy") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
 					deletePlugin(plgin.Name)
