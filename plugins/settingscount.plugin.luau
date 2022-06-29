@@ -7,7 +7,7 @@ task.defer(function()
 	local old
 	old = hf(table.remove, function(...)
 		old(...)
-		local t = ({...})[1]
+		local t = ({ ... })[1]
 		if t == binds then
 			Keybinds.ButtonLabel.Text = "Edit Keybinds" .. " (x" .. #binds .. ")"
 		elseif t == WayPoints then
@@ -20,42 +20,43 @@ task.defer(function()
 	end)
 	setmetatable(binds, {
 		__newindex = function(_, index, value)
-			rawset(_,index,value)
+			rawset(_, index, value)
 			Keybinds.ButtonLabel.Text = "Edit Keybinds" .. " (x" .. #binds .. ")"
-		end
+		end,
 	})
 	setmetatable(WayPoints, {
 		__newindex = function(_, index, value)
-			rawset(_,index,value)
+			rawset(_, index, value)
 			Positions.ButtonLabel.Text = "Edit/Goto Waypoints" .. " (x" .. #WayPoints .. ")"
-		end
+		end,
 	})
 	setmetatable(aliases, {
 		__newindex = function(_, index, value)
-			rawset(_,index,value)
+			rawset(_, index, value)
 			Aliases.ButtonLabel.Text = "Edit Aliases" .. " (x" .. #aliases .. ")"
-		end
+		end,
 	})
 	setmetatable(PluginsTable, {
 		__newindex = function(_, index, value)
-			rawset(_,index,value)
+			rawset(_, index, value)
 			Plugins.ButtonLabel.Text = "Manage Plugins" .. " (x" .. #PluginsTable .. ")"
-		end
+		end,
 	})
 
 	function getCount()
-		repeat wait() until eventEditor.SaveData() ~= "[]"
+		repeat
+			wait()
+		until eventEditor.SaveData() ~= "[]"
 		local sd = eventEditor.SaveData()
 		local data = game:GetService("HttpService"):JSONDecode(sd)
 		local count = 0
-		for i,v in pairs(data) do
-			for i,v in pairs(v) do
+		for i, v in pairs(data) do
+			for i, v in pairs(v) do
 				count += 1
 			end
 		end
 		return count
 	end
-
 
 	EventBind.ButtonLabel.Text = "Edit Event Binds" .. " (x" .. getCount() .. ")"
 
@@ -64,9 +65,9 @@ task.defer(function()
 		EventBind.ButtonLabel.Text = "Edit Event Binds" .. " (x" .. getCount() .. ")"
 	end)
 end)
- 
+
 return {
-    ["PluginName"] = "SettingsCount",
-    ["PluginDescription"] = "made by prisj",
-    ["Commands"] = {}
+	["PluginName"] = "SettingsCount",
+	["PluginDescription"] = "made by prisj",
+	["Commands"] = {},
 }

@@ -1,12 +1,12 @@
 local Hubs = {
-	["Owl Hub"] = "https://raw.githubusercontent.com/ZinityDrops/OwlHubLink/master/OwlHubBack.lua";
-	["Owl Hub Fix"] = "https://raw.githubusercontent.com/Patch-Shack/newLoad/master/owlhub.lua";
-	["Dark Hub"] = "https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init";
-	["Psy Hub"] = "https://pastebin.com/raw/yqTJ402H";
+	["Owl Hub"] = "https://raw.githubusercontent.com/ZinityDrops/OwlHubLink/master/OwlHubBack.lua",
+	["Owl Hub Fix"] = "https://raw.githubusercontent.com/Patch-Shack/newLoad/master/owlhub.lua",
+	["Dark Hub"] = "https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init",
+	["Psy Hub"] = "https://pastebin.com/raw/yqTJ402H",
 }
 
 local loadhub = function(i)
-	loadstring(game:HttpGetAsync(tostring(Hubs[i])))();
+	loadstring(game:HttpGetAsync(tostring(Hubs[i])))()
 end
 
 local Plugin = {
@@ -18,7 +18,7 @@ local Plugin = {
 			["Description"] = "Execute Owl Hub",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
-				if (not is_sirhurt_closure) and syn then
+				if not is_sirhurt_closure and syn then
 					loadhub("Owl Hub")
 				else
 					loadhub("Owl Hub Fix")

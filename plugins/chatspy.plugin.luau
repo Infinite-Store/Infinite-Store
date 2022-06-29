@@ -7,7 +7,7 @@ local Plugin = {
 			["Description"] = "Spy on Messages",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
-				 loadstring(game:HttpGetAsync("https://pastebin.com/raw/fQ54xXEn"))();
+				loadstring(game:HttpGetAsync("https://pastebin.com/raw/fQ54xXEn"))()
 			end,
 		},
 	},

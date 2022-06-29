@@ -5,7 +5,7 @@ return {
 		["aimbot"] = {
 			["ListName"] = "aimbot / aim",
 			["Description"] = "aimbot, an aimbot",
-			["Aliases"] = {"aim"},
+			["Aliases"] = { "aim" },
 			["Function"] = function(args, speaker)
 				loadstring(game:HttpGetAsync("https://pastebin.com/raw/5JmMeENX"))()
 			end,

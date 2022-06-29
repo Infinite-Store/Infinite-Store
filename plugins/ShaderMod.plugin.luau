@@ -29,22 +29,22 @@ local Plugin = {
 		["toggleshader"] = {
 			["ListName"] = "toggleshader / ts",
 			["Description"] = "Toggles shader.",
-			["Aliases"] = {"ts"},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "ts" },
+			["Function"] = function(args, speaker)
 				if not ShaderEnabled then
 					Blur.Enabled = true
 					DepthOfField.Enabled = true
 					ShaderEnabled = true
-					notify("Shader Mod","ShaderEnabled: true")
+					notify("Shader Mod", "ShaderEnabled: true")
 				else
 					Blur.Enabled = false
 					DepthOfField.Enabled = false
 					ShaderEnabled = false
-					notify("Shader Mod","ShaderEnabled: false")
+					notify("Shader Mod", "ShaderEnabled: false")
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 
 return Plugin

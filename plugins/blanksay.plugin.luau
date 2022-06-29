@@ -5,9 +5,11 @@ local Plugin = {
 		["blanksay"] = {
 			["ListName"] = "blanksay / blankchat",
 			["Description"] = "Send a blank message in chat",
-			["Aliases"] = {'blankchat'},
+			["Aliases"] = { "blankchat" },
 			["Function"] = function(args, speaker)
-				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(" ", "All")
+				game
+					:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+					:FireServer(" ", "All")
 			end,
 		},
 	},

@@ -5,10 +5,9 @@ local Plugin = {
 		["lofimusic"] = {
 			["ListName"] = "lofimusic / lofigui",
 			["Description"] = "🎵😔",
-			["Aliases"] = {'lofigui'},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "lofigui" },
+			["Function"] = function(args, speaker)
 				loadstring(game:HttpGet("https://pastebin.com/raw/6sAWRWc8"))()
-
 			end,
 		},
 	},

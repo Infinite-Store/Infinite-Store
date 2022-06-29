@@ -5,11 +5,14 @@ local Plugin = {
 		["controllock"] = {
 			["ListName"] = "controllock / ctrllock",
 			["Description"] = "Bind Shift Lock to Left Control",
-			["Aliases"] = {"ctrllock"},
+			["Aliases"] = { "ctrllock" },
 			["Function"] = function(args, speaker)
 				local Players = game:GetService("Players")
 				local NewLockKey = "LeftControl"
-				local MouseLockController = Players.LocalPlayer.PlayerScripts:WaitForChild("PlayerModule"):WaitForChild("CameraModule"):WaitForChild("MouseLockController")
+				local MouseLockController = Players.LocalPlayer.PlayerScripts
+					:WaitForChild("PlayerModule")
+					:WaitForChild("CameraModule")
+					:WaitForChild("MouseLockController")
 				local Object = MouseLockController:FindFirstChild("BoundKeys")
 				if Object then
 					Object.Value = NewLockKey

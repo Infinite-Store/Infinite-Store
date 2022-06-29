@@ -7,7 +7,7 @@ local Plugin = {
 			["Description"] = "Load Toon's Togglable ESP Script",
 			["Aliases"] = {},
 			["Function"] = function(args, speaker)
-				 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Patch-Shack/ToonESP/main/main.lua"))();
+				loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Patch-Shack/ToonESP/main/main.lua"))()
 			end,
 		},
 	},

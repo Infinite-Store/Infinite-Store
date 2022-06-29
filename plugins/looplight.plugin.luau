@@ -5,8 +5,8 @@ local Plugin = {
 		["loopday"] = {
 			["ListName"] = "loopday / lday / ld",
 			["Description"] = "Sunshiiiine!",
-			["Aliases"] = {"lday", "ld"},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "lday", "ld" },
+			["Function"] = function(args, speaker)
 				if dayLoop then
 					dayLoop:Disconnect()
 				end
@@ -15,23 +15,23 @@ local Plugin = {
 				end
 
 				dayLoop = game:GetService("RunService").RenderStepped:Connect(dayFunc)
-			 end
+			end,
 		},
 		["unloopday"] = {
 			["ListName"] = "unloopday / unlday / unld",
 			["Description"] = "No more sunshine",
-			["Aliases"] = {"unlday", "unld"},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "unlday", "unld" },
+			["Function"] = function(args, speaker)
 				if dayLoop then
 					dayLoop:Disconnect()
 				end
-			end
+			end,
 		},
 		["loopnight"] = {
 			["ListName"] = "loopnight / lnight / ln",
 			["Description"] = "Moonlight.",
-			["Aliases"] = {"lnight", "ln"},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "lnight", "ln" },
+			["Function"] = function(args, speaker)
 				if nightLoop then
 					nightLoop:Disconnect()
 				end
@@ -40,23 +40,23 @@ local Plugin = {
 				end
 
 				nightLoop = game:GetService("RunService").RenderStepped:Connect(nightFunc)
-			end
+			end,
 		},
 		["unloopnight"] = {
 			["ListName"] = "unloopnight / unlnight/ unln",
 			["Description"] = "No more moonlight.",
-			["Aliases"] = {"unlnight", "unln"},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "unlnight", "unln" },
+			["Function"] = function(args, speaker)
 				if nightLoop then
 					nightLoop:Disconnect()
 				end
-			end
+			end,
 		},
 		["loopnofog"] = {
 			["ListName"] = "loopnofog / lnofog / lnf / loopnf",
 			["Description"] = "See clearly forever!.",
-			["Aliases"] = {"lnofog", "lnf", "loopnf"},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "lnofog", "lnf", "loopnf" },
+			["Function"] = function(args, speaker)
 				if fogLoop then
 					fogLoop:Disconnect()
 				end
@@ -65,17 +65,17 @@ local Plugin = {
 				end
 
 				fogLoop = game:GetService("RunService").RenderStepped:Connect(fogFunc)
-			end
+			end,
 		},
 		["unloopnofog"] = {
 			["ListName"] = "unloopnofog / unlnofog / unlnf / unloopnf",
 			["Description"] = "No more sight.",
-			["Aliases"] = {"unlnofog", "unlnf", "unloopnf"},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "unlnofog", "unlnf", "unloopnf" },
+			["Function"] = function(args, speaker)
 				if fogLoop then
 					fogLoop:Disconnect()
 				end
-			end
+			end,
 		},
 	},
 }

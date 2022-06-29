@@ -5,12 +5,12 @@ local Plugin = {
 		["partflashback"] = {
 			["ListName"] = "partflashback / pflash",
 			["Description"] = "Allows you to teleport to a part",
-			["Aliases"] = {'pflash'},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "pflash" },
+			["Function"] = function(args, speaker)
 				mouse = game.Players.LocalPlayer:GetMouse()
 
 				sound = Instance.new("Sound")
-				sound.SoundId = 'rbxassetid://690607937'
+				sound.SoundId = "rbxassetid://690607937"
 				sound.Volume = 1
 
 				player = game.Players.LocalPlayer
@@ -25,25 +25,23 @@ local Plugin = {
 
 				active = false
 
-
 				mouse.KeyDown:Connect(function(key)
+					tppart.Size = Vector3.new(1, 1, 1)
+					tppart.CanCollide = false
+					if key == "h" then
+						tppart.CFrame = character.HumanoidRootPart.CFrame
+					end
 
-				tppart.Size = Vector3.new(1,1,1)
-				tppart.CanCollide = false
-				if key == "h" then
-				    tppart.CFrame = character.HumanoidRootPart.CFrame
-				end	
-		
 					if key == "g" then
-					    character:MoveTo(tppart.Position)
-					    sound:Play()
-				    	active = false
+						character:MoveTo(tppart.Position)
+						sound:Play()
+						active = false
 					end
 				end)
 
 				character.Humanoid.Died:Connect(function()
-				    tppart:Destroy()
- 				    script:Destroy()
+					tppart:Destroy()
+					script:Destroy()
 				end)
 			end,
 		},

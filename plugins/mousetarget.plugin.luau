@@ -9,8 +9,8 @@ local Plugin = {
 		["mousetarget"] = {
 			["ListName"] = "mousetarget / mtarget",
 			["Description"] = "Toggles showing mouse target",
-			["Aliases"] = {'mtarget'},
-			["Function"] = function(args,speaker)
+			["Aliases"] = { "mtarget" },
+			["Function"] = function(args, speaker)
 				mouseTargetESP = not mouseTargetESP
 			end,
 		},
@@ -32,7 +32,7 @@ function createLabel()
 	frame.ZIndex = 10
 	frame.BackgroundTransparency = 1
 	frame.Size = UDim2.new(1, 0, 1, 0)
-	
+
 	local label = Instance.new("TextLabel", frame)
 	label.ZIndex = math.huge
 	label.Text = parent:GetFullName()
@@ -65,7 +65,9 @@ function createChams()
 	for i, part in pairs(parts) do
 		if part:IsA("PVInstance") and part.Name ~= "HumanoidRootPart" then
 			local Box = Instance.new("BoxHandleAdornment")
-			pcall(function() Box.Size = GetSizeOfObject(part) end)
+			pcall(function()
+				Box.Size = GetSizeOfObject(part)
+			end)
 			Box.Name = ""
 			Box.Adornee = parent
 			Box.AlwaysOnTop = true

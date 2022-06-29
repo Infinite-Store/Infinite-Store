@@ -6,14 +6,14 @@ local Plugin = {
 			["ListName"] = "nosound",
 			["Description"] = "Deletes sounds",
 			["Aliases"] = {},
-			["Function"] = function(args,speaker)
+			["Function"] = function(args, speaker)
 				for _, sound in next, workspace:GetDescendants() do
 					if sound:IsA("Sound") then
 						sound:Destroy()
 					end
 				end
-			end
+			end,
 		},
-	}
+	},
 }
 return Plugin

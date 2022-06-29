@@ -6,8 +6,12 @@ local Plugin = {
 			["ListName"] = "unanchored",
 			["Description"] = "Launches Unanchored Teleporter.",
 			["Aliases"] = {},
-			["Function"] = function(args,speaker)
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/TR011F4C3/PANDA/main/scripts/unanchored_teleporter.lua"))()
+			["Function"] = function(args, speaker)
+				loadstring(
+					game:HttpGet(
+						"https://raw.githubusercontent.com/TR011F4C3/PANDA/main/scripts/unanchored_teleporter.lua"
+					)
+				)()
 			end,
 		},
 	},

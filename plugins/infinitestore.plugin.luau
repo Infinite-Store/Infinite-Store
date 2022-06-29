@@ -4,26 +4,33 @@ local HttpService = game:GetService("HttpService")
 local Trademark = "A place where you can get every Infinite Yield plugin"
 local InviteCode = "mVzBU7GTMy"
 
-local reqenv = function() return (getgenv() or _G) end
-local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or reqenv().request or request
+local reqenv = function()
+	return (getgenv() or _G)
+end
+local requestfunc = syn and syn.request
+	or http and http.request
+	or http_request
+	or fluxus and fluxus.request
+	or reqenv().request
+	or request
 
 Store.PluginName = "Infinite Store"
 Store.PluginDescription = Trademark
 Store.Commands = {}
 
 Store.Commands["infinitestore"] = {
-	["ListName"] = ("infinitestore"),
+	["ListName"] = "infinitestore",
 	["Description"] = Trademark,
 	["Aliases"] = {},
 	["Function"] = function(args, speaker)
-		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"), true))()
-	end
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua", true))()
+	end,
 }
 
 Store.Commands["inviteme"] = {
-	["ListName"] = ("inviteme / isInvite"),
-	["Description"] = ("Join the Infinite Store Discord"),
-	["Aliases"] = {"isInvite"},
+	["ListName"] = "inviteme / isInvite",
+	["Description"] = "Join the Infinite Store Discord",
+	["Aliases"] = { "isInvite" },
 	["Function"] = function(args, speaker)
 		if not requestfunc then
 			notify("Infinite Store", "https://discord.gg/" .. InviteCode)
@@ -40,10 +47,10 @@ Store.Commands["inviteme"] = {
 			["Body"] = HttpService:JSONEncode({
 				["cmd"] = "INVITE_BROWSER",
 				["args"] = { ["code"] = InviteCode },
-				["nonce"] = HttpService:GenerateGUID(false)
-			})
+				["nonce"] = HttpService:GenerateGUID(false),
+			}),
 		})
-	end
+	end,
 }
 
 return Store

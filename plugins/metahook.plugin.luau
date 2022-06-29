@@ -3,13 +3,23 @@ plugin.PluginName = "Metahook"
 plugin.PluginDescription = "Hook values idk"
 plugin.Commands = {}
 plugin.Commands["metahook"] = {
-	ListName = ("metahook [name] [value]"),
-	Description = ("a simple hook idk like ;metahook walkspeed 50"),
+	ListName = "metahook [name] [value]",
+	Description = "a simple hook idk like ;metahook walkspeed 50",
 	Aliases = {},
 	Function = function(args, speaker)
 		if args[1] and args[2] then
 			local getrawmt = (debug and debug.getmetatable) or getrawmetatable
-			local setReadOnly = setreadonly or (make_writeable and function(table, readonly) if readonly then make_readonly(table) else make_writeable(table) end end)
+			local setReadOnly = setreadonly
+				or (
+					make_writeable
+					and function(table, readonly)
+						if readonly then
+							make_readonly(table)
+						else
+							make_writeable(table)
+						end
+					end
+				)
 			local GameMt = getrawmt(game)
 			local OldIndex = GameMt.__index
 			setReadOnly(GameMt, false)
@@ -23,6 +33,6 @@ plugin.Commands["metahook"] = {
 		else
 			notify("Meta Hook", "Missing a Argument")
 		end
-	end
+	end,
 }
 return plugin
