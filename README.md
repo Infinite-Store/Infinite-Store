@@ -41,7 +41,7 @@ You can download the Infinite Store loader directly [here](https://github.com/In
 These loaders are for the latest stable version:
 
 ```lua
-loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
+loadstring(game:HttpGetAsync("https://load.epik.ml/store"))()
 ```
 
 ```lua
@@ -58,7 +58,7 @@ These loaders are for the latest development version:
 
 ```lua
 getgenv().dev = true
-loadstring(game:HttpGetAsync("https://load.epik.ml/store.lua"))()
+loadstring(game:HttpGetAsync("https://load.epik.ml/store"))()
 ```
 
 ```lua
