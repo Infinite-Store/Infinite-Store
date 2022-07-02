@@ -21,6 +21,7 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
           add: "."
+          new_branch: generated-pages
           message: Generate Pages from Markdown
           committer_name: GitHub Actions
           committer_email: actions@github.com
