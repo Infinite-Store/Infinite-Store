@@ -25,6 +25,7 @@ jobs:
       if: ${{ success() || failure() }}
       with:
         add: "."
+        new_branch: stylua
         message: Format `*.luau` files
         committer_name: GitHub Actions
         committer_email: actions@github.com
