@@ -24,7 +24,8 @@ jobs:
     - uses: peter-evans/create-pull-request@v4
       if: ${{ success() || failure() }}
       with:
-        commit-message: Format `*.luau` files
-        title: Format `*.luau` files
-        branch: stylua
-        delete-branch: true
+        add: "."
+        new_branch: stylua
+        message: Format `*.luau` files
+        committer_name: GitHub Actions
+        committer_email: actions@github.com
