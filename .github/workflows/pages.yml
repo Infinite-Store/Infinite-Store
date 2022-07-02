@@ -18,10 +18,10 @@ jobs:
         chmod +x ./markdown2html-converter
         ./markdown2html-converter --no-safe --no-cjk-fonts -f --css-path ./github-markdown.css -t "Infinite Store" ./README.md -o ./index.html
 
-      - uses: EndBug/add-and-commit@v9
-        with:
-          add: "."
-          new_branch: generated-pages
-          message: Generate Pages from Markdown
-          committer_name: GitHub Actions
-          committer_email: actions@github.com
+    - uses: peter-evans/create-pull-request@v4
+      if: ${{ success() || failure() }}
+      with:
+        commit-message: Generate Pages from Markdown
+        title: Generate Pages from Markdown
+        branch: generate-pages
+        delete-branch: true
