@@ -10,13 +10,13 @@ jobs:
   convert:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: download
-        run: |
-          wget https://github.com/magiclen/markdown2html-converter/releases/latest/download/markdown2html-converter
-          chmod +x ./markdown2html-converter
-          ./markdown2html-converter --no-safe --no-cjk-fonts -f --css-path ./github-markdown.css -t "Infinite Store" ./README.md -o ./index.html
+    - name: download
+      run: |
+        wget https://github.com/magiclen/markdown2html-converter/releases/latest/download/markdown2html-converter
+        chmod +x ./markdown2html-converter
+        ./markdown2html-converter --no-safe --no-cjk-fonts -f --css-path ./github-markdown.css -t "Infinite Store" ./README.md -o ./index.html
 
       - uses: EndBug/add-and-commit@v9
         with:

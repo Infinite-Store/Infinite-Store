@@ -21,7 +21,7 @@ jobs:
         git pull
         ./stylua --verify .
 
-    - uses: EndBug/add-and-commit@v9
+    - uses: peter-evans/create-pull-request@v4
       if: ${{ success() || failure() }}
       with:
         add: "."
