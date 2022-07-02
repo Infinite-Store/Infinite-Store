@@ -9,7 +9,8 @@ return {
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/example.plugin.luau",
 		["Commands"] = {"command1"},
 	},
-	]]--
+	]]
+	--
 
 	["FakeChat"] = {
 		["Name"] = "FakeChat",
