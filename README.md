@@ -62,7 +62,7 @@ loadstring(game:HttpGetAsync("https://load.epik.ml/store"))()
 ```
 
 ```lua
-loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@development/main.luau"))()
+loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Nightly-Store@dev/main.luau"))()
 ```
 
 ## Important Information
