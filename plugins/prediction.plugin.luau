@@ -12,36 +12,68 @@ CmdSuggestion.TextColor3 = Color3.fromRGB(171, 171, 171)
 CmdSuggestion.Text = ""
 CmdSuggestion.ZIndex = 10
 
-Match = function(str1, str2) return str2 == string.sub(str1, 1, #str2) end
-local matchSearch = function(str1, str2) return str1 == string.sub(str2, 1, #str1) end
+Match = function(str1, str2)
+	return str2 == string.sub(str1, 1, #str2)
+end
+local matchSearch = function(str1, str2)
+	return str1 == string.sub(str2, 1, #str1)
+end
 
 local stringFind = function(tbl, str)
-	if tbl == nil then return end
+	if tbl == nil then
+		return
+	end
 	if type(tbl) == "table" then
 		for _, v in ipairs(tbl) do
-			if matchSearch(str,v) then return v end
+			if matchSearch(str, v) then
+				return v
+			end
 		end
 	end
 end
 
 local getPlrArguments = function(argument)
 	local arg = string.lower(argument)
-	local specialcases = {"all", "others", "random", "me", "nearest", "farthest", "allies", "enemies", "team", "nonteam", "friends", "nonfriends", "bacons", "nearest", "farthest", "alive", "dead", "cursor"}
-	return stringFind(specialcases, arg) or (function()
-		for _, v in ipairs(Players:GetPlayers()) do
-			local Name = string.lower(v.Name)
-			if matchSearch(arg, Name) then return Name end
-		end
-	end)()
+	local specialcases = {
+		"all",
+		"others",
+		"random",
+		"me",
+		"nearest",
+		"farthest",
+		"allies",
+		"enemies",
+		"team",
+		"nonteam",
+		"friends",
+		"nonfriends",
+		"bacons",
+		"nearest",
+		"farthest",
+		"alive",
+		"dead",
+		"cursor",
+	}
+	return stringFind(specialcases, arg)
+		or (function()
+			for _, v in ipairs(Players:GetPlayers()) do
+				local Name = string.lower(v.Name)
+				if matchSearch(arg, Name) then
+					return Name
+				end
+			end
+		end)()
 end
 
 Cmdbar:GetPropertyChangedSignal("Text"):Connect(function()
-    if Cmdbar:IsFocused() then
-        CmdSuggestion.Text = ""
+	if Cmdbar:IsFocused() then
+		CmdSuggestion.Text = ""
 		local InputText = Cmdbar.Text
 		local Args = string.split(InputText, " ")
 		local CmdArgs = cargs or {}
-		if InputText == "" then return end
+		if InputText == "" then
+			return
+		end
 		for _, v in next, cmds do
 			local Name = v.NAME
 			local Aliases = v.ALIAS
@@ -56,10 +88,12 @@ Cmdbar:GetPropertyChangedSignal("Text"):Connect(function()
 					CmdSuggestion.Text = v2
 					break
 				end
-				if FoundAlias then break end
+				if FoundAlias then
+					break
+				end
 			end
 		end
-		for i,v in next, Args do
+		for i, v in next, Args do
 			if i > 1 and v ~= "" then
 				local Predict = ""
 				if #CmdArgs >= 1 then
@@ -73,19 +107,20 @@ Cmdbar:GetPropertyChangedSignal("Text"):Connect(function()
 					for i2, v2 in next, split do
 						if i2 > 1 and v2 ~= "" then
 							local PlayerName = getPlrArguments(v2)
-							CmdSuggestion.Text = string.sub(InputText, 1, #InputText - #split[#split]) .. (PlayerName or "")
+							CmdSuggestion.Text = string.sub(InputText, 1, #InputText - #split[#split])
+								.. (PlayerName or "")
 						end
 					end
 				end
 			end
 		end
-    end
+	end
 end)
 
 Cmdbar.FocusLost:Connect(function()
-    if not Cmdbar:IsFocused() then
-        CmdSuggestion.Text = ""
-    end
+	if not Cmdbar:IsFocused() then
+		CmdSuggestion.Text = ""
+	end
 end)
 
 tabAllowed = false
@@ -111,13 +146,13 @@ Cmdbar.Focused:Connect(function()
 			end
 		else
 			newTabComplete:Disconnect()
-            newTabComplete = nil
+			newTabComplete = nil
 		end
 	end)
 end)
 
 return {
-    ["PluginName"] = "Prediction",
-    ["PluginDescription"] = "Add back the super hot autocomplete from version 5.3.2",
-    ["Commands"] = {}
+	["PluginName"] = "Prediction",
+	["PluginDescription"] = "Add back the super hot autocomplete from version 5.3.2",
+	["Commands"] = {},
 }
