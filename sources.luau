@@ -804,4 +804,12 @@ return {
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/Keybinds.plugin.luau",
 		["Commands"] = { "bind {key} {command} [argument] {command} [argument]", "unbind {key}" },
 	},
+
+	["Prediction"] = {
+		["Name"] = "Prediction",
+		["Creator"] = "Toon",
+		["CreationDate"] = "07/03/2022",
+		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/prediction.plugin.luau",
+		["Commands"] = {},
+	},
 }
