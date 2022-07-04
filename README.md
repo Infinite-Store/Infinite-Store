@@ -14,7 +14,7 @@
 	<a href="https://github.com/Infinite-Store/Infinite-Store/releases/latest">
 		<img alt="Release" src="https://img.shields.io/github/release-date-pre/Infinite-Store/Infinite-Store?label=latest%20release&style=flat-square">
 	</a>
-	<a href="https://discord.gg/dubhsUGcZe">
+	<a href="https://infinite-store.ml/discord">
 		<img alt="Discord" src="https://img.shields.io/discord/897257702126936075?color=%235865F2&logo=discord&logoColor=%23DCDDDE&style=flat-square">
 	</a>
 	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
@@ -62,7 +62,7 @@ loadstring(game:HttpGetAsync("https://load.epik.ml/store"))()
 ```
 
 ```lua
-loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@development/main.luau"))()
+loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Nightly-Store@dev/main.luau"))()
 ```
 
 ## Important Information
