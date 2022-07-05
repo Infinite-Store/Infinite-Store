@@ -921,7 +921,7 @@ local BetterIY = {
 					l.Brightness = 0
 					settings().Rendering.QualityLevel = "Level01"
 					for i, v in pairs(g:GetDescendants()) do
-						if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+						if v:IsA("BasePart") then
 							v.Material = "Plastic"
 							v.Reflectance = 0
 						elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
