@@ -30,11 +30,8 @@ return {
 					return
 				end
 				local Height = getstring(1)
-				Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RootPart.Velocity = Vector3.new(
-					0,
-					Height,
-					0
-				)
+				Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RootPart.Velocity =
+					Vector3.new(0, Height, 0)
 			end,
 		},
 	},

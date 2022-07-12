@@ -282,12 +282,8 @@ local dragGUI = function(gui)
 		local startPos
 		local update = function(input)
 			local delta = input.Position - dragStart
-			local Position = UDim2.new(
-				startPos.X.Scale,
-				startPos.X.Offset + delta.X,
-				startPos.Y.Scale,
-				startPos.Y.Offset + delta.Y
-			)
+			local Position =
+				UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 			TweenService:Create(gui, TweenInfo.new(0.20), { Position = Position }):Play()
 		end
 		gui.InputBegan:Connect(function(input)
@@ -1309,11 +1305,8 @@ local cleanPluginCheck = function()
 end
 
 local ObjectHolder = mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("List")
-local searchBox = mainFrame
-	:WaitForChild("ListHolder")
-	:WaitForChild("Plugins")
-	:WaitForChild("SearchBar")
-	:WaitForChild("Search")
+local searchBox =
+	mainFrame:WaitForChild("ListHolder"):WaitForChild("Plugins"):WaitForChild("SearchBar"):WaitForChild("Search")
 local Objects = { ["Frame"] = true }
 local Type = 1
 local FilterSearch = function(Text)

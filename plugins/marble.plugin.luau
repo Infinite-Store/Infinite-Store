@@ -54,11 +54,8 @@ local Plugin = {
 				end)
 
 				UserInputService.JumpRequest:Connect(function()
-					local result = workspace:Raycast(
-						ball.Position,
-						Vector3.new(0, -((ball.Size.Y / 2) + JUMP_GAP), 0),
-						params
-					)
+					local result =
+						workspace:Raycast(ball.Position, Vector3.new(0, -((ball.Size.Y / 2) + JUMP_GAP), 0), params)
 					if result then
 						ball.Velocity = ball.Velocity + Vector3.new(0, JUMP_POWER, 0)
 					end

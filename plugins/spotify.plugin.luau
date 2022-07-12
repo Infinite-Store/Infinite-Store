@@ -732,10 +732,8 @@ local Plugin = {
 								keybindchange = false
 								pause = z
 								local textcool = string.find(tostring(z), "UserInputType") and 20 or 14
-								script.Parent.Keybinds.Features.pauseresume.keybindbutton.Text = string.sub(
-									tostring(z),
-									textcool
-								)
+								script.Parent.Keybinds.Features.pauseresume.keybindbutton.Text =
+									string.sub(tostring(z), textcool)
 								if key.KeyCode == Enum.KeyCode.Backspace then
 									pause = nil
 									script.Parent.Keybinds.Features.pauseresume.keybindbutton.Text = ""
@@ -745,10 +743,8 @@ local Plugin = {
 								keybindchange2 = false
 								skip = z
 								local textcool = string.find(tostring(z), "UserInputType") and 20 or 14
-								script.Parent.Keybinds.Features.skip.keybindbutton.Text = string.sub(
-									tostring(z),
-									textcool
-								)
+								script.Parent.Keybinds.Features.skip.keybindbutton.Text =
+									string.sub(tostring(z), textcool)
 								if key.KeyCode == Enum.KeyCode.Backspace then
 									skip = nil
 									script.Parent.Keybinds.Features.skip.keybindbutton.Text = ""
@@ -758,10 +754,8 @@ local Plugin = {
 								keybindchange3 = false
 								previous = z
 								local textcool = string.find(tostring(z), "UserInputType") and 20 or 14
-								script.Parent.Keybinds.Features.previous.keybindbutton.Text = string.sub(
-									tostring(z),
-									textcool
-								)
+								script.Parent.Keybinds.Features.previous.keybindbutton.Text =
+									string.sub(tostring(z), textcool)
 								if key.KeyCode == Enum.KeyCode.Backspace then
 									previous = nil
 									script.Parent.Keybinds.Features.previous.keybindbutton.Text = ""
