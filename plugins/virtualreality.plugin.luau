@@ -407,10 +407,8 @@ local Plugin = {
 						local Position = Part.CFrame.p
 						local Target = Position - Vector3.new(0, Distance, 0)
 						local Line = Ray.new(Position, (Target - Position).Unit * Distance)
-						local FloorPart, FloorPosition, FloorNormal = workspace:FindPartOnRayWithIgnoreList(
-							Line,
-							{ VirtualRig, VirtualBody, Character }
-						)
+						local FloorPart, FloorPosition, FloorNormal =
+							workspace:FindPartOnRayWithIgnoreList(Line, { VirtualRig, VirtualBody, Character })
 						if FloorPart then
 							return FloorPart, FloorPosition, FloorNormal, (FloorPosition - Position).Magnitude
 						else
@@ -573,10 +571,8 @@ local Plugin = {
 										LocalPositioning = BasePart.CFrame * HeadAtt
 									end
 									RightGrip.C1 = HatAtt
-									RightGrip.C0 = RightGrip.C0:Lerp(
-										WeldBase.CFrame:ToObjectSpace(LocalPositioning),
-										Smoothness
-									)
+									RightGrip.C0 =
+										RightGrip.C0:Lerp(WeldBase.CFrame:ToObjectSpace(LocalPositioning), Smoothness)
 									RightGrip.Parent = nil
 									RightGrip.Parent = Parent
 								end
@@ -604,11 +600,8 @@ local Plugin = {
 										* CFrame.new(0, 0, 1)
 										* CFrame.Angles(math.rad(-180), 0, 0)
 									if Point2 then
-										VirtualRig.RightUpperArm.Aim.MaxTorque = Vector3.new(
-											math.huge,
-											math.huge,
-											math.huge
-										)
+										VirtualRig.RightUpperArm.Aim.MaxTorque =
+											Vector3.new(math.huge, math.huge, math.huge)
 										VirtualRig.RightUpperArm.Aim.CFrame = Camera.CFrame
 											* AccessorySettings.LimbOffset
 									elseif VirtualRig.RightUpperArm.Aim.MaxTorque ~= Vector3.new(0, 0, 0) then
@@ -619,10 +612,8 @@ local Plugin = {
 								end
 								local Parent = RightHandGrip.Parent
 								RightHandGrip.C1 = CFrame.new()
-								RightHandGrip.C0 = RightHandGrip.C0:Lerp(
-									WeldBase.CFrame:ToObjectSpace(HandPosition),
-									Smoothness
-								)
+								RightHandGrip.C0 =
+									RightHandGrip.C0:Lerp(WeldBase.CFrame:ToObjectSpace(HandPosition), Smoothness)
 								RightHandGrip.Parent = nil
 								RightHandGrip.Parent = Parent
 								--
@@ -635,10 +626,8 @@ local Plugin = {
 										ArmBaseCFrame = ArmBaseCFrame
 									end
 									EquippedGrip.C1 = EquippedTool.Grip
-									EquippedGrip.C0 = EquippedGrip.C0:Lerp(
-										ArmBaseCFrame:ToObjectSpace(LocalPositioning),
-										Smoothness
-									)
+									EquippedGrip.C0 =
+										EquippedGrip.C0:Lerp(ArmBaseCFrame:ToObjectSpace(LocalPositioning), Smoothness)
 									EquippedGrip.Parent = nil
 									EquippedGrip.Parent = Parent
 								end
@@ -661,11 +650,8 @@ local Plugin = {
 									) * AccessorySettings.LimbOffset
 									--warn("Setting HandPosition to hands")
 									if Point1 then
-										VirtualRig.LeftUpperArm.Aim.MaxTorque = Vector3.new(
-											math.huge,
-											math.huge,
-											math.huge
-										)
+										VirtualRig.LeftUpperArm.Aim.MaxTorque =
+											Vector3.new(math.huge, math.huge, math.huge)
 										VirtualRig.LeftUpperArm.Aim.CFrame = Camera.CFrame
 											* AccessorySettings.LimbOffset
 									elseif VirtualRig.LeftUpperArm.Aim.MaxTorque ~= Vector3.new(0, 0, 0) then
@@ -674,10 +660,8 @@ local Plugin = {
 								end
 								local Parent = LeftHandGrip.Parent
 								LeftHandGrip.C1 = CFrame.new()
-								LeftHandGrip.C0 = LeftHandGrip.C0:Lerp(
-									WeldBase.CFrame:ToObjectSpace(HandPosition),
-									Smoothness
-								)
+								LeftHandGrip.C0 =
+									LeftHandGrip.C0:Lerp(WeldBase.CFrame:ToObjectSpace(HandPosition), Smoothness)
 								LeftHandGrip.Parent = nil
 								LeftHandGrip.Parent = Parent
 							end
@@ -688,10 +672,8 @@ local Plugin = {
 							elseif UserCFrame == Enum.UserCFrame.RightHand then
 								local Positioning = Positioning
 								if not VRReady then
-									Positioning = VirtualRig.RightUpperArm.CFrame:Lerp(
-										VirtualRig.RightLowerArm.CFrame,
-										0.5
-									)
+									Positioning =
+										VirtualRig.RightUpperArm.CFrame:Lerp(VirtualRig.RightLowerArm.CFrame, 0.5)
 								elseif AccurateHandPosition then
 									Positioning = Positioning * CFrame.new(0, 0, 1)
 								end
@@ -700,11 +682,8 @@ local Plugin = {
 								end
 								MoveRightArm(Positioning)
 								if Point2 then
-									VirtualRig.RightUpperArm.Aim.MaxTorque = Vector3.new(
-										math.huge,
-										math.huge,
-										math.huge
-									)
+									VirtualRig.RightUpperArm.Aim.MaxTorque =
+										Vector3.new(math.huge, math.huge, math.huge)
 									VirtualRig.RightUpperArm.Aim.CFrame = Camera.CFrame * AccessorySettings.LimbOffset
 								elseif VirtualRig.RightUpperArm.Aim.MaxTorque ~= Vector3.new(0, 0, 0) then
 									VirtualRig.RightUpperArm.Aim.MaxTorque = Vector3.new(0, 0, 0)
@@ -712,10 +691,8 @@ local Plugin = {
 							elseif UserCFrame == Enum.UserCFrame.LeftHand then
 								local Positioning = Positioning
 								if not VRReady then
-									Positioning = VirtualRig.LeftUpperArm.CFrame:Lerp(
-										VirtualRig.LeftLowerArm.CFrame,
-										0.5
-									)
+									Positioning =
+										VirtualRig.LeftUpperArm.CFrame:Lerp(VirtualRig.LeftLowerArm.CFrame, 0.5)
 								elseif AccurateHandPosition then
 									Positioning = Positioning * CFrame.new(0, 0, 1)
 								end

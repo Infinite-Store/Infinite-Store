@@ -928,39 +928,29 @@ local Plugin = {
 								end
 								if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 then
 									BV.velocity = (
+										(workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B))
+										+ (
 											(
-												workspace.CurrentCamera.CoordinateFrame.lookVector
-												* (CONTROL.F + CONTROL.B)
-											)
-											+ (
-												(
-													workspace.CurrentCamera.CoordinateFrame
-													* CFrame.new(
-														CONTROL.L + CONTROL.R,
-														(CONTROL.F + CONTROL.B) * 0.2,
-														0
-													).p
-												) - workspace.CurrentCamera.CoordinateFrame.p
-											)
-										) * SPEED
+												workspace.CurrentCamera.CoordinateFrame
+												* CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B) * 0.2, 0).p
+											) - workspace.CurrentCamera.CoordinateFrame.p
+										)
+									) * SPEED
 									lCONTROL = { F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R }
 								elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and SPEED ~= 0 then
 									BV.velocity = (
+										(workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B))
+										+ (
 											(
-												workspace.CurrentCamera.CoordinateFrame.lookVector
-												* (lCONTROL.F + lCONTROL.B)
-											)
-											+ (
-												(
-													workspace.CurrentCamera.CoordinateFrame
-													* CFrame.new(
-														lCONTROL.L + lCONTROL.R,
-														(lCONTROL.F + lCONTROL.B) * 0.2,
-														0
-													).p
-												) - workspace.CurrentCamera.CoordinateFrame.p
-											)
-										) * SPEED
+												workspace.CurrentCamera.CoordinateFrame
+												* CFrame.new(
+													lCONTROL.L + lCONTROL.R,
+													(lCONTROL.F + lCONTROL.B) * 0.2,
+													0
+												).p
+											) - workspace.CurrentCamera.CoordinateFrame.p
+										)
+									) * SPEED
 								else
 									BV.velocity = Vector3.new(0, 0.1, 0)
 								end
