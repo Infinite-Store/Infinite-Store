@@ -2,6 +2,8 @@ html {
 	background-color: #0d1117;
 }
 
+body{font-size:0}
+
 @media (prefers-color-scheme: dark) {
 	.markdown-body {
 		color-scheme: dark;
