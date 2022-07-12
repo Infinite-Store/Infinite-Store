@@ -25,7 +25,7 @@ jobs:
       if: ${{ success() || failure() }}
       with:
         commit-message: Format `*.luau` files
-        author: actions@github.com
+        committer: GitHub Actions <actions@github.com>
         title: Format `*.luau` files
         branch: stylua
         delete-branch: true
