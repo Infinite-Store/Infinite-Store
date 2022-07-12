@@ -1,3 +1,5 @@
+<meta name="color-scheme" content="dark light"/>
+
 <head>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
