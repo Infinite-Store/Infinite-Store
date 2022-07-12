@@ -25,7 +25,7 @@ jobs:
       if: ${{ success() || failure() }}
       with:
         commit-message: Generate Pages from Markdown
-        author: actions@github.com
+        committer: GitHub Actions <actions@github.com>
         title: Generate Pages from Markdown
         branch: generate-pages
         delete-branch: true
