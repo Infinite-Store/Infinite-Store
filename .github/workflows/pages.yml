@@ -5,6 +5,7 @@ on:
     paths:
     - .github/workflows/pages.yml
     - README.md
+    - loader.html
 
 jobs:
   convert:
