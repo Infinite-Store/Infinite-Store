@@ -2,7 +2,7 @@ html {
 	background-color: #0d1117;
 }
 
-body{font-size:0}
+body{font-size:0 !important}article{font-size:initial !important}
 
 @media (prefers-color-scheme: dark) {
 	.markdown-body {
