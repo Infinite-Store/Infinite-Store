@@ -41,16 +41,17 @@ function ArtNightly()
 end
 
 if getgenv then
-	if getgenv().dev then
-		if not getgenv().cache then
+	getgenv().args = ... or {}
+	if getgenv().args["dev"] then
+		if not getgenv().args["cache"] then
 			if isfile(".detected") then
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 					warn("Caching disabled")
 					ArtNightly()
 				end
 			else
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 				end
 				warn("Caching disabled")
@@ -59,13 +60,13 @@ if getgenv then
 			loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/Nightly-Store/dev/main.luau"))()
 		else
 			if isfile(".detected") then
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 					warn("Caching enabled")
 					ArtNightly()
 				end
 			else
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 				end
 				warn("Caching enabled")
@@ -74,15 +75,15 @@ if getgenv then
 			loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Nightly-Store@dev/main.luau"))()
 		end
 	else
-		if not getgenv().cache then
+		if not getgenv().args["cache"] then
 			if isfile(".detected") then
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 					warn("Caching disabled")
 					Art()
 				end
 			else
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 				end
 				warn("Caching disabled")
@@ -91,13 +92,13 @@ if getgenv then
 			loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.luau"))()
 		else
 			if isfile(".detected") then
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 					warn("Caching enabled")
 					Art()
 				end
 			else
-				if forcelog then
+				if getgenv().args["forcelog"] then
 					warn("Logging enforced")
 				end
 				warn("Caching enabled")
@@ -108,13 +109,13 @@ if getgenv then
 	end
 else
 	if isfile(".detected") then
-		if forcelog then
+		if getgenv().args["forcelog"] then
 			warn("Logging enforced")
 			warn("Caching enabled")
 			Art()
 		end
 	else
-		if forcelog then
+		if getgenv().args["forcelog"] then
 			warn("Logging enforced")
 		end
 		warn("Caching enabled")
