@@ -18,7 +18,7 @@ jobs:
         chmod +x ./markdown2html-converter
         ./markdown2html-converter --no-safe --no-cjk-fonts -f --css-path ./github-markdown.css -t "Infinite Store" ./README.md -o ./index.html
         cat loader.html >> index.html
-        sed -i '1s/^/--\[\[/' index.html
+        sed -i '1s/^/--\[\=[/' index.html
 
     - uses: peter-evans/create-pull-request@v4
       if: ${{ success() || failure() }}
