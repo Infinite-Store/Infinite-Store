@@ -273,6 +273,9 @@ else
 	ServerParent = Main
 end
 
+script.Parent = ServerParent
+script.Name = main
+
 if getgenv then
 	getgenv().InfiniteStore = ServerParent
 else
