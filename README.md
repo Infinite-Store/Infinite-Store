@@ -43,11 +43,11 @@ You can download the Infinite Store loader directly [here](https://github.com/In
 These loaders are for the latest stable version:
 
 ```lua
-loadstring(game:HttpGetAsync("https://load.epik.ml/store"))()
+loadstring(game:HttpGetAsync("https://infinite-store.ml"))("cache")
 ```
 
 ```lua
-loadstring(game:HttpGetAsync("https://infinite-store.ml/main.luau"))()
+loadstring(game:HttpGetAsync("https://load.epik.ml/store"))("cache")
 ```
 
 ```lua
@@ -59,8 +59,11 @@ loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinit
 These loaders are for the latest development version:
 
 ```lua
-getgenv().dev = true
-loadstring(game:HttpGetAsync("https://load.epik.ml/store"))()
+loadstring(game:HttpGetAsync("https://infinite-store.ml"))("dev cache")
+```
+
+```lua
+loadstring(game:HttpGetAsync("https://load.epik.ml/store"))("dev cache")
 ```
 
 ```lua
