@@ -271,6 +271,12 @@ else
 	ServerParent = Main
 end
 
+if getgenv then
+	getgenv().ISGUI = ServerParent
+else
+	_G.ISGUI = ServerParent
+end
+
 ServerParent.ResetOnSpawn = false
 ServerParent.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
