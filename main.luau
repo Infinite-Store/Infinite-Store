@@ -141,6 +141,7 @@ local UpdateSettings = function()
 end
 
 if IS_LOADED then
+--[[
 	if _UserSettings.NoNotifications == false then
 		notify(
 			"Infinite Store",
@@ -150,6 +151,7 @@ if IS_LOADED then
 	end
 	error("Infinite Store is already running!", 0)
 	return
+]]
 end
 pcall(function()
 	(getgenv() or _G)["IS_LOADED"] = true
