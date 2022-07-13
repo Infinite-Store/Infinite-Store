@@ -271,6 +271,12 @@ else
 	ServerParent = Main
 end
 
+if getgenv then
+	getgenv().InfiniteStore = ServerParent
+else
+	_G.InfiniteStore = ServerParent
+end
+
 ServerParent.ResetOnSpawn = false
 ServerParent.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
