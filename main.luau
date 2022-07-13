@@ -272,9 +272,9 @@ else
 end
 
 if getgenv then
-	getgenv().ISGUI = ServerParent
+	getgenv().InfiniteStore = ServerParent
 else
-	_G.ISGUI = ServerParent
+	_G.InfiniteStore = ServerParent
 end
 
 ServerParent.ResetOnSpawn = false
