@@ -1464,7 +1464,13 @@ You may also open a pull request to add your plugin URLs from a source repositor
 <h2>License</h2>
 <p>Please read the <a href="https://github.com/Infinite-Store/Infinite-Store/blob/main/LICENSE.md">license</a> before asking to use Infinite Store in your project.</p>
 </article><script>document.querySelectorAll('code[class^="language-"]').forEach(function(element){var c=element.getAttribute('class');element.setAttribute('class',c.replace(/language-/g,''));hljs.highlightElement(element)})</script></body></html><!--]=]
-function Art()
+local args = ... or ""
+getgenv().getoption= function(option)
+	local options = getgenv().options or _G.options
+	return not (not table.find(options, option))
+end
+
+getgenv().art = function()
 	print("                                                                                                       ")
 	print("^!!~~^.                                                                                                ")
 	print(".:^^!??:  .                         ~7. ^?^       !7. ~JJJJJ?: ^?: :?~       ~?: :?^.7JJJJJJJ7.^JJJJJJ~")
@@ -1484,7 +1490,7 @@ function Art()
 	print("                  .^~!!~.                         .::.                 .::.             .   ......     ")
 	print("                                                                                                       ")
 end
-function ArtNightly()
+getgenv().artNightly = function()
 	print("                                                                                                       ")
 	print("^!!~~^.                                                                                                ")
 	print(".:^^!??:  .                         ~7. ^?^       !7. ~JJJJJ?: ^?: :?~       ~?: :?^.7JJJJJJJ7.^JJJJJJ~")
@@ -1506,91 +1512,78 @@ function ArtNightly()
 end
 
 if getgenv then
-	getgenv().args = ... or {}
-	if getgenv().args["dev"] then
-		if not getgenv().args["cache"] then
-			if isfile(".detected") then
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-					warn("Caching disabled")
-					ArtNightly()
-				end
-			else
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-				end
+	getgenv().options = string.split(args, " ")
+else
+	_G.options = string.split(args, " ")
+end
+if getoption("dev") then
+	if not getoption("cache") then
+		if isfile(".detected") then
+			if getoption("forcelog") then
+				warn("Logging enforced")
 				warn("Caching disabled")
-				ArtNightly()
+				artNightly()
 			end
-			loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/Nightly-Store/dev/main.luau"))()
 		else
-			if isfile(".detected") then
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-					warn("Caching enabled")
-					ArtNightly()
-				end
-			else
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-				end
-				warn("Caching enabled")
-				ArtNightly()
+			if getoption("forcelog") then
+				warn("Logging enforced")
 			end
-			loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Nightly-Store@dev/main.luau"))()
+			warn("Caching disabled")
+			artNightly()
 		end
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/Nightly-Store/dev/main.luau"))()
 	else
-		if not getgenv().args["cache"] then
-			if isfile(".detected") then
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-					warn("Caching disabled")
-					Art()
-				end
-			else
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-				end
-				warn("Caching disabled")
-				Art()
-			end
-			loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.luau"))()
-		else
-			if isfile(".detected") then
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-					warn("Caching enabled")
-					Art()
-				end
-			else
-				if getgenv().args["forcelog"] then
-					warn("Logging enforced")
-				end
+		if isfile(".detected") then
+			if getoption("forcelog") then
+				warn("Logging enforced")
 				warn("Caching enabled")
-				Art()
+				artNightly()
 			end
-			loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/main.luau"))()
+		else
+			if getoption("forcelog") then
+				warn("Logging enforced")
+			end
+			warn("Caching enabled")
+			artNightly()
 		end
+		loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Nightly-Store@dev/main.luau"))()
 	end
 else
-	if isfile(".detected") then
-		if getgenv().args["forcelog"] then
-			warn("Logging enforced")
-			warn("Caching enabled")
-			Art()
+	if not getoption("cache") then
+		if isfile(".detected") then
+			if getoption("forcelog") then
+				warn("Logging enforced")
+				warn("Caching disabled")
+				art()
+			end
+		else
+			if getoption("forcelog") then
+				warn("Logging enforced")
+			end
+			warn("Caching disabled")
+			art()
 		end
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.luau"))()
 	else
-		if getgenv().args["forcelog"] then
-			warn("Logging enforced")
+		if isfile(".detected") then
+			if getoption("forcelog") then
+				warn("Logging enforced")
+				warn("Caching enabled")
+				art()
+			end
+		else
+			if getoption("forcelog") then
+				warn("Logging enforced")
+			end
+			warn("Caching enabled")
+			art()
 		end
-		warn("Caching enabled")
-		Art()
+		loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/main.luau"))()
 	end
-	loadstring(game:HttpGetAsync("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/main.luau"))()
 end
 
 if not isfile(".detected") then
-	for _,connection in next, getconnections(game:GetService("LogService").MessageOut) do
+	for _, connection in next, getconnections(game:GetService("LogService").MessageOut) do
 		if connection then
 			writefile(".detected", "")
 		end
