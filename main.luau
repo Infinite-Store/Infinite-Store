@@ -150,11 +150,11 @@ if IS_LOADED then
 		)
 	end
 	error("Infinite Store is already running!", 0)
-	return
 ]]
+	return
 end
 pcall(function()
-	(getgenv() or _G)["IS_LOADED"] = true
+	getgenv().IS_LOADED = true
 end)
 
 local newRandomString = function()
@@ -272,9 +272,6 @@ else
 	Main.Parent = CoreGui
 	ServerParent = Main
 end
-
-script.Parent = ServerParent
-script.Name = main
 
 if getgenv then
 	getgenv().InfiniteStore = ServerParent
