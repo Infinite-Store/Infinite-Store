@@ -6,6 +6,7 @@ on:
     - .github/workflows/pages.yml
     - README.md
     - loader.html
+    - github-markdown.css
 
 jobs:
   convert:
