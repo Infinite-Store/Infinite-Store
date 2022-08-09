@@ -3,7 +3,7 @@ local LoadUrl = function(str)
 end
 if not IY_LOADED then
 	LoadUrl("https://cdn.jsdelivr.net/gh/EdgeIY/infiniteyield@master/source")
-	wait(0.75)
+	task.wait(0.75)
 end
 
 local IS_Settings = {
@@ -36,17 +36,17 @@ local NoSaving = false
 local write_cooldown = false
 local writefileCooldown
 writefileCooldown = function(name, data)
-	spawn(function()
+	task.spawn(function()
 		if not write_cooldown then
 			write_cooldown = true
 			writefile(name, data)
 		else
 			repeat
-				wait()
+				task.wait()
 			until write_cooldown == false
 			writefileCooldown(name, data)
 		end
-		wait(3)
+		task.wait(3)
 		write_cooldown = false
 	end)
 end
@@ -94,17 +94,17 @@ LoadSettings = function()
 					warn("Save Json Error:", response)
 					warn("Overwriting Save File")
 					writefileCooldown(SaveFileName, DefaultSettings)
-					wait()
+					task.wait()
 					LoadSettings()
 				end
 			else
 				writefileCooldown(SaveFileName, DefaultSettings)
-				wait()
+				task.wait()
 				LoadSettings()
 			end
 		else
 			writefileCooldown(SaveFileName, DefaultSettings)
-			wait()
+			task.wait()
 			if pcall(function()
 				readfile(SaveFileName)
 			end) then
@@ -231,12 +231,12 @@ if ann ~= "" and _UserSettings.Announcement ~= ann then
 	ExitImage.Size = UDim2.new(0, 10, 0, 10)
 	ExitImage.Image = "rbxassetid://5054663650"
 	ExitImage.ZIndex = 10
-	spawn(function()
-		wait(0.3)
+	task.spawn(function()
+		task.wait(0.3)
 		AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 10), "InOut", "Quart", 0.5, true, nil)
 		Exit.MouseButton1Click:Connect(function()
 			AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
-			wait(0.6)
+			task.wait(0.6)
 			AnnGUI:Destroy()
 		end)
 	end)
@@ -1215,7 +1215,7 @@ else
 	local tweenInfo = TweenInfo.new(0.7, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(0.6)
+	task.wait(0.6)
 	local tweenGoals = { Position = UDim2.new(0.245, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.cart, tweenInfo, tweenGoals)
@@ -1224,17 +1224,17 @@ else
 	local tweenInfo = TweenInfo.new(2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(1.1)
+	task.wait(1.1)
 	local tweenGoals = { Position = UDim2.new(0.026, 0, 0.5, 0) }
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Epik, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(0.69420)
+	task.wait(0.69420)
 	local tweenGoals = { Position = UDim2.new(0.296, 0, 0.5, 0) }
 	local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Devs, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(0.9)
+	task.wait(0.9)
 	local tweenGoals = { Position = UDim2.new(-0.07, 0, -0.05, 0) }
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.text, tweenInfo, tweenGoals)
@@ -1245,22 +1245,22 @@ else
 	local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.Welcome, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(0.8)
+	task.wait(0.8)
 	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, -0.001, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List1, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(0.4)
+	task.wait(0.4)
 	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.146, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List2, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(0.4)
+	task.wait(0.4)
 	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.292, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List3, tweenInfo, tweenGoals)
 	tween:Play()
-	wait(0.4)
+	task.wait(0.4)
 	local tweenGoals = { TextTransparency = 0, Position = UDim2.new(0, 0, 0.439, 0) }
 	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(mainFrame.ListHolder.Home.List.List4, tweenInfo, tweenGoals)
@@ -1385,7 +1385,7 @@ for i, v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 				tween:Play()
 				tweenColor2(v, openColor, 0.2)
 			end
-			wait(1)
+			task.wait(1)
 			tweeningDebounce = false
 		end)
 	end
@@ -1420,7 +1420,7 @@ local LoadPluginsFromTable = function(ptbl)
 					deletePlugin(plgin.Name)
 					delfile(plgin.Name .. ".iy")
 					pluginFrameClone.Install.Text = "Success"
-					wait(0.5)
+					task.wait(0.5)
 					pluginFrameClone.Install.Text = "Install"
 					for i, v in pairs(pluginFrameClone:GetChildren()) do
 						tweenColor3(pluginFrameClone, Color3.fromRGB(22, 22, 22), 0.2)
@@ -1430,13 +1430,13 @@ local LoadPluginsFromTable = function(ptbl)
 					end
 				else
 					pluginFrameClone.Install.Text = "Installing"
-					spawn(function()
+					task.spawn(function()
 						writefile(plgin.Name .. ".iy", pluginData)
-						wait()
+						task.wait()
 						addPlugin(plgin.Name)
 					end)
 					pluginFrameClone.Install.Text = "Success"
-					wait(0.5)
+					task.wait(0.5)
 					pluginFrameClone.Install.Text = "Uninstall"
 					for i, v in pairs(pluginFrameClone:GetChildren()) do
 						tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
@@ -1450,7 +1450,7 @@ local LoadPluginsFromTable = function(ptbl)
 		end)
 		pluginFrameClone.PluginName.InfoBtn.MouseButton1Click:Connect(function()
 			if pluginFrameClone.PluginName.InfoBtn.ImageColor3 ~= Color3.fromRGB(255, 255, 255) then
-				spawn(function()
+				task.spawn(function()
 					if plgin["Description"] ~= nil then
 						if _UserSettings["NoNotifications"] == false then
 							notify(
@@ -1578,7 +1578,7 @@ for index, setting in pairs(guiSettings) do
 	tempClone.SettingName.Text = tostring(setting["Name"])
 	tempClone.Description.Text = tostring(setting["Description"])
 	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function()
-		spawn(function()
+		task.spawn(function()
 			setting.Function()
 		end)
 	end)
