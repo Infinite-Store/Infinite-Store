@@ -141,7 +141,7 @@ local UpdateSettings = function()
 end
 
 if IS_LOADED then
---[[
+	--[[
 	if _UserSettings.NoNotifications == false then
 		notify(
 			"Infinite Store",
