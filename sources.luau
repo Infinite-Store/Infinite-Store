@@ -710,4 +710,12 @@ return {
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/prediction.plugin.luau",
 		["Commands"] = {},
 	},
+
+	["Notify+"] = {
+		["Name"] = "Notify+",
+		["Creator"] = "epik",
+		["CreationDate"] = "08/13/2022",
+		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/notify+.plugin.luau",
+		["Commands"] = {},
+	},
 }
