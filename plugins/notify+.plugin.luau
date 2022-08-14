@@ -8,7 +8,7 @@ Notification.Title.RichText = true
 Notification.Text.RichText = true
 
 -- plugin shit, no commands
-local notify+ = {
+local notifyplus = {
 	["PluginName"] = "Notify+",
 	["PluginDescription"] = "Enhances Infinite Yield notifications",
-}; return notify+
+}; return notifyplus
