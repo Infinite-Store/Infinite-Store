@@ -11,4 +11,5 @@ Notification.Text.RichText = true
 local notifyplus = {
 	["PluginName"] = "Notify+",
 	["PluginDescription"] = "Enhances Infinite Yield notifications",
-}; return notifyplus
+}
+return notifyplus

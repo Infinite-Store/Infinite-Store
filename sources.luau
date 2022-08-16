@@ -723,6 +723,6 @@ return {
 		["Creator"] = "Quan",
 		["CreationDate"] = "08/16/2022",
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/tfly.plugin.luau",
-		["Commands"] = {"tfly [speed]", "untfly"},
+		["Commands"] = { "tfly [speed]", "untfly" },
 	},
 }
