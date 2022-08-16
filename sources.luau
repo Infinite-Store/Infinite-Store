@@ -718,4 +718,11 @@ return {
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/notify+.plugin.luau",
 		["Commands"] = {},
 	},
+	["Tween Fly"] = {
+		["Name"] = "Tween Fly",
+		["Creator"] = "Quan",
+		["CreationDate"] = "08/16/2022",
+		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/tfly.plugin.luau",
+		["Commands"] = {"tfly [speed]", "untfly"},
+	},
 }
