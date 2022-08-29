@@ -725,4 +725,11 @@ return {
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/tfly.plugin.luau",
 		["Commands"] = { "tfly [speed]", "untfly" },
 	},
-}
+	["Execute"] = {
+		["Name"] = "Executor",
+		["Creator"] = "epik",
+		["CreationDate"] = "08/27/2022",
+		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/execute.plugin.luau",
+		["Commands"] = {"execute / exec / script / s"},
+	},
+
