@@ -732,4 +732,4 @@ return {
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/execute.plugin.luau",
 		["Commands"] = {"execute / exec / script / s"},
 	},
-
+}
