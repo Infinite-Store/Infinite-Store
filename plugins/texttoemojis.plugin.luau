@@ -156,8 +156,7 @@ local Plugin = {
 
 				local sendmsg = function(m)
 					if dependencies["Chat"] then
-						game
-							:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+						game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 							:FireServer(m, "All")
 					end
 				end
@@ -335,8 +334,8 @@ local Plugin = {
 					if dependencies["Chat"] then
 						if input.UserInputType == Enum.UserInputType.MouseButton2 then
 							local m = game:GetService("Players").LocalPlayer:GetMouse()
-							local objs =
-								game:GetService("Players").LocalPlayer.PlayerGui:GetGuiObjectsAtPosition(m.X, m.Y)
+							local objs = game:GetService("Players").LocalPlayer.PlayerGui
+								:GetGuiObjectsAtPosition(m.X, m.Y)
 							for i, v in pairs(objs) do
 								if v:FindFirstChild("TextButton") then
 									if v:FindFirstChild("Scroller") then

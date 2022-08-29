@@ -10,8 +10,7 @@ local Plugin = {
 				local msg = getstring(1)
 					.. "                                                                                                                   [Builderman]: "
 					.. getstring(2)
-				game
-					:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 					:FireServer(msg, "All")
 			end,
 		},

@@ -357,8 +357,7 @@ local BetterIY = {
 						if Players[v] == speaker then
 							notify("No need to compliment yourself sir/ma'am")
 						else
-							game
-								:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+							game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 								:FireServer(compliment(Players[v].Name), "All")
 						end
 					end
@@ -376,8 +375,7 @@ local BetterIY = {
 						if Players[v] == speaker then
 							notify("No need to insult yourself sir/ma'am")
 						else
-							game
-								:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+							game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 								:FireServer(insult(Players[v].Name), "All")
 						end
 					end

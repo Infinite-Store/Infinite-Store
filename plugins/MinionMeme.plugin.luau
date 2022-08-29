@@ -127,8 +127,7 @@ return {
 			["Description"] = "Destroys The Minion Meme.",
 			["Aliases"] = { "minionmdestroy", "minmdestroy" },
 			["Function"] = function(args, speaker)
-				game
-					:GetService("Players").LocalPlayer.PlayerGui[". Ç¤Ò‰Ì·Ò‰ÌµÒ‰Ì¸Ò‰Ì·Ò‰ÌµÒ‰Ì¸Ò‰Ì¡Ò‰Ì¡Ò‰Ì¼Ò‰Ì±Ò‰ÍŽÒ‰ÍŽÒ‰ÌžÒ‰Ì¼Ò‰Ì±Ò‰ÍŽÒ‰ÍŽÒ‰ÌžÒ‰Í¤Ò‰Í¬Ò‰Ì…Ò‰Í¤Ò‰Í¬"]
+				game:GetService("Players").LocalPlayer.PlayerGui[". Ç¤Ò‰Ì·Ò‰ÌµÒ‰Ì¸Ò‰Ì·Ò‰ÌµÒ‰Ì¸Ò‰Ì¡Ò‰Ì¡Ò‰Ì¼Ò‰Ì±Ò‰ÍŽÒ‰ÍŽÒ‰ÌžÒ‰Ì¼Ò‰Ì±Ò‰ÍŽÒ‰ÍŽÒ‰ÌžÒ‰Í¤Ò‰Í¬Ò‰Ì…Ò‰Í¤Ò‰Í¬"]
 					:Destroy()
 			end,
 		},
