@@ -22,8 +22,7 @@ local Plugin = {
 					"!",
 					" " .. faces[math.random(1, 5)]
 				)
-				game
-					:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 					:FireServer(cutestring, "All")
 			end,
 		},

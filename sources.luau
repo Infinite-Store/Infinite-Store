@@ -730,6 +730,6 @@ return {
 		["Creator"] = "epik",
 		["CreationDate"] = "08/27/2022",
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/execute.plugin.luau",
-		["Commands"] = {"execute / exec / script / s"},
+		["Commands"] = { "execute / exec / script / s" },
 	},
 }

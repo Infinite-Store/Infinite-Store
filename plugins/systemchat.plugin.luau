@@ -9,8 +9,7 @@ local Plugin = {
 			["Function"] = function(args, speaker)
 				local msg = "                                                                                                                   {System} "
 					.. getstring(1)
-				game
-					:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 					:FireServer(msg, "All")
 			end,
 		},

@@ -594,8 +594,7 @@ local Plugin = {
 					repeat
 						for i, plr in pairs(players) do
 							for index, mover in pairs(movers) do
-								mover.Position = game
-									:GetService("Players")[plr].Character.HumanoidRootPart.CFrame
+								mover.Position = game:GetService("Players")[plr].Character.HumanoidRootPart.CFrame
 									:PointToWorldSpace()
 							end
 						end
@@ -623,8 +622,7 @@ local Plugin = {
 					repeat
 						for i, plr in pairs(players) do
 							for index, mover in pairs(movers) do
-								mover.Position = game
-									:GetService("Players")[plr].Character.HumanoidRootPart.CFrame
+								mover.Position = game:GetService("Players")[plr].Character.HumanoidRootPart.CFrame
 									:PointToWorldSpace()
 							end
 						end
