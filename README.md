@@ -1,3 +1,16 @@
+<meta name="description" content="based">
+<meta property="og:url" content="https://infinite.sex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Infinite Store">
+<meta property="og:description" content="based">
+<meta property="og:image" content="https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/assets/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="infinite.sex">
+<meta property="twitter:url" content="https://infinite.sex">
+<meta name="twitter:title" content="Infinite Store">
+<meta name="twitter:description" content="based">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/assets/banner.png">
+
 <meta name="color-scheme" content="dark light"/>
 
 <head>
@@ -5,7 +18,9 @@
 </head>
 
 <h1 align="center">
-	Infinite Store
+	<a href="https://git.infinite.sex">
+		Infinite Store
+	</a>
 </h1>
 
 <p align="center">
@@ -13,16 +28,16 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/Infinite-Store/Infinite-Store/releases/latest">
+	<a href="https://git.infinite.sex/Infinite-Store/releases/latest">
 		<img alt="Release" src="https://img.shields.io/github/release-date-pre/Infinite-Store/Infinite-Store?label=latest%20release&style=flat-square">
 	</a>
-	<a href="https://infinite-store.ml/discord">
+	<a href="https://discord.infinite.sex">
 		<img alt="Discord" src="https://img.shields.io/discord/897257702126936075?color=%235865F2&logo=discord&logoColor=%23DCDDDE&style=flat-square">
 	</a>
-	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
+	<a href="https://git.infinite.sex/Infinite-Store/issues">
 		<img alt="Issues" src="https://img.shields.io/github/issues/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
-	<a href="https://github.com/Infinite-Store/Infinite-Store/pulls">
+	<a href="https://git.infinite.sex/Infinite-Store/pulls">
 		<img alt="Pulls" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
 	<a href="https://www.jsdelivr.com/package/gh/Infinite-Store/Infinite-Store">
@@ -56,7 +71,7 @@ loadstring(game:HttpGetAsync("https://infinite.sex"))("dev cache")
 
 ## Important Information
 
-If you are looking for tutorials and how-tos, check out the [Infinite Store Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki).\
+If you are looking for tutorials and how-tos, check out the [Infinite Store Wiki](https://git.infinite.sex/Infinite-Store/wiki).\
 For even more help, join our [Discord](https://discord.gg/dubhsUGcZe) server!
 
 ## Contributions
@@ -72,14 +87,13 @@ You may also open a pull request to add your plugin URLs from a source repositor
 | Plugins Page                                                                             | ✅      |
 | Settings                                                                                 | ✅      |
 | Animations                                                                               | ✅      |
-| [Wiki](https://github.com/Infinite-Store/Infinite-Store/wiki)                            | ✅      |
-| [Loader](https://github.com/Infinite-Store/Infinite-Store/wiki/Usage)                    | ✅      |
-| [Themes](https://github.com/Infinite-Store/Infinite-Store/tree/development)              | ⏳      |
+| [Wiki](https://git.infinite.sex/Infinite-Store/wiki)                                     | ✅      |
+| [Loader](https://git.infinite.sex/Infinite-Store/wiki/Usage)                             | ✅      |
+| [Themes](https://git.infinite.sex/Nightly-Store)                                         | ⏳      |
 | [Plugins](plugins)                                                                       | ♾      |
 | [Affiliation](https://discord.gg/78ZuWSq)                                                | ✅      |
 | [Discord Server](https://discord.gg/dubhsUGcZe)                                          | ✅      |
 
 ## License
 
-Please read the [license](https://github.com/Infinite-Store/Infinite-Store/blob/main/LICENSE.md) before asking to use Infinite Store in your project.
-
+Please read the [license](https://git.infinite.sex/Infinite-Store/blob/main/LICENSE.md) before asking to use Infinite Store in your project.
