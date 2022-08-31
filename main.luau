@@ -29,6 +29,13 @@ local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local format, gsub = string.format, string.gsub
+local cleanfile = function(str)
+	return gsub(str, "[*\\?:<>|]+", "")
+end
+local isfile = isfile or (readfile and function(...)
+	local success, _ = pcall(readfile, ...)
+	return success
+end)
 
 local DefaultSettings = HttpService:JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
@@ -1415,10 +1422,10 @@ local LoadPluginsFromTable = function(ptbl)
 				local pluginData = 'return loadstring(game:HttpGetAsync(("'
 					.. tostring(plgin.GithubLink)
 					.. '"), true))()'
-				if isfile(plgin.Name .. ".iy") == true then
+				if isfile(cleanfile(plgin.Name) .. ".iy") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
-					deletePlugin(plgin.Name)
-					delfile(plgin.Name .. ".iy")
+					deletePlugin(cleanfile(plgin.Name))
+					delfile(cleanfile(plgin.Name) .. ".iy")
 					pluginFrameClone.Install.Text = "Success"
 					wait(0.5)
 					pluginFrameClone.Install.Text = "Install"
@@ -1431,9 +1438,9 @@ local LoadPluginsFromTable = function(ptbl)
 				else
 					pluginFrameClone.Install.Text = "Installing"
 					spawn(function()
-						writefile(plgin.Name .. ".iy", pluginData)
+						writefile(cleanfile(plgin.Name) .. ".iy", pluginData)
 						wait()
-						addPlugin(plgin.Name)
+						addPlugin(cleanfile(plgin.Name))
 					end)
 					pluginFrameClone.Install.Text = "Success"
 					wait(0.5)
