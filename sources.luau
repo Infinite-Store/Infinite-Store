@@ -10,7 +10,6 @@ return {
 		["Commands"] = {"command1"},
 	},
 	]]
-	--
 
 	["FakeChat"] = {
 		["Name"] = "FakeChat",
