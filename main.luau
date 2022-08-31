@@ -1401,13 +1401,15 @@ end
 local plginCount = 0
 local LoadPluginsFromTable = function(ptbl)
 	for index, plgin in pairs(ptbl) do
+plgin.Name = plgin.Name or "Unknown"
+-- plgin.Description
 		plginCount = plginCount + 1
 		local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 		pluginFrameClone.Name = format("%s %s %s", plgin.Name, plgin.Creator, plgin.CreationDate)
 		pluginFrameClone.Author.Text = plgin.Creator
 		pluginFrameClone.PluginName.Text = plgin.Name
 		pluginFrameClone.Created.Text = plgin.CreationDate
-		if isfile(plgin.Name .. ".iy") then
+		if isfile(cleanfile(plgin.Name) .. ".iy") then
 			pluginFrameClone.Install.Text = "Uninstall"
 			for i, v in pairs(pluginFrameClone:GetChildren()) do
 				tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
@@ -1458,11 +1460,11 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.PluginName.InfoBtn.MouseButton1Click:Connect(function()
 			if pluginFrameClone.PluginName.InfoBtn.ImageColor3 ~= Color3.fromRGB(255, 255, 255) then
 				spawn(function()
-					if plgin["Description"] ~= nil then
+					if plgin.Description then
 						if _UserSettings["NoNotifications"] == false then
 							notify(
-								'Infinite Store - "' .. tostring(plgin["Name"]) .. '" Description',
-								tostring(plgin["Description"])
+								'Infinite Store - "' .. tostring(plgin.Name) .. '" Description',
+								tostring(plgin.Description)
 							)
 						end
 					end
@@ -1485,12 +1487,14 @@ local LoadPluginsFromTable = function(ptbl)
 						v:Destroy()
 					end
 				end
-				for _, v in next, plgin["Commands"] do
-					local CommandLabel = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
-					CommandLabel.Name = tostring(v)
-					CommandLabel.Text = ";" .. tostring(v)
-					CommandLabel.Parent = mainFrame.PluginInfo.List
-					CommandLabel.Visible = true
+				if plgin.Commands then
+					for _, v in next, plgin.Commands do
+						local CommandLabel = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
+						CommandLabel.Name = tostring(v)
+						CommandLabel.Text = ";" .. tostring(v)
+						CommandLabel.Parent = mainFrame.PluginInfo.List
+						CommandLabel.Visible = true
+					end
 				end
 				pluginInfoToggle(true)
 			else
