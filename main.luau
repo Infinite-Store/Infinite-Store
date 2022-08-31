@@ -28,7 +28,7 @@ local HttpService = game:GetService("HttpService")
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
-local format, gsub = string.format, string.gsub
+local format, gsub, sub = string.format, string.gsub, string.sub
 local cleanfile = function(str)
 	return gsub(str, "[*\\?:<>|]+", "")
 end
@@ -1399,12 +1399,20 @@ for i, v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 end
 
 local plginCount = 0
+local plginExtension = "plugin.luau"
+local grabLink = function(str)
+    if sub(str, 1, 6) == "https:" then
+        return str
+    end
+    return format("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/%s.%s", str, plginExtension)
+end
 local LoadPluginsFromTable = function(ptbl)
 	for index, plgin in pairs(ptbl) do
+        plginCount = plginCount + 1
 		plgin.Name = plgin.Name or "Unknown"
 		plgin.Creator = plgin.Creator or "Unknown"
 		plgin.CreationDate = plgin.CreationDate or "Unknown"
-		plginCount = plginCount + 1
+        plgin.GithubLink = grabLink(plgin.GithubLink)
 		local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 		pluginFrameClone.Name = format("%s %s %s", plgin.Name, plgin.Creator, plgin.CreationDate)
 		pluginFrameClone.Author.Text = plgin.Creator
