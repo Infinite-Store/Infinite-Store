@@ -1401,8 +1401,10 @@ end
 local plginCount = 0
 local LoadPluginsFromTable = function(ptbl)
 	for index, plgin in pairs(ptbl) do
-plgin.Name = plgin.Name or "Unknown"
--- plgin.Description
+		plgin.Name = plgin.Name or "Unknown"
+		plgin.Creator = plgin.Creator or "Unknown"
+		-- plgin.Author = plgin.Author or "Unknown"
+		plgin.CreationDate = plgin.CreationDate or "Unknown"
 		plginCount = plginCount + 1
 		local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 		pluginFrameClone.Name = format("%s %s %s", plgin.Name, plgin.Creator, plgin.CreationDate)
@@ -1421,9 +1423,9 @@ plgin.Name = plgin.Name or "Unknown"
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then
 				installDebounce = true
-				local pluginData = 'return loadstring(game:HttpGetAsync(("'
+				local pluginData = 'return loadstring(game:HttpGet("'
 					.. tostring(plgin.GithubLink)
-					.. '"), true))()'
+					.. '"))()'
 				if isfile(cleanfile(plgin.Name) .. ".iy") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
 					deletePlugin(cleanfile(plgin.Name))
@@ -1489,9 +1491,10 @@ plgin.Name = plgin.Name or "Unknown"
 				end
 				if plgin.Commands then
 					for _, v in next, plgin.Commands do
+						v = tostring(v)
 						local CommandLabel = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
-						CommandLabel.Name = tostring(v)
-						CommandLabel.Text = ";" .. tostring(v)
+						CommandLabel.Name = v
+						CommandLabel.Text = ";" .. v
 						CommandLabel.Parent = mainFrame.PluginInfo.List
 						CommandLabel.Visible = true
 					end
@@ -1583,11 +1586,11 @@ local guiSettings = {
 		end,
 	},
 }
-for index, setting in pairs(guiSettings) do
+for _, setting in pairs(guiSettings) do
 	local tempClone = settingsList.UIGridLayout.Template:Clone()
-	tempClone.Name = tostring(gsub(setting["Name"], " ", ""))
-	tempClone.SettingName.Text = tostring(setting["Name"])
-	tempClone.Description.Text = tostring(setting["Description"])
+	tempClone.Name = tostring(gsub(setting.Name, " ", ""))
+	tempClone.SettingName.Text = tostring(setting.Name)
+	tempClone.Description.Text = tostring(setting.Description)
 	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function()
 		spawn(function()
 			setting.Function()
