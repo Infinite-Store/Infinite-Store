@@ -1,5 +1,5 @@
 local LoadUrl = function(str)
-	return loadstring(game:HttpGet(str, true))()
+	return loadstring(game:HttpGet(str))()
 end
 if not IY_LOADED then
 	LoadUrl("https://cdn.jsdelivr.net/gh/EdgeIY/infiniteyield@master/source")
@@ -7,28 +7,35 @@ if not IY_LOADED then
 end
 
 local IS_Settings = {
-	["Version"] = "1.3.5",
-	["Invite"] = "dubhsUGcZe",
-	["Plugins"] = LoadUrl("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/sources.luau"),
-	["NsfwPlugins"] = LoadUrl(
+	Version = "1.3.6",
+	Invite = "dubhsUGcZe",
+	Plugins = LoadUrl("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/sources.luau"),
+	NsfwPlugins = LoadUrl(
 		"https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/nsfwplugins/sources.luau"
 	),
 }
 
-local ann = "hi we fixed the discord server invite"
+local ann = ""
 local _UserSettings = {
-	["StartMinimized"] = false,
-	["SafeMode"] = false,
-	["NoNotifications"] = false,
-	["SkipIntro"] = false,
-	["Announcement"] = "",
+	StartMinimized = false,
+	SafeMode = false,
+	NoNotifications = false,
+	SkipIntro = false,
+	Announcement = "",
 }
 
 local HttpService = game:GetService("HttpService")
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
-local format, gsub = string.format, string.gsub
+local format, gsub, sub = string.format, string.gsub, string.sub
+local cleanfile = function(str)
+	return gsub(str, "[*\\?:<>|]+", "")
+end
+local isfile = isfile or (readfile and function(...)
+	local success, _ = pcall(readfile, ...)
+	return success
+end)
 
 local DefaultSettings = HttpService:JSONEncode(_UserSettings)
 local SaveFileName = "infinite-store.json"
@@ -130,11 +137,11 @@ LoadSettings()
 local UpdateSettings = function()
 	if not NoSaving and canWrite() then
 		local update = {
-			["StartMinimized"] = _UserSettings.StartMinimized,
-			["SafeMode"] = _UserSettings.SafeMode,
-			["NoNotifications"] = _UserSettings.NoNotifications,
-			["SkipIntro"] = _UserSettings.SkipIntro,
-			["Announcement"] = _UserSettings.Announcement,
+			StartMinimized = _UserSettings.StartMinimized,
+			SafeMode = _UserSettings.SafeMode,
+			NoNotifications = _UserSettings.NoNotifications,
+			SkipIntro = _UserSettings.SkipIntro,
+			Announcement = _UserSettings.Announcement,
 		}
 		writefileCooldown(SaveFileName, HttpService:JSONEncode(update))
 	end
@@ -1132,8 +1139,8 @@ end)
 mainFrame.TopBar.Close.MouseButton1Click:Connect(function()
 	mainFrame:TweenPosition(UDim2.new(0.5, -250, 0, -500), "InOut", "Quart", 0.5, true, nil)
 end)
-mainFrame.TopBar.Title.Text = ("Infinite Store v" .. IS_Settings["Version"])
-DiscordInvite.Text = (".gg/" .. IS_Settings["Invite"])
+mainFrame.TopBar.Title.Text = ("Infinite Store v" .. IS_Settings.Version)
+DiscordInvite.Text = (".gg/" .. IS_Settings.Invite)
 autoCanvas(List_2, UIGridLayout)
 autoCanvas(List_3, UIGridLayout_3)
 autoCanvas(mainFrame.PluginInfo.List, mainFrame.PluginInfo.List.UIGridLayout)
@@ -1392,15 +1399,26 @@ for i, v in pairs(mainFrame.SideBar.Holder:GetChildren()) do
 end
 
 local plginCount = 0
+local plginExtension = "plugin.luau"
+local grabLink = function(str)
+    if sub(str, 1, 6) == "https:" then
+        return str
+    end
+    return format("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/%s.%s", str, plginExtension)
+end
 local LoadPluginsFromTable = function(ptbl)
 	for index, plgin in pairs(ptbl) do
-		plginCount = plginCount + 1
+        plginCount = plginCount + 1
+		plgin.Name = plgin.Name or "Unknown"
+		plgin.Creator = plgin.Creator or "Unknown"
+		plgin.CreationDate = plgin.CreationDate or "Unknown"
+        plgin.GithubLink = grabLink(plgin.GithubLink)
 		local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 		pluginFrameClone.Name = format("%s %s %s", plgin.Name, plgin.Creator, plgin.CreationDate)
 		pluginFrameClone.Author.Text = plgin.Creator
 		pluginFrameClone.PluginName.Text = plgin.Name
 		pluginFrameClone.Created.Text = plgin.CreationDate
-		if isfile(plgin.Name .. ".iy") then
+		if isfile(cleanfile(plgin.Name) .. ".iy") then
 			pluginFrameClone.Install.Text = "Uninstall"
 			for i, v in pairs(pluginFrameClone:GetChildren()) do
 				tweenColor3(pluginFrameClone, Color3.fromRGB(3, 31, 6), 0.2)
@@ -1412,13 +1430,13 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then
 				installDebounce = true
-				local pluginData = 'return loadstring(game:HttpGetAsync(("'
+				local pluginData = 'return loadstring(game:HttpGet("'
 					.. tostring(plgin.GithubLink)
-					.. '"), true))()'
-				if isfile(plgin.Name .. ".iy") == true then
+					.. '"))()'
+				if isfile(cleanfile(plgin.Name) .. ".iy") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
-					deletePlugin(plgin.Name)
-					delfile(plgin.Name .. ".iy")
+					deletePlugin(cleanfile(plgin.Name))
+					delfile(cleanfile(plgin.Name) .. ".iy")
 					pluginFrameClone.Install.Text = "Success"
 					wait(0.5)
 					pluginFrameClone.Install.Text = "Install"
@@ -1431,9 +1449,9 @@ local LoadPluginsFromTable = function(ptbl)
 				else
 					pluginFrameClone.Install.Text = "Installing"
 					spawn(function()
-						writefile(plgin.Name .. ".iy", pluginData)
+						writefile(cleanfile(plgin.Name) .. ".iy", pluginData)
 						wait()
-						addPlugin(plgin.Name)
+						addPlugin(cleanfile(plgin.Name))
 					end)
 					pluginFrameClone.Install.Text = "Success"
 					wait(0.5)
@@ -1451,11 +1469,11 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.PluginName.InfoBtn.MouseButton1Click:Connect(function()
 			if pluginFrameClone.PluginName.InfoBtn.ImageColor3 ~= Color3.fromRGB(255, 255, 255) then
 				spawn(function()
-					if plgin["Description"] ~= nil then
+					if plgin.Description then
 						if _UserSettings["NoNotifications"] == false then
 							notify(
-								'Infinite Store - "' .. tostring(plgin["Name"]) .. '" Description',
-								tostring(plgin["Description"])
+								'Infinite Store - "' .. tostring(plgin.Name) .. '" Description',
+								tostring(plgin.Description)
 							)
 						end
 					end
@@ -1478,12 +1496,15 @@ local LoadPluginsFromTable = function(ptbl)
 						v:Destroy()
 					end
 				end
-				for _, v in next, plgin["Commands"] do
-					local CommandLabel = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
-					CommandLabel.Name = tostring(v)
-					CommandLabel.Text = ";" .. tostring(v)
-					CommandLabel.Parent = mainFrame.PluginInfo.List
-					CommandLabel.Visible = true
+				if plgin.Commands then
+					for _, v in next, plgin.Commands do
+						v = tostring(v)
+						local CommandLabel = mainFrame.PluginInfo.List.UIGridLayout.Command:Clone()
+						CommandLabel.Name = v
+						CommandLabel.Text = ";" .. v
+						CommandLabel.Parent = mainFrame.PluginInfo.List
+						CommandLabel.Visible = true
+					end
 				end
 				pluginInfoToggle(true)
 			else
@@ -1499,8 +1520,8 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Parent = mainFrame.ListHolder.Plugins.List
 	end
 end
-LoadPluginsFromTable(IS_Settings["Plugins"])
-LoadPluginsFromTable(IS_Settings["NsfwPlugins"])
+LoadPluginsFromTable(IS_Settings.Plugins)
+LoadPluginsFromTable(IS_Settings.NsfwPlugins)
 
 local guiSettings = {
 	["Start Minimized"] = {
@@ -1572,11 +1593,11 @@ local guiSettings = {
 		end,
 	},
 }
-for index, setting in pairs(guiSettings) do
+for _, setting in pairs(guiSettings) do
 	local tempClone = settingsList.UIGridLayout.Template:Clone()
-	tempClone.Name = tostring(gsub(setting["Name"], " ", ""))
-	tempClone.SettingName.Text = tostring(setting["Name"])
-	tempClone.Description.Text = tostring(setting["Description"])
+	tempClone.Name = tostring(gsub(setting.Name, " ", ""))
+	tempClone.SettingName.Text = tostring(setting.Name)
+	tempClone.Description.Text = tostring(setting.Description)
 	tempClone.CheckBox.Btn.MouseButton1Click:Connect(function()
 		spawn(function()
 			setting.Function()

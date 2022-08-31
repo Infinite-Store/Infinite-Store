@@ -10,7 +10,6 @@ return {
 		["Commands"] = {"command1"},
 	},
 	]]
-	--
 
 	["FakeChat"] = {
 		["Name"] = "FakeChat",
@@ -731,5 +730,12 @@ return {
 		["CreationDate"] = "08/27/2022",
 		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/execute.plugin.luau",
 		["Commands"] = { "execute / exec / script / s" },
+	},
+	["pipe"] = {
+		["Name"] = "pipe",
+		["Creator"] = "ive seen sunlight",
+		["CreationDate"] = "08/16/2022",
+		["GithubLink"] = "https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/pipe.plugin.luau",
+		["Commands"] = { "pipe / pf [pitch] [volume]" },
 	},
 }
