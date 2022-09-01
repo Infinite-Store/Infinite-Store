@@ -1401,18 +1401,18 @@ end
 local plginCount = 0
 local plginExtension = "plugin.luau"
 local grabLink = function(str)
-	if sub(str, 1, 6) == "https:" then
-		return str
-	end
-	return format("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/%s.%s", str, plginExtension)
+    if sub(str, 1, 6) == "https:" then
+        return str
+    end
+    return format("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/%s.%s", str, plginExtension)
 end
 local LoadPluginsFromTable = function(ptbl)
 	for index, plgin in pairs(ptbl) do
-		plginCount = plginCount + 1
+        plginCount = plginCount + 1
 		plgin.Name = plgin.Name or "Unknown"
 		plgin.Creator = plgin.Creator or "Unknown"
 		plgin.CreationDate = plgin.CreationDate or "Unknown"
-		plgin.GithubLink = grabLink(plgin.GithubLink)
+        plgin.GithubLink = grabLink(plgin.GithubLink)
 		local pluginFrameClone = mainFrame.ListHolder.Plugins.List.UIGridLayout.Template:Clone()
 		pluginFrameClone.Name = format("%s %s %s", plgin.Name, plgin.Creator, plgin.CreationDate)
 		pluginFrameClone.Author.Text = plgin.Creator
@@ -1430,7 +1430,9 @@ local LoadPluginsFromTable = function(ptbl)
 		pluginFrameClone.Install.MouseButton1Click:Connect(function()
 			if installDebounce == false then
 				installDebounce = true
-				local pluginData = 'return loadstring(game:HttpGet("' .. tostring(plgin.GithubLink) .. '"))()'
+				local pluginData = 'return loadstring(game:HttpGet("'
+					.. tostring(plgin.GithubLink)
+					.. '"))()'
 				if isfile(cleanfile(plgin.Name) .. ".iy") == true then
 					pluginFrameClone.Install.Text = "Uninstalling"
 					deletePlugin(cleanfile(plgin.Name))
