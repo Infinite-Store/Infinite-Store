@@ -1,26 +1,5 @@
-<meta name="description" content="based">
-<meta property="og:url" content="https://infinite.sex">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Infinite Store">
-<meta property="og:description" content="based">
-<meta property="og:image" content="https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/assets/banner.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:domain" content="infinite.sex">
-<meta property="twitter:url" content="https://infinite.sex">
-<meta name="twitter:title" content="Infinite Store">
-<meta name="twitter:description" content="based">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/assets/banner.png">
-
-<meta name="color-scheme" content="dark light"/>
-
-<head>
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-
 <h1 align="center">
-	<a href="https://git.infinite.sex">
-		Infinite Store
-	</a>
+	Infinite Store
 </h1>
 
 <p align="center">
@@ -28,10 +7,7 @@
 </p>
 
 <p align="center">
-	<a href="https://git.infinite.sex/Infinite-Store/releases/latest">
-		<img alt="Release" src="https://img.shields.io/github/release-date-pre/Infinite-Store/Infinite-Store?label=latest%20release&style=flat-square">
-	</a>
-	<a href="https://discord.infinite.sex">
+	<a href="https://discord.gg/PsEJzUq8NE">
 		<img alt="Discord" src="https://img.shields.io/discord/897257702126936075?color=%235865F2&logo=discord&logoColor=%23DCDDDE&style=flat-square">
 	</a>
 	<a href="https://git.infinite.sex/Infinite-Store/issues">
@@ -39,9 +15,6 @@
 	</a>
 	<a href="https://git.infinite.sex/Infinite-Store/pulls">
 		<img alt="Pulls" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
-	</a>
-	<a href="https://www.jsdelivr.com/package/gh/Infinite-Store/Infinite-Store">
-		<img alt="jsDelivr" src="https://data.jsdelivr.com/v1/package/gh/Infinite-Store/Infinite-Store/badge"/>
 	</a>
 	<a href="./LICENSE.md">
 		<img alt="License" src="https://img.shields.io/badge/license-ISL--1.0.2-red?style=flat-square"/>
@@ -69,30 +42,10 @@ This loader is for the latest development version:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
 ```
 
-## Important Information
-
-If you are looking for tutorials and how-tos, check out the [Infinite Store Wiki](https://git.infinite.sex/Infinite-Store/wiki).\
-For even more help, join our [Discord](https://discord.gg/dubhsUGcZe) server!
-
 ## Contributions
 
 Do you have your own plugin or want to update existing ones? You can do it by creating a fork and committing your files. Open a [pull request](https://github.com/Infinite-Store/Infinite-Store/compare) to get your changes accepted (compare across forks to select your fork).\
 You may also open a pull request to add your plugin URLs from a source repository other than this one.
-
-## Features
-
-| Feature                                                                                  | Status |
-| ---------------------------------------------------------------------------------------- | ------ |
-| Home Page                                                                                | ✅      |
-| Plugins Page                                                                             | ✅      |
-| Settings                                                                                 | ✅      |
-| Animations                                                                               | ✅      |
-| [Wiki](https://git.infinite.sex/Infinite-Store/wiki)                                     | ✅      |
-| [Loader](https://git.infinite.sex/Infinite-Store/wiki/Usage)                             | ✅      |
-| [Themes](https://git.infinite.sex/Nightly-Store)                                         | ⏳      |
-| [Plugins](plugins)                                                                       | ♾      |
-| [Affiliation](https://discord.gg/78ZuWSq)                                                | ✅      |
-| [Discord Server](https://discord.gg/dubhsUGcZe)                                          | ✅      |
 
 ## License
 
