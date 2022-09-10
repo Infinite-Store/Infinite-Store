@@ -23,20 +23,7 @@
 
 ## Usage
 
-The loader allows Infinite Store to always be kept up-to-date without re-downloading it every time you want to use it.\
-You can download the Infinite Store loader directly [here](https://github.com/Infinite-Store/Infinite-Store/releases/latest/download/is.luau), or use one of these `loadstring()` loaders:
-
-### For users
-
-This loader is for the latest stable version:
-
-```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
-```
-
-### For developers
-
-This loader is for the latest development version:
+The loader allows Infinite Store to always be kept up-to-date without re-downloading it every time you want to use it.
 
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
@@ -49,4 +36,4 @@ You may also open a pull request to add your plugin URLs from a source repositor
 
 ## License
 
-Please read the [license](https://git.infinite.sex/Infinite-Store/blob/main/LICENSE.md) before asking to use Infinite Store in your project.
+Please read the [license](https://github.com/Infinite-Store/Infinite-Store/blob/main/LICENSE.md) before asking to use Infinite Store in your project.
