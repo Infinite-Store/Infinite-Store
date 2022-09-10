@@ -8,12 +8,12 @@
 
 <p align="center">
 	<a href="https://discord.gg/PsEJzUq8NE">
-		<img alt="Discord" src="https://img.shields.io/discord/897257702126936075?color=%235865F2&logo=discord&logoColor=%23DCDDDE&style=flat-square">
+		<img alt="Discord" src="https://img.shields.io/discord/1014040973027844106?color=%235865F2&logo=discord&logoColor=%23DCDDDE&style=flat-square">
 	</a>
-	<a href="https://git.infinite.sex/Infinite-Store/issues">
+	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
 		<img alt="Issues" src="https://img.shields.io/github/issues/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
-	<a href="https://git.infinite.sex/Infinite-Store/pulls">
+	<a href="https://github.com/Infinite-Store/Infinite-Store/pulls">
 		<img alt="Pulls" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
 	<a href="./LICENSE.md">
