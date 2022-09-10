@@ -15,7 +15,7 @@ local IS_Settings = {
 	),
 }
 
-local ann = "hi we fixed the discord server invite"
+local ann = "NEW DISCORD, JOIN PLEASE"
 local _UserSettings = {
 	["StartMinimized"] = false,
 	["SafeMode"] = false,
