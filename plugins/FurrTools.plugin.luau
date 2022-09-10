@@ -44,13 +44,6 @@ local Plugin = {
 
 				-- Create Corruption Ball Welds --
 
-				--[[
-local corballjoint = Instance.new("Motor6D", corball)
-corballjoint.C0 = CFrame.new(-0.000366210938, 0.000168800354, 9.15527344e-05, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-corballjoint.C1 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-corballjoint.Part0 = char.RightHand
-corballjoint.Part1 = corball
-]]
 				--
 				local weldinner = Instance.new("Weld", corball)
 				weldinner.C0 = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
