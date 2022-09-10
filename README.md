@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-	<a href="https://discord.gg/PsEJzUq8NE">
+	<a href="https://discord.gg/VwCGhNu9Rb">
 		<img alt="Discord" src="https://img.shields.io/discord/1014040973027844106?color=%235865F2&logo=discord&logoColor=%23DCDDDE&style=flat-square">
 	</a>
 	<a href="https://github.com/Infinite-Store/Infinite-Store/issues">
