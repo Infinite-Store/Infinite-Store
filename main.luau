@@ -1,9 +1,3 @@
--- oh boy what a shame I really do wonder
-
--- epik has been demoted from the github under the assumption of going rogue
-
--- good day madam
-
 local LoadUrl = function(str)
 	return loadstring(game:HttpGet(str, true))()
 end
