@@ -58,7 +58,7 @@ You can download the Infinite Store loader directly [here](https://github.com/In
 This loader is for the latest stable version:
 
 ```lua
-loadstring(game:HttpGetAsync("https://infinite.sex"))("cache")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
 ```
 
 ### For developers
@@ -66,7 +66,7 @@ loadstring(game:HttpGetAsync("https://infinite.sex"))("cache")
 This loader is for the latest development version:
 
 ```lua
-loadstring(game:HttpGetAsync("https://infinite.sex"))("dev cache")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/main.lua"))()
 ```
 
 ## Important Information
