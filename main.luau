@@ -7,8 +7,8 @@ if not IY_LOADED then
 end
 
 local IS_Settings = {
-	["Version"] = "1.3.5",
-	["Invite"] = "dubhsUGcZe",
+	["Version"] = "1.3.6",
+	["Invite"] = "dv96SXYmxz",
 	["Plugins"] = LoadUrl("https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/sources.luau"),
 	["NsfwPlugins"] = LoadUrl(
 		"https://cdn.jsdelivr.net/gh/Infinite-Store/Infinite-Store@main/plugins/nsfwplugins/sources.luau"
