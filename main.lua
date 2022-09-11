@@ -518,8 +518,8 @@ text.BackgroundTransparency = 1.000
 text.Position = UDim2.new(0.244705886, 0, -0.50999999, 0)
 text.Size = UDim2.new(0, 208, 0, 208)
 text.ZIndex = 27
-text.Image = "http://www.roblox.com/asset/?id=7244694623"
-Epik.Name = "Epik"
+text.Image = "http://www.roblox.com/asset/?id=6403436082"
+Epik.Name = "[REDACTED]"
 Epik.Parent = Home
 Epik.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Epik.BackgroundTransparency = 1.000
