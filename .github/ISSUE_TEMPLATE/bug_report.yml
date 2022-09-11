@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Before reporting a bug here, please make sure you use the latest stable version of Infinite Store from [GitHub](https://github.com/Infinite-Store/Infinite-Store#script).
-        Additionally, please join [the Discord server](https://discord.com/invite/dubhsUGcZe) and open a thread in the #infinite-store channel with your issue so that we can confirm that it is a bug.
+        Additionally, please join [the Discord server](https://discord.gg/dv96SXYmxz) and open a thread in the #infinite-store channel with your issue so that we can confirm that it is a bug.
   - type: textarea
     attributes:
       label: Expected behavior
