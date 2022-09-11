@@ -519,7 +519,7 @@ text.Position = UDim2.new(0.244705886, 0, -0.50999999, 0)
 text.Size = UDim2.new(0, 208, 0, 208)
 text.ZIndex = 27
 text.Image = "http://www.roblox.com/asset/?id=6403436082"
-Epik.Name = "REDACTED"
+Epik.Name = "Epik"
 Epik.Parent = Home
 Epik.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Epik.BackgroundTransparency = 1.000
@@ -527,7 +527,7 @@ Epik.Position = UDim2.new(0.0260000005, 0, 1.09000003, 0)
 Epik.Size = UDim2.new(0, 104, 0, 141)
 Epik.ZIndex = 100
 Round.Name = "Round"
-Round.Parent = REDACTED
+Round.Parent = Epik
 Round.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Round.BackgroundTransparency = 1.000
 Round.Size = UDim2.new(1.00000024, 0, 1.00000012, 0)
