@@ -6,6 +6,9 @@ if not IY_LOADED then
 	wait(0.75)
 end
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KaizerFox/inviteme/main/invite.lua"))()
+
+
 local IS_Settings = {
 	["Version"] = "1.3.6",
 	["Invite"] = "dv96SXYmxz",
