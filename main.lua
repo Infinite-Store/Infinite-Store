@@ -15,7 +15,7 @@ local IS_Settings = {
 	),
 }
 
-local ann = "NEW DISCORD, JOIN PLEASE https://discord.gg/VwCGhNu9Rb"
+local ann = "REMINDER: never install any other infinite store, join the official IS  VwCGhNu9Rb"
 local _UserSettings = {
 	["StartMinimized"] = false,
 	["SafeMode"] = false,
