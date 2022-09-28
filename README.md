@@ -21,6 +21,8 @@
 	</a>
 </p>
 
+(Beware of fake discords, the only official discord is on this README)
+
 ## Usage
 
 The loader allows Infinite Store to always be kept up-to-date without re-downloading it every time you want to use it.
