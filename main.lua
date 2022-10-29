@@ -1,3 +1,9 @@
+local getconnections = getconnections or get_signal_cons
+if getconnections then
+	for _, v in pairs(getconnections(game:GetService("ScriptContext").Error)) do
+		v:Disable()
+	end
+end
 local LoadUrl = function(str)
 	return loadstring(game:HttpGet(str, true))()
 end
