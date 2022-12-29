@@ -21,7 +21,7 @@ local IS_Settings = {
 	),
 }
 
-local ann = "REMINDER: never install any other infinite store, join the official IS  VwCGhNu9Rb"
+local ann = "THIS IS NOW ARCHIVED AND IS DEAD, join the official IS  VwCGhNu9Rb"
 local _UserSettings = {
 	["StartMinimized"] = false,
 	["SafeMode"] = false,
