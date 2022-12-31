@@ -16,7 +16,7 @@
 	<a href="https://github.com/Infinite-Store/Infinite-Store/pulls">
 		<img alt="Pulls" src="https://img.shields.io/github/issues-pr/Infinite-Store/Infinite-Store?color=0088ff&style=flat-square"/>
 	</a>
-	<a href="./LICENSE.md">
+	<a href="https://raw.githubusercontent.com/Infinite-Store/Infinite-Store/main/LICENSE">
 		<img alt="License" src="https://img.shields.io/badge/License-ISC%20License-brightgreen"/>
 	</a>
 </p>
